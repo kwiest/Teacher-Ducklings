@@ -1,0 +1,28 @@
+<h1>Welcome!</h1>
+<% if logged_in? %>
+	<% if current_user.admin == true %>
+		<p>
+			Hey there <%= current_user.first_name %>, it looks like you're a site administrator, so why don't you
+			head over to the <%= link_to "Admin Panel", admin_path %>
+		</p>
+	<% else %>
+		<p>
+			Greetings <%= current_user.first_name %>!
+		</p>
+	<% end %>
+<% end %>
+<p>
+	The purpose of this website is to offer access to useful documents, articles, ideas and contact information
+	for our current students, graduates, mentoring teachers and other interested parties.
+</p>
+<p>
+	Content is organized by subject area. Each area can be accessed by clicking on the corresponding tab at the
+	top of the page. Available documents are listed on the side. Resources, articles, and related websites that
+	you may find of interest are listed as well. When possible, a direct link has been provided.
+</p>
+<p>
+	If you do not find what you are looking for, please contact us and leave a message. Also, feel free to submit
+	your own documents, news, or antidotes that you feel other students may find useful.
+</p>
+
+<%= render @posts %>

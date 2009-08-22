@@ -1,0 +1,21 @@
+<h1><%= @video.title %></h1>
+
+<p class="created">Uploaded <%= time_ago_in_words @video.created_at %> ago</p>
+
+<p>
+	<strong>Description:</strong><br />
+	<%=h @video.description %>
+</p>
+
+<%= render :partial => "video_player", :object => @video %>
+
+<p><%= link_to "Edit Video", edit_user_video_path %></p>
+
+<h2>Video Reviews</h2>
+<div id="reviews">
+	<% if @video.reviews.size > 0 -%>
+		<%= render :partial => '/reviews/review', :collection => @video.reviews %>
+	<% else -%>
+		<p>Nobody has reviewed this video yet...</p>
+	<% end -%>
+</div>

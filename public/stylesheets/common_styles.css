@@ -1,0 +1,286 @@
+/******************************************************************
+ * Reset
+ ******************************************************************/
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	overflow-y: scroll;
+}
+
+html, body {
+	height: 100%;
+}
+
+body {
+	font-family: verdana, sans-serif;
+	background: #fff;
+}
+
+a, a:visited {
+	outline: none;
+	font-weight: normal;
+	text-decoration: underline;
+	color: #33f;
+}
+
+a img {
+	border: none;
+}
+
+img.profile_pic {
+	padding: 3px;
+	background: #fff;
+	border: 1px solid #999;
+	margin-right: 12px;
+	float: left;
+}
+
+
+/******************************************************************
+ * Table
+ ******************************************************************/
+
+table {
+	border-collapse: collapse;
+	margin-bottom: 14px;
+}
+
+td, th {
+	padding: 6px;
+}
+
+th { background: #aaa; }
+
+
+/******************************************************************
+ * Utility
+ ******************************************************************/
+ 
+.float-left {
+	float: left;
+	margin: 0 24px 24px 0;
+}
+
+.float-right {
+	float: right;
+	margin: 0 0 24px 24px;
+}
+
+.clear {
+	clear: both;
+}
+
+.center {
+	text-align: center;
+}
+
+.inner {
+    padding: 10px;
+}
+
+#player {
+	display: block;
+	width: 480px;
+	height: 272px;
+	margin: 10px 0;
+}
+
+
+/******************************************************************
+ * Type
+ ******************************************************************/
+
+p {
+    font-size: 16px;
+    line-height: 24px;
+    margin-bottom: 24px;
+}
+
+ul, ol {
+    margin-bottom: 24px;
+}
+
+li {
+    font-size: 16px;
+    line-height: 24px;
+    margin-left: 18px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: Helvetica, "Lucida Grande", Arial, sans-serif;
+	color: #3e3e3e;
+    margin-bottom: 24px;
+}
+
+h1 {
+    font-size: 42px;
+    line-height: 63px;
+}
+
+h2 {
+    font-size: 32px;
+    line-height: 48px;
+}
+
+h3 {
+    font-size: 24px;
+    line-height: 36px;
+}
+
+h4, h5, h6 {
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.required {
+	color: #d00;
+}
+
+.error, .notice, .success {
+	padding: 12px;
+	margin-bottom: 10px;
+	border: 2px solid #ddd;
+	
+	border-radius: 2px;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+}
+
+.error {
+	background: #fbe3e4;
+	color: #8a1f11;
+	border-color: #fbc2c4;
+}
+.error a {
+	color: #8a1f11;
+}
+
+.notice {
+	background: #fff6bf;
+	color: #514721;
+	border-color: #ffd324;
+}
+.notice a {
+	color: #514721;
+}
+
+.success {
+	background: #e6efc2;
+	color: #264409;
+	border-color: #c6d880;
+}
+.success a {
+	color: #264409;
+}
+
+
+/******************************************************************
+ * Forms
+ ******************************************************************/
+
+label {
+	width: 160px;
+	float: left;
+	padding: 6px 0;
+	font-size: 16px;
+}
+
+input, textarea {
+	background: #fff url("/images/input-bg.gif") top left repeat-x;
+	padding: 6px;
+	color: #666;
+	font-size: 14px;
+	font-family: Verdana, Arial, sans-serif;
+	border: 1px solid #b1b1b1;
+}
+
+input.post-title-input {
+	font-size: 22px;
+}
+
+.fieldWithErrors {
+  padding: 2px;
+  background-color: red;
+}
+
+.fieldWithErrors label {
+	margin-left: -80px;
+}
+
+#errorExplanation {
+  width: 400px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+
+#errorExplanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;
+  background-color: #c00;
+  color: #fff;
+}
+
+#errorExplanation p {
+  color: #333;
+  margin-bottom: 0;
+  padding: 5px;
+}
+
+#errorExplanation ul li {
+  font-size: 12px;
+  list-style: square;
+}
+
+
+/******************************************************************
+ * Page
+ ******************************************************************/
+
+#main-body {
+	padding: 20px;
+}
+
+#footer {
+	margin-top: 60px;
+	padding: 20px;
+	border-top: 3px solid #333;
+	text-align: center;
+}
+
+
+/******************************************************************
+ * Listings
+ ******************************************************************/
+
+div.resource-row {
+	padding: 6px;
+	border-bottom: 3px solid #aaa;
+	font-size: 12px;
+}
+
+div.resource-row:hover { background-color: #fff6bf; }
+
+.even { background-color: #edf3fe; }
+
+.admin-row h4 {
+	margin-bottom: 3px;
+}
+
+.show, .edit, .delete { padding: 0 18px; }
+.show { background: transparent url("/images/icons/search_16.png") left no-repeat; }
+.edit { background: transparent url("/images/icons/paper&pencil_16.png") left no-repeat; }
+.delete { background: transparent url("/images/icons/cancel_16.png") left no-repeat; }
+
+li.upcoming { 
+	list-style-type: none;
+}

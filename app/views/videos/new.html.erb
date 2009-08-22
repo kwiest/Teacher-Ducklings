@@ -1,0 +1,27 @@
+<h1>Upload a Video</h1>
+
+<div class="notice">Warning! Uploading will take some time, <strong>DO NOT</strong> keep pressing "Create,"
+	this will just make it take even longer.
+</div>
+
+<% form_for @video, :url => user_videos_path, :html => { :multipart => true } do |f| %>
+  <%= f.error_messages %>
+
+  <%= f.hidden_field :user_id, :value => params[:user_id] %>
+  <p>
+		<%= f.label :title, 'Title:<span class="required">*</span>' %>
+		<%= f.text_field :title %>
+	</p>
+	<p>
+  	<%= f.label :description, "Description:" %>
+		<%= f.text_area :description, :rows => 5 %>
+  </p>
+	<p>
+		<%= f.label :video, 'Video File:<span class="required">*</span>' %>
+		<%= f.file_field :video %>
+	</p>
+  <p>
+    <%= f.label "" %>
+		<%= f.submit 'Upload' %>
+  </p>
+<% end %>

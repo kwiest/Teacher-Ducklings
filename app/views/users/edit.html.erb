@@ -1,0 +1,7 @@
+<h1>Edit User</h1>
+
+<% form_for @user, :html => { :multipart => true } do |f| %>
+	<%= render :partial => 'form', :locals => { :f => f } %>
+<% end %>
+
+<%= link_to "Back", user_path(@user) %>

@@ -1,0 +1,62 @@
+# Filters added to this controller apply to all controllers in the application.
+# Likewise, all the methods added will be available for all controllers.
+
+class ApplicationController < ActionController::Base
+  helper :all # include all helpers, all the time
+  protect_from_forgery # See ActionController::RequestForgeryProtection for details
+
+  # Scrub sensitive parameters from your log
+  # filter_parameter_logging :password
+  
+  helper_method :current_user, :current_user_session, :logged_in?, :login_required, :admin_required, :admin?, :authorized?, :require_no_user
+  
+  private
+  
+  def logged_in?
+    UserSession.find
+  end
+  
+  def current_user_session  
+    return @current_user_session if defined?(@current_user_session)  
+    @current_user_session = UserSession.find  
+  end  
+  
+  def current_user  
+    @current_user = current_user_session && current_user_session.record  
+  end
+  
+  def login_required
+    access_denied unless logged_in?
+  end
+  
+  def admin_required
+    access_denied unless logged_in? && current_user.admin == true
+  end
+  
+  def authorized?
+    if logged_in? && current_user.id.to_s == params[:user_id]
+      true
+    elsif logged_in? && current_user.admin == true
+      true
+    else
+      access_denied
+    end
+  end
+  
+  def admin?
+    logged_in? && current_user.admin
+  end
+  
+  def require_no_user
+    if logged_in?
+      flash[:error] = "You can't reset your password if you're already logged in!"
+      redirect_to root_path
+    end
+  end
+  
+  def access_denied
+    flash[:error] = "Sorry, but you don't have access to this section."
+    redirect_to root_path
+  end
+
+end

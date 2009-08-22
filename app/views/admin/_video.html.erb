@@ -1,0 +1,4 @@
+<li class="upcoming">
+	<%= video.user.full_name %> uploaded a video <%= time_ago_in_words(video.created_at) %> ago.
+	<%= link_to "Watch it now", user_video_path(video.user.id, video) %>.
+</li>

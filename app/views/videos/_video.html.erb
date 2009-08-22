@@ -1,0 +1,12 @@
+<div class="resource-row <%= cycle 'odd', 'even' %>">
+	<div style="float: right;">
+    <br />
+		<%= link_to 'Watch', user_video_path(video.user_id, video), :class => "show" %>
+	  <%= link_to 'Edit', edit_user_video_path(video.user_id, video), :class => "edit" %>
+	  <%= link_to 'Delete', user_video_path(video.user_id, video), :confirm => 'Are you sure?', :method => :delete, :class => "delete" %>
+	</div>
+	<strong>User: </strong><%=h video.user.full_name %><br />
+	<strong>Title: </strong><%=h video.title %><br />
+  <strong>Created: </strong><%= time_ago_in_words video.created_at %> ago
+	<div class="clear"></div>
+</div>

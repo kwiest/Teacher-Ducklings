@@ -1,0 +1,22 @@
+<h1><%= @category.name %> Resources</h1>
+
+<% if @posts.size > 0 -%>
+	<%= render @posts %>
+<% else -%>
+	<h4>Sorry, there aren't any posts for <%= @category.name.downcase %> yet...</h4>
+<% end -%>
+
+<% content_for :links do -%>
+	<h3><%= @category.name %> Links</h3>
+	
+	<% if @links.size > 0 %>
+		<ul>
+			<% @links.each do |link| -%>
+				<li class="category-link">
+					<%= link_to link.name, link.url %><br />
+					<%= link.description %>
+				</li>
+			<% end -%>
+		</ul>
+	<% end -%>
+<% end -%>

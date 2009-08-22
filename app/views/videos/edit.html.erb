@@ -1,0 +1,20 @@
+<h1>Editing Video</h1>
+
+<% form_for @video, :url => user_video_path do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+		<%= f.label :title, 'Title:<span class="required">*</span>' %>
+		<%= f.text_field :title %>
+	</p>
+	<p>
+  	<%= f.label :description, "Description:" %>
+		<%= f.text_area :description, :rows => 5 %>
+  </p>
+  <p>
+    <%= f.label "" %>
+		<%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Watch this Video', user_video_path(@video.user_id, @video) %>

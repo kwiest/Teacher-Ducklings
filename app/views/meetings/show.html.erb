@@ -1,0 +1,24 @@
+<% if @meeting.expired? -%>
+	<h1>Sorry, this meeting has expired.</h1>
+<% else -%>
+	<h1><%= @video.title %></h1>
+
+	<p>
+	  <strong>When:</strong> <%=h @meeting.days_from_today_to_meeting %>, at <%=h @meeting.time %>
+	</p>
+
+	<p>
+		<strong>Description:</strong> <%= @video.description %>
+	</p>
+
+	<div class="float-left">
+		<%= render :partial => 'videos/video_player', :object => @video %>
+	</div>
+
+	<div class="float-right">
+		<object type="application/x-shockwave-flash" data="http://www.tokbox.com/vc/r5fv2azwsb2pqhv0" width="500" height="425" pid="4a6cc6c9917bfdca">
+			<param name="movie" value="http://www.tokbox.com/vc/r5fv2azwsb2pqhv0"/>
+			<param name="flashvars" value="guestList=true&textChat=true&showExpandButton=true"/>
+		</object>
+	</div>
+<% end -%>

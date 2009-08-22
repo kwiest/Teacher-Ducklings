@@ -1,0 +1,9 @@
+<h1>Review a Video</h1>
+
+<% form_for @review, :html => { :multipart => true } do |f| %>
+  <%= render :partial => "form", :locals => { :f => f } %>
+<% end %>
+
+<p>
+	<%= link_to 'Cancel', reviews_path %>
+</p>

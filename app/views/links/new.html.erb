@@ -1,0 +1,30 @@
+<h1>Create a New Link</h1>
+
+<% form_for(@link) do |f| %>
+	<%= f.error_messages %>
+
+	<p>
+		<%= f.label :category_ids, "On Pages:" %>
+		<% Category.find(:all).each do |category| -%>
+			<%= check_box_tag "link[category_ids][]", category.id, @link.categories.include?(category) %> <%= category.name %> 
+		<% end -%>
+	</p>
+	<p>
+	  <%= f.label :name, 'Name:<span class="required">*</span>' %>
+	  <%= f.text_field :name, :size => 42 %>
+	</p>
+	<p>
+	  <%= f.label :ulr, 'Link Url:<span class="required">*</span>' %>
+	  <%= f.text_field :url, :size => 42, :value => "http://" %>
+	</p>
+	<p>
+	  <%= f.label :description, 'Description:' %>
+	  <%= f.text_area :description, :rows => 5 %>
+	</p>
+	<p>
+		<%= f.label "" %>
+	  <%= f.submit 'Save Link' %>
+	</p>
+<% end %>
+
+<p><%= link_to 'Cancel', links_path %></p>

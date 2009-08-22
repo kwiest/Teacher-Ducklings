@@ -1,0 +1,19 @@
+<%= f.error_messages %>
+
+<%= f.hidden_field :user_id, :value => current_user.id %>
+<p>
+	<%= f.label :video_id %>
+	<%= f.collection_select :video_id, Video.find(:all), :id, :title %>
+</p>
+<p>
+	<%= f.label :description, "Description:" %>
+	<%= f.text_area :description, :rows => 5 %>
+</p>
+<p>
+	<%= f.label :pdf, "Attach a PDF:" %>
+	<%= f.file_field :pdf %>
+</p>
+<p>
+	<%= f.label "" %>
+	<%= f.submit "Add a Review" %>
+</p>

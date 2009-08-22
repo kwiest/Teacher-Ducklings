@@ -1,0 +1,22 @@
+<h1>All Reviews</h1>
+
+<% @reviews.each do |review| %>
+<div class="resource-row <%= cycle 'odd', 'even' %>">
+	<div style="float: right;">
+    <br />
+		<%= link_to 'Show', review, :class => "show" %>
+	  <%= link_to 'Edit', edit_review_path(review), :class => "edit" %>
+	  <%= link_to 'Delete', review, :confirm => 'Are you sure?', :method => :delete, :class => "delete" %>
+	</div>
+	<strong>Video: </strong><%=h review.video.title %><br />
+  <strong>Created: </strong><%= time_ago_in_words review.created_at %> ago
+	<div class="clear"></div>
+</div>
+<% end %>
+
+<p>&nbsp;</p>
+
+<p>
+	<%= link_to image_tag("/images/icons/thumbs_up_48.png", :border => 0), new_review_path %>
+	<%= link_to 'Create a New Review', new_review_path %>
+</p>

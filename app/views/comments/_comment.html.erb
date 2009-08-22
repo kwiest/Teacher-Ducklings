@@ -1,0 +1,24 @@
+<div class="comment">
+	<p><strong>
+		<%= time_ago_in_words(comment.created_at).camelize %> ago, <%= comment.name %> said:
+	</strong></p>
+	
+	<div class="comment-pic">
+		<% if comment.user.blank? -%>
+			<%= image_tag "/photos/small/missing.png" %>
+		<% else -%>
+			<%= image_tag comment.user.photo.url(:small) %>
+		<% end -%>
+	</div>
+	
+	<p class="comment-body">
+		<%= comment.body %>
+	</p>
+	<div class="clear"></div>
+	
+	<% if admin? -%>
+		<p>
+			<%= link_to "Delete Comment", comments_path(:id => comment.id), :confirm => 'Are you sure you want to delete this comment?', :method => :delete, :class => "delete" %>
+		</p>
+	<% end -%>
+</div>

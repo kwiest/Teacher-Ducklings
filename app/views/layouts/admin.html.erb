@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title>Teacher Ducklings -- <%= controller_name.capitalize %> | <%= controller.action_name.capitalize %></title>
+	<%= stylesheet_link_tag 'common_styles' %>  
+	<%= stylesheet_link_tag 'duckling_admin_styles' %>
+
+  <%= javascript_include_tag :defaults %>
+
+	<%= calendar_date_select_includes "silver" %>
+	
+	<%= include_tiny_mce_if_needed %>
+</head>
+
+<body>
+	<div id="header">
+		<div style="float: left;">
+			<h2>Teacher Ducklings Admin Panel</h2>
+		</div>
+		<div style="float: right;">
+			Logged in as: <strong><%= current_user.full_name %></strong> (<%= link_to "Logout", logout_path %>)
+		</div>
+		<div class="clear"></div>
+	</div>
+	<!-- End Header -->
+	
+		<div id="main-body">
+			<div id="primary-content">
+				<% flash.each do |name,value| -%>
+					<div class="<%= name %>"><%= value %></div>
+				<% end -%>
+
+				<%= yield %>
+			</div>
+			<!-- End Primary Content -->
+			<div id="secondary-content">
+				<h3 class="home-link"><%= link_to "Admin Home", admin_path %></h3>
+				
+				<h3 class="posts-link"><%= link_to "Posts", posts_path %></h3>
+				<ul>
+					<li><%= link_to "All Posts", posts_path %></li>
+					<li><%= link_to "New Post", new_post_path %></li>
+				</ul>
+				
+				<h3 class="links-link"><%= link_to "Links", links_path %></h3>
+				<ul>
+					<li><%= link_to "All Links", links_path %></li>
+					<li><%= link_to "New Link", new_link_path %></li>
+				</ul>
+				
+				<h3 class="users-link"><%= link_to "Users", users_path %></h3>
+				<ul>
+					<li><%= link_to "All Users", users_path %></li>
+					<li><%= link_to "New User", new_user_path %></li>
+				</ul>
+				
+				<h3 class="videos-link"><%= link_to "Videos", videos_path %></h3>
+				<ul>
+					<li><%= link_to "All Videos", videos_path %></li>
+				</ul>
+				
+				<h3 class="reviews-link"><%= link_to "Reviews", reviews_path %></h3>
+				<ul>
+					<li><%= link_to "All Reviews", reviews_path %></li>
+					<li><%= link_to "Review a Video", new_review_path %></li>
+				</ul>
+				
+				<h3 class="meetings-link"><%= link_to "Meetings", meetings_path %></h3>
+				<ul>
+					<li><%= link_to "All Meetings", meetings_path %></li>
+					<li><%= link_to "Schedule a New Meeting", new_meeting_path %></li>
+				</ul>
+			</div>
+		<div class="clear"></div>
+	
+		<div id="footer">
+			<p>&copy; Copyright 2009 Teacher Ducklings</p>
+		</div>
+		<!-- End Footer -->
+		
+	</div>
+	<!-- End Main Body -->
+
+</body>
+</html>

@@ -1,0 +1,2 @@
+module MyProfileHelper
+end

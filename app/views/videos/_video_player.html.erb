@@ -1,0 +1,17 @@
+<% if @video.state == 'pending' || @video.state == 'converting' -%>
+	<div class="notice">Hold your horses! Your video is still being encoded.</div>
+<% elsif @video.state == 'error' -%>
+	<div class="error">Sorry, but there was an error while encoding your video. Please try again.</div>
+<% else -%>
+	<div id="player"></div>
+
+	<%= javascript_include_tag "flowplayer-3.1.2.min.js" %>
+	<script type="text/javascript">
+		flowplayer("player", "/flowplayer/flowplayer-3.1.2.swf", {
+			clip: {
+				url: "<%= @video.video.url %>",
+				autoPlay: false
+			}
+		});
+	</script>
+<% end -%>

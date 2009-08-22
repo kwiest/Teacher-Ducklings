@@ -1,0 +1,89 @@
+/******************************************************************
+ * Page
+ ******************************************************************/
+
+#header {
+	color: #fff;
+	background: #222;
+	padding: 10px;
+}
+
+#header a {
+	color: inherit;
+}
+
+#header h2 {
+	margin-bottom: 0;
+}
+
+#primary-content {
+	float: left;
+	width: 75%;
+}
+
+
+/******************************************************************
+ * Secondary Content
+ ******************************************************************/
+
+#secondary-content {
+	float: right;
+	width: 20%;
+	padding-left: 20px;
+	border-left: 1px solid #f2f2f2;
+}
+
+#secondary-content a, #secondary-content a.visited {
+	color: inherit;
+	font-weight: bold;
+}
+
+#secondary-content a:hover, #secondary-content a.active {
+	color: #fff;
+	background: #111;
+}
+
+#secondary-content h3 {
+	border-bottom: 1px solid #b1b1b1;
+}
+
+#secondary-content li {
+	font-size: 12px;
+	list-style-type: none;
+	margin-left: 30px;
+}
+
+.home-link {
+	padding-left: 30px;
+	background: transparent url("/images/icons/home_24.png") left no-repeat;
+}
+
+.posts-link {
+	padding-left: 30px;
+	background: transparent url("/images/icons/paper_content_24.png") left no-repeat;
+}
+
+.links-link {
+	padding-left: 30px;
+	background: transparent url("/images/icons/globe_24.png") left no-repeat;
+}
+
+.users-link {
+	padding-left: 30px;
+	background: transparent url("/images/icons/users_two_24.png") left no-repeat;
+}
+
+.videos-link {
+	padding-left: 30px;
+	background: transparent url("/images/icons/image_24.png") left no-repeat;
+}
+
+.reviews-link {
+	padding-left: 30px;
+	background: transparent url("/images/icons/speech_bubble_24.png") left no-repeat;
+}
+
+.meetings-link {
+	padding-left: 30px;
+	background: transparent url("/images/icons/clock_24.png") left no-repeat;
+}

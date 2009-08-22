@@ -1,0 +1,8 @@
+<h1>Editing meeting</h1>
+
+<% form_for(@meeting) do |f| %>
+  <%= render :partial => 'form', :locals => { :f => f } %>
+<% end %>
+
+<%= link_to 'Show', @meeting %> |
+<%= link_to 'Back', meetings_path %>

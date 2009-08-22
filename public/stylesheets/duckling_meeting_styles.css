@@ -1,0 +1,21 @@
+/******************************************************************
+ * Page
+ ******************************************************************/
+
+#header {
+	color: #fff;
+	background: #222;
+	padding: 10px;
+}
+
+#header a {
+	color: inherit;
+}
+
+#header h2 {
+	margin-bottom: 0;
+}
+
+#primary-content {
+	padding: 30px;
+}

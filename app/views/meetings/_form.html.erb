@@ -1,0 +1,30 @@
+<%= f.error_messages %>
+
+<p>
+	<label for="meeting_date">Date:<span class="required">*</span></label>
+	<%= f.text_field :date, :size => '16' %>
+	<img class="calendar_date_select_popup_icon" src="/images/calendar_date_select/calendar.gif?1248665445" onclick="new CalendarDateSelect( $(this).previous(), {year_range:1} );" alt="Calendar"/>
+</p>
+
+<p>
+	<label for="meeting_time">Time:<span class="required">*</span></label>
+	<%= f.text_field :time, :size => '16' %>
+</p>
+
+<p>
+	<%= f.label :user_to_meet_with_id, "Meet with:" %>
+	<%= f.collection_select(:user_to_meet_with_id, @users, :id, :full_name) %>
+</p>
+
+<p>
+	<label for="meeting_video_id">Video to Watch:<span class="required">*</span></label>
+	<%= f.collection_select(:video_id, @videos, :id, :title) %>
+</p>
+
+<p>
+	<%= f.check_box :confirmed %> Confirmed?
+</p>
+
+<p>
+	<%= f.submit 'Save' %>
+</p>

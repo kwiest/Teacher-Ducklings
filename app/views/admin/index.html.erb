@@ -1,0 +1,17 @@
+<h1>Dashboard</h1>
+
+<h3>Upcoming Meetings</h3>
+<ul>
+	<% if @upcoming_meetings.size > 0 -%>
+			<%= render :partial => "meeting", :collection => @upcoming_meetings %>
+	<% else -%>
+		<li class="upcoming">You have no meetings scheduled for the next 7 days.</li>
+	<% end -%>
+</ul>
+
+<p>&nbsp;</p>
+
+<h3>Recent Video Uploads</h3>
+<ul>
+	<%= render :partial => "video", :collection => @videos %>
+</ul>
