@@ -2,7 +2,8 @@ class Video < ActiveRecord::Base
   belongs_to :user
   has_many :meetings, :dependent => :destroy
   has_many :reviews, :dependent => :destroy
-  has_attached_file :video
+  has_attached_file :video,
+                    :path => ":rails_root/public/system/:class/:attachment/:id/:style/:basename.:extension"
   
   validates_presence_of :title
   validates_attachment_presence :video
@@ -62,7 +63,7 @@ class Video < ActiveRecord::Base
     
     # Command to execute ffmpeg
     command = <<-end_command
-      ffmpeg -i #{RAILS_ROOT + '/public' + self.video.url } #{RAILS_ROOT + '/public' + self.video.url + '.flv'}
+      ffmpeg -i #{RAILS_ROOT + '/public' + self.video.url } -ar 22050 -ab 32 -s 480x272 -vcodec flv -r 25 -qscale 8 -f flv -y #{RAILS_ROOT + '/public' + self.video.url + '.flv'}
     end_command
     
     logger.debug "Converting video...command:" + command

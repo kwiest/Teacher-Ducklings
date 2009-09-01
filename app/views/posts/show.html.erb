@@ -27,7 +27,7 @@
 </div>
 
 <h4>Leave a New Comment</h4>
-<% form_remote_for :comment, :url => comments_path, :html => { :id => "comment_form" } do |f| %>
+<% form_remote_for [@post, @post.comments.new], :html => { :id => "comment_form" } do |f| %>
 	<%= f.error_messages %>
 	
 	<% if logged_in? -%>
@@ -44,7 +44,6 @@
 			<%= f.text_field :email %>
 		</p>
 	<% end -%>
-	<%= f.hidden_field :post_id, :value => @post.id %>
 	<p>
 		<%= f.label :body, 'What\'s on your mind?<span class="required">*</span>' %>
 		<%= f.text_area :body, :rows => 5 %>

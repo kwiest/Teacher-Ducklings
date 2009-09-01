@@ -5,8 +5,7 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :categories
 
-  map.resources :posts
-  map.resources :comments
+  map.resources :posts, :has_many => :comments
 
   map.resources :meetings
   map.my_meetings '/my_meetings', :controller => 'my_meetings', :action => 'index'

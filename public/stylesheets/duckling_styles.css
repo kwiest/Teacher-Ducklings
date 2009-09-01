@@ -4,7 +4,7 @@
 
 body {
 	text-align: center;
-    font-family: verdana, sans-serif;
+  font-family: verdana, sans-serif;
 	background: #fff url("/images/body-bg.png") top left repeat-x;
 }
 
@@ -120,11 +120,13 @@ li.category-link {
 	color: inherit;
 }
 
+/*
 .post_body p, .post_body li {
 	font-size: 12px;
 	line-height: 16px;
 	margin-bottom: 10px;
 }
+*/
 
 .post_body li {
 	margin-left: 36px;
@@ -144,6 +146,10 @@ li.category-link {
 	-border-radius: 6px;
 	-moz-border-radius: 6px;
 	-webkit-border-radius: 6px;
+}
+
+.comment p {
+	font-family: verdana, sans-serif;
 }
 
 .comment-body {
@@ -183,8 +189,8 @@ li.category-link {
 #nav ul li {
 	display: inline;
 	float: left;
-	margin: 0 2px;
-	padding: 6px;
+	margin: 0 1px;
+	padding: 6px 10px;
 	font-family: Helvetica, "Lucida Grande", Arial, sans-serif;
 	font-size: 18px;
 	color: #333;

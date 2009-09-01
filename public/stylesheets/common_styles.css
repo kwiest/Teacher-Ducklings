@@ -95,45 +95,47 @@ th { background: #aaa; }
  ******************************************************************/
 
 p {
-    font-size: 16px;
-    line-height: 24px;
-    margin-bottom: 24px;
+  font-family: Georgia, "Times New Roman", serif;
+	font-size: 16px;
+  line-height: 22px;
+  margin-bottom: 24px;
 }
 
 ul, ol {
-    margin-bottom: 24px;
+  margin-bottom: 24px;
 }
 
 li {
-    font-size: 16px;
-    line-height: 24px;
-    margin-left: 18px;
+	font-family: Georgia, "Times New Roman", serif;
+  font-size: 16px;
+  line-height: 24px;
+  margin-left: 18px;
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: Helvetica, "Lucida Grande", Arial, sans-serif;
+  font-family: Helvetica, "Lucida Grande", Arial, sans-serif;
 	color: #3e3e3e;
-    margin-bottom: 24px;
+  margin-bottom: 24px;
 }
 
 h1 {
-    font-size: 42px;
-    line-height: 63px;
+  font-size: 42px;
+  line-height: 63px;
 }
 
 h2 {
-    font-size: 32px;
-    line-height: 48px;
+  font-size: 32px;
+  line-height: 48px;
 }
 
 h3 {
-    font-size: 24px;
-    line-height: 36px;
+  font-size: 24px;
+  line-height: 36px;
 }
 
 h4, h5, h6 {
-    font-size: 16px;
-    line-height: 24px;
+  font-size: 16px;
+  line-height: 24px;
 }
 
 .required {
@@ -183,6 +185,7 @@ h4, h5, h6 {
  ******************************************************************/
 
 label {
+	font-family: Verdana, Arial, sans-serif;
 	width: 160px;
 	float: left;
 	padding: 6px 0;
