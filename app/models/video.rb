@@ -2,8 +2,7 @@ class Video < ActiveRecord::Base
   belongs_to :user
   has_many :meetings, :dependent => :destroy
   has_many :reviews, :dependent => :destroy
-  has_attached_file :video,
-                    :path => ":rails_root/public/system/:class/:attachment/:id/:style/:basename.:extension"
+  has_attached_file :video
   
   validates_presence_of :title
   validates_attachment_presence :video

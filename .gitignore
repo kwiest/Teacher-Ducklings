@@ -2,3 +2,6 @@
 tmp/**/*
 .DS_Store
 config/deploy.rb
+photos
+videos
+pdfs
