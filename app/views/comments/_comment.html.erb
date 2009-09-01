@@ -7,7 +7,7 @@
 		<% if comment.user.blank? -%>
 			<%= image_tag "/system/photos/small/missing.png", :border => 0 %>
 		<% else -%>
-			<%= image_tag '/system/' + comment.user.photo.url(:small) %>
+			<%= image_tag "/system#{@user.photo.url(:small)}" %>
 		<% end -%>
 	</div>
 	
