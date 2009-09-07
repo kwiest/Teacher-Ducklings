@@ -44,13 +44,16 @@ class Video < ActiveRecord::Base
   # Convert video to .flv
   def convert
     self.convert!
-    success = system(convert_command)
-    debugger
-    if success && $?.exitstatus == 0
-      self.converted!
-    else
-      self.failure!
-    end
+    
+    spawn do
+      success = system(convert_command)
+
+      if success && $?.exitstatus == 0
+        self.converted!
+      else
+        self.failure!
+      end
+    end #spawn
   end
   
   
@@ -62,7 +65,7 @@ class Video < ActiveRecord::Base
     
     # Command to execute ffmpeg
     command = <<-end_command
-      ffmpeg -i #{RAILS_ROOT + '/public' + self.video.url } -ar 22050 -ab 32 -s 480x272 -vcodec flv -r 25 -qscale 8 -f flv -y #{RAILS_ROOT + '/public' + self.video.url + '.flv'}
+      ffmpeg -i #{RAILS_ROOT + '/public' + self.video.url } -an -s 480x272 -vcodec flv -r 25 -qscale 8 -f flv -y #{RAILS_ROOT + '/public' + self.video.url + '.flv'}
     end_command
     
     logger.debug "Converting video...command:" + command

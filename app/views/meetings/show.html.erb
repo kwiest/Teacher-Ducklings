@@ -4,7 +4,7 @@
 	<h1><%= @video.title %></h1>
 
 	<p>
-	  <strong>When:</strong> <%=h @meeting.days_from_today_to_meeting %>, at <%=h @meeting.time %>
+	  <strong>When:</strong> <%= pluralize(@meeting.days_from_today_to_meeting, "day") %>, at <%=h @meeting.time %>
 	</p>
 
 	<p>

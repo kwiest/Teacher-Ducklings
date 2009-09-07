@@ -1,14 +1,14 @@
 <h1>Welcome!</h1>
 <% if logged_in? %>
 	<% if current_user.admin == true %>
-		<p>
+		<h3>
 			Hey there <%= current_user.first_name %>, it looks like you're a site administrator, so why don't you
 			head over to the <%= link_to "Admin Panel", admin_path %>
-		</p>
+		</h3>
 	<% else %>
-		<p>
+		<h3>
 			Greetings <%= current_user.first_name %>!
-		</p>
+		</h3>
 	<% end %>
 <% end %>
 <p>
