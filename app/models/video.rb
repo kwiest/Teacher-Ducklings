@@ -45,15 +45,13 @@ class Video < ActiveRecord::Base
   def convert
     self.convert!
     
-    spawn do
-      success = system(convert_command)
+    success = system(convert_command)
 
-      if success && $?.exitstatus == 0
-        self.converted!
-      else
-        self.failure!
-      end
-    end #spawn
+    if success && $?.exitstatus == 0
+      self.converted!
+    else
+      self.failure!
+    end
   end
   
   
