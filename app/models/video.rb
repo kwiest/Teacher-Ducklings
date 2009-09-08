@@ -71,7 +71,7 @@ class Video < ActiveRecord::Base
   end
   
   def set_new_filename
-    update_attribute(:filename, flv)
+    update_attribute(:filename, self.video.url + '.flv')
     update_attribute(:content_type, "application/x-flash-video")
   end
   
