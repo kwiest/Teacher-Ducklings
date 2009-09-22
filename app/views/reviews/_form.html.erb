@@ -1,6 +1,5 @@
 <%= f.error_messages %>
 
-<%= f.hidden_field :user_id, :value => current_user.id %>
 <p>
 	<%= f.label :video_id %>
 	<%= f.collection_select :video_id, Video.find(:all), :id, :title %>

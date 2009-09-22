@@ -24,6 +24,7 @@ class ReviewsController < ApplicationController
   # POST /reviews
   def create
     @review = Review.new(params[:review])
+    @review.user_id = current_user.id
     
     if @review.save
       flash[:success] = "You successfully reviewed a video."

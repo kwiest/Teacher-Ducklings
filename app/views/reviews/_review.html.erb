@@ -1,14 +1,11 @@
-<h4>Reviewed By: <%= review.user.full_name %> <%= time_ago_in_words(review.updated_at) %> ago</h4>
+<div class="video-review">
+	<h4>Reviewed By: <%= review.user.full_name %> <%= time_ago_in_words(review.updated_at) %> ago</h4>
 
-<p>
-	<strong>Description:</strong> <%=h review.description %>
-</p>
-
-<br />
-
-<% if review.pdf_file_size -%>
-	<h4>Attached File</h4>
 	<p>
-		<%= image_tag "/images/icons/pdf_48.png" %> <%= link_to review.pdf_file_name, review.pdf.url %>
+		<strong>Description:</strong> <%=h review.description %>
 	</p>
-<% end -%>
+
+	<% if review.pdf? -%>
+		<%= image_tag "/images/icons/pdf_48.png" %> <%= link_to review.pdf_file_name, review.pdf.url %>
+	<% end -%>
+</div>

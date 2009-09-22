@@ -35,6 +35,16 @@ body {
 	float: left;
 }
 
+.video-review {
+	margin-bottom: 12px;
+	padding: 8px;
+	border: 1px solid #b1b1b1;
+	
+	-border-radius: 6px;
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+}
+
 
 /******************************************************************
  * Secondary Content
