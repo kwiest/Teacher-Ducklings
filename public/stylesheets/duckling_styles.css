@@ -91,7 +91,14 @@ body {
 li.category-link {
 	list-style-type: none;
 	margin-left: 0;
-	margin-bottom: 12px;
+	margin-bottom: 24px;
+}
+
+h5.link-name {
+	font-size: 14px;
+	line-height: 18px;
+	margin-bottom: 0;
+	border-bottom: 1px dotted #ccc;
 }
 
 

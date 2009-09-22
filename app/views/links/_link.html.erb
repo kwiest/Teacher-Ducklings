@@ -8,5 +8,11 @@
 	</div>
 	<strong>Link Url: </strong><%= link_to link.url, link.url %><br />
 	<strong>Description: </strong><%= link.description %><br />
+	<strong>Document: </strong>
+	<% if link.document? -%>
+		<%= link_to link.document_file_name, link.document.url %>
+	<% else -%>
+		No attached file
+	<% end -%>
 	<div class="clear"></div>
 </div>

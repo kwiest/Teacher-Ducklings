@@ -12,6 +12,7 @@ class PasswordResetsController < ApplicationController
     @user = User.find_by_email(params[:email])
     
     if @user
+      @user.deliver_password_reset_instructions!
       flash[:success] = "Instructions on how to reset your password have been emailed to you. Please check your email."
       redirect_to root_path
     else
@@ -24,7 +25,7 @@ class PasswordResetsController < ApplicationController
   def update
     if @user.update_attributes(params[:user])
       flash[:success] = "Congratulations on reseting your password. Try not to forget it this time!"
-      redirect_to login_path
+      redirect_to root_path
     else
       flash[:error] = "There was an error trying to reset your password. Please give it another shot."
       render :action => 'edit'

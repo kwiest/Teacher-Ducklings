@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090821194516) do
+ActiveRecord::Schema.define(:version => 20090921223548) do
 
   create_table "categories", :force => true do |t|
     t.string "name"
@@ -41,6 +41,9 @@ ActiveRecord::Schema.define(:version => 20090821194516) do
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "document_file_name"
+    t.string   "document_content_type"
+    t.integer  "document_file_size"
   end
 
   create_table "meetings", :force => true do |t|

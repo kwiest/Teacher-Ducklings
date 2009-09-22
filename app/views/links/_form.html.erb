@@ -11,12 +11,16 @@
   <%= f.text_field :name, :size => 42 %>
 </p>
 <p>
-  <%= f.label :ulr, 'Link Url:<span class="required">*</span>' %>
+  <%= f.label :url, 'Link Url:' %>
   <%= f.text_field :url, :size => 42 %>
 </p>
 <p>
   <%= f.label :description, 'Description:' %>
   <%= f.text_area :description, :rows => 5 %>
+</p>
+<p>
+	<%= f.label :document, 'Document:' %>
+	<%= f.file_field :document %>
 </p>
 <p>
 	<%= f.label "" %>

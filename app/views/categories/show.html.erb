@@ -13,8 +13,16 @@
 		<ul>
 			<% @links.each do |link| -%>
 				<li class="category-link">
-					<%= link_to link.name, link.url %><br />
-					<%= link.description %>
+					<h5 class="link-name"><%= link.name %></h5>
+					<strong>Description: </strong><%= link.description %>
+					<% if link.url != '' -%>
+						<br />
+						<strong>URL: </strong><%= link_to link.url, link.url %>
+					<% end -%>
+					<% if link.document? -%>
+						<br />
+						<strong>File: </strong><%= link_to link.document_file_name, link.document.url %>
+					<% end -%>
 				</li>
 			<% end -%>
 		</ul>
