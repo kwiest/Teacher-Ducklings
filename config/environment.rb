@@ -14,8 +14,8 @@ Rails::Initializer.run do |config|
   # Add additional load paths for your own custom dirs
   # config.load_paths += %W( #{RAILS_ROOT}/extras )
   
-  #ENV['RAILS_ENV'] = 'production'
-  #RAILS_ENV = ENV["RAILS_ENV"]
+  ENV['RAILS_ENV'] = 'production'
+  RAILS_ENV = ENV["RAILS_ENV"]
   
   # Authlogic Gem
   config.gem "authlogic"
