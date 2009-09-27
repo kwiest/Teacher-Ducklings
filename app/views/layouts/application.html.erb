@@ -19,6 +19,13 @@
 					<div>
 						Logged in as: <strong><%= current_user.full_name %></strong> (<%= link_to "Logout", logout_path %>)
 					</div>
+					<% if admin? -%>
+						<%= link_to "Admin Panel", admin_path %>
+					<% else -%>
+						<%= link_to "My Profile", my_profile_path %> | 
+						<%= link_to "My Videos", user_videos_path(current_user) %> | 
+						<%= link_to "My Meetings", my_meetings_path %>
+					<% end -%>
 				<% else %>
 					<div>
 						You are not currently logged in. <%= link_to "Login", login_path %>
@@ -38,14 +45,6 @@
 					<% end -%>
 					
 					<li><%= link_to "Contact" %></li>
-					
-					<% if admin? -%>
-						<li><%= link_to "Admin Panel", admin_path %></li>
-					<% elsif logged_in? -%>
-						<li><%= link_to "My Profile", my_profile_path %>
-						<li><%= link_to "My Videos", user_videos_path(current_user) %></li>
-						<li><%= link_to "My Meetings", my_meetings_path %></li>
-					<% end -%>
 				</ul>
 			</div>
 		</div>

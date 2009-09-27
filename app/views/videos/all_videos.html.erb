@@ -1,3 +1,8 @@
 <h1>All Videos</h1>
 
 <%= render @videos %>
+
+<p>&nbsp;</p>
+
+<%= link_to image_tag("/images/icons/box_upload_48.png", :border => 0), new_user_video_path(current_user) %>
+<%= link_to 'New Video', new_user_video_path(current_user) %>
