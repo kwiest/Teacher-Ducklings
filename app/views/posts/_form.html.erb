@@ -14,14 +14,13 @@
 </p>
 
 <p>
-  <%= f.label :title, 'Title:</span class="required">*</span>' %>
+  <%= f.label :title, 'Title:<span class="required">*</span>' %>
   <%= f.text_field :title, :size => 50, :class => "post-title-input" %>
 </p>
 <p>
-  <%= f.label :body, 'Body:</span class="required">*</span>' %>
+  <%= f.label :body, 'Body:<span class="required">*</span>' %>
   <%= f.text_area :body, :cols => 78, :rows => 20, :class => 'mceEditor' %>
 </p>
 <p>
-  <%= f.label "" %>
 	<%= f.submit 'Publish Post' %>
 </p>

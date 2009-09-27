@@ -175,6 +175,7 @@ h4, h5, h6 {
 	color: #264409;
 	border-color: #c6d880;
 }
+
 .success a {
 	color: #264409;
 }
@@ -185,11 +186,11 @@ h4, h5, h6 {
  ******************************************************************/
 
 label {
+	display: block;
 	font-family: Verdana, Arial, sans-serif;
-	width: 160px;
-	float: left;
 	padding: 6px 0;
 	font-size: 16px;
+	color: #111;
 }
 
 input, textarea {
@@ -201,6 +202,27 @@ input, textarea {
 	border: 1px solid #b1b1b1;
 }
 
+input[type=text]:focus, input[type=password]:focus, textarea:focus {
+	background: #F9F8E4;
+}
+
+input[type=submit] {
+	cursor: pointer;
+	
+	border-radius: 12px;
+	-moz-border-radius: 12px;
+	-webkit-border-radius: 12px;
+	
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+	-moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+	-webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+}
+
+input[type=submit]:hover {
+	border-color: #666;
+	color: #222;
+}
+
 input.post-title-input {
 	font-size: 22px;
 }
@@ -208,10 +230,6 @@ input.post-title-input {
 .fieldWithErrors {
   padding: 2px;
   background-color: red;
-}
-
-.fieldWithErrors label {
-	margin-left: -80px;
 }
 
 #errorExplanation {
