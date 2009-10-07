@@ -51,7 +51,7 @@ class Video < ActiveRecord::Base
     
     success = system(convert_command)
 
-    if success && $?.exitstatus == 0
+    if success
       self.converted!
     else
       self.failure!
