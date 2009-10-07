@@ -43,7 +43,6 @@ class MeetingsController < ApplicationController
 
   # PUT /meetings/1
   def update
-    params[:meeting][:user_ids] ||= []
     @meeting = Meeting.find(params[:id])
 
     if @meeting.update_attributes(params[:meeting])

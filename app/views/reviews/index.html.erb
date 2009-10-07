@@ -8,15 +8,15 @@
 	  <%= link_to 'Edit', edit_review_path(review), :class => "edit" %>
 	  <%= link_to 'Delete', review, :confirm => 'Are you sure?', :method => :delete, :class => "delete" %>
 	</div>
-	<strong>Video: </strong><%=h review.video.title %><br />
+	<strong>Video: </strong><%=h review.video.verbose_title %><br />
   <strong>Created: </strong><%= time_ago_in_words review.created_at %> ago
+	<% if review.pdf -%>
+		<br /><strong>PDF Document: </strong><%= link_to review.pdf_file_name, review.pdf.url %>
+	<% end -%>
 	<div class="clear"></div>
 </div>
 <% end %>
 
 <p>&nbsp;</p>
 
-<p>
-	<%= link_to image_tag("/images/icons/thumbs_up_48.png", :border => 0), new_review_path %>
-	<%= link_to 'Create a New Review', new_review_path %>
-</p>
+<%= button_to "New Review", new_review_path, :class => "add-button", :method => :get %>

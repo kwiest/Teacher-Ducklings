@@ -120,7 +120,7 @@ class PostsController < ApplicationController
   private
   
   def choose_layout
-    if["new", "edit"].include? action_name
+    if["index", "new", "edit"].include? action_name
       "admin"
     else
       "application"

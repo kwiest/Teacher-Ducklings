@@ -21,9 +21,24 @@
 			<h2>Teacher Ducklings Admin Panel</h2>
 		</div>
 		<div style="float: right;">
-			Logged in as: <strong><%= current_user.full_name %></strong> (<%= link_to "Logout", logout_path %>)
+			Logged in as: <strong><%= current_user.full_name %></strong> (<%= link_to "Logout", logout_path %>)<br />
+			<%= link_to "Site Home", root_path %>
 		</div>
 		<div class="clear"></div>
+		
+		<div id="nav">
+			<ul>
+				<li><%= link_to "Admin Home", admin_path %></li>
+				<li><%= link_to "Users", users_path %></li>
+				<li><%= link_to "Posts", posts_path %></li>
+				<li><%= link_to "Links", links_path %></li>
+				<li><%= link_to "Videos", videos_path %></li>
+				<li><%= link_to "Reviews", reviews_path %></li>
+				<li><%= link_to "Meetings", meetings_path %></li>
+			</ul>
+		</div>
+		<div class="clear"></div>
+		
 	</div>
 	<!-- End Header -->
 	
@@ -36,45 +51,25 @@
 				<%= yield %>
 			</div>
 			<!-- End Primary Content -->
+			
 			<div id="secondary-content">
-				<h3 class="home-link"><%= link_to "Admin Home", admin_path %></h3>
+				<h3>Upcoming Meetings</h3>
+				<% @upcoming_meetings = Meeting.find_upcoming_meetings -%>
+				<% if @upcoming_meetings.size > 0 -%>
+						<%= render :partial => "admin/meeting", :collection => @upcoming_meetings %>
+				<% else -%>
+					<p>You have no meetings scheduled for the next 7 days.</p>
+				<% end -%>
 				
-				<h3 class="posts-link"><%= link_to "Posts", posts_path %></h3>
-				<ul>
-					<li><%= link_to "All Posts", posts_path %></li>
-					<li><%= link_to "New Post", new_post_path %></li>
-				</ul>
-				
-				<h3 class="links-link"><%= link_to "Links", links_path %></h3>
-				<ul>
-					<li><%= link_to "All Links", links_path %></li>
-					<li><%= link_to "New Link", new_link_path %></li>
-				</ul>
-				
-				<h3 class="users-link"><%= link_to "Users", users_path %></h3>
-				<ul>
-					<li><%= link_to "All Users", users_path %></li>
-					<li><%= link_to "New User", new_user_path %></li>
-				</ul>
-				
-				<h3 class="videos-link"><%= link_to "Videos", videos_path %></h3>
-				<ul>
-					<li><%= link_to "All Videos", videos_path %></li>
-					<li><%= link_to "New Video", new_user_video_path(current_user) %></li>
-				</ul>
-				
-				<h3 class="reviews-link"><%= link_to "Reviews", reviews_path %></h3>
-				<ul>
-					<li><%= link_to "All Reviews", reviews_path %></li>
-					<li><%= link_to "Review a Video", new_review_path %></li>
-				</ul>
-				
-				<h3 class="meetings-link"><%= link_to "Meetings", meetings_path %></h3>
-				<ul>
-					<li><%= link_to "All Meetings", meetings_path %></li>
-					<li><%= link_to "Schedule a New Meeting", new_meeting_path %></li>
-				</ul>
+				<h3>Recent Uploads</h3>
+				<% @videos = Video.find_recent_uploads -%>
+				<% if @videos.size > 0 -%>
+					<%= render :partial => "admin/video", :collection => @videos %>
+				<% else -%>
+					<p>No videos uploaded in the last week.</p>
+				<% end -%>
 			</div>
+			
 		<div class="clear"></div>
 	
 		<div id="footer">

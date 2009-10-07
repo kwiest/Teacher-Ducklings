@@ -1,8 +1,4 @@
 <% div_for comment do -%>
-	<p><strong>
-		<%= time_ago_in_words(comment.created_at).camelize %> ago, <%= comment.name %> said:
-	</strong></p>
-	
 	<div class="comment-pic">
 		<% if comment.user.blank? -%>
 			<%= image_tag "/photos/small/missing.png", :border => 0 %>
@@ -11,9 +7,12 @@
 		<% end -%>
 	</div>
 	
-	<p class="comment-body">
-		<%= comment.body %>
-	</p>
+	<div class="comment-body">
+		<p><strong>
+			<%= time_ago_in_words(comment.created_at).camelize %> ago, <%= comment.name %> said:
+		</strong></p>
+		<p><%= comment.body %></p>
+	</div>
 	<div class="clear"></div>
 	
 	<% if admin? -%>

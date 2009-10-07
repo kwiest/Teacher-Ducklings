@@ -2,7 +2,6 @@
 
 <%= render @meetings %>
 
-<br />
+<p>&nbsp;</p>
 
-<%= link_to image_tag("/images/icons/add_48.png", :border => 0), new_meeting_path %>
-<%= link_to 'Schedule a New Meeting', new_meeting_path %>
+<%= button_to "New Meeting", new_meeting_path, :class => "add-button", :method => :get %>

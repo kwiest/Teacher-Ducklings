@@ -26,7 +26,7 @@
 		<%= f.hidden_field :video_id, :value => @video.id %>
 		<p>
 			<%= f.label :description, "Description:" %>
-			<%= f.text_area :description, :rows => 5 %>
+			<%= f.text_area :description, :rows => 3 %>
 		</p>
 		<p>
 			<%= f.label :pdf, "Attach a PDF:" %>
@@ -34,7 +34,7 @@
 		</p>
 		<p>
 			<%= f.label "" %>
-			<%= f.submit "Add a Review" %>
+			<%= f.submit "Add a Review", :class => "add-button" %>
 		</p>
 	<% end %>
 <% end -%>

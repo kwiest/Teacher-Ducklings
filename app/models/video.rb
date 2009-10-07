@@ -14,6 +14,10 @@ class Video < ActiveRecord::Base
     find(:all, :conditions => [ 'created_at > ?', time ], :order => 'created_at DESC' )
   end
   
+  def verbose_title
+    "#{user.full_name} - #{title}"
+  end
+  
   
   # Overwrite default Paperclip method
   # Don't change the name of the file after conversion to .flv

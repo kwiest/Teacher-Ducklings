@@ -43,8 +43,6 @@
 					<% Category.find(:all, :order => "name").each do |c| -%>
 						<li><%= link_to c.name, c %></li>
 					<% end -%>
-					
-					<li><%= link_to "Contact" %></li>
 				</ul>
 			</div>
 		</div>

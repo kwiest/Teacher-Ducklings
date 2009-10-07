@@ -2,13 +2,13 @@
 
 <p>
 	<label for="meeting_date">Date:<span class="required">*</span></label>
-	<%= f.text_field :date, :size => '16' %>
+	<%= f.text_field :date %>
 	<img class="calendar_date_select_popup_icon" src="/images/calendar_date_select/calendar.gif?1248665445" onclick="new CalendarDateSelect( $(this).previous(), {year_range:1} );" alt="Calendar"/>
 </p>
 
 <p>
 	<label for="meeting_time">Time:<span class="required">*</span></label>
-	<%= f.text_field :time, :size => '16' %>
+	<%= f.text_field :time %>
 </p>
 
 <p>
@@ -18,7 +18,7 @@
 
 <p>
 	<label for="meeting_video_id">Video to Watch:<span class="required">*</span></label>
-	<%= f.collection_select(:video_id, @videos, :id, :title) %>
+	<%= f.collection_select(:video_id, @videos, :id, :verbose_title) %>
 </p>
 
 <p>
@@ -26,5 +26,5 @@
 </p>
 
 <p>
-	<%= f.submit 'Save' %>
+	<%= f.submit 'Save Meeting' %>
 </p>

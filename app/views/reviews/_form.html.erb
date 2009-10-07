@@ -1,8 +1,8 @@
 <%= f.error_messages %>
 
 <p>
-	<%= f.label :video_id %>
-	<%= f.collection_select :video_id, Video.find(:all), :id, :title %>
+	<%= f.label :video_id, "Video to review:" %>
+	<%= f.collection_select :video_id, Video.find(:all), :id, :verbose_title %>
 </p>
 <p>
 	<%= f.label :description, "Description:" %>

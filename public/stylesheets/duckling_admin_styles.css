@@ -14,6 +14,7 @@
 
 #header h2 {
 	margin-bottom: 0;
+	color: #666;
 }
 
 #primary-content {
@@ -53,37 +54,33 @@
 	margin-left: 30px;
 }
 
-.home-link {
-	padding-left: 30px;
-	background: transparent url("/images/icons/home_24.png") left no-repeat;
+
+/******************************************************************
+ * Navigation
+ ******************************************************************/
+
+#nav ul {
+	margin-bottom: 0;
 }
 
-.posts-link {
-	padding-left: 30px;
-	background: transparent url("/images/icons/paper_content_24.png") left no-repeat;
+#nav ul li {
+	display: inline;
+	float: left;
+	margin: 0 2px;
+	padding: 4px 14px;
+	font-family: Helvetica, "Lucida Grande", Arial, sans-serif;
+	font-size: 18px;
+	color: #333;
+	background: #fff url("/images/input-bg.gif") top left repeat-x;
+  border-top: 1px solid #b1b1b1;
+  border-left: 1px solid #b1b1b1;
+  border-right: 1px solid #b1b1b1;
+
+	border-radius: 12px;
+	-moz-border-radius: 12px;
+	-webkit-border-radius: 12px;
 }
 
-.links-link {
-	padding-left: 30px;
-	background: transparent url("/images/icons/globe_24.png") left no-repeat;
-}
-
-.users-link {
-	padding-left: 30px;
-	background: transparent url("/images/icons/users_two_24.png") left no-repeat;
-}
-
-.videos-link {
-	padding-left: 30px;
-	background: transparent url("/images/icons/image_24.png") left no-repeat;
-}
-
-.reviews-link {
-	padding-left: 30px;
-	background: transparent url("/images/icons/speech_bubble_24.png") left no-repeat;
-}
-
-.meetings-link {
-	padding-left: 30px;
-	background: transparent url("/images/icons/clock_24.png") left no-repeat;
+#nav ul li:hover {
+	background: #fff;
 }

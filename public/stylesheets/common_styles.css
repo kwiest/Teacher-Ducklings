@@ -95,47 +95,47 @@ th { background: #aaa; }
  ******************************************************************/
 
 p {
-  font-family: Georgia, "Times New Roman", serif;
+	font-family: Georgia, "Times New Roman", serif;
 	font-size: 16px;
-  line-height: 22px;
-  margin-bottom: 24px;
+	line-height: 22px;
+	margin-bottom: 24px;
 }
 
 ul, ol {
-  margin-bottom: 24px;
+	margin-bottom: 24px;
 }
 
 li {
 	font-family: Georgia, "Times New Roman", serif;
-  font-size: 16px;
-  line-height: 24px;
-  margin-left: 18px;
+	font-size: 16px;
+	line-height: 24px;
+	margin-left: 18px;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: Helvetica, "Lucida Grande", Arial, sans-serif;
+	font-family: Helvetica, "Lucida Grande", Arial, sans-serif;
 	color: #3e3e3e;
-  margin-bottom: 24px;
+	margin-bottom: 24px;
 }
 
 h1 {
-  font-size: 42px;
-  line-height: 63px;
+	font-size: 42px;
+	line-height: 63px;
 }
 
 h2 {
-  font-size: 32px;
-  line-height: 48px;
+	font-size: 32px;
+	line-height: 48px;
 }
 
 h3 {
-  font-size: 24px;
-  line-height: 36px;
+	font-size: 24px;
+	line-height: 36px;
 }
 
 h4, h5, h6 {
-  font-size: 16px;
-  line-height: 24px;
+	font-size: 16px;
+	line-height: 24px;
 }
 
 .required {
@@ -188,14 +188,16 @@ h4, h5, h6 {
 label {
 	display: block;
 	font-family: Verdana, Arial, sans-serif;
-	padding: 6px 0;
-	font-size: 16px;
-	color: #111;
+	padding: 4px 0;
+	font-size: 14px;
+	font-weight: bold;
+	color: #222;
 }
 
 input, textarea {
 	background: #fff url("/images/input-bg.gif") top left repeat-x;
 	padding: 6px;
+	margin-bottom: -12px;
 	color: #666;
 	font-size: 14px;
 	font-family: Verdana, Arial, sans-serif;
@@ -206,25 +208,52 @@ input[type=text]:focus, input[type=password]:focus, textarea:focus {
 	background: #F9F8E4;
 }
 
-input[type=submit] {
+input[type="submit"] {
+	background: transparent url("/images/button_states.png");
+	display: block;
+	width: 200px;
+	height: 45px;
+	color: #fff;
+	font-weight: bold;
+	font-size: 16px;
+	text-align: center;
 	cursor: pointer;
+	border: none;
+	margin: 0;
+	padding: 0;
 	
-	border-radius: 12px;
-	-moz-border-radius: 12px;
-	-webkit-border-radius: 12px;
-	
-	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
-	-moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
-	-webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+	text-shadow: 1px 1px 1px #333;
 }
 
-input[type=submit]:hover {
-	border-color: #666;
-	color: #222;
+input[type="submit"]:hover {
+	background-position: 0 90px;
+}
+
+input[type="submit"]:active {
+	background-position: 0 45px;
+}
+
+input[type="submit"].add-button {
+	background: transparent url("/images/add_button_states.png");
+	text-align: left;
+	padding-left: 50px;
+}
+
+input[type="submit"].add-button:hover {
+	background-position: 0 90px;
+}
+
+input[type="submit"].add-button:active {
+	background-position: 0 45px;
 }
 
 input.post-title-input {
 	font-size: 22px;
+}
+
+.fieldWithErrors {
+  padding: 2px;
+  background-color: red;
 }
 
 .fieldWithErrors {
@@ -293,7 +322,7 @@ div.resource-row:hover { background-color: #fff6bf; }
 
 .even { background-color: #edf3fe; }
 
-.admin-row h4 {
+div.resource-row h4 {
 	margin-bottom: 3px;
 }
 

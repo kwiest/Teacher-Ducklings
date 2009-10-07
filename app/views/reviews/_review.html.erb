@@ -1,11 +1,14 @@
 <div class="video-review">
+	<% if review.pdf? -%>
+		<div class="float-right">
+			<%= link_to image_tag("/images/icons/pdf_48.png"), review.pdf.url %>
+		</div>
+	<% end -%>
+	
 	<h4>Reviewed By: <%= review.user.full_name %> <%= time_ago_in_words(review.updated_at) %> ago</h4>
 
 	<p>
 		<strong>Description:</strong> <%=h review.description %>
 	</p>
-
-	<% if review.pdf? -%>
-		<%= image_tag "/images/icons/pdf_48.png" %> <%= link_to review.pdf_file_name, review.pdf.url %>
-	<% end -%>
+	<div class="clear"></div>
 </div>

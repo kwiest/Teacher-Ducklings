@@ -26,7 +26,7 @@
 	<% end -%>
 </div>
 
-<h4>Leave a New Comment</h4>
+<h3>Leave a New Comment</h3>
 <% form_remote_for [@post, @post.comments.new], :html => { :id => "comment_form" } do |f| %>
 	<%= f.error_messages %>
 	
@@ -50,6 +50,6 @@
 	</p>
 	<p>
 		<%= f.label "" %>
-		<%= f.submit "Add Comment" %>
+		<%= f.submit "Add Comment", :class => "add-button" %>
 	</p>
 <% end -%>

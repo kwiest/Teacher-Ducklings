@@ -4,5 +4,4 @@
 
 <p>&nbsp;</p>
 
-<%= link_to image_tag("/images/icons/add_48.png", :border => 0), new_link_path %>
-<%= link_to "Create a New Link", new_link_path %>
+<%= button_to "New Link", new_link_path, :class => "add-button", :method => :get %>
