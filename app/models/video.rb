@@ -49,9 +49,7 @@ class Video < ActiveRecord::Base
   def convert
     self.convert!
     
-    success = system(convert_command)
-
-    if success
+    if system(convert_command)
       self.converted!
     else
       self.failure!
