@@ -11,6 +11,7 @@ Rails::Initializer.run do |config|
   # config.load_paths += %W( #{RAILS_ROOT}/extras )
   
   ENV['RAILS_ENV'] = 'production'
+  RAILS_ENV = ENV["RAILS_ENV"]
   
   # Authlogic Gem
   config.gem "authlogic"
@@ -20,6 +21,9 @@ Rails::Initializer.run do |config|
   
   # Calendar select
   config.gem "calendar_date_select"
+  
+  # Amazon Web Services
+  config.gem "right_aws", :version => "1.10.0"
   
 
   # Only load the plugins named here, in the order given (default is alphabetical).

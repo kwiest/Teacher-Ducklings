@@ -55,7 +55,6 @@ class VideosController < ApplicationController
 
     respond_to do |format|
       if @video.save
-        @video.send_later(:convert)
         flash[:success] = 'Video was successfully uploaded.'
         format.html { redirect_to user_videos_path }
         format.xml  { render :xml => @video, :status => :created, :location => @video }
