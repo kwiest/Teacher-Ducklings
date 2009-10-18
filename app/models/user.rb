@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   has_many :comments, :dependent => :destroy
   has_many :reviews, :dependent => :destroy
   has_attached_file :photo,
-                    :styles => { :small => "50x50", :medium => "150x150" }
+                    :styles => { :small => "50x50#", :medium => "150x150#" }
 
   validates_presence_of :first_name, :last_name, :email
   
