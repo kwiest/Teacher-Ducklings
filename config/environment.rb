@@ -25,6 +25,9 @@ Rails::Initializer.run do |config|
   # Amazon Web Services
   config.gem "right_aws", :version => "1.10.0"
   
+  # Inlline Uploader
+  config.gem "inline_uploader"
+  
 
   # Only load the plugins named here, in the order given (default is alphabetical).
   # :all can be used as a placeholder for all plugins not explicitly named

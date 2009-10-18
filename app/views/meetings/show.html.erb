@@ -4,7 +4,7 @@
 	<h1><%= @video.title %></h1>
 
 	<p>
-	  <strong>When:</strong> <%= pluralize(@meeting.days_from_today_to_meeting, "day") %>, at <%=h @meeting.time %>
+	  <strong>When:</strong> In <%= pluralize(@meeting.days_from_today_to_meeting, "day") %>, at <%=h @meeting.time %>
 	</p>
 
 	<p>
@@ -12,7 +12,7 @@
 	</p>
 
 	<div class="float-left">
-		<%= render :partial => 'videos/video_player', :object => @video %>
+		<%= player ({:file => @video.video.url}, {:width => 480, :height => 270}) %>
 	</div>
 
 	<div class="float-right">
