@@ -5,7 +5,6 @@
 	<div style="float: right;">
     <br />
 		<%= link_to 'Watch', user_video_path(video.user_id, video), :class => "show" %>
-	  <%= link_to 'Edit', edit_user_video_path(video.user_id, video), :class => "edit" %>
 	  <%= link_to 'Delete', user_video_path(video.user_id, video), :confirm => 'Are you sure?', :method => :delete, :class => "delete" %>
 	</div>
 	<strong>User: </strong><%= link_to video.user.full_name, video.user %><br />
