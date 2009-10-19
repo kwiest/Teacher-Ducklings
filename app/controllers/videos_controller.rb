@@ -23,10 +23,6 @@ class VideosController < ApplicationController
     @video = Video.new
   end
 
-  # GET /user/id/videos/1/edit
-  def edit
-  end
-
   # POST /user/id/videos
   def create
     params[:video][:user_id] = params[:user_id]
@@ -35,17 +31,7 @@ class VideosController < ApplicationController
     
     @video.save
     render :update do |page|
-      page.insert_html :bottom, :videos, :partial => '/videos/video', :object => @video
-    end
-  end
-
-  # PUT /user/id/videos/1
-  def update
-    if @video.update_attributes(params[:video])
-      flash[:success] = 'Video was successfully updated.'
-      redirect_to @video
-    else
-      render :edit
+      page.insert_html :top, :videos, :partial => '/videos/video', :object => @video
     end
   end
 
