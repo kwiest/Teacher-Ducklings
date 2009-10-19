@@ -22,7 +22,7 @@ body {
 
 a, a:visited {
 	outline: none;
-	font-weight: normal;
+	font-weight: inherit;
 	text-decoration: underline;
 	color: #33f;
 }

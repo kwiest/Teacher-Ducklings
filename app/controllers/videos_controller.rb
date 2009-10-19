@@ -18,11 +18,6 @@ class VideosController < ApplicationController
   def show
   end
 
-  # GET /user/id/videos/new
-  def new
-    @video = Video.new
-  end
-
   # POST /user/id/videos
   def create
     params[:video][:user_id] = params[:user_id]
@@ -30,9 +25,7 @@ class VideosController < ApplicationController
     @video.video_content_type = MIME::Types.type_for(@video.video_file_name)
     
     @video.save
-    render :update do |page|
-      page.insert_html :top, :videos, :partial => '/videos/video', :object => @video
-    end
+    render :text => "<a href=\"#{user_video_path(current_user, @video)}\">Watch Now</a>"
   end
 
   # DELETE /user/id/videos/1
