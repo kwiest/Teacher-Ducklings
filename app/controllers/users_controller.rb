@@ -1,38 +1,23 @@
 class UsersController < ApplicationController
-  before_filter :authorized?
+  before_filter :logged_in?
+  before_filter :authorized?, :only => [:show, :edit, :update]
+  before_filter :admin_required, :except => [:show, :edit, :update]
   layout "admin"
   
   # GET /users
-  # GET /users.xml
   def index
     @users = User.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @users }
-    end
   end
   
   
   # GET /users/1
-  # GET /users/1.xml
   def show
-    @user = User.find(params[:id])
     @videos = @user.videos
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @user }
-    end
-    
-    rescue ActiveRecord::RecordNotFound
-      flash[:error] = "We're sorry, but the user you're looking for cannot be found."
-      redirect_to root_path
+    render :layout => 'application' unless current_user.admin?
   end
   
   
   # GET /users/new
-  # GET /users/new.xml
   def new
     @user = User.new
   end
@@ -40,42 +25,37 @@ class UsersController < ApplicationController
   
   # GET /users/1/edit
   def edit
-    @user = User.find(params[:id])
-    
-    rescue ActiveRecord::RecordNotFound
-      flash[:error] = "We're sorry, but the user you're looking for cannot be found."
-      redirect_to root_path
+    render :layout => 'application' unless current_user.admin?
   end
 
   
   # POST /users
-  # POST /users.xml
   def create
-    @user = User.new(params[:user])
     if @user.save
-      redirect_to users_path
       flash[:success] = "New user created!"
+      redirect_to users_path
     else
-      render :action => 'new'
+      render :new
     end
   end
   
   
   # PUT /users/1
-  # PUT /users/1.xml
   def update
-    @user = User.find(params[:id])
-
-    respond_to do |format|
-      if @user.update_attributes(params[:user])
-        flash[:success] = 'User was successfully updated.'
-        format.html { redirect_to users_path }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @user.errors, :status => :unprocessable_entity }
-      end
+    if @user.update_attributes(params[:user])
+      flash[:success] = 'User was successfully updated.'
+      redirect_to @user
+    else
+      render :edit
     end
+  end
+  
+  
+  # DELETE /users/1
+  def destroy
+    @user.destroy
+    
+    flash[:notice] = "User deleted."
     
     rescue ActiveRecord::RecordNotFound
       flash[:error] = "We're sorry, but the user you're looking for cannot be found."
@@ -83,17 +63,11 @@ class UsersController < ApplicationController
   end
   
   
-  # DELETE /users/1
-  # DELETE /users/1.xml
-  def destroy
+  private
+  
+  def authorized?
     @user = User.find(params[:id])
-    @user.destroy
-    
-    flash[:notice] = "User deleted."
-    respond_to do |format|
-      format.html { redirect_to users_path }
-      format.xml  { head :ok }
-    end
+    @user.changeable_by?(current_user) || access_denied
     
     rescue ActiveRecord::RecordNotFound
       flash[:error] = "We're sorry, but the user you're looking for cannot be found."

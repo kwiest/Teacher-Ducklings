@@ -10,8 +10,8 @@ Rails::Initializer.run do |config|
   # Add additional load paths for your own custom dirs
   # config.load_paths += %W( #{RAILS_ROOT}/extras )
   
-  ENV['RAILS_ENV'] = 'production'
-  RAILS_ENV = ENV["RAILS_ENV"]
+  #ENV['RAILS_ENV'] = 'production'
+  #RAILS_ENV = ENV["RAILS_ENV"]
   
   # Authlogic Gem
   config.gem "authlogic"
@@ -25,8 +25,11 @@ Rails::Initializer.run do |config|
   # Amazon Web Services
   config.gem "right_aws", :version => "1.10.0"
   
-  # Inlline Uploader
-  config.gem "inline_uploader"
+  # MIME Types
+  config.gem "mime-types", :lib => "mime/types"
+  
+  # Flash Session Key Middleware
+  config.middleware.use "FlashSessionCookieMiddleware"
   
 
   # Only load the plugins named here, in the order given (default is alphabetical).

@@ -13,6 +13,8 @@
 	<%= calendar_date_select_includes "silver" %>
 	
 	<%= include_tiny_mce_if_needed %>
+
+	<%= yield :head %>
 </head>
 
 <body>
@@ -32,7 +34,7 @@
 				<li><%= link_to "Users", users_path %></li>
 				<li><%= link_to "Posts", posts_path %></li>
 				<li><%= link_to "Links", links_path %></li>
-				<li><%= link_to "Videos", videos_path %></li>
+				<li><%= link_to "Videos", user_videos_path(current_user) %></li>
 				<li><%= link_to "Reviews", reviews_path %></li>
 				<li><%= link_to "Meetings", meetings_path %></li>
 			</ul>

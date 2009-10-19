@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   # Scrub sensitive parameters from your log
   filter_parameter_logging :password, :password_confirmation
   
-  helper_method :current_user, :current_user_session, :logged_in?, :login_required, :admin_required, :admin?, :authorized?, :require_no_user
+  helper_method :current_user, :current_user_session, :logged_in?, :login_required, :admin_required, :admin?, :require_no_user
   
   private
   
@@ -31,16 +31,6 @@ class ApplicationController < ActionController::Base
   
   def admin_required
     access_denied unless logged_in? && current_user.admin == true
-  end
-  
-  def authorized?
-    if logged_in? && current_user.id.to_s == params[:user_id]
-      true
-    elsif logged_in? && current_user.admin == true
-      true
-    else
-      access_denied
-    end
   end
   
   def admin?

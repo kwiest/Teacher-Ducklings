@@ -1,7 +1,7 @@
 <h1>User Administration</h1>
 
-<%= render @users %>
+<%= button_to "New User", new_user_path, :class => "add-button", :method => :get %>
 
 <p>&nbsp;</p>
 
-<%= button_to "New User", new_user_path, :class => "add-button", :method => :get %>
+<%= render @users %>

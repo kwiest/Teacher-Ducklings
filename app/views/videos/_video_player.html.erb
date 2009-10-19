@@ -1,9 +1,0 @@
-<% if @video.state == 'pending' || @video.state == 'converting' -%>
-	<div class="notice">Hold your horses! Your video is still being encoded.</div>
-<% elsif @video.state == 'error' -%>
-	<div class="error">Sorry, but there was an error while encoding your video. Please try again.</div>
-<% else -%>
-	<%= javascript_include_tag 'swfobject' %>
-
-	<%= player ({:file => @video.video.url}, {:width => 640, :height => 360}) %>
-<% end -%>

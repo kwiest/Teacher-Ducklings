@@ -1,4 +1,8 @@
 class User < ActiveRecord::Base
+  include Permissions
+  
+  default_scope :order => :last_name
+  
   acts_as_authentic
   
   has_many :videos, :dependent => :destroy
@@ -17,6 +21,10 @@ class User < ActiveRecord::Base
   def deliver_password_reset_instructions!
     reset_perishable_token!
     UserMailer.deliver_password_reset_instructions(self)
+  end
+  
+  def user
+    self
   end
   
 end

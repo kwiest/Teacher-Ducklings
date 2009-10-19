@@ -1,7 +1,7 @@
 <h1>Category Links</h1>
 
-<%= render @links %>
+<%= button_to "New Link", new_link_path, :class => "add-button", :method => :get %>
 
 <p>&nbsp;</p>
 
-<%= button_to "New Link", new_link_path, :class => "add-button", :method => :get %>
+<%= render @links %>

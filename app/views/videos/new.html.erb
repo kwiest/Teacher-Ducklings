@@ -1,13 +1,36 @@
+<% content_for :head do -%>
+	<%= javascript_include_tag 'jquery-1.3.2.min' %>
+	<%= javascript_include_tag 'swfobject' %>
+	<%= javascript_include_tag 'jquery.uploadify.v2.1.0.min' %>
+	<%= stylesheet_link_tag 'uploadify' %>
+	
+	<% session_key_name = ActionController::Base.session_options[:key] -%>
+	<script type="text/javascript">
+		$(function(){
+			$('#video_video').uploadify({
+				script        : '<%= user_videos_path %>',
+				uploader      : '/swf/uploadify.swf',
+				fileDataName  : 'video[video]',
+				auto          : 'true',
+				cancelImg     : '/images/cancel.png',
+				scriptData    : {
+					'<%= session_key_name %>' : '<%= u cookies[session_key_name] %>',
+					'authenticity_token' : encodeURIComponent('<%= u form_authenticity_token if protect_against_forgery? %>')
+				}
+			});
+		});
+	</script>
+<% end -%>
+
 <h1>Upload a Video</h1>
 
 <div class="notice">Warning! Uploading will take some time, <strong>DO NOT</strong> keep pressing "Create,"
 	this will just make it take even longer.
 </div>
 
-<% form_for @video, :url => user_videos_path, :html => { :multipart => true } do |f| %>
+<% form_for @video, :url => user_videos_path(current_user), :html => { :multipart => true } do |f| %>
   <%= f.error_messages %>
-
-  <%= f.hidden_field :user_id, :value => params[:user_id] %>
+	
   <p>
 		<%= f.label :title, 'Title:<span class="required">*</span>' %>
 		<%= f.text_field :title %>

@@ -3,7 +3,7 @@
 		<% if comment.user.blank? -%>
 			<%= image_tag "/photos/small/missing.png", :border => 0 %>
 		<% else -%>
-			<%= image_tag @user.photo.url(:small) %>
+			<%= image_tag comment.user.photo.url(:small) %>
 		<% end -%>
 	</div>
 	

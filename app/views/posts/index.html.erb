@@ -1,5 +1,9 @@
 <h1>All Posts</h1>
 
+<%= button_to "New Post", new_post_path, :class => "add-button", :method => :get %>
+
+<p>&nbsp;</p>
+
 <% @posts.each do |post| -%>
 	<div class="resource-row <%= cycle 'odd', 'even' %>">
 			<h4><%= post.title %></h4>
@@ -16,7 +20,3 @@
 		<strong>Comments: </strong><%= pluralize(post.comments.size, 'Comment') %>
 	</div>
 <% end -%>
-
-<p>&nbsp;</p>
-
-<%= button_to "New Post", new_post_path, :class => "add-button", :method => :get %>

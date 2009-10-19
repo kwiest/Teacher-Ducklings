@@ -1,15 +1,14 @@
-<h1><%= @video.title %></h1>
+<h1><%= @video.video_file_name %></h1>
 
-<p class="created">Uploaded <%= time_ago_in_words @video.created_at %> ago</p>
+<h2>Uploaded <%= time_ago_in_words @video.created_at %> ago</h2>
 
-<p>
-	<strong>Description:</strong><br />
-	<%=h @video.description %>
-</p>
+<% content_for :head do -%>
+	<%= javascript_include_tag 'swfobject_old' %>
+<% end -%>
 
-<%= render :partial => "video_player", :object => @video %>
+<%= player({ :file => @video.video.url }, { :width => 640, :height => 360 }) %>
 
-<p><%= link_to "Edit Video", edit_user_video_path %></p>
+<p>&nbsp;</p>
 
 <h2>Video Reviews</h2>
 <div id="reviews">

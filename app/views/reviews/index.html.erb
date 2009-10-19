@@ -1,5 +1,9 @@
 <h1>All Reviews</h1>
 
+<%= button_to "New Review", new_review_path, :class => "add-button", :method => :get %>
+
+<p>&nbsp;</p>
+
 <% @reviews.each do |review| %>
 <div class="resource-row <%= cycle 'odd', 'even' %>">
 	<div style="float: right;">
@@ -16,7 +20,3 @@
 	<div class="clear"></div>
 </div>
 <% end %>
-
-<p>&nbsp;</p>
-
-<%= button_to "New Review", new_review_path, :class => "add-button", :method => :get %>

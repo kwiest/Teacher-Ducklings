@@ -1,7 +1,7 @@
 <h1>All Meetings</h1>
 
-<%= render @meetings %>
+<%= button_to "New Meeting", new_meeting_path, :class => "add-button", :method => :get %>
 
 <p>&nbsp;</p>
 
-<%= button_to "New Meeting", new_meeting_path, :class => "add-button", :method => :get %>
+<%= render @meetings %>
