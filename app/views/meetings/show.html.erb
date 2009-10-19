@@ -1,14 +1,10 @@
 <% if @meeting.expired? -%>
 	<h1>Sorry, this meeting has expired.</h1>
 <% else -%>
-	<h1><%= @video.title %></h1>
+	<h1><%= @video.verbose_title %></h1>
 
 	<p>
 	  <strong>When:</strong> In <%= pluralize(@meeting.days_from_today_to_meeting, "day") %>, at <%=h @meeting.time %>
-	</p>
-
-	<p>
-		<strong>Description:</strong> <%= @video.description %>
 	</p>
 
 	<div class="float-left">

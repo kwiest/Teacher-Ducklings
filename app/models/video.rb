@@ -23,7 +23,7 @@ class Video < ActiveRecord::Base
   end
   
   def verbose_title
-    "#{user.full_name} - #{title}"
+    "#{user.full_name} - #{video_file_name}"
   end
   
 end
