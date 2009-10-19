@@ -6,12 +6,11 @@ class Video < ActiveRecord::Base
   belongs_to :user
   has_many :meetings, :dependent => :destroy
   has_many :reviews, :dependent => :destroy
-  #has_attached_file :video,
-  #  :storage => :s3,
-  #  :s3_credentials => "#{RAILS_ROOT}/config/s3.yml",
-  #  :path => ":attachment/:id/:style.:extension",
-  #  :bucket => 'teacherducklingvideostemp'
-  has_attached_file :video
+  has_attached_file :video,
+    :storage => :s3,
+    :s3_credentials => "#{RAILS_ROOT}/config/s3.yml",
+    :path => ":attachment/:id/:style.:extension",
+    :bucket => 'teacherducklingvideos'
   
   #validates_presence_of :title
   validates_attachment_presence :video
