@@ -2,6 +2,7 @@
 tmp/**/*
 .DS_Store
 config/deploy.rb
+config/s3.yml
 photos
 videos
 pdfs

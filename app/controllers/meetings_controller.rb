@@ -6,11 +6,6 @@ class MeetingsController < ApplicationController
   # GET /meetings.xml
   def index
     @meetings = Meeting.all(:order => "date")
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @meetings }
-    end
   end
 
   # GET /meetings/1
@@ -59,6 +54,7 @@ class MeetingsController < ApplicationController
     @meeting.destroy
 
     flash[:notice] = "Meeting Deleted"
+    redirect_to meetings_path
   end
   
   private
