@@ -82,13 +82,6 @@ th { background: #aaa; }
     padding: 10px;
 }
 
-#player {
-	display: block;
-	width: 480px;
-	height: 272px;
-	margin: 10px 0;
-}
-
 
 /******************************************************************
  * Type
@@ -116,6 +109,7 @@ h1, h2, h3, h4, h5, h6 {
 	font-family: Helvetica, "Lucida Grande", Arial, sans-serif;
 	color: #3e3e3e;
 	margin-bottom: 24px;
+	letter-spacing: -1px;
 }
 
 h1 {
@@ -208,57 +202,12 @@ input[type=text]:focus, input[type=password]:focus, textarea:focus {
 	background: #F9F8E4;
 }
 
-input[type="submit"] {
-	background: transparent url("/images/button_states.png");
-	display: block;
-	width: 200px;
-	height: 45px;
-	color: #fff;
-	font-weight: bold;
-	font-size: 16px;
-	text-align: center;
-	cursor: pointer;
-	border: none;
-	margin: 0;
-	padding: 0;
-	
-	text-shadow: 1px 1px 1px #333;
-}
-
-input[type="submit"]:hover {
-	background-position: 0 90px;
-}
-
-input[type="submit"]:active {
-	background-position: 0 45px;
-}
-
-input[type="submit"].add-button {
-	background: transparent url("/images/add_button_states.png");
-	text-align: left;
-	padding-left: 50px;
-}
-
-input[type="submit"].add-button:hover {
-	background-position: 0 90px;
-}
-
-input[type="submit"].add-button:active {
-	background-position: 0 45px;
-}
-
 input.post-title-input {
 	font-size: 22px;
 }
 
-.fieldWithErrors {
-  padding: 2px;
-  background-color: red;
-}
-
-.fieldWithErrors {
-  padding: 2px;
-  background-color: red;
+.fieldWithErrors input {
+  border: 2px solid red;
 }
 
 #errorExplanation {
@@ -289,6 +238,153 @@ input.post-title-input {
 #errorExplanation ul li {
   font-size: 12px;
   list-style: square;
+}
+
+
+/******************************************************************
+ * Forms -- Submit Buttons
+ ******************************************************************/
+
+input[type="submit"] {
+	background: transparent url("/images/all_button_states.png");
+	display: block;
+	width: 200px;
+	height: 45px;
+	cursor: pointer;
+	border: none;
+	margin: 0;
+	padding: 0;
+	text-indent: -9999px;
+}
+
+/* SAVE */
+input[type="submit"].save {
+	background-position: 2000px 0;
+}
+
+input[type="submit"].save:hover {
+	background-position: 2000px 90px;
+}
+
+input[type="submit"].save:active {
+	background-position: 2000px 45px;
+}
+
+/* LOGIN */
+input[type="submit"].login {
+	background-position: 1800px 0;
+}
+
+input[type="submit"].login:hover {
+	background-position: 1800px 90px;
+}
+
+input[type="submit"].login:active {
+	background-position: 1800px 45px;
+}
+
+/* PASSWORD_RESET */
+input[type="submit"].password_reset {
+	background-position: 1600px 0;
+}
+
+input[type="submit"].password_reset:hover {
+	background-position: 1600px 90px;
+}
+
+input[type="submit"].password_reset:active {
+	background-position: 1600px 45px;
+}
+
+/* NEW_USER */
+input[type="submit"].new_user {
+	background-position: 1400px 0;
+}
+
+input[type="submit"].new_user:hover {
+	background-position: 1400px 90px;
+}
+
+input[type="submit"].new_user:active {
+	background-position: 1400px 45px;
+}
+
+/* NEW_POST */
+input[type="submit"].new_post {
+	background-position: 1200px 0;
+}
+
+input[type="submit"].new_post:hover {
+	background-position: 1200px 90px;
+}
+
+input[type="submit"].new_post:active {
+	background-position: 1200px 45px;
+}
+
+/* PUBLISH_POST */
+input[type="submit"].publish_post {
+	background-position: 1000px 0;
+}
+
+input[type="submit"].publish_post:hover {
+	background-position: 1000px 90px;
+}
+
+input[type="submit"].publish_post:active {
+	background-position: 1000px 45px;
+}
+
+/* NEW_LINK */
+input[type="submit"].new_link {
+	background-position: 800px 0;
+}
+
+input[type="submit"].new_link:hover {
+	background-position: 800px 90px;
+}
+
+input[type="submit"].new_link:active {
+	background-position: 800px 45px;
+}
+
+/* NEW_VIDEO */
+input[type="submit"].new_video {
+	background-position: 600px 0;
+}
+
+input[type="submit"].new_video:hover {
+	background-position: 600px 90px;
+}
+
+input[type="submit"].new_video:active {
+	background-position: 600px 45px;
+}
+
+/* NEW_REVIEW */
+input[type="submit"].new_review {
+	background-position: 400px 0;
+}
+
+input[type="submit"].new_review:hover {
+	background-position: 400px 90px;
+}
+
+input[type="submit"].new_review:active {
+	background-position: 400px 45px;
+}
+
+/* NEW_MEETING */
+input[type="submit"].new_meeting {
+	background-position: 200px 0;
+}
+
+input[type="submit"].new_meeting:hover {
+	background-position: 200px 90px;
+}
+
+input[type="submit"].new_meeting:active {
+	background-position: 200px 45px;
 }
 
 
@@ -333,4 +429,16 @@ div.resource-row h4 {
 
 li.upcoming { 
 	list-style-type: none;
+}
+
+
+/******************************************************************
+ * Misc
+ ******************************************************************/
+
+.profile-pic {
+	float: left;
+	margin-right: 12px;
+	padding: 10px;
+	background: #eee;
 }

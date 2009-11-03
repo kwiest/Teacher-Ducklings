@@ -16,6 +16,7 @@
 	margin-bottom: 0;
 }
 
-#primary-content {
-	padding: 30px;
+#main-body {
+	width: 960px;
+	margin: 0 auto;
 }

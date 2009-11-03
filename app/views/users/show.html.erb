@@ -1,11 +1,16 @@
-<h1><%= @user.full_name %></h1>
+<div class="profile-pic">
+	<%= image_tag @user.photo.url(:medium) %>
+</div>
 
-<p>
-	<strong>Phone Number: </strong><%= @user.phone_number %><br />
-	<strong>Email: </strong><%= @user.email %>
-</p>
+<div class="float-left">
+	<h1><%= @user.full_name %></h1>
 
-<%= image_tag @user.photo.url %>
+	<p>
+		<strong>Phone Number: </strong><%= @user.phone_number %><br />
+		<strong>Email: </strong><%= @user.email %>
+	</p>
+</div>
+<div class="clear"></div>
 
 <p class="edit"><%= link_to "Edit Profile", edit_user_path(@user) %></p>
 
