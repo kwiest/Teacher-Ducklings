@@ -31,6 +31,8 @@ class UsersController < ApplicationController
   
   # POST /users
   def create
+    @user = User.new(params[:user])
+    
     if @user.save
       flash[:success] = "New user created!"
       redirect_to users_path
@@ -56,6 +58,7 @@ class UsersController < ApplicationController
     @user.destroy
     
     flash[:notice] = "User deleted."
+    redirect_to users_path
     
     rescue ActiveRecord::RecordNotFound
       flash[:error] = "We're sorry, but the user you're looking for cannot be found."
