@@ -32,7 +32,7 @@ Rails::Initializer.run do |config|
   config.middleware.use "FlashSessionCookieMiddleware"
   
   # RVideo + FLVTool2
-  congig.gem "rvideo"
+  config.gem "rvideo"
   config.gem "flvtool2"
   
 
