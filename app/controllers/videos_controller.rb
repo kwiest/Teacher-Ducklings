@@ -1,5 +1,5 @@
 class VideosController < ApplicationController
-  before_filter :login_required, :only => [:index, :create, :destroy]
+  before_filter :login_required
   before_filter :authorized?, :except => [:index, :create, :destroy]
   before_filter :admin_required, :only => :destroy
   
@@ -20,12 +20,14 @@ class VideosController < ApplicationController
 
   # POST /user/id/videos
   def create
-    params[:video][:user_id] = params[:user_id]
+    params[:video][:user_id] = current_user.id
     @video = Video.new(params[:video])
-    @video.video_content_type = MIME::Types.type_for(@video.video_file_name)
+    @video.title = "#{current_user.full_name} - #{Date.today.to_s(:long)}"
     
     @video.save
-    render :text => "<a href=\"#{user_video_path(current_user, @video)}\">Watch Now</a>"
+    @video.convert!
+    @video.send_later(:encode)
+    render :partial => 'video'
   end
 
   # DELETE /user/id/videos/1

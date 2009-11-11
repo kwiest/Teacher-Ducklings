@@ -11,7 +11,7 @@
 		<% content_for :head do -%>
 			<%= javascript_include_tag 'swfobject_old' %>
 		<% end -%>
-		<%= player ({:file => @video.video.url}, {:width => 480, :height => 270}) %>
+		<%= player ( {:file => @video.video.url, :skin => :dangdang}, {:width => 480, :height => 270} ) %>
 	</div>
 
 	<div class="float-left">

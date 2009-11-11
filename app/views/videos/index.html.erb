@@ -14,10 +14,8 @@
 				auto          : 'true',
 				cancelImg     : '/images/cancel.png',
 				buttonText    : 'New Video',
-				fileDesc      : 'h.264 Movie Files',
-				fileExt       : '*.m4v;*.mp4',
 				onComplete    : function(event, queueID, fileObj, response, data){
-					$('#uploads').append('<h2>Video Uploaded! - ' + response + '</h2>');
+					$('#videos').prepend(response);
 				},
 				scriptData    : {
 					'<%= session_key_name %>' : '<%= u cookies[session_key_name] %>',

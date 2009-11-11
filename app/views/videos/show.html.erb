@@ -1,12 +1,14 @@
-<h1><%= @video.video_file_name %></h1>
+<h2><%= @video.verbose_title %></h2>
 
-<h2>Uploaded <%= time_ago_in_words @video.created_at %> ago</h2>
+<h3>Uploaded <%= time_ago_in_words @video.created_at %> ago</h3>
 
 <% content_for :head do -%>
 	<%= javascript_include_tag 'swfobject_old' %>
 <% end -%>
 
-<%= player({ :file => @video.video.url }, { :width => 640, :height => 360 }) %>
+<div class="notice"><%= @video.state %></div>
+
+<%= player( {:file => "#{@video.video.url}.flv", :skin => :dangdang}, {:width => 640, :height => 360} ) %>
 
 <p>&nbsp;</p>
 
