@@ -6,9 +6,13 @@
 	<%= javascript_include_tag 'swfobject_old' %>
 <% end -%>
 
-<div class="notice"><%= @video.state %></div>
-
-<%= player( {:file => "#{@video.video.url}.flv", :skin => :dangdang}, {:width => 640, :height => 360} ) %>
+<% if @video.state == 'converting' -%>
+	<div class="notice">Video is still converting, please be patient</div>
+<% elsif @video.state == 'error' -%>
+	<div class="error">There was an error while converting your video</div>
+<% elsif @video.state == 'converted' -%>
+	<%= player( {:file => "#{@video.video.url}.flv", :skin => :dangdang}, {:width => 640, :height => 360} ) %>
+<% end -%>
 
 <p>&nbsp;</p>
 

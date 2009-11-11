@@ -28,14 +28,11 @@ Rails::Initializer.run do |config|
   # MIME Types
   config.gem "mime-types", :lib => "mime/types"
   
-  # Flash Session Key Middleware
-  config.middleware.use "FlashSessionCookieMiddleware"
-  
   # RVideo
   config.gem "rvideo"
-
-  # Vimeo
-  config.gem "vimeo", :lib => "vimeo"  
+  
+  # Flash Session Key Middleware
+  config.middleware.use "FlashSessionCookieMiddleware"
 
   # Only load the plugins named here, in the order given (default is alphabetical).
   # :all can be used as a placeholder for all plugins not explicitly named
