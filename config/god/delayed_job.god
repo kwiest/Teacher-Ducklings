@@ -1,14 +1,14 @@
-RAILS_ROOT = "/var/www/vhosts/teacherducklings.org/teacherducklings/current"
+rails_root = "/var/www/vhosts/teacherducklings.org/teacherducklings/current"
  
 1.times do |num|
   God.watch do |w|
     w.name = "dj-#{num}"
     w.group = 'dj'
     w.interval = 30.seconds
-    w.start = "rake -f #{RAILS_ROOT}/Rakefile RAILS_ENV=production jobs:work"
+    w.start = "rake -f #{rails_root}/Rakefile production jobs:work"
  
-    w.uid = 'deploy'
-    w.gid = 'deploy'
+    w.uid = 'root'
+    w.gid = 'root'
  
     # retart if memory gets too high
     w.transition(:up, :restart) do |on|
@@ -24,14 +24,14 @@ RAILS_ROOT = "/var/www/vhosts/teacherducklings.org/teacherducklings/current"
         c.running = true
       end
     end
- 
+  
     # determine when process has finished starting
     w.transition([:start, :restart], :up) do |on|
       on.condition(:process_running) do |c|
         c.running = true
         c.interval = 5.seconds
       end
- 
+    
       # failsafe
       on.condition(:tries) do |c|
         c.times = 5
@@ -39,7 +39,7 @@ RAILS_ROOT = "/var/www/vhosts/teacherducklings.org/teacherducklings/current"
         c.interval = 5.seconds
       end
     end
- 
+  
     # start if process is not running
     w.transition(:up, :start) do |on|
       on.condition(:process_running) do |c|
