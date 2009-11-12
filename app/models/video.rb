@@ -41,15 +41,18 @@ class Video < ActiveRecord::Base
   end
   
   def encode
-    recipe  = "ffmpeg -i $input_file$ -ar 22050 -b 270k -i_qfactor 0.9 -qmin 8 -qmax 8 -g 500 -f flv -s $resolution$ -y $output_file$"
+    video_recipe  = "ffmpeg -i $input_file$ -ar 22050 -b 400k -i_qfactor 0.9 -qmin 6 -qmax 6 -g 500 -f flv -s $resolution$ -y $output_file$"
+    thumb_recipe = "ffmpeg -itsoffset -15 -i $input_file$ -vcodec mjpeg -vframes 1 -an -f rawvideo -s $resolution$ -y $input_file$.jpg"
     options = { :input_file => video.path,
                 :output_file => "#{video.path}.flv",
                 :resolution => "640x360"
               }
-    
-    transcoder = RVideo::Transcoder.new
+
+    video_transcoder = RVideo::Transcoder.new
+    thumb_transcoder = RVideo::Transcoder.new
     begin
-      transcoder.execute(recipe, options)
+      video_transcoder.execute(video_recipe, options)
+      thumb_transcoder.execute(thumb_recipe, options)
       self.converted!
     rescue Exception => e
       logger.debug(e.message)

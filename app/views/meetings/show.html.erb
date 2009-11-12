@@ -17,7 +17,15 @@
 		<% elsif @video.state == 'error' -%>
 			<div class="error">There was an error while converting your video</div>
 		<% elsif @video.state == 'converted' -%>
-			<%= player( {:file => "#{@video.video.url}.flv", :skin => :dangdang}, {:width => 480, :height => 270} ) %>
+		<%= player( {
+									:file => "#{@video.video.url}.flv",
+									:skin => :dangdang,
+									:image => "#{@video.video.url}.jpg"
+								},
+								{
+									:width => 480,
+									:height => 270
+								} ) %>
 		<% end -%>
 	</div>
 
