@@ -5,7 +5,7 @@ rails_root = "/var/www/vhosts/teacherducklings.org/teacherducklings/current"
     w.name = "dj-#{num}"
     w.group = 'dj'
     w.interval = 30.seconds
-    w.start = "rake -f #{rails_root}/Rakefile production jobs:work"
+    w.start = "rake -f #{rails_root}/Rakefile jobs:work"
  
     w.uid = 'root'
     w.gid = 'root'
@@ -13,7 +13,7 @@ rails_root = "/var/www/vhosts/teacherducklings.org/teacherducklings/current"
     # retart if memory gets too high
     w.transition(:up, :restart) do |on|
       on.condition(:memory_usage) do |c|
-        c.above = 128.megabytes
+        c.above = 200.megabytes
         c.times = 2
       end
     end

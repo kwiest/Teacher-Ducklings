@@ -41,7 +41,7 @@ class Video < ActiveRecord::Base
   end
   
   def encode
-    recipe  = "ffmpeg -i $input_file$ -ar 22050 -ab 64 -f flv -r 29.97 -s $resolution$ -y $output_file$"
+    recipe  = "ffmpeg -i $input_file$ -ar 22050 -b 600 -f flv -s $resolution$ -y $output_file$"
     recipe += "\nflvtool2 -U $output_file$"
     options = { :input_file => video.path,
                 :output_file => "#{video.path}.flv",
