@@ -22,12 +22,6 @@ Rails::Initializer.run do |config|
   # Calendar select
   config.gem "calendar_date_select"
   
-  # Amazon Web Services
-  config.gem "right_aws", :version => "1.10.0"
-  
-  # MIME Types
-  config.gem "mime-types", :lib => "mime/types"
-  
   # RVideo
   config.gem "rvideo"
   
