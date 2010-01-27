@@ -25,6 +25,7 @@ class Video < ActiveRecord::Base
   has_many :meetings, :dependent => :destroy
   has_many :reviews, :dependent => :destroy
   has_attached_file :video
+  before_destroy :delete_flv_file
   
   #validates_presence_of :title
   validates_attachment_presence :video
@@ -52,35 +53,20 @@ class Video < ActiveRecord::Base
       video_transcoder.execute(video_recipe, options)
       self.converted!
     rescue Exception => e
-      logger.debug(e.message)
+      RAILS_DEFAULT_LOGGER.error(e.message)
       self.error!
     end
   end
 
-  # Override default "flush_deletes" paperclip method
-  def flush_deletes
-    @queued_for_delete.each do |path|
-      begin
-        RAILS_DEFAULT_LOGGER.error("Paperclip deleting #{path}, and #{path}.flv")
-	FileUtils.rm(path) if File.exist?(path)
-	FileUtils.rm("#{path}.flv") if File.exist?("#{path}.flv")
-      rescue Errno::ENOENT => e
-        RAILS_DEFAULT_LOGGER.error(e.message)
-        # ignore file-not found. let everything else pass
-      end
-      begin
-        while(true)
-          path = File.dirname(path)
-	  FileUtils.rmdir(path)
-	end
-      rescue Errno::EEXIST, Errno::ENOTEMPTY, Errno::ENOENT, Errno::EINVAL, Errno::ENOTDIR
-        # Stop trying to remove parent directories
-      rescue SystemCallError => e
-        RAILS_DEFAULT_LOGGER("There was an error while deleting directories: #{e.class}")
-	# Ignore it
-      end
+  def delete_flv_file
+    each_attachment do |name, attachment|
+      path = "#{attachment.path}.flv"
+      RAILS_DEFAULT_LOGGER.info("Attempting to delete #{path}")
+      FileUtils.rm(path) if File.exist?(path)
+    rescue Errno::ENOENT => e
+      RAILS_DEFAULT_LOGGER.info(e.message)
+      # Log it, then ignore and move on
     end
-    @queued_for_delete = []
   end
   
 end
