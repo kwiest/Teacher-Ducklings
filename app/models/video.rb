@@ -61,10 +61,11 @@ class Video < ActiveRecord::Base
   def flush_deletes
     @queued_for_delete.each do |path|
       begin
-        log("deleting #{path}, and #{path}.flv")
+        RAILS_DEFAULT_LOGGER.error("Paperclip deleting #{path}, and #{path}.flv")
 	FileUtils.rm(path) if File.exist?(path)
 	FileUtils.rm("#{path}.flv") if File.exist?("#{path}.flv")
       rescue Errno::ENOENT => e
+        RAILS_DEFAULT_LOGGER.error(e.message)
         # ignore file-not found. let everything else pass
       end
       begin
@@ -75,7 +76,7 @@ class Video < ActiveRecord::Base
       rescue Errno::EEXIST, Errno::ENOTEMPTY, Errno::ENOENT, Errno::EINVAL, Errno::ENOTDIR
         # Stop trying to remove parent directories
       rescue SystemCallError => e
-        log("There was an unexpected error while deleting directories: #{e.class}")
+        RAILS_DEFAULT_LOGGER("There was an error while deleting directories: #{e.class}")
 	# Ignore it
       end
     end
