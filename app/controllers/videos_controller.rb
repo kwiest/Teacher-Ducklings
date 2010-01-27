@@ -33,6 +33,7 @@ class VideosController < ApplicationController
   # DELETE /user/id/videos/1
   def destroy
     @video = Video.find(params[:id])
+    @video.delete_flv_files
     @video.destroy
     
     flash[:notice] = "Video successfully deleted"

@@ -25,7 +25,6 @@ class Video < ActiveRecord::Base
   has_many :meetings, :dependent => :destroy
   has_many :reviews, :dependent => :destroy
   has_attached_file :video
-  before_destroy :delete_flv_file
   
   #validates_presence_of :title
   validates_attachment_presence :video
@@ -58,14 +57,16 @@ class Video < ActiveRecord::Base
     end
   end
 
-  def delete_flv_file
+  def delete_flv_files
     each_attachment do |name, attachment|
-      path = "#{attachment.path}.flv"
-      RAILS_DEFAULT_LOGGER.info("Attempting to delete #{path}")
-      FileUtils.rm(path) if File.exist?(path)
-    rescue Errno::ENOENT => e
-      RAILS_DEFAULT_LOGGER.info(e.message)
-      # Log it, then ignore and move on
+      begin
+        path = "#{attachment.path}.flv"
+        RAILS_DEFAULT_LOGGER.info("Attempting to delete #{path}")
+        FileUtils.rm(path) if File.exist?(path)
+      rescue Errno::ENOENT => e
+        RAILS_DEFAULT_LOGGER.info(e.message)
+        # Log it, then ignore and move on
+      end
     end
   end
   
