@@ -19,8 +19,7 @@
 		<% elsif @video.state == 'converted' -%>
 		<%= player( {
 									:file => "#{@video.video.url}.flv",
-									:skin => :dangdang,
-									:image => "#{@video.video.url}.jpg"
+									:skin => :dangdang
 								},
 								{
 									:width => 480,
