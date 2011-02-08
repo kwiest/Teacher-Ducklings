@@ -1,0 +1,14 @@
+<div class="resource-row <%= cycle 'odd', 'even' %>">
+	<h4><%=h user.full_name %> - Videos(<%= user.videos.size %>)</h4>
+	<div style="float: right;">
+		<br />
+		<%= link_to 'Show', user, :class => 'show' %>
+		<%= link_to 'Edit', edit_user_path(user), :class => 'edit' %>
+		<%= link_to 'Destroy', user, :confirm => 'Are you sure you want to delete this user? All of their posts, comments, and videos will be deleted with them.', :method => :delete, :class => 'delete' %>
+	</div>
+	<%= image_tag user.photo.url(:small), :class => "profile_pic", :width => "50", :height => "50" %>
+	<strong>Phone Number: </strong><%=h user.phone_number %><br />
+	<strong>Email Address: </strong><%=h user.email %><br />
+	<strong>Administrator: </strong><%=h user.admin %>
+	<div class="clear"></div>
+</div>

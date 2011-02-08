@@ -1,0 +1,22 @@
+<h1>All Reviews</h1>
+
+<%= button_to "New Review", new_review_path, :class => :new_review, :method => :get %>
+
+<p>&nbsp;</p>
+
+<% @reviews.each do |review| %>
+<div class="resource-row <%= cycle 'odd', 'even' %>">
+	<div style="float: right;">
+    <br />
+		<%= link_to 'Show', review, :class => "show" %>
+	  <%= link_to 'Edit', edit_review_path(review), :class => "edit" %>
+	  <%= link_to 'Delete', review, :confirm => 'Are you sure?', :method => :delete, :class => "delete" %>
+	</div>
+	<strong>Video: </strong><%=h review.video.verbose_title %><br />
+  <strong>Created: </strong><%= time_ago_in_words review.created_at %> ago
+	<% if review.pdf -%>
+		<br /><strong>PDF Document: </strong><%= link_to review.pdf_file_name, review.pdf.url %>
+	<% end -%>
+	<div class="clear"></div>
+</div>
+<% end %>

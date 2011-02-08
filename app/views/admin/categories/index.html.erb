@@ -1,0 +1,11 @@
+<h1>All Categories</h1>
+
+<%= button_to "New Category", new_admin_category_path, :class => :new_category, :method => :get %>
+
+<p>&nbsp;</p>
+
+<ul>
+	<% @categories.each do |c| %>
+		<li><%= link_to c.name, edit_admin_category_path(c) %></li>
+	<% end %>
+</ul>

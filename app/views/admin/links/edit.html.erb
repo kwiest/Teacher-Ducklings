@@ -1,0 +1,7 @@
+<h1>Editing link</h1>
+
+<% form_for @link, :html => { :multipart => true } do |f| %>
+  <%= render :partial => 'form', :locals => { :f => f } %>
+<% end %>
+
+<p><%= link_to 'Cancel', links_path %></p>

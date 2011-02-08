@@ -1,0 +1,38 @@
+<% if @meeting.expired? -%>
+	<h1>Sorry, this meeting has expired.</h1>
+<% else -%>
+	<h1><%= @video.verbose_title %></h1>
+
+	<p>
+	  <strong>When:</strong> In <%= pluralize(@meeting.days_from_today_to_meeting, "day") %>, at <%=h @meeting.time %>
+	</p>
+
+	<div class="float-left">
+		<% content_for :head do -%>
+			<%= javascript_include_tag 'swfobject_old' %>
+		<% end -%>
+		
+		<% if @video.state == 'converting' -%>
+			<div class="notice">Video is still converting, please be patient</div>
+		<% elsif @video.state == 'error' -%>
+			<div class="error">There was an error while converting your video</div>
+		<% elsif @video.state == 'converted' -%>
+		<%= player( {
+									:file => "#{@video.video.url}.flv",
+									:skin => :dangdang
+								},
+								{
+									:width => 480,
+									:height => 270
+								} ) %>
+		<% end -%>
+	</div>
+
+	<div class="float-left">
+		<object type="application/x-shockwave-flash" data="http://www.tokbox.com/vc/r5fv2azwsb2pqhv0" width="375" height="425" pid="4a6cc6c9917bfdca">
+			<param name="movie" value="http://www.tokbox.com/vc/r5fv2azwsb2pqhv0"/>
+			<param name="flashvars" value="guestList=true&textChat=true&showExpandButton=true"/>
+		</object>
+	</div>
+	<div class="clear"></div>
+<% end -%>

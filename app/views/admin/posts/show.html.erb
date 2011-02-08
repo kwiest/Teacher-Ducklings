@@ -1,0 +1,55 @@
+<h1 class="post_title">
+	<%= @post.title %>
+</h1>
+
+<p class="post_time">
+	By: <%= @post.user.full_name %>, <%= time_ago_in_words(@post.created_at) %> ago.
+	<%= pluralize(@post.comments.size, 'Comment') %>
+</p>
+
+<% if admin? -%>
+	<p>
+		<%= link_to "Edit Post", edit_post_path(@post), :class => 'edit' %>
+		<%= link_to "Delete Post", @post, :confirm => "Are you sure want to delete this post?", :method => 'delete', :class => 'delete' %>
+<% end -%>
+
+<div class="post_body">
+  <%= @post.body %>
+</div>
+
+<p>&nbsp;</p>
+
+<h3 id="comment_count"><%= pluralize(@post.comments.size, 'Comment') %></h3>
+<div id="comments">
+	<% @post.comments.each do |comment| -%>
+		<%= render :partial => comment %>
+	<% end -%>
+</div>
+
+<h3>Leave a New Comment</h3>
+<% form_remote_for [@post, @post.comments.new], :html => { :id => "comment_form" } do |f| %>
+	<%= f.error_messages %>
+	
+	<% if logged_in? -%>
+		<%= f.hidden_field :user_id, :value => current_user.id %>
+		<%= f.hidden_field :name, :value => current_user.full_name %>
+		<%= f.hidden_field :email, :value => current_user.email %>
+	<% else -%>
+		<p>
+			<%= f.label :name, 'Your Full Name:<span class="required">*</span>' %>
+			<%= f.text_field :name %>
+		</p>
+		<p>
+			<%= f.label :email, 'Your Email:<span class="required">*</span>' %>
+			<%= f.text_field :email %>
+		</p>
+	<% end -%>
+	<p>
+		<%= f.label :body, 'What\'s on your mind?<span class="required">*</span>' %>
+		<%= f.text_area :body, :rows => 5 %>
+	</p>
+	<p>
+		<%= f.label "" %>
+		<%= f.submit "Add Comment", :class => "add-button" %>
+	</p>
+<% end -%>

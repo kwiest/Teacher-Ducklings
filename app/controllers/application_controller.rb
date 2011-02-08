@@ -10,6 +10,16 @@ class ApplicationController < ActionController::Base
   
   helper_method :current_user, :current_user_session, :logged_in?, :login_required, :admin_required, :admin?, :require_no_user
   
+  
+  protected
+  
+  def load_model(model_class)
+    @category = model_class.find(params[:id])
+  rescue ActiveRecord::RecordNotFound
+    flash[:error] = "We're sorry, but the #{model_class.to_s.downcase} you're looking for cannot be found."
+  end
+  
+  
   private
   
   def logged_in?
@@ -27,10 +37,6 @@ class ApplicationController < ActionController::Base
   
   def login_required
     access_denied unless logged_in?
-  end
-  
-  def admin_required
-    access_denied unless logged_in? && current_user.admin == true
   end
   
   def admin?
