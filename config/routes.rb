@@ -10,7 +10,6 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :meetings
   map.my_meetings '/my_meetings', :controller => 'my_meetings', :action => 'index'
 
-  map.root :controller => 'index'
   
   map.resources :users, :has_many => :videos
   
@@ -20,6 +19,13 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :password_resets
   
   map.admin '/admin', :controller => 'admin'
+  map.namespace :admin, :path_prefix => '/admin', :name_prefix => 'admin_' do |admin|
+    admin.resources :reviews, :links, :categories, :meetings
+    admin.resources :posts, :has_many => :comments
+    admin.resources :users, :has_many => :videos
+  end
+
+  map.root :controller => 'index'
   
   map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'
