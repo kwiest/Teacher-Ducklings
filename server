@@ -1,0 +1,1396 @@
+Script started on Tue Feb  8 15:25:06 2011
+[[1;37mkwiest2000[0m@kyle-wiests-macbook-pro]:~/sites/Teacher-Ducklings [1;34m[git:master+?] [0m$ script/server
+=> Booting WEBrick
+=> Rails 2.3.10 application starting on http://0.0.0.0:3000
+=> Call with -d to detach
+=> Ctrl-C to shutdown server
+[2011-02-08 15:25:15] INFO  WEBrick 1.3.1
+[2011-02-08 15:25:15] INFO  ruby 1.8.7 (2010-04-19) [i686-darwin9.8.0]
+[2011-02-08 15:25:15] INFO  WEBrick::HTTPServer#start: pid=34440 port=3000
+
+
+Processing Admin::CategoriesController#edit (for 127.0.0.1 at 2011-02-08 15:25:22) [GET]
+  Parameters: {"action"=>"edit", "id"=>"4-behavior", "controller"=>"admin/categories"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;36;1mCategory Load (0.2ms)[0m   [0;1mSELECT * FROM "categories" WHERE ("categories"."id" = 4) ORDER BY name[0m
+Rendering template within layouts/admin
+Rendering admin/categories/edit
+Rendered admin/categories/_form (2.2ms)
+  [4;35;1mMeeting Load (0.8ms)[0m   [0mSELECT * FROM "meetings" WHERE (date < '2011-02-15' AND date >= '2011-02-08') ORDER BY date[0m
+  [4;36;1mVideo Load (0.8ms)[0m   [0;1mSELECT * FROM "videos" WHERE (created_at > '2011-02-01') ORDER BY created_at DESC[0m
+Completed in 260ms (View: 221, DB: 2) | 200 OK [http://localhost/admin/categories/4-behavior/edit]
+^C[2011-02-08 15:25:36] INFO  going to shutdown ...
+[2011-02-08 15:25:36] INFO  WEBrick::HTTPServer#start done.
+Exiting
+[[1;37mkwiest2000[0m@kyle-wiests-macbook-pro]:~/sites/Teacher-Ducklings [1;34m[git:master+?] [0m$ script/server
+=> Booting WEBrick
+=> Rails 2.3.10 application starting on http://0.0.0.0:3000
+=> Call with -d to detach
+=> Ctrl-C to shutdown server
+[2011-02-08 15:26:17] INFO  WEBrick 1.3.1
+[2011-02-08 15:26:17] INFO  ruby 1.8.7 (2010-04-19) [i686-darwin9.8.0]
+[2011-02-08 15:26:17] INFO  WEBrick::HTTPServer#start: pid=34447 port=3000
+
+
+Processing Admin::CategoriesController#edit (for 127.0.0.1 at 2011-02-08 15:26:25) [GET]
+  Parameters: {"action"=>"edit", "id"=>"4-behavior", "controller"=>"admin/categories"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;36;1mCategory Load (0.2ms)[0m   [0;1mSELECT * FROM "categories" WHERE ("categories"."id" = 4) ORDER BY name[0m
+Rendering template within layouts/admin
+Rendering admin/categories/edit
+Rendered admin/categories/_form (2.2ms)
+  [4;35;1mMeeting Load (0.6ms)[0m   [0mSELECT * FROM "meetings" WHERE (date < '2011-02-15' AND date >= '2011-02-08') ORDER BY date[0m
+  [4;36;1mVideo Load (0.5ms)[0m   [0;1mSELECT * FROM "videos" WHERE (created_at > '2011-02-01') ORDER BY created_at DESC[0m
+Completed in 181ms (View: 147, DB: 2) | 200 OK [http://localhost/admin/categories/4-behavior/edit]
+
+
+Processing Admin::CategoriesController#edit (for 127.0.0.1 at 2011-02-08 15:28:59) [GET]
+  Parameters: {"action"=>"edit", "id"=>"4-behavior", "controller"=>"admin/categories"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mCategory Load (0.2ms)[0m   [0mSELECT * FROM "categories" WHERE ("categories"."id" = 4) ORDER BY name[0m
+Rendering template within layouts/admin
+Rendering admin/categories/edit
+Rendered admin/categories/_form (1.6ms)
+  [4;36;1mMeeting Load (0.5ms)[0m   [0;1mSELECT * FROM "meetings" WHERE (date < '2011-02-15' AND date >= '2011-02-08') ORDER BY date[0m
+  [4;35;1mVideo Load (0.5ms)[0m   [0mSELECT * FROM "videos" WHERE (created_at > '2011-02-01') ORDER BY created_at DESC[0m
+Completed in 41ms (View: 17, DB: 2) | 200 OK [http://localhost/admin/categories/4-behavior/edit]
+
+
+Processing Admin::CategoriesController#edit (for 127.0.0.1 at 2011-02-08 15:29:12) [GET]
+  Parameters: {"action"=>"edit", "id"=>"4-behavior", "controller"=>"admin/categories"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;36;1mCategory Load (0.2ms)[0m   [0;1mSELECT * FROM "categories" WHERE ("categories"."id" = 4) ORDER BY name[0m
+Rendering template within layouts/admin
+Rendering admin/categories/edit
+Rendered admin/categories/_form (1.6ms)
+  [4;35;1mMeeting Load (0.5ms)[0m   [0mSELECT * FROM "meetings" WHERE (date < '2011-02-15' AND date >= '2011-02-08') ORDER BY date[0m
+  [4;36;1mVideo Load (0.5ms)[0m   [0;1mSELECT * FROM "videos" WHERE (created_at > '2011-02-01') ORDER BY created_at DESC[0m
+Completed in 41ms (View: 16, DB: 1) | 200 OK [http://localhost/admin/categories/4-behavior/edit]
+
+
+Processing Admin::CategoriesController#edit (for 127.0.0.1 at 2011-02-08 15:30:17) [GET]
+  Parameters: {"action"=>"edit", "id"=>"4-behavior", "controller"=>"admin/categories"}
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mCategory Load (0.2ms)[0m   [0mSELECT * FROM "categories" WHERE ("categories"."id" = 4) ORDER BY name[0m
+Rendering template within layouts/admin
+Rendering admin/categories/edit
+Rendered admin/categories/_form (1.6ms)
+  [4;36;1mMeeting Load (0.5ms)[0m   [0;1mSELECT * FROM "meetings" WHERE (date < '2011-02-15' AND date >= '2011-02-08') ORDER BY date[0m
+  [4;35;1mVideo Load (0.4ms)[0m   [0mSELECT * FROM "videos" WHERE (created_at > '2011-02-01') ORDER BY created_at DESC[0m
+Completed in 101ms (View: 16, DB: 2) | 200 OK [http://localhost/admin/categories/4-behavior/edit]
+
+
+Processing Admin::CategoriesController#edit (for 127.0.0.1 at 2011-02-08 15:30:38) [GET]
+  Parameters: {"action"=>"edit", "id"=>"4-behavior", "controller"=>"admin/categories"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;36;1mCategory Load (0.2ms)[0m   [0;1mSELECT * FROM "categories" WHERE ("categories"."id" = 4) ORDER BY name[0m
+Rendering template within layouts/admin
+Rendering admin/categories/edit
+Rendered admin/categories/_form (1.6ms)
+  [4;35;1mMeeting Load (0.5ms)[0m   [0mSELECT * FROM "meetings" WHERE (date < '2011-02-15' AND date >= '2011-02-08') ORDER BY date[0m
+  [4;36;1mVideo Load (0.6ms)[0m   [0;1mSELECT * FROM "videos" WHERE (created_at > '2011-02-01') ORDER BY created_at DESC[0m
+Completed in 105ms (View: 79, DB: 2) | 200 OK [http://localhost/admin/categories/4-behavior/edit]
+
+
+Processing Admin::CategoriesController#index (for 127.0.0.1 at 2011-02-08 15:30:48) [GET]
+  Parameters: {"action"=>"index", "controller"=>"admin/categories"}
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mCategory Load (0.6ms)[0m   [0mSELECT * FROM "categories" ORDER BY name[0m
+Rendering template within layouts/admin
+Rendering admin/categories/index
+  [4;36;1mMeeting Load (0.5ms)[0m   [0;1mSELECT * FROM "meetings" WHERE (date < '2011-02-15' AND date >= '2011-02-08') ORDER BY date[0m
+  [4;35;1mVideo Load (0.4ms)[0m   [0mSELECT * FROM "videos" WHERE (created_at > '2011-02-01') ORDER BY created_at DESC[0m
+Completed in 43ms (View: 18, DB: 2) | 200 OK [http://localhost/admin/categories]
+
+
+Processing Admin::CategoriesController#new (for 127.0.0.1 at 2011-02-08 15:30:49) [GET]
+  Parameters: {"action"=>"new", "controller"=>"admin/categories"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+Rendering template within layouts/admin
+Rendering admin/categories/new
+  [4;36;1mMeeting Load (0.5ms)[0m   [0;1mSELECT * FROM "meetings" WHERE (date < '2011-02-15' AND date >= '2011-02-08') ORDER BY date[0m
+  [4;35;1mVideo Load (0.4ms)[0m   [0mSELECT * FROM "videos" WHERE (created_at > '2011-02-01') ORDER BY created_at DESC[0m
+Completed in 41ms (View: 16, DB: 1) | 200 OK [http://localhost/admin/categories/new]
+
+
+Processing Admin::CategoriesController#new (for 127.0.0.1 at 2011-02-08 15:31:18) [GET]
+  Parameters: {"action"=>"new", "controller"=>"admin/categories"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+Rendering template within layouts/admin
+Rendering admin/categories/new
+  [4;36;1mMeeting Load (0.5ms)[0m   [0;1mSELECT * FROM "meetings" WHERE (date < '2011-02-15' AND date >= '2011-02-08') ORDER BY date[0m
+  [4;35;1mVideo Load (0.6ms)[0m   [0mSELECT * FROM "videos" WHERE (created_at > '2011-02-01') ORDER BY created_at DESC[0m
+Completed in 99ms (View: 75, DB: 1) | 200 OK [http://localhost/admin/categories/new]
+
+
+Processing Admin::CategoriesController#index (for 127.0.0.1 at 2011-02-08 15:31:23) [GET]
+  Parameters: {"action"=>"index", "controller"=>"admin/categories"}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;36;1mCategory Load (0.6ms)[0m   [0;1mSELECT * FROM "categories" ORDER BY name[0m
+Rendering template within layouts/admin
+Rendering admin/categories/index
+  [4;35;1mMeeting Load (0.4ms)[0m   [0mSELECT * FROM "meetings" WHERE (date < '2011-02-15' AND date >= '2011-02-08') ORDER BY date[0m
+  [4;36;1mVideo Load (0.5ms)[0m   [0;1mSELECT * FROM "videos" WHERE (created_at > '2011-02-01') ORDER BY created_at DESC[0m
+Completed in 40ms (View: 15, DB: 2) | 200 OK [http://localhost/admin/categories]
+
+
+Processing Admin::CategoriesController#edit (for 127.0.0.1 at 2011-02-08 15:31:24) [GET]
+  Parameters: {"action"=>"edit", "id"=>"4-behavior", "controller"=>"admin/categories"}
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mCategory Load (0.2ms)[0m   [0mSELECT * FROM "categories" WHERE ("categories"."id" = 4) ORDER BY name[0m
+Rendering template within layouts/admin
+Rendering admin/categories/edit
+Rendered admin/categories/_form (1.5ms)
+  [4;36;1mMeeting Load (0.5ms)[0m   [0;1mSELECT * FROM "meetings" WHERE (date < '2011-02-15' AND date >= '2011-02-08') ORDER BY date[0m
+  [4;35;1mVideo Load (0.4ms)[0m   [0mSELECT * FROM "videos" WHERE (created_at > '2011-02-01') ORDER BY created_at DESC[0m
+Completed in 42ms (View: 16, DB: 1) | 200 OK [http://localhost/admin/categories/4-behavior/edit]
+
+
+Processing Admin::CategoriesController#index (for 127.0.0.1 at 2011-02-08 15:32:18) [GET]
+  Parameters: {"action"=>"index", "controller"=>"admin/categories"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;36;1mCategory Load (0.6ms)[0m   [0;1mSELECT * FROM "categories" ORDER BY name[0m
+Rendering template within layouts/admin
+Rendering admin/categories/index
+  [4;35;1mMeeting Load (0.4ms)[0m   [0mSELECT * FROM "meetings" WHERE (date < '2011-02-15' AND date >= '2011-02-08') ORDER BY date[0m
+  [4;36;1mVideo Load (0.4ms)[0m   [0;1mSELECT * FROM "videos" WHERE (created_at > '2011-02-01') ORDER BY created_at DESC[0m
+Completed in 40ms (View: 15, DB: 2) | 200 OK [http://localhost/admin/categories]
+
+
+Processing Admin::CategoriesController#new (for 127.0.0.1 at 2011-02-08 15:32:20) [GET]
+  Parameters: {"action"=>"new", "controller"=>"admin/categories"}
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+Rendering template within layouts/admin
+Rendering admin/categories/new
+  [4;35;1mMeeting Load (0.5ms)[0m   [0mSELECT * FROM "meetings" WHERE (date < '2011-02-15' AND date >= '2011-02-08') ORDER BY date[0m
+  [4;36;1mVideo Load (0.4ms)[0m   [0;1mSELECT * FROM "videos" WHERE (created_at > '2011-02-01') ORDER BY created_at DESC[0m
+Completed in 38ms (View: 14, DB: 1) | 200 OK [http://localhost/admin/categories/new]
+
+
+Processing Admin::CategoriesController#new (for 127.0.0.1 at 2011-02-08 15:33:25) [GET]
+  Parameters: {"action"=>"new", "controller"=>"admin/categories"}
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+Rendering template within layouts/admin
+Rendering admin/categories/new
+  [4;35;1mMeeting Load (0.5ms)[0m   [0mSELECT * FROM "meetings" WHERE (date < '2011-02-15' AND date >= '2011-02-08') ORDER BY date[0m
+  [4;36;1mVideo Load (0.4ms)[0m   [0;1mSELECT * FROM "videos" WHERE (created_at > '2011-02-01') ORDER BY created_at DESC[0m
+Completed in 97ms (View: 14, DB: 1) | 200 OK [http://localhost/admin/categories/new]
+
+
+Processing Admin::CategoriesController#new (for 127.0.0.1 at 2011-02-08 15:34:06) [GET]
+  Parameters: {"action"=>"new", "controller"=>"admin/categories"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+Rendering template within layouts/admin
+Rendering admin/categories/new
+ERROR: compiling _run_erb_app47views47admin47categories47new46html46erb RAISED compile error
+/Users/kwiest2000/Sites/Teacher-Ducklings/app/views/admin/categories/new.html.erb:3: syntax error, unexpected ')'
+...e_form_for(@category) do |f| ).to_s); @output_buffer.concat ...
+                              ^
+/Users/kwiest2000/Sites/Teacher-Ducklings/app/views/admin/categories/new.html.erb:9: syntax error, unexpected kENSURE, expecting ')'
+/Users/kwiest2000/Sites/Teacher-Ducklings/app/views/admin/categories/new.html.erb:11: syntax error, unexpected kEND, expecting ')'
+Function body:           def _run_erb_app47views47admin47categories47new46html46erb(local_assigns)
+            old_output_buffer = output_buffer;;@output_buffer = '';  __in_erb_template=true ; @output_buffer.concat "<h1>New category</h1>\n\n"
+
+; @output_buffer.concat(( simple_form_for(@category) do |f| ).to_s); @output_buffer.concat "\n\t"
+; @output_buffer.concat(( render 'form', :f => f ).to_s); @output_buffer.concat "\n\t"
+; @output_buffer.concat(( f.button :submit, 'Save category' ).to_s); @output_buffer.concat "\n"
+;  end ; @output_buffer.concat "\n\n"
+
+; @output_buffer.concat(( link_to 'Back', categories_path ).to_s); @output_buffer
+          ensure
+            self.output_buffer = old_output_buffer
+          end
+Backtrace: /Users/kwiest2000/Sites/Teacher-Ducklings/app/views/admin/categories/new.html.erb:11:in `compile!'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_view/renderable.rb:61:in `compile'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_view/renderable.rb:28:in `render'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_view/template.rb:205:in `render_template'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_view/base.rb:265:in `render'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_view/base.rb:348:in `_render_with_layout'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_view/base.rb:262:in `render'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/base.rb:1252:in `render_for_file'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/base.rb:936:in `render_without_benchmark'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/benchmarking.rb:51:in `render'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/activesupport-2.3.10/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/activesupport-2.3.10/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/benchmarking.rb:51:in `render'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/base.rb:1328:in `default_render'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/base.rb:1334:in `perform_action_without_filters'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/filters.rb:617:in `call_filters'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/activesupport-2.3.10/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/activesupport-2.3.10/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/rescue.rb:160:in `perform_action_without_flash'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/flash.rb:151:in `perform_action'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/base.rb:532:in `send'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/base.rb:532:in `process_without_filters'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/filters.rb:606:in `process'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/base.rb:391:in `process'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/base.rb:386:in `call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/routing/route_set.rb:438:in `call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/dispatcher.rb:87:in `dispatch'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/dispatcher.rb:121:in `_call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/dispatcher.rb:130:in `build_middleware_stack'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/activerecord-2.3.10/lib/active_record/query_cache.rb:29:in `call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/activerecord-2.3.10/lib/active_record/query_cache.rb:29:in `call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/activerecord-2.3.10/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/activerecord-2.3.10/lib/active_record/query_cache.rb:9:in `cache'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/activerecord-2.3.10/lib/active_record/query_cache.rb:28:in `call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/activerecord-2.3.10/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+/Users/kwiest2000/Sites/Teacher-Ducklings/lib/flash_session_cookie_middleware.rb:19:in `call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/string_coercion.rb:25:in `call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/rack-1.1.0/lib/rack/head.rb:9:in `call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/rack-1.1.0/lib/rack/methodoverride.rb:24:in `call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/params_parser.rb:15:in `call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/session/cookie_store.rb:100:in `call'
+/Users/kwiest2000/Sites/Teacher-Ducklings/lib/flash_session_cookie_middleware.rb:19:in `call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/failsafe.rb:26:in `call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/rack-1.1.0/lib/rack/lock.rb:11:in `call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/rack-1.1.0/lib/rack/lock.rb:11:in `synchronize'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/rack-1.1.0/lib/rack/lock.rb:11:in `call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/dispatcher.rb:114:in `call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/reloader.rb:34:in `run'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/dispatcher.rb:108:in `call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/rails-2.3.10/lib/rails/rack/static.rb:31:in `call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/rack-1.1.0/lib/rack/urlmap.rb:47:in `call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/rack-1.1.0/lib/rack/urlmap.rb:41:in `each'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/rack-1.1.0/lib/rack/urlmap.rb:41:in `call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/rails-2.3.10/lib/rails/rack/log_tailer.rb:17:in `call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/rack-1.1.0/lib/rack/content_length.rb:13:in `call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/rack-1.1.0/lib/rack/handler/webrick.rb:48:in `service'
+/Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+/Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+/Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+/Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:162:in `start'
+/Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+/Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:95:in `start'
+/Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:92:in `each'
+/Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:92:in `start'
+/Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:23:in `start'
+/Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:82:in `start'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/rack-1.1.0/lib/rack/handler/webrick.rb:14:in `run'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/rails-2.3.10/lib/commands/server.rb:111
+/Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:29:in `gem_original_require'
+/Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:29:in `require'
+script/server:3
+
+ActionView::TemplateError (compile error
+/Users/kwiest2000/Sites/Teacher-Ducklings/app/views/admin/categories/new.html.erb:3: syntax error, unexpected ')'
+...e_form_for(@category) do |f| ).to_s); @output_buffer.concat ...
+                              ^
+/Users/kwiest2000/Sites/Teacher-Ducklings/app/views/admin/categories/new.html.erb:9: syntax error, unexpected kENSURE, expecting ')'
+/Users/kwiest2000/Sites/Teacher-Ducklings/app/views/admin/categories/new.html.erb:11: syntax error, unexpected kEND, expecting ')') on line #3 of app/views/admin/categories/new.html.erb:
+1: <h1>New category</h1>
+2: 
+3: <%= simple_form_for(@category) do |f| %>
+4: 	<%= render 'form', :f => f %>
+5: 	<%= f.button :submit, 'Save category' %>
+6: <% end %>
+
+    app/views/admin/categories/new.html.erb:11:in `compile!'
+    lib/flash_session_cookie_middleware.rb:19:in `call'
+    lib/flash_session_cookie_middleware.rb:19:in `call'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (40.5ms)
+Rendered rescues/_request_and_response (1.1ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing Admin::CategoriesController#new (for 127.0.0.1 at 2011-02-08 15:34:18) [GET]
+  Parameters: {"action"=>"new", "controller"=>"admin/categories"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+Rendering template within layouts/admin
+Rendering admin/categories/new
+Rendered admin/categories/_form (1.8ms)
+  [4;35;1mMeeting Load (0.5ms)[0m   [0mSELECT * FROM "meetings" WHERE (date < '2011-02-15' AND date >= '2011-02-08') ORDER BY date[0m
+  [4;36;1mVideo Load (0.4ms)[0m   [0;1mSELECT * FROM "videos" WHERE (created_at > '2011-02-01') ORDER BY created_at DESC[0m
+Completed in 41ms (View: 18, DB: 1) | 200 OK [http://localhost/admin/categories/new]
+
+
+Processing Admin::CategoriesController#new (for 127.0.0.1 at 2011-02-08 15:35:19) [GET]
+  Parameters: {"action"=>"new", "controller"=>"admin/categories"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+Rendering template within layouts/admin
+Rendering admin/categories/new
+Rendered admin/categories/_form (1.9ms)
+  [4;35;1mMeeting Load (0.5ms)[0m   [0mSELECT * FROM "meetings" WHERE (date < '2011-02-15' AND date >= '2011-02-08') ORDER BY date[0m
+  [4;36;1mVideo Load (0.4ms)[0m   [0;1mSELECT * FROM "videos" WHERE (created_at > '2011-02-01') ORDER BY created_at DESC[0m
+Completed in 39ms (View: 15, DB: 1) | 200 OK [http://localhost/admin/categories/new]
+
+
+Processing Admin::CategoriesController#new (for 127.0.0.1 at 2011-02-08 15:37:35) [GET]
+  Parameters: {"action"=>"new", "controller"=>"admin/categories"}
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+Rendering template within layouts/admin
+Rendering admin/categories/new
+Rendered admin/categories/_form (1.8ms)
+  [4;35;1mMeeting Load (0.5ms)[0m   [0mSELECT * FROM "meetings" WHERE (date < '2011-02-15' AND date >= '2011-02-08') ORDER BY date[0m
+  [4;36;1mVideo Load (0.4ms)[0m   [0;1mSELECT * FROM "videos" WHERE (created_at > '2011-02-01') ORDER BY created_at DESC[0m
+Completed in 39ms (View: 15, DB: 1) | 200 OK [http://localhost/admin/categories/new]
+
+
+Processing Admin::CategoriesController#new (for 127.0.0.1 at 2011-02-08 15:39:00) [GET]
+  Parameters: {"action"=>"new", "controller"=>"admin/categories"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+Rendering template within layouts/admin
+Rendering admin/categories/new
+Rendered admin/categories/_form (1.8ms)
+  [4;35;1mMeeting Load (0.5ms)[0m   [0mSELECT * FROM "meetings" WHERE (date < '2011-02-15' AND date >= '2011-02-08') ORDER BY date[0m
+  [4;36;1mVideo Load (0.4ms)[0m   [0;1mSELECT * FROM "videos" WHERE (created_at > '2011-02-01') ORDER BY created_at DESC[0m
+Completed in 42ms (View: 18, DB: 1) | 200 OK [http://localhost/admin/categories/new]
+^C[2011-02-08 15:41:47] INFO  going to shutdown ...
+[2011-02-08 15:41:47] INFO  WEBrick::HTTPServer#start done.
+Exiting
+[[1;37mkwiest2000[0m@kyle-wiests-macbook-pro]:~/sites/Teacher-Ducklings [1;34m[git:master+?] [0m$ script/server
+=> Booting WEBrick
+=> Rails 2.3.10 application starting on http://0.0.0.0:3000
+/Users/kwiest2000/Sites/Teacher-Ducklings/config/initializers/simple_form.rb:38: undefined method `default_input_size=' for SimpleForm:Module (NoMethodError)
+	from /Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/simple_form-1.0.2/lib/simple_form.rb:55:in `setup'
+	from /Users/kwiest2000/Sites/Teacher-Ducklings/config/initializers/simple_form.rb:2
+	from /Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/activesupport-2.3.10/lib/active_support/dependencies.rb:171:in `load_without_new_constant_marking'
+	from /Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/activesupport-2.3.10/lib/active_support/dependencies.rb:171:in `load'
+	from /Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/activesupport-2.3.10/lib/active_support/dependencies.rb:547:in `new_constants_in'
+	from /Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/activesupport-2.3.10/lib/active_support/dependencies.rb:171:in `load'
+	from /Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/rails-2.3.10/lib/initializer.rb:622:in `load_application_initializers'
+	from /Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/rails-2.3.10/lib/initializer.rb:621:in `each'
+	from /Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/rails-2.3.10/lib/initializer.rb:621:in `load_application_initializers'
+	from /Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/rails-2.3.10/lib/initializer.rb:176:in `process'
+	from /Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/rails-2.3.10/lib/initializer.rb:113:in `send'
+	from /Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/rails-2.3.10/lib/initializer.rb:113:in `run'
+	from /Users/kwiest2000/Sites/Teacher-Ducklings/config/environment.rb:9
+	from /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:29:in `gem_original_require'
+	from /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:29:in `require'
+	from /Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/activesupport-2.3.10/lib/active_support/dependencies.rb:182:in `require'
+	from /Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/activesupport-2.3.10/lib/active_support/dependencies.rb:547:in `new_constants_in'
+	from /Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/activesupport-2.3.10/lib/active_support/dependencies.rb:182:in `require'
+	from /Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/rails-2.3.10/lib/commands/server.rb:84
+	from /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:29:in `gem_original_require'
+	from /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:29:in `require'
+	from script/server:3
+[[1;37mkwiest2000[0m@kyle-wiests-macbook-pro]:~/sites/Teacher-Ducklings [1;34m[git:master+?] [0m$ script/server
+=> Booting WEBrick
+=> Rails 2.3.10 application starting on http://0.0.0.0:3000
+=> Call with -d to detach
+=> Ctrl-C to shutdown server
+[2011-02-08 15:48:05] INFO  WEBrick 1.3.1
+[2011-02-08 15:48:05] INFO  ruby 1.8.7 (2010-04-19) [i686-darwin9.8.0]
+[2011-02-08 15:48:05] INFO  WEBrick::HTTPServer#start: pid=34499 port=3000
+
+
+Processing Admin::CategoriesController#new (for 127.0.0.1 at 2011-02-08 15:48:15) [GET]
+  Parameters: {"action"=>"new", "controller"=>"admin/categories"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+Rendering template within layouts/admin
+Rendering admin/categories/new
+Rendered admin/categories/_form (2.6ms)
+  [4;36;1mMeeting Load (0.6ms)[0m   [0;1mSELECT * FROM "meetings" WHERE (date < '2011-02-15' AND date >= '2011-02-08') ORDER BY date[0m
+  [4;35;1mVideo Load (0.5ms)[0m   [0mSELECT * FROM "videos" WHERE (created_at > '2011-02-01') ORDER BY created_at DESC[0m
+Completed in 167ms (View: 133, DB: 2) | 200 OK [http://localhost/admin/categories/new]
+
+
+Processing Admin::CategoriesController#new (for 127.0.0.1 at 2011-02-08 15:48:18) [GET]
+  Parameters: {"action"=>"new", "controller"=>"admin/categories"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+Rendering template within layouts/admin
+Rendering admin/categories/new
+Rendered admin/categories/_form (1.8ms)
+  [4;36;1mMeeting Load (0.5ms)[0m   [0;1mSELECT * FROM "meetings" WHERE (date < '2011-02-15' AND date >= '2011-02-08') ORDER BY date[0m
+  [4;35;1mVideo Load (0.5ms)[0m   [0mSELECT * FROM "videos" WHERE (created_at > '2011-02-01') ORDER BY created_at DESC[0m
+Completed in 39ms (View: 16, DB: 1) | 200 OK [http://localhost/admin/categories/new]
+
+
+Processing Admin::CategoriesController#new (for 127.0.0.1 at 2011-02-08 15:48:29) [GET]
+  Parameters: {"action"=>"new", "controller"=>"admin/categories"}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+Rendering template within layouts/admin
+Rendering admin/categories/new
+Rendered admin/categories/_form (2.6ms)
+  [4;36;1mMeeting Load (0.5ms)[0m   [0;1mSELECT * FROM "meetings" WHERE (date < '2011-02-15' AND date >= '2011-02-08') ORDER BY date[0m
+  [4;35;1mVideo Load (0.4ms)[0m   [0mSELECT * FROM "videos" WHERE (created_at > '2011-02-01') ORDER BY created_at DESC[0m
+Completed in 42ms (View: 18, DB: 1) | 200 OK [http://localhost/admin/categories/new]
+
+
+Processing Admin::CategoriesController#new (for 127.0.0.1 at 2011-02-08 15:48:52) [GET]
+  Parameters: {"action"=>"new", "controller"=>"admin/categories"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+Rendering template within layouts/admin
+Rendering admin/categories/new
+Rendered admin/categories/_form (2.3ms)
+  [4;36;1mMeeting Load (0.5ms)[0m   [0;1mSELECT * FROM "meetings" WHERE (date < '2011-02-15' AND date >= '2011-02-08') ORDER BY date[0m
+  [4;35;1mVideo Load (0.4ms)[0m   [0mSELECT * FROM "videos" WHERE (created_at > '2011-02-01') ORDER BY created_at DESC[0m
+Completed in 44ms (View: 19, DB: 1) | 200 OK [http://localhost/admin/categories/new]
+
+
+Processing Admin::CategoriesController#new (for 127.0.0.1 at 2011-02-08 15:49:52) [GET]
+  Parameters: {"action"=>"new", "controller"=>"admin/categories"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+Rendering template within layouts/admin
+Rendering admin/categories/new
+Rendered admin/categories/_form (1.8ms)
+  [4;36;1mMeeting Load (0.5ms)[0m   [0;1mSELECT * FROM "meetings" WHERE (date < '2011-02-15' AND date >= '2011-02-08') ORDER BY date[0m
+  [4;35;1mVideo Load (0.4ms)[0m   [0mSELECT * FROM "videos" WHERE (created_at > '2011-02-01') ORDER BY created_at DESC[0m
+Completed in 39ms (View: 15, DB: 1) | 200 OK [http://localhost/admin/categories/new]
+
+
+Processing Admin::CategoriesController#new (for 127.0.0.1 at 2011-02-08 15:50:49) [GET]
+  Parameters: {"action"=>"new", "controller"=>"admin/categories"}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+Rendering template within layouts/admin
+Rendering admin/categories/new
+Rendered admin/categories/_form (1.9ms)
+  [4;36;1mMeeting Load (0.5ms)[0m   [0;1mSELECT * FROM "meetings" WHERE (date < '2011-02-15' AND date >= '2011-02-08') ORDER BY date[0m
+  [4;35;1mVideo Load (0.4ms)[0m   [0mSELECT * FROM "videos" WHERE (created_at > '2011-02-01') ORDER BY created_at DESC[0m
+Completed in 91ms (View: 16, DB: 1) | 200 OK [http://localhost/admin/categories/new]
+
+
+Processing Admin::CategoriesController#new (for 127.0.0.1 at 2011-02-08 15:51:02) [GET]
+  Parameters: {"action"=>"new", "controller"=>"admin/categories"}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+Rendering template within layouts/admin
+Rendering admin/categories/new
+Rendered admin/categories/_form (1.8ms)
+  [4;36;1mMeeting Load (0.5ms)[0m   [0;1mSELECT * FROM "meetings" WHERE (date < '2011-02-15' AND date >= '2011-02-08') ORDER BY date[0m
+  [4;35;1mVideo Load (0.5ms)[0m   [0mSELECT * FROM "videos" WHERE (created_at > '2011-02-01') ORDER BY created_at DESC[0m
+Completed in 39ms (View: 15, DB: 1) | 200 OK [http://localhost/admin/categories/new]
+
+
+Processing Admin::CategoriesController#new (for 127.0.0.1 at 2011-02-08 15:51:26) [GET]
+  Parameters: {"action"=>"new", "controller"=>"admin/categories"}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+Rendering template within layouts/admin
+Rendering admin/categories/new
+Rendered admin/categories/_form (1.8ms)
+  [4;36;1mMeeting Load (0.5ms)[0m   [0;1mSELECT * FROM "meetings" WHERE (date < '2011-02-15' AND date >= '2011-02-08') ORDER BY date[0m
+  [4;35;1mVideo Load (0.4ms)[0m   [0mSELECT * FROM "videos" WHERE (created_at > '2011-02-01') ORDER BY created_at DESC[0m
+Completed in 38ms (View: 15, DB: 1) | 200 OK [http://localhost/admin/categories/new]
+
+
+Processing Admin::CategoriesController#new (for 127.0.0.1 at 2011-02-08 15:51:39) [GET]
+  Parameters: {"action"=>"new", "controller"=>"admin/categories"}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+Rendering template within layouts/admin
+Rendering admin/categories/new
+Rendered admin/categories/_form (1.8ms)
+  [4;36;1mMeeting Load (0.5ms)[0m   [0;1mSELECT * FROM "meetings" WHERE (date < '2011-02-15' AND date >= '2011-02-08') ORDER BY date[0m
+  [4;35;1mVideo Load (0.5ms)[0m   [0mSELECT * FROM "videos" WHERE (created_at > '2011-02-01') ORDER BY created_at DESC[0m
+Completed in 39ms (View: 15, DB: 1) | 200 OK [http://localhost/admin/categories/new]
+
+
+Processing Admin::CategoriesController#new (for 127.0.0.1 at 2011-02-08 15:51:46) [GET]
+  Parameters: {"action"=>"new", "controller"=>"admin/categories"}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+Rendering template within layouts/admin
+Rendering admin/categories/new
+Rendered admin/categories/_form (1.8ms)
+  [4;36;1mMeeting Load (0.5ms)[0m   [0;1mSELECT * FROM "meetings" WHERE (date < '2011-02-15' AND date >= '2011-02-08') ORDER BY date[0m
+  [4;35;1mVideo Load (0.4ms)[0m   [0mSELECT * FROM "videos" WHERE (created_at > '2011-02-01') ORDER BY created_at DESC[0m
+Completed in 92ms (View: 15, DB: 1) | 200 OK [http://localhost/admin/categories/new]
+
+
+Processing Admin::CategoriesController#new (for 127.0.0.1 at 2011-02-08 15:51:56) [GET]
+  Parameters: {"action"=>"new", "controller"=>"admin/categories"}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+Rendering template within layouts/admin
+Rendering admin/categories/new
+Rendered admin/categories/_form (2.0ms)
+  [4;36;1mMeeting Load (0.7ms)[0m   [0;1mSELECT * FROM "meetings" WHERE (date < '2011-02-15' AND date >= '2011-02-08') ORDER BY date[0m
+  [4;35;1mVideo Load (0.4ms)[0m   [0mSELECT * FROM "videos" WHERE (created_at > '2011-02-01') ORDER BY created_at DESC[0m
+Completed in 92ms (View: 68, DB: 1) | 200 OK [http://localhost/admin/categories/new]
+
+
+Processing Admin::CategoriesController#new (for 127.0.0.1 at 2011-02-08 15:52:09) [GET]
+  Parameters: {"action"=>"new", "controller"=>"admin/categories"}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+Rendering template within layouts/admin
+Rendering admin/categories/new
+Rendered admin/categories/_form (1.8ms)
+  [4;36;1mMeeting Load (0.5ms)[0m   [0;1mSELECT * FROM "meetings" WHERE (date < '2011-02-15' AND date >= '2011-02-08') ORDER BY date[0m
+  [4;35;1mVideo Load (0.4ms)[0m   [0mSELECT * FROM "videos" WHERE (created_at > '2011-02-01') ORDER BY created_at DESC[0m
+Completed in 39ms (View: 15, DB: 1) | 200 OK [http://localhost/admin/categories/new]
+
+
+Processing Admin::CategoriesController#new (for 127.0.0.1 at 2011-02-08 15:52:29) [GET]
+  Parameters: {"action"=>"new", "controller"=>"admin/categories"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+Rendering template within layouts/admin
+Rendering admin/categories/new
+ERROR: compiling _run_erb_app47views47admin47categories47_form46html46erb_locals_f_form_object RAISED compile error
+/Users/kwiest2000/Sites/Teacher-Ducklings/app/views/admin/categories/_form.html.erb:5: syntax error, unexpected kENSURE, expecting $end
+Function body:           def _run_erb_app47views47admin47categories47_form46html46erb_locals_f_form_object(local_assigns)
+            old_output_buffer = output_buffer;object = local_assigns[:object];form = local_assigns[:form];f = local_assigns[:f];;@output_buffer = '';  __in_erb_template=true ; @output_buffer.concat(( f.error_messages ).to_s); @output_buffer.concat "\n"
+; @output_buffer.concat(( fieldset ).to_s); @output_buffer.concat "\n\t"
+; @output_buffer.concat(( f.input :name, :input_html => { :size => 40 } ).to_s); @output_buffer.concat "\n"
+;  end ; @output_buffer
+          ensure
+            self.output_buffer = old_output_buffer
+          end
+Backtrace: /Users/kwiest2000/Sites/Teacher-Ducklings/app/views/admin/categories/_form.html.erb:5:in `compile!'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_view/renderable.rb:61:in `compile'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_view/renderable.rb:28:in `render'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_view/renderable_partial.rb:20:in `render'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/benchmarking.rb:26:in `benchmark'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/activesupport-2.3.10/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/activesupport-2.3.10/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/benchmarking.rb:26:in `benchmark'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_view/renderable_partial.rb:19:in `render'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_view/template.rb:205:in `render_template'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_view/renderable_partial.rb:44:in `render_partial'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_view/partials.rb:184:in `render_partial'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_view/base.rb:276:in `render'
+/Users/kwiest2000/Sites/Teacher-Ducklings/app/views/admin/categories/new.html.erb:4:in `_run_erb_app47views47admin47categories47new46html46erb'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_view/helpers/form_helper.rb:499:in `fields_for'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_view/helpers/form_helper.rb:282:in `form_for'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/simple_form-1.0.2/lib/simple_form/action_view_extensions/form_helper.rb:24:in `simple_form_for'
+/Users/kwiest2000/Sites/Teacher-Ducklings/app/views/admin/categories/new.html.erb:3:in `_run_erb_app47views47admin47categories47new46html46erb'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_view/renderable.rb:34:in `send'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_view/renderable.rb:34:in `render'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_view/base.rb:306:in `with_template'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_view/renderable.rb:30:in `render'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_view/template.rb:205:in `render_template'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_view/base.rb:265:in `render'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_view/base.rb:348:in `_render_with_layout'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_view/base.rb:262:in `render'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/base.rb:1252:in `render_for_file'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/base.rb:936:in `render_without_benchmark'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/benchmarking.rb:51:in `render'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/activesupport-2.3.10/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/activesupport-2.3.10/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/benchmarking.rb:51:in `render'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/base.rb:1328:in `default_render'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/base.rb:1334:in `perform_action_without_filters'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/filters.rb:617:in `call_filters'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/activesupport-2.3.10/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/activesupport-2.3.10/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/rescue.rb:160:in `perform_action_without_flash'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/flash.rb:151:in `perform_action'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/base.rb:532:in `send'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/base.rb:532:in `process_without_filters'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/filters.rb:606:in `process'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/base.rb:391:in `process'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/base.rb:386:in `call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/routing/route_set.rb:438:in `call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/dispatcher.rb:87:in `dispatch'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/dispatcher.rb:121:in `_call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/dispatcher.rb:130:in `build_middleware_stack'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/activerecord-2.3.10/lib/active_record/query_cache.rb:29:in `call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/activerecord-2.3.10/lib/active_record/query_cache.rb:29:in `call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/activerecord-2.3.10/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/activerecord-2.3.10/lib/active_record/query_cache.rb:9:in `cache'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/activerecord-2.3.10/lib/active_record/query_cache.rb:28:in `call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/activerecord-2.3.10/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+/Users/kwiest2000/Sites/Teacher-Ducklings/lib/flash_session_cookie_middleware.rb:19:in `call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/string_coercion.rb:25:in `call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/rack-1.1.0/lib/rack/head.rb:9:in `call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/rack-1.1.0/lib/rack/methodoverride.rb:24:in `call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/params_parser.rb:15:in `call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/session/cookie_store.rb:100:in `call'
+/Users/kwiest2000/Sites/Teacher-Ducklings/lib/flash_session_cookie_middleware.rb:19:in `call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/failsafe.rb:26:in `call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/rack-1.1.0/lib/rack/lock.rb:11:in `call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/rack-1.1.0/lib/rack/lock.rb:11:in `synchronize'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/rack-1.1.0/lib/rack/lock.rb:11:in `call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/dispatcher.rb:114:in `call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/reloader.rb:34:in `run'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/dispatcher.rb:108:in `call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/rails-2.3.10/lib/rails/rack/static.rb:31:in `call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/rack-1.1.0/lib/rack/urlmap.rb:47:in `call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/rack-1.1.0/lib/rack/urlmap.rb:41:in `each'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/rack-1.1.0/lib/rack/urlmap.rb:41:in `call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/rails-2.3.10/lib/rails/rack/log_tailer.rb:17:in `call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/rack-1.1.0/lib/rack/content_length.rb:13:in `call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/rack-1.1.0/lib/rack/handler/webrick.rb:48:in `service'
+/Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+/Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+/Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+/Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:162:in `start'
+/Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+/Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:95:in `start'
+/Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:92:in `each'
+/Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:92:in `start'
+/Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:23:in `start'
+/Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:82:in `start'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/rack-1.1.0/lib/rack/handler/webrick.rb:14:in `run'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/rails-2.3.10/lib/commands/server.rb:111
+/Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:29:in `gem_original_require'
+/Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:29:in `require'
+script/server:3
+
+ActionView::TemplateError (compile error
+/Users/kwiest2000/Sites/Teacher-Ducklings/app/views/admin/categories/_form.html.erb:5: syntax error, unexpected kENSURE, expecting $end) on line #5 of app/views/admin/categories/_form.html.erb:
+2: <%= fieldset %>
+3: 	<%= f.input :name, :input_html => { :size => 40 } %>
+4: <% end %>
+
+    app/views/admin/categories/_form.html.erb:5:in `compile!'
+    app/views/admin/categories/new.html.erb:4
+    /Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/simple_form-1.0.2/lib/simple_form/action_view_extensions/form_helper.rb:24:in `simple_form_for'
+    app/views/admin/categories/new.html.erb:3
+    lib/flash_session_cookie_middleware.rb:19:in `call'
+    lib/flash_session_cookie_middleware.rb:19:in `call'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (107.8ms)
+Rendered rescues/_request_and_response (1.1ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing Admin::CategoriesController#new (for 127.0.0.1 at 2011-02-08 15:52:42) [GET]
+  Parameters: {"action"=>"new", "controller"=>"admin/categories"}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+Rendering template within layouts/admin
+Rendering admin/categories/new
+Rendered admin/categories/_form (2.1ms)
+  [4;36;1mMeeting Load (0.6ms)[0m   [0;1mSELECT * FROM "meetings" WHERE (date < '2011-02-15' AND date >= '2011-02-08') ORDER BY date[0m
+  [4;35;1mVideo Load (0.4ms)[0m   [0mSELECT * FROM "videos" WHERE (created_at > '2011-02-01') ORDER BY created_at DESC[0m
+Completed in 41ms (View: 18, DB: 1) | 200 OK [http://localhost/admin/categories/new]
+
+
+Processing Admin::CategoriesController#new (for 127.0.0.1 at 2011-02-08 15:53:17) [GET]
+  Parameters: {"action"=>"new", "controller"=>"admin/categories"}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+Rendering template within layouts/admin
+Rendering admin/categories/new
+Rendered admin/categories/_form (1.8ms)
+  [4;36;1mMeeting Load (0.5ms)[0m   [0;1mSELECT * FROM "meetings" WHERE (date < '2011-02-15' AND date >= '2011-02-08') ORDER BY date[0m
+  [4;35;1mVideo Load (0.4ms)[0m   [0mSELECT * FROM "videos" WHERE (created_at > '2011-02-01') ORDER BY created_at DESC[0m
+Completed in 38ms (View: 15, DB: 1) | 200 OK [http://localhost/admin/categories/new]
+
+
+Processing Admin::CategoriesController#new (for 127.0.0.1 at 2011-02-08 15:53:53) [GET]
+  Parameters: {"action"=>"new", "controller"=>"admin/categories"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+Rendering template within layouts/admin
+Rendering admin/categories/new
+Rendered admin/categories/_form (2.1ms)
+  [4;36;1mMeeting Load (0.5ms)[0m   [0;1mSELECT * FROM "meetings" WHERE (date < '2011-02-15' AND date >= '2011-02-08') ORDER BY date[0m
+  [4;35;1mVideo Load (0.4ms)[0m   [0mSELECT * FROM "videos" WHERE (created_at > '2011-02-01') ORDER BY created_at DESC[0m
+Completed in 97ms (View: 20, DB: 1) | 200 OK [http://localhost/admin/categories/new]
+
+
+Processing Admin::CategoriesController#new (for 127.0.0.1 at 2011-02-08 15:54:08) [GET]
+  Parameters: {"action"=>"new", "controller"=>"admin/categories"}
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+Rendering template within layouts/admin
+Rendering admin/categories/new
+Rendered admin/categories/_form (1.9ms)
+  [4;36;1mMeeting Load (0.5ms)[0m   [0;1mSELECT * FROM "meetings" WHERE (date < '2011-02-15' AND date >= '2011-02-08') ORDER BY date[0m
+  [4;35;1mVideo Load (0.4ms)[0m   [0mSELECT * FROM "videos" WHERE (created_at > '2011-02-01') ORDER BY created_at DESC[0m
+Completed in 94ms (View: 71, DB: 1) | 200 OK [http://localhost/admin/categories/new]
+
+
+Processing CategoriesController#create (for 127.0.0.1 at 2011-02-08 15:54:34) [POST]
+  Parameters: {"category"=>{"name"=>""}, "commit"=>"Save category", "action"=>"create", "authenticity_token"=>"RlmTmlzmQKkUkc/JU5DjU8wRRZEAZhPSJkHwuhZLE64=", "controller"=>"categories"}
+
+NoMethodError (undefined method `admin_required' for #<CategoriesController:0x2d0b554>):
+  lib/flash_session_cookie_middleware.rb:19:in `call'
+  lib/flash_session_cookie_middleware.rb:19:in `call'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (32.3ms)
+Rendered rescues/_request_and_response (0.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing Admin::CategoriesController#new (for 127.0.0.1 at 2011-02-08 15:54:49) [GET]
+  Parameters: {"action"=>"new", "controller"=>"admin/categories"}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+Rendering template within layouts/admin
+Rendering admin/categories/new
+ERROR: compiling _run_erb_app47views47admin47categories47new46html46erb RAISED compile error
+/Users/kwiest2000/Sites/Teacher-Ducklings/app/views/admin/categories/new.html.erb:3: syntax error, unexpected ',', expecting kEND
+;  simple_form_for(@category), :path => admin_categories_pat...
+                              ^
+Function body:           def _run_erb_app47views47admin47categories47new46html46erb(local_assigns)
+            old_output_buffer = output_buffer;;@output_buffer = '';  __in_erb_template=true ; @output_buffer.concat "<h1>New category</h1>\n\n"
+
+;  simple_form_for(@category), :path => admin_categories_path do |f| ; @output_buffer.concat "\n\t<fieldset>\n\t\t"
+
+; @output_buffer.concat(( render 'form', :f => f ).to_s); @output_buffer.concat "\n\t\t"
+; @output_buffer.concat(( f.button :submit, 'Save category' ).to_s); @output_buffer.concat "\n\t</fielset>\n"
+
+;  end ; @output_buffer.concat "\n\n<p>"
+
+; @output_buffer.concat(( link_to '← Back', :back ).to_s); @output_buffer.concat "</p>"; @output_buffer
+          ensure
+            self.output_buffer = old_output_buffer
+          end
+Backtrace: /Users/kwiest2000/Sites/Teacher-Ducklings/app/views/admin/categories/new.html.erb:13:in `compile!'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_view/renderable.rb:61:in `compile'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_view/renderable.rb:28:in `render'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_view/template.rb:205:in `render_template'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_view/base.rb:265:in `render'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_view/base.rb:348:in `_render_with_layout'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_view/base.rb:262:in `render'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/base.rb:1252:in `render_for_file'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/base.rb:936:in `render_without_benchmark'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/benchmarking.rb:51:in `render'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/activesupport-2.3.10/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/activesupport-2.3.10/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/benchmarking.rb:51:in `render'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/base.rb:1328:in `default_render'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/base.rb:1334:in `perform_action_without_filters'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/filters.rb:617:in `call_filters'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/activesupport-2.3.10/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/activesupport-2.3.10/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/rescue.rb:160:in `perform_action_without_flash'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/flash.rb:151:in `perform_action'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/base.rb:532:in `send'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/base.rb:532:in `process_without_filters'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/filters.rb:606:in `process'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/base.rb:391:in `process'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/base.rb:386:in `call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/routing/route_set.rb:438:in `call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/dispatcher.rb:87:in `dispatch'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/dispatcher.rb:121:in `_call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/dispatcher.rb:130:in `build_middleware_stack'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/activerecord-2.3.10/lib/active_record/query_cache.rb:29:in `call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/activerecord-2.3.10/lib/active_record/query_cache.rb:29:in `call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/activerecord-2.3.10/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/activerecord-2.3.10/lib/active_record/query_cache.rb:9:in `cache'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/activerecord-2.3.10/lib/active_record/query_cache.rb:28:in `call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/activerecord-2.3.10/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+/Users/kwiest2000/Sites/Teacher-Ducklings/lib/flash_session_cookie_middleware.rb:19:in `call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/string_coercion.rb:25:in `call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/rack-1.1.0/lib/rack/head.rb:9:in `call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/rack-1.1.0/lib/rack/methodoverride.rb:24:in `call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/params_parser.rb:15:in `call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/session/cookie_store.rb:100:in `call'
+/Users/kwiest2000/Sites/Teacher-Ducklings/lib/flash_session_cookie_middleware.rb:19:in `call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/failsafe.rb:26:in `call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/rack-1.1.0/lib/rack/lock.rb:11:in `call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/rack-1.1.0/lib/rack/lock.rb:11:in `synchronize'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/rack-1.1.0/lib/rack/lock.rb:11:in `call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/dispatcher.rb:114:in `call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/reloader.rb:34:in `run'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/dispatcher.rb:108:in `call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/rails-2.3.10/lib/rails/rack/static.rb:31:in `call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/rack-1.1.0/lib/rack/urlmap.rb:47:in `call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/rack-1.1.0/lib/rack/urlmap.rb:41:in `each'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/rack-1.1.0/lib/rack/urlmap.rb:41:in `call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/rails-2.3.10/lib/rails/rack/log_tailer.rb:17:in `call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/rack-1.1.0/lib/rack/content_length.rb:13:in `call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/rack-1.1.0/lib/rack/handler/webrick.rb:48:in `service'
+/Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+/Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+/Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+/Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:162:in `start'
+/Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+/Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:95:in `start'
+/Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:92:in `each'
+/Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:92:in `start'
+/Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:23:in `start'
+/Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:82:in `start'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/rack-1.1.0/lib/rack/handler/webrick.rb:14:in `run'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/rails-2.3.10/lib/commands/server.rb:111
+/Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:29:in `gem_original_require'
+/Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:29:in `require'
+script/server:3
+
+ActionView::TemplateError (compile error
+/Users/kwiest2000/Sites/Teacher-Ducklings/app/views/admin/categories/new.html.erb:3: syntax error, unexpected ',', expecting kEND
+;  simple_form_for(@category), :path => admin_categories_pat...
+                              ^) on line #3 of app/views/admin/categories/new.html.erb:
+1: <h1>New category</h1>
+2: 
+3: <% simple_form_for(@category), :path => admin_categories_path do |f| %>
+4: 	<fieldset>
+5: 		<%= render 'form', :f => f %>
+6: 		<%= f.button :submit, 'Save category' %>
+
+    app/views/admin/categories/new.html.erb:13:in `compile!'
+    lib/flash_session_cookie_middleware.rb:19:in `call'
+    lib/flash_session_cookie_middleware.rb:19:in `call'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (38.1ms)
+Rendered rescues/_request_and_response (0.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing Admin::CategoriesController#new (for 127.0.0.1 at 2011-02-08 15:54:56) [GET]
+  Parameters: {"action"=>"new", "controller"=>"admin/categories"}
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+Rendering template within layouts/admin
+Rendering admin/categories/new
+ERROR: compiling _run_erb_app47views47admin47categories47new46html46erb RAISED compile error
+/Users/kwiest2000/Sites/Teacher-Ducklings/app/views/admin/categories/new.html.erb:3: syntax error, unexpected ',', expecting kEND
+;  simple_form_for(@category), :url => admin_categories_path...
+                              ^
+Function body:           def _run_erb_app47views47admin47categories47new46html46erb(local_assigns)
+            old_output_buffer = output_buffer;;@output_buffer = '';  __in_erb_template=true ; @output_buffer.concat "<h1>New category</h1>\n\n"
+
+;  simple_form_for(@category), :url => admin_categories_path do |f| ; @output_buffer.concat "\n\t<fieldset>\n\t\t"
+
+; @output_buffer.concat(( render 'form', :f => f ).to_s); @output_buffer.concat "\n\t\t"
+; @output_buffer.concat(( f.button :submit, 'Save category' ).to_s); @output_buffer.concat "\n\t</fielset>\n"
+
+;  end ; @output_buffer.concat "\n\n<p>"
+
+; @output_buffer.concat(( link_to '← Back', :back ).to_s); @output_buffer.concat "</p>"; @output_buffer
+          ensure
+            self.output_buffer = old_output_buffer
+          end
+Backtrace: /Users/kwiest2000/Sites/Teacher-Ducklings/app/views/admin/categories/new.html.erb:13:in `compile!'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_view/renderable.rb:61:in `compile'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_view/renderable.rb:28:in `render'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_view/template.rb:205:in `render_template'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_view/base.rb:265:in `render'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_view/base.rb:348:in `_render_with_layout'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_view/base.rb:262:in `render'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/base.rb:1252:in `render_for_file'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/base.rb:936:in `render_without_benchmark'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/benchmarking.rb:51:in `render'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/activesupport-2.3.10/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/activesupport-2.3.10/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/benchmarking.rb:51:in `render'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/base.rb:1328:in `default_render'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/base.rb:1334:in `perform_action_without_filters'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/filters.rb:617:in `call_filters'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/activesupport-2.3.10/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/activesupport-2.3.10/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/rescue.rb:160:in `perform_action_without_flash'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/flash.rb:151:in `perform_action'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/base.rb:532:in `send'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/base.rb:532:in `process_without_filters'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/filters.rb:606:in `process'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/base.rb:391:in `process'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/base.rb:386:in `call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/routing/route_set.rb:438:in `call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/dispatcher.rb:87:in `dispatch'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/dispatcher.rb:121:in `_call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/dispatcher.rb:130:in `build_middleware_stack'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/activerecord-2.3.10/lib/active_record/query_cache.rb:29:in `call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/activerecord-2.3.10/lib/active_record/query_cache.rb:29:in `call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/activerecord-2.3.10/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/activerecord-2.3.10/lib/active_record/query_cache.rb:9:in `cache'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/activerecord-2.3.10/lib/active_record/query_cache.rb:28:in `call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/activerecord-2.3.10/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+/Users/kwiest2000/Sites/Teacher-Ducklings/lib/flash_session_cookie_middleware.rb:19:in `call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/string_coercion.rb:25:in `call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/rack-1.1.0/lib/rack/head.rb:9:in `call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/rack-1.1.0/lib/rack/methodoverride.rb:24:in `call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/params_parser.rb:15:in `call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/session/cookie_store.rb:100:in `call'
+/Users/kwiest2000/Sites/Teacher-Ducklings/lib/flash_session_cookie_middleware.rb:19:in `call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/failsafe.rb:26:in `call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/rack-1.1.0/lib/rack/lock.rb:11:in `call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/rack-1.1.0/lib/rack/lock.rb:11:in `synchronize'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/rack-1.1.0/lib/rack/lock.rb:11:in `call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/dispatcher.rb:114:in `call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/reloader.rb:34:in `run'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/dispatcher.rb:108:in `call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/rails-2.3.10/lib/rails/rack/static.rb:31:in `call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/rack-1.1.0/lib/rack/urlmap.rb:47:in `call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/rack-1.1.0/lib/rack/urlmap.rb:41:in `each'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/rack-1.1.0/lib/rack/urlmap.rb:41:in `call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/rails-2.3.10/lib/rails/rack/log_tailer.rb:17:in `call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/rack-1.1.0/lib/rack/content_length.rb:13:in `call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/rack-1.1.0/lib/rack/handler/webrick.rb:48:in `service'
+/Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+/Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+/Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+/Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:162:in `start'
+/Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+/Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:95:in `start'
+/Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:92:in `each'
+/Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:92:in `start'
+/Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:23:in `start'
+/Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:82:in `start'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/rack-1.1.0/lib/rack/handler/webrick.rb:14:in `run'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/rails-2.3.10/lib/commands/server.rb:111
+/Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:29:in `gem_original_require'
+/Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:29:in `require'
+script/server:3
+
+ActionView::TemplateError (compile error
+/Users/kwiest2000/Sites/Teacher-Ducklings/app/views/admin/categories/new.html.erb:3: syntax error, unexpected ',', expecting kEND
+;  simple_form_for(@category), :url => admin_categories_path...
+                              ^) on line #3 of app/views/admin/categories/new.html.erb:
+1: <h1>New category</h1>
+2: 
+3: <% simple_form_for(@category), :url => admin_categories_path do |f| %>
+4: 	<fieldset>
+5: 		<%= render 'form', :f => f %>
+6: 		<%= f.button :submit, 'Save category' %>
+
+    app/views/admin/categories/new.html.erb:13:in `compile!'
+    lib/flash_session_cookie_middleware.rb:19:in `call'
+    lib/flash_session_cookie_middleware.rb:19:in `call'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (46.2ms)
+Rendered rescues/_request_and_response (0.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing Admin::CategoriesController#new (for 127.0.0.1 at 2011-02-08 15:55:02) [GET]
+  Parameters: {"action"=>"new", "controller"=>"admin/categories"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+Rendering template within layouts/admin
+Rendering admin/categories/new
+ERROR: compiling _run_erb_app47views47admin47categories47new46html46erb RAISED compile error
+/Users/kwiest2000/Sites/Teacher-Ducklings/app/views/admin/categories/new.html.erb:3: syntax error, unexpected ',', expecting kEND
+;  simple_form_for(@category), :url => admin_categories_path...
+                              ^
+Function body:           def _run_erb_app47views47admin47categories47new46html46erb(local_assigns)
+            old_output_buffer = output_buffer;;@output_buffer = '';  __in_erb_template=true ; @output_buffer.concat "<h1>New category</h1>\n\n"
+
+;  simple_form_for(@category), :url => admin_categories_path do |f| ; @output_buffer.concat "\n\t<fieldset>\n\t\t"
+
+; @output_buffer.concat(( render 'form', :f => f ).to_s); @output_buffer.concat "\n\t\t"
+; @output_buffer.concat(( f.button :submit, 'Save category' ).to_s); @output_buffer.concat "\n\t</fielset>\n"
+
+;  end ; @output_buffer.concat "\n\n<p>"
+
+; @output_buffer.concat(( link_to '← Back', :back ).to_s); @output_buffer.concat "</p>"; @output_buffer
+          ensure
+            self.output_buffer = old_output_buffer
+          end
+Backtrace: /Users/kwiest2000/Sites/Teacher-Ducklings/app/views/admin/categories/new.html.erb:13:in `compile!'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_view/renderable.rb:61:in `compile'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_view/renderable.rb:28:in `render'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_view/template.rb:205:in `render_template'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_view/base.rb:265:in `render'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_view/base.rb:348:in `_render_with_layout'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_view/base.rb:262:in `render'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/base.rb:1252:in `render_for_file'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/base.rb:936:in `render_without_benchmark'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/benchmarking.rb:51:in `render'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/activesupport-2.3.10/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/activesupport-2.3.10/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/benchmarking.rb:51:in `render'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/base.rb:1328:in `default_render'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/base.rb:1334:in `perform_action_without_filters'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/filters.rb:617:in `call_filters'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/activesupport-2.3.10/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/activesupport-2.3.10/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/rescue.rb:160:in `perform_action_without_flash'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/flash.rb:151:in `perform_action'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/base.rb:532:in `send'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/base.rb:532:in `process_without_filters'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/filters.rb:606:in `process'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/base.rb:391:in `process'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/base.rb:386:in `call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/routing/route_set.rb:438:in `call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/dispatcher.rb:87:in `dispatch'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/dispatcher.rb:121:in `_call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/dispatcher.rb:130:in `build_middleware_stack'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/activerecord-2.3.10/lib/active_record/query_cache.rb:29:in `call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/activerecord-2.3.10/lib/active_record/query_cache.rb:29:in `call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/activerecord-2.3.10/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/activerecord-2.3.10/lib/active_record/query_cache.rb:9:in `cache'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/activerecord-2.3.10/lib/active_record/query_cache.rb:28:in `call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/activerecord-2.3.10/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+/Users/kwiest2000/Sites/Teacher-Ducklings/lib/flash_session_cookie_middleware.rb:19:in `call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/string_coercion.rb:25:in `call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/rack-1.1.0/lib/rack/head.rb:9:in `call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/rack-1.1.0/lib/rack/methodoverride.rb:24:in `call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/params_parser.rb:15:in `call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/session/cookie_store.rb:100:in `call'
+/Users/kwiest2000/Sites/Teacher-Ducklings/lib/flash_session_cookie_middleware.rb:19:in `call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/failsafe.rb:26:in `call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/rack-1.1.0/lib/rack/lock.rb:11:in `call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/rack-1.1.0/lib/rack/lock.rb:11:in `synchronize'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/rack-1.1.0/lib/rack/lock.rb:11:in `call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/dispatcher.rb:114:in `call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/reloader.rb:34:in `run'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/dispatcher.rb:108:in `call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/rails-2.3.10/lib/rails/rack/static.rb:31:in `call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/rack-1.1.0/lib/rack/urlmap.rb:47:in `call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/rack-1.1.0/lib/rack/urlmap.rb:41:in `each'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/rack-1.1.0/lib/rack/urlmap.rb:41:in `call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/rails-2.3.10/lib/rails/rack/log_tailer.rb:17:in `call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/rack-1.1.0/lib/rack/content_length.rb:13:in `call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/rack-1.1.0/lib/rack/handler/webrick.rb:48:in `service'
+/Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+/Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+/Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+/Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:162:in `start'
+/Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+/Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:95:in `start'
+/Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:92:in `each'
+/Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:92:in `start'
+/Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:23:in `start'
+/Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:82:in `start'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/rack-1.1.0/lib/rack/handler/webrick.rb:14:in `run'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/rails-2.3.10/lib/commands/server.rb:111
+/Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:29:in `gem_original_require'
+/Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:29:in `require'
+script/server:3
+
+ActionView::TemplateError (compile error
+/Users/kwiest2000/Sites/Teacher-Ducklings/app/views/admin/categories/new.html.erb:3: syntax error, unexpected ',', expecting kEND
+;  simple_form_for(@category), :url => admin_categories_path...
+                              ^) on line #3 of app/views/admin/categories/new.html.erb:
+1: <h1>New category</h1>
+2: 
+3: <% simple_form_for(@category), :url => admin_categories_path do |f| %>
+4: 	<fieldset>
+5: 		<%= render 'form', :f => f %>
+6: 		<%= f.button :submit, 'Save category' %>
+
+    app/views/admin/categories/new.html.erb:13:in `compile!'
+    lib/flash_session_cookie_middleware.rb:19:in `call'
+    lib/flash_session_cookie_middleware.rb:19:in `call'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (38.7ms)
+Rendered rescues/_request_and_response (0.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing Admin::CategoriesController#new (for 127.0.0.1 at 2011-02-08 15:55:20) [GET]
+  Parameters: {"action"=>"new", "controller"=>"admin/categories"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+Rendering template within layouts/admin
+Rendering admin/categories/new
+Rendered admin/categories/_form (56.9ms)
+  [4;36;1mMeeting Load (0.6ms)[0m   [0;1mSELECT * FROM "meetings" WHERE (date < '2011-02-15' AND date >= '2011-02-08') ORDER BY date[0m
+  [4;35;1mVideo Load (0.4ms)[0m   [0mSELECT * FROM "videos" WHERE (created_at > '2011-02-01') ORDER BY created_at DESC[0m
+Completed in 97ms (View: 73, DB: 1) | 200 OK [http://localhost/admin/categories/new]
+
+
+Processing Admin::CategoriesController#create (for 127.0.0.1 at 2011-02-08 15:55:23) [POST]
+  Parameters: {"category"=>{"name"=>""}, "commit"=>"Save category", "action"=>"create", "authenticity_token"=>"RlmTmlzmQKkUkc/JU5DjU8wRRZEAZhPSJkHwuhZLE64=", "controller"=>"admin/categories"}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+Rendering template within layouts/admin
+Rendering admin/categories/new
+Rendered admin/categories/_form (4.4ms)
+  [4;36;1mMeeting Load (0.5ms)[0m   [0;1mSELECT * FROM "meetings" WHERE (date < '2011-02-15' AND date >= '2011-02-08') ORDER BY date[0m
+  [4;35;1mVideo Load (0.4ms)[0m   [0mSELECT * FROM "videos" WHERE (created_at > '2011-02-01') ORDER BY created_at DESC[0m
+Completed in 42ms (View: 18, DB: 1) | 200 OK [http://localhost/admin/categories]
+
+
+Processing Admin::CategoriesController#new (for 127.0.0.1 at 2011-02-08 15:55:50) [GET]
+  Parameters: {"action"=>"new", "controller"=>"admin/categories"}
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+Rendering template within layouts/admin
+Rendering admin/categories/new
+Rendered admin/categories/_form (1.8ms)
+  [4;36;1mMeeting Load (0.6ms)[0m   [0;1mSELECT * FROM "meetings" WHERE (date < '2011-02-15' AND date >= '2011-02-08') ORDER BY date[0m
+  [4;35;1mVideo Load (0.4ms)[0m   [0mSELECT * FROM "videos" WHERE (created_at > '2011-02-01') ORDER BY created_at DESC[0m
+Completed in 45ms (View: 18, DB: 1) | 200 OK [http://localhost/admin/categories/new]
+
+
+Processing Admin::CategoriesController#index (for 127.0.0.1 at 2011-02-08 15:55:57) [GET]
+  Parameters: {"action"=>"index", "controller"=>"admin/categories"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;36;1mCategory Load (0.6ms)[0m   [0;1mSELECT * FROM "categories" ORDER BY name[0m
+Rendering template within layouts/admin
+Rendering admin/categories/index
+  [4;35;1mMeeting Load (0.5ms)[0m   [0mSELECT * FROM "meetings" WHERE (date < '2011-02-15' AND date >= '2011-02-08') ORDER BY date[0m
+  [4;36;1mVideo Load (0.6ms)[0m   [0;1mSELECT * FROM "videos" WHERE (created_at > '2011-02-01') ORDER BY created_at DESC[0m
+Completed in 158ms (View: 80, DB: 2) | 200 OK [http://localhost/admin/categories]
+^C[2011-02-08 15:56:29] INFO  going to shutdown ...
+[2011-02-08 15:56:29] INFO  WEBrick::HTTPServer#start done.
+Exiting
+[[1;37mkwiest2000[0m@kyle-wiests-macbook-pro]:~/sites/Teacher-Ducklings [1;34m[git:master+?] [0m$ rake routes | grep admin
+DEPRECATION WARNING: Rake tasks in vendor/plugins/jw-playr-hlpr/tasks and vendor/plugins/tiny_mce/tasks are deprecated. Use lib/tasks instead. (called from /Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/rails-2.3.10/lib/tasks/rails.rb:10)
+                  admin        /admin                                            {:action=>"index", :controller=>"admin"}
+          admin_reviews GET    /admin/reviews(.:format)                          {:action=>"index", :controller=>"admin/reviews"}
+                        POST   /admin/reviews(.:format)                          {:action=>"create", :controller=>"admin/reviews"}
+       new_admin_review GET    /admin/reviews/new(.:format)                      {:action=>"new", :controller=>"admin/reviews"}
+      edit_admin_review GET    /admin/reviews/:id/edit(.:format)                 {:action=>"edit", :controller=>"admin/reviews"}
+           admin_review GET    /admin/reviews/:id(.:format)                      {:action=>"show", :controller=>"admin/reviews"}
+                        PUT    /admin/reviews/:id(.:format)                      {:action=>"update", :controller=>"admin/reviews"}
+                        DELETE /admin/reviews/:id(.:format)                      {:action=>"destroy", :controller=>"admin/reviews"}
+            admin_links GET    /admin/links(.:format)                            {:action=>"index", :controller=>"admin/links"}
+                        POST   /admin/links(.:format)                            {:action=>"create", :controller=>"admin/links"}
+         new_admin_link GET    /admin/links/new(.:format)                        {:action=>"new", :controller=>"admin/links"}
+        edit_admin_link GET    /admin/links/:id/edit(.:format)                   {:action=>"edit", :controller=>"admin/links"}
+             admin_link GET    /admin/links/:id(.:format)                        {:action=>"show", :controller=>"admin/links"}
+                        PUT    /admin/links/:id(.:format)                        {:action=>"update", :controller=>"admin/links"}
+                        DELETE /admin/links/:id(.:format)                        {:action=>"destroy", :controller=>"admin/links"}
+       admin_categories GET    /admin/categories(.:format)                       {:action=>"index", :controller=>"admin/categories"}
+                        POST   /admin/categories(.:format)                       {:action=>"create", :controller=>"admin/categories"}
+     new_admin_category GET    /admin/categories/new(.:format)                   {:action=>"new", :controller=>"admin/categories"}
+    edit_admin_category GET    /admin/categories/:id/edit(.:format)              {:action=>"edit", :controller=>"admin/categories"}
+         admin_category GET    /admin/categories/:id(.:format)                   {:action=>"show", :controller=>"admin/categories"}
+                        PUT    /admin/categories/:id(.:format)                   {:action=>"update", :controller=>"admin/categories"}
+                        DELETE /admin/categories/:id(.:format)                   {:action=>"destroy", :controller=>"admin/categories"}
+         admin_meetings GET    /admin/meetings(.:format)                         {:action=>"index", :controller=>"admin/meetings"}
+                        POST   /admin/meetings(.:format)                         {:action=>"create", :controller=>"admin/meetings"}
+      new_admin_meeting GET    /admin/meetings/new(.:format)                     {:action=>"new", :controller=>"admin/meetings"}
+     edit_admin_meeting GET    /admin/meetings/:id/edit(.:format)                {:action=>"edit", :controller=>"admin/meetings"}
+          admin_meeting GET    /admin/meetings/:id(.:format)                     {:action=>"show", :controller=>"admin/meetings"}
+                        PUT    /admin/meetings/:id(.:format)                     {:action=>"update", :controller=>"admin/meetings"}
+                        DELETE /admin/meetings/:id(.:format)                     {:action=>"destroy", :controller=>"admin/meetings"}
+    admin_post_comments GET    /admin/posts/:post_id/comments(.:format)          {:action=>"index", :controller=>"admin/comments"}
+                        POST   /admin/posts/:post_id/comments(.:format)          {:action=>"create", :controller=>"admin/comments"}
+ new_admin_post_comment GET    /admin/posts/:post_id/comments/new(.:format)      {:action=>"new", :controller=>"admin/comments"}
+edit_admin_post_comment GET    /admin/posts/:post_id/comments/:id/edit(.:format) {:action=>"edit", :controller=>"admin/comments"}
+     admin_post_comment GET    /admin/posts/:post_id/comments/:id(.:format)      {:action=>"show", :controller=>"admin/comments"}
+                        PUT    /admin/posts/:post_id/comments/:id(.:format)      {:action=>"update", :controller=>"admin/comments"}
+                        DELETE /admin/posts/:post_id/comments/:id(.:format)      {:action=>"destroy", :controller=>"admin/comments"}
+            admin_posts GET    /admin/posts(.:format)                            {:action=>"index", :controller=>"admin/posts"}
+                        POST   /admin/posts(.:format)                            {:action=>"create", :controller=>"admin/posts"}
+         new_admin_post GET    /admin/posts/new(.:format)                        {:action=>"new", :controller=>"admin/posts"}
+        edit_admin_post GET    /admin/posts/:id/edit(.:format)                   {:action=>"edit", :controller=>"admin/posts"}
+             admin_post GET    /admin/posts/:id(.:format)                        {:action=>"show", :controller=>"admin/posts"}
+                        PUT    /admin/posts/:id(.:format)                        {:action=>"update", :controller=>"admin/posts"}
+                        DELETE /admin/posts/:id(.:format)                        {:action=>"destroy", :controller=>"admin/posts"}
+      admin_user_videos GET    /admin/users/:user_id/videos(.:format)            {:action=>"index", :controller=>"admin/videos"}
+                        POST   /admin/users/:user_id/videos(.:format)            {:action=>"create", :controller=>"admin/videos"}
+   new_admin_user_video GET    /admin/users/:user_id/videos/new(.:format)        {:action=>"new", :controller=>"admin/videos"}
+  edit_admin_user_video GET    /admin/users/:user_id/videos/:id/edit(.:format)   {:action=>"edit", :controller=>"admin/videos"}
+       admin_user_video GET    /admin/users/:user_id/videos/:id(.:format)        {:action=>"show", :controller=>"admin/videos"}
+                        PUT    /admin/users/:user_id/videos/:id(.:format)        {:action=>"update", :controller=>"admin/videos"}
+                        DELETE /admin/users/:user_id/videos/:id(.:format)        {:action=>"destroy", :controller=>"admin/videos"}
+            admin_users GET    /admin/users(.:format)                            {:action=>"index", :controller=>"admin/users"}
+                        POST   /admin/users(.:format)                            {:action=>"create", :controller=>"admin/users"}
+         new_admin_user GET    /admin/users/new(.:format)                        {:action=>"new", :controller=>"admin/users"}
+        edit_admin_user GET    /admin/users/:id/edit(.:format)                   {:action=>"edit", :controller=>"admin/users"}
+             admin_user GET    /admin/users/:id(.:format)                        {:action=>"show", :controller=>"admin/users"}
+                        PUT    /admin/users/:id(.:format)                        {:action=>"update", :controller=>"admin/users"}
+                        DELETE /admin/users/:id(.:format)                        {:action=>"destroy", :controller=>"admin/users"}
+[[1;37mkwiest2000[0m@kyle-wiests-macbook-pro]:~/sites/Teacher-Ducklings [1;34m[git:master+?] [0m$ rake routes | grep admin[11Pscript/server
+=> Booting WEBrick
+=> Rails 2.3.10 application starting on http://0.0.0.0:3000
+=> Call with -d to detach
+=> Ctrl-C to shutdown server
+[2011-02-08 15:57:41] INFO  WEBrick 1.3.1
+[2011-02-08 15:57:41] INFO  ruby 1.8.7 (2010-04-19) [i686-darwin9.8.0]
+[2011-02-08 15:57:41] INFO  WEBrick::HTTPServer#start: pid=34520 port=3000
+
+
+Processing Admin::CategoriesController#edit (for 127.0.0.1 at 2011-02-08 15:57:56) [GET]
+  Parameters: {"action"=>"edit", "id"=>"4-behavior", "controller"=>"admin/categories"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;36;1mCategory Load (0.2ms)[0m   [0;1mSELECT * FROM "categories" WHERE ("categories"."id" = 4) ORDER BY name[0m
+Rendering template within layouts/admin
+Rendering admin/categories/edit
+Rendered admin/categories/_form (2.3ms)
+  [4;35;1mMeeting Load (0.6ms)[0m   [0mSELECT * FROM "meetings" WHERE (date < '2011-02-15' AND date >= '2011-02-08') ORDER BY date[0m
+  [4;36;1mVideo Load (0.5ms)[0m   [0;1mSELECT * FROM "videos" WHERE (created_at > '2011-02-01') ORDER BY created_at DESC[0m
+Completed in 181ms (View: 147, DB: 2) | 200 OK [http://localhost/admin/categories/4-behavior/edit]
+
+
+Processing Admin::CategoriesController#update (for 127.0.0.1 at 2011-02-08 15:58:02) [PUT]
+  Parameters: {"category"=>{"name"=>"Behavior"}, "commit"=>"Update category", "action"=>"update", "_method"=>"put", "authenticity_token"=>"RlmTmlzmQKkUkc/JU5DjU8wRRZEAZhPSJkHwuhZLE64=", "id"=>"4-behavior", "controller"=>"admin/categories"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mCategory Load (0.2ms)[0m   [0mSELECT * FROM "categories" WHERE ("categories"."id" = 4) ORDER BY name[0m
+Redirected to http://localhost:3000/categories/4-behavior
+Completed in 25ms (DB: 1) | 302 Found [http://localhost/admin/categories/4-behavior]
+
+
+Processing CategoriesController#show (for 127.0.0.1 at 2011-02-08 15:58:02) [GET]
+  Parameters: {"action"=>"show", "id"=>"4-behavior", "controller"=>"categories"}
+  [4;36;1mCategory Load (0.1ms)[0m   [0;1mSELECT * FROM "categories" WHERE ("categories"."id" = 4) ORDER BY name[0m
+
+ActionView::MissingTemplate (Missing template categories/show.erb in view path app/views):
+  lib/flash_session_cookie_middleware.rb:19:in `call'
+  lib/flash_session_cookie_middleware.rb:19:in `call'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (internal_server_error)
+
+
+Processing CategoriesController#show (for 127.0.0.1 at 2011-02-08 15:58:49) [GET]
+  Parameters: {"action"=>"show", "id"=>"4-behavior", "controller"=>"categories"}
+  [4;35;1mCategory Load (0.2ms)[0m   [0mSELECT * FROM "categories" WHERE ("categories"."id" = 4) ORDER BY name[0m
+
+ActionView::MissingTemplate (Missing template categories/show.erb in view path app/views):
+  lib/flash_session_cookie_middleware.rb:19:in `call'
+  lib/flash_session_cookie_middleware.rb:19:in `call'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (internal_server_error)
+
+
+Processing Admin::CategoriesController#update (for 127.0.0.1 at 2011-02-08 15:58:53) [PUT]
+  Parameters: {"category"=>{"name"=>"Behaviors"}, "commit"=>"Update category", "action"=>"update", "_method"=>"put", "authenticity_token"=>"RlmTmlzmQKkUkc/JU5DjU8wRRZEAZhPSJkHwuhZLE64=", "id"=>"4-behavior", "controller"=>"admin/categories"}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;36;1mCategory Load (0.2ms)[0m   [0;1mSELECT * FROM "categories" WHERE ("categories"."id" = 4) ORDER BY name[0m
+  [4;35;1mCategory Update (0.3ms)[0m   [0mUPDATE "categories" SET "name" = 'Behaviors' WHERE "id" = 4[0m
+Redirected to http://localhost:3000/admin/categories
+Completed in 28ms (DB: 1) | 302 Found [http://localhost/admin/categories/4-behavior]
+
+
+Processing Admin::CategoriesController#index (for 127.0.0.1 at 2011-02-08 15:58:53) [GET]
+  Parameters: {"action"=>"index", "controller"=>"admin/categories"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;36;1mCategory Load (0.7ms)[0m   [0;1mSELECT * FROM "categories" ORDER BY name[0m
+Rendering template within layouts/admin
+Rendering admin/categories/index
+  [4;35;1mMeeting Load (0.5ms)[0m   [0mSELECT * FROM "meetings" WHERE (date < '2011-02-15' AND date >= '2011-02-08') ORDER BY date[0m
+  [4;36;1mVideo Load (0.4ms)[0m   [0;1mSELECT * FROM "videos" WHERE (created_at > '2011-02-01') ORDER BY created_at DESC[0m
+Completed in 103ms (View: 18, DB: 2) | 200 OK [http://localhost/admin/categories]
+
+
+Processing Admin::CategoriesController#edit (for 127.0.0.1 at 2011-02-08 15:58:56) [GET]
+  Parameters: {"action"=>"edit", "id"=>"4-behaviors", "controller"=>"admin/categories"}
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mCategory Load (0.2ms)[0m   [0mSELECT * FROM "categories" WHERE ("categories"."id" = 4) ORDER BY name[0m
+Rendering template within layouts/admin
+Rendering admin/categories/edit
+Rendered admin/categories/_form (1.6ms)
+  [4;36;1mMeeting Load (0.5ms)[0m   [0;1mSELECT * FROM "meetings" WHERE (date < '2011-02-15' AND date >= '2011-02-08') ORDER BY date[0m
+  [4;35;1mVideo Load (0.6ms)[0m   [0mSELECT * FROM "videos" WHERE (created_at > '2011-02-01') ORDER BY created_at DESC[0m
+Completed in 101ms (View: 76, DB: 2) | 200 OK [http://localhost/admin/categories/4-behaviors/edit]
+
+
+Processing Admin::CategoriesController#update (for 127.0.0.1 at 2011-02-08 15:58:59) [PUT]
+  Parameters: {"category"=>{"name"=>"Behavior"}, "commit"=>"Update category", "action"=>"update", "_method"=>"put", "authenticity_token"=>"RlmTmlzmQKkUkc/JU5DjU8wRRZEAZhPSJkHwuhZLE64=", "id"=>"4-behaviors", "controller"=>"admin/categories"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;36;1mCategory Load (0.2ms)[0m   [0;1mSELECT * FROM "categories" WHERE ("categories"."id" = 4) ORDER BY name[0m
+  [4;35;1mCategory Update (0.3ms)[0m   [0mUPDATE "categories" SET "name" = 'Behavior' WHERE "id" = 4[0m
+Redirected to http://localhost:3000/admin/categories
+Completed in 29ms (DB: 1) | 302 Found [http://localhost/admin/categories/4-behaviors]
+
+
+Processing Admin::CategoriesController#index (for 127.0.0.1 at 2011-02-08 15:59:00) [GET]
+  Parameters: {"action"=>"index", "controller"=>"admin/categories"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;36;1mCategory Load (0.6ms)[0m   [0;1mSELECT * FROM "categories" ORDER BY name[0m
+Rendering template within layouts/admin
+Rendering admin/categories/index
+  [4;35;1mMeeting Load (0.4ms)[0m   [0mSELECT * FROM "meetings" WHERE (date < '2011-02-15' AND date >= '2011-02-08') ORDER BY date[0m
+  [4;36;1mVideo Load (0.5ms)[0m   [0;1mSELECT * FROM "videos" WHERE (created_at > '2011-02-01') ORDER BY created_at DESC[0m
+Completed in 41ms (View: 17, DB: 2) | 200 OK [http://localhost/admin/categories]

@@ -1,16 +1,10 @@
 <h1>Editing category</h1>
 
-<% form_for(@category) do |f| %>
-  <%= f.error_messages %>
-
-  <p>
-    <%= f.label :name, 'Name:<span class="required">*</span>' %><br />
-    <%= f.text_field :name %>
-  </p>
-  <p>
-    <%= f.submit 'Update' %>
-  </p>
+<% simple_form_for @category, :url => admin_category_path(@category), :method => :put do |f| %>
+	<fieldset>
+		<%= render 'form', :f => f %>
+		<%= f.button :submit, 'Update category' %>
+	</fieldset>
 <% end %>
 
-<%= link_to 'Show', @category %> |
 <%= link_to '← Back', :back %>

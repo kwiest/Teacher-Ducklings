@@ -132,10 +132,6 @@ h4, h5, h6 {
 	line-height: 24px;
 }
 
-.required {
-	color: #d00;
-}
-
 .error, .notice, .success {
 	padding: 12px;
 	margin-bottom: 10px;
@@ -179,27 +175,71 @@ h4, h5, h6 {
  * Forms
  ******************************************************************/
 
+fieldset {
+	padding: 20px;
+	background: #f7f7f7;
+	background-image: -webkit-gradient(linear, 0% 0, 0% 100%, from(white), to(#F7F7F7));
+	border: 1px solid #ccc;
+	margin-bottom: 20px;
+	width: 350px;
+
+	border-radius: 2px;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+
+	box-shadow: 0 1px 6px #e2e2e2;
+	-moz-box-shadow: 0 1px 6px #e2e2e2;
+	-webkit-box-shadow: 0 1px 6px #e2e2e2;
+}
+
+legend {
+	font-size: 20px;
+}
+
 label {
 	display: block;
-	font-family: Verdana, Arial, sans-serif;
-	padding: 4px 0;
-	font-size: 14px;
 	font-weight: bold;
-	color: #222;
+	margin-top: 12px;
+	margin-bottom: 0;
+	line-height: 1;
+	font-size: 13px;
 }
 
-input, textarea {
-	background: #fff url("/images/input-bg.gif") top left repeat-x;
-	padding: 4px 2px;
-	margin-bottom: -12px;
+label.required abbr {
+	color: red;
+	border: none;
+}
+
+.hint {
+	display: block;
 	color: #666;
-	font-size: 14px;
-	font-family: Verdana, Arial, sans-serif;
-	border: 1px solid #b1b1b1;
+	font-size: 11px;
 }
 
-input[type=text]:focus, input[type=password]:focus, textarea:focus {
-	background: #F9F8E4;
+span.error {
+	display: block;
+	padding: 3px;
+	color: #8a1f11;
+	background: #fbe3e4;
+	border: 2px solid #fbc2c4;
+	font-size: 11px;
+}
+
+div.boolean label.boolean { display: inline; }
+
+div.input {
+	margin-bottom: 24px;
+}
+
+input {
+	font-size: 13px;
+	padding: 2px;
+	margin: 4px;
+}
+
+input[type=submit] {
+	display: block;
+	margin: 24px 0 16px;
 }
 
 input.post-title-input {
@@ -240,151 +280,41 @@ input.post-title-input {
   list-style: square;
 }
 
+/*
+ * Custom large buttons
+ * Adapted from http://www.zurb.com/article/266/super-awesome-buttons-with-css3-and-rgba
+ */
 
-/******************************************************************
- * Forms -- Submit Buttons
- ******************************************************************/
+a.large_button, .large_button {
+  background: #81a929 url('/images/button-overlay.png') repeat-x;
+  display: inline-block;
+  padding: 8px 14px 9px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+	font-weight: bold;
+  line-height: 1;
 
-input[type="submit"] {
-	background: transparent url("/images/all_button_states.png");
-	display: block;
-	width: 200px;
-	height: 45px;
-	cursor: pointer;
-	border: none;
-	margin: 0;
-	padding: 0;
-	text-indent: -9999px;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0 1px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+
+  text-shadow: 0 -1px 1px #222;
+  border-bottom: 1px solid #222;
+  position: relative;
+  cursor: pointer;
 }
 
-/* SAVE */
-input[type="submit"].save {
-	background-position: 2000px 0;
+a.large_button:hover, .large_button:hover {
+	background-color: #466d17;
 }
 
-input[type="submit"].save:hover {
-	background-position: 2000px 90px;
-}
-
-input[type="submit"].save:active {
-	background-position: 2000px 45px;
-}
-
-/* LOGIN */
-input[type="submit"].login {
-	background-position: 1800px 0;
-}
-
-input[type="submit"].login:hover {
-	background-position: 1800px 90px;
-}
-
-input[type="submit"].login:active {
-	background-position: 1800px 45px;
-}
-
-/* PASSWORD_RESET */
-input[type="submit"].password_reset {
-	background-position: 1600px 0;
-}
-
-input[type="submit"].password_reset:hover {
-	background-position: 1600px 90px;
-}
-
-input[type="submit"].password_reset:active {
-	background-position: 1600px 45px;
-}
-
-/* NEW_USER */
-input[type="submit"].new_user {
-	background-position: 1400px 0;
-}
-
-input[type="submit"].new_user:hover {
-	background-position: 1400px 90px;
-}
-
-input[type="submit"].new_user:active {
-	background-position: 1400px 45px;
-}
-
-/* NEW_POST */
-input[type="submit"].new_post {
-	background-position: 1200px 0;
-}
-
-input[type="submit"].new_post:hover {
-	background-position: 1200px 90px;
-}
-
-input[type="submit"].new_post:active {
-	background-position: 1200px 45px;
-}
-
-/* PUBLISH_POST */
-input[type="submit"].publish_post {
-	background-position: 1000px 0;
-}
-
-input[type="submit"].publish_post:hover {
-	background-position: 1000px 90px;
-}
-
-input[type="submit"].publish_post:active {
-	background-position: 1000px 45px;
-}
-
-/* NEW_LINK */
-input[type="submit"].new_link {
-	background-position: 800px 0;
-}
-
-input[type="submit"].new_link:hover {
-	background-position: 800px 90px;
-}
-
-input[type="submit"].new_link:active {
-	background-position: 800px 45px;
-}
-
-/* NEW_VIDEO */
-input[type="submit"].new_video {
-	background-position: 600px 0;
-}
-
-input[type="submit"].new_video:hover {
-	background-position: 600px 90px;
-}
-
-input[type="submit"].new_video:active {
-	background-position: 600px 45px;
-}
-
-/* NEW_REVIEW */
-input[type="submit"].new_review {
-	background-position: 400px 0;
-}
-
-input[type="submit"].new_review:hover {
-	background-position: 400px 90px;
-}
-
-input[type="submit"].new_review:active {
-	background-position: 400px 45px;
-}
-
-/* NEW_MEETING */
-input[type="submit"].new_meeting {
-	background-position: 200px 0;
-}
-
-input[type="submit"].new_meeting:hover {
-	background-position: 200px 90px;
-}
-
-input[type="submit"].new_meeting:active {
-	background-position: 200px 45px;
+a.large_button:active, large_button:active {
+	margin-top: 2px;
 }
 
 
