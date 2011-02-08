@@ -1,8 +1,10 @@
 *.log
+log
 tmp
 tmp/**/*
 .DS_Store
 config/deploy.rb
+config/database.yml
 config/s3.yml
 db/*.sqlite3
 photos
