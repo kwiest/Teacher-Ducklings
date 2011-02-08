@@ -26,7 +26,7 @@ class VideosController < ApplicationController
     
     @video.save
     @video.convert!
-    Delayed::Job.enqueue EncodingJob.new(@video.id)
+    @video.send_later(:encode)
     render :partial => 'video'
   end
 

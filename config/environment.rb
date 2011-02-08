@@ -12,6 +12,7 @@ Rails::Initializer.run do |config|
   config.gem "paperclip"
   config.gem "calendar_date_select"
   config.gem "rvideo"
+  config.gem "delayed_job", :version => '1.8.5'
   
   # Flash Session Key Middleware
   config.middleware.use "FlashSessionCookieMiddleware"
