@@ -28,8 +28,8 @@
 						<%= link_to "Admin Panel", admin_path %>
 					<% else -%>
 						<%= link_to "My Profile", current_user %> | 
-						<%= link_to "My Videos", user_videos_path(current_user) %> | 
-						<%= link_to "My Meetings", my_meetings_path %>
+						<%= link_to "My Videos", videos_path %> | 
+						<%= link_to "My Meetings", meetings_path %>
 					<% end -%>
 				<% else %>
 					<div>

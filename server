@@ -15135,4 +15135,634 @@ Options:
 ]0;kyle@teacherducklings:/var/www/rails_apps/staging.teacherducklings/current[[1;37mkyle[0m@teacherducklings]:/var/www/rails_apps/staging.teacherducklings/current [1;34m[0m$ cd ../
 ]0;kyle@teacherducklings:/var/www/rails_apps/staging.teacherducklings[[1;37mkyle[0m@teacherducklings]:/var/www/rails_apps/staging.teacherducklings [1;34m[0m$ mkdir d shared
 ]0;kyle@teacherducklings:/var/www/rails_apps/staging.teacherducklings[[1;37mkyle[0m@teacherducklings]:/var/www/rails_apps/staging.teacherducklings [1;34m[0m$ mkdir releases
-]0;kyle@teacherducklings:/var/www/rails_apps/staging.teacherducklings[[1;37mkyle[0m@teacherducklings]:/var/www/rails_apps/staging.teacherducklings [1;34m[0m$ 
+]0;kyle@teacherducklings:/var/www/rails_apps/staging.teacherducklings[[1;37mkyle[0m@teacherducklings]:/var/www/rails_apps/staging.teacherducklings [1;34m[0m$ exit
+logout
+[H[2JConnection to 72.47.193.184 closed.
+[[1;37mkwiest2000[0m@kyle-wiests-macbook-pro]:~/sites/Teacher-Ducklings [1;34m[git:master+?] [0m$ git stat[K[K[K[Kadd .
+[[1;37mkwiest2000[0m@kyle-wiests-macbook-pro]:~/sites/Teacher-Ducklings [1;34m[git:master+] [0m$ git status
+# On branch master
+# Changes to be committed:
+#   (use "git reset HEAD <file>..." to unstage)
+#
+#	modified:   app/controllers/admin/videos_controller.rb
+#	modified:   app/models/video.rb
+#	modified:   app/views/layouts/admin.html.erb
+#	modified:   config/routes.rb
+#	modified:   db/development.sqlite3
+#	new file:   public/images/new_video.png
+#	modified:   public/javascripts/application.js
+#	new file:   public/javascripts/jquery.uploadify.v2.1.4.min.js
+#	modified:   public/stylesheets/uploadify.css
+#	modified:   public/swf/uploadify.swf
+#	modified:   server
+#
+# Changed but not updated:
+#   (use "git add/rm <file>..." to update what will be committed)
+#   (use "git checkout -- <file>..." to discard changes in working directory)
+#
+#	deleted:    app/views/admin/_video.html.erb
+#	deleted:    public/images/add_button_states.png
+#	deleted:    public/images/all_button_states.png
+#	deleted:    public/images/button_states.png
+#	deleted:    public/javascripts/controls.js
+#	deleted:    public/javascripts/dragdrop.js
+#	deleted:    public/javascripts/effects.js
+#	deleted:    public/javascripts/jquery-1.3.2.min.js
+#	deleted:    public/javascripts/jquery.uploadify.v2.1.0.min.js
+#	deleted:    public/javascripts/prototype.js
+#	deleted:    public/javascripts/swfobject_old.js
+#
+[[1;37mkwiest2000[0m@kyle-wiests-macbook-pro]:~/sites/Teacher-Ducklings [1;34m[git:master+] [0m$ git commit -av
+[master 3d76111] Upgraded to uploadify v 2.1.4 Admin videos working
+ 22 files changed, 1770 insertions(+), 7601 deletions(-)
+ rewrite app/controllers/admin/videos_controller.rb (77%)
+ delete mode 100755 app/views/admin/_video.html.erb
+ delete mode 100755 public/images/add_button_states.png
+ delete mode 100755 public/images/all_button_states.png
+ delete mode 100755 public/images/button_states.png
+ create mode 100644 public/images/new_video.png
+ delete mode 100755 public/javascripts/controls.js
+ delete mode 100755 public/javascripts/dragdrop.js
+ delete mode 100755 public/javascripts/effects.js
+ delete mode 100755 public/javascripts/jquery-1.3.2.min.js
+ delete mode 100755 public/javascripts/jquery.uploadify.v2.1.0.min.js
+ create mode 100755 public/javascripts/jquery.uploadify.v2.1.4.min.js
+ delete mode 100755 public/javascripts/prototype.js
+ delete mode 100755 public/javascripts/swfobject_old.js
+ rewrite public/swf/uploadify.swf (100%)
+[[1;37mkwiest2000[0m@kyle-wiests-macbook-pro]:~/sites/Teacher-Ducklings [1;34m[git:master+] [0m$ git push origin master
+Counting objects: 51, done.
+Delta compression using up to 2 threads.
+Compressing objects:   3% (1/27)   Compressing objects:   7% (2/27)   Compressing objects:  11% (3/27)   Compressing objects:  14% (4/27)   Compressing objects:  18% (5/27)   Compressing objects:  22% (6/27)   Compressing objects:  25% (7/27)   Compressing objects:  29% (8/27)   Compressing objects:  33% (9/27)   Compressing objects:  37% (10/27)   Compressing objects:  40% (11/27)   Compressing objects:  44% (12/27)   Compressing objects:  48% (13/27)   Compressing objects:  51% (14/27)   Compressing objects:  55% (15/27)   Compressing objects:  59% (16/27)   Compressing objects:  62% (17/27)   Compressing objects:  66% (18/27)   Compressing objects:  70% (19/27)   Compressing objects:  74% (20/27)   Compressing objects:  77% (21/27)   Compressing objects:  81% (22/27)   Compressing objects:  85% (23/27)   Compressing objects:  88% (24/27)   Compressing objects:  92% (25/27)   Compressing objects:  96% (26/27)   Compressing objects: 100% (27/27)   Compressing objects: 100% (27/27), done.
+Writing objects:   3% (1/27)   Writing objects:   7% (2/27)   Writing objects:  11% (3/27)   Writing objects:  14% (4/27)   Writing objects:  18% (5/27)   Writing objects:  22% (6/27)   Writing objects:  25% (7/27)   Writing objects:  29% (8/27)   Writing objects:  33% (9/27)   Writing objects:  37% (10/27)   Writing objects:  40% (11/27)   Writing objects:  44% (12/27)   Writing objects:  48% (13/27)   Writing objects:  51% (14/27)   Writing objects:  55% (15/27)   Writing objects:  59% (16/27)   Writing objects:  62% (17/27)   Writing objects:  66% (18/27)   Writing objects:  70% (19/27)   Writing objects:  74% (20/27)   Writing objects:  77% (21/27)   Writing objects:  81% (22/27)   Writing objects:  85% (23/27)   Writing objects:  88% (24/27)   Writing objects:  92% (25/27)   Writing objects:  96% (26/27)   Writing objects: 100% (27/27)   Writing objects: 100% (27/27), 63.86 KiB, done.
+Total 27 (delta 18), reused 0 (delta 0)
+To git@github.com:kwiest/Teacher-Ducklings.git
+   2d46211..3d76111  master -> master
+[[1;37mkwiest2000[0m@kyle-wiests-macbook-pro]:~/sites/Teacher-Ducklings [1;34m[git:master+] [0m$ script/generate controller uploads_[K
+      exists  app/controllers/
+      exists  app/helpers/
+      create  app/views/uploads
+      exists  test/functional/
+      exists  test/unit/helpers/
+      create  app/controllers/uploads_controller.rb
+      create  test/functional/uploads_controller_test.rb
+      create  app/helpers/uploads_helper.rb
+      create  test/unit/helpers/uploads_helper_test.rb
+[[1;37mkwiest2000[0m@kyle-wiests-macbook-pro]:~/sites/Teacher-Ducklings [1;34m[git:master+?] [0m$ script/server
+=> Booting WEBrick
+=> Rails 2.3.10 application starting on http://0.0.0.0:3000
+=> Call with -d to detach
+=> Ctrl-C to shutdown server
+[2011-02-09 14:21:42] INFO  WEBrick 1.3.1
+[2011-02-09 14:21:42] INFO  ruby 1.8.7 (2010-04-19) [i686-darwin9.8.0]
+[2011-02-09 14:21:42] INFO  WEBrick::HTTPServer#start: pid=36339 port=3000
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2011-02-09 14:21:46) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+  [4;36;1mCategory Load (0.8ms)[0m   [0;1mSELECT * FROM "categories" ORDER BY name, name[0m
+  [4;35;1mPost Load (0.6ms)[0m   [0mSELECT * FROM "posts" ORDER BY created_at DESC LIMIT 5[0m
+Completed in 207ms (View: 172, DB: 1) | 200 OK [http://localhost/login]
+
+
+Processing UserSessionsController#create (for 127.0.0.1 at 2011-02-09 14:22:05) [POST]
+  Parameters: {"commit"=>"Log in", "user_session"=>{"password"=>"[FILTERED]", "email"=>"kyle.wiest@gmail.com"}, "action"=>"create", "authenticity_token"=>"6sbUrpNFbewIQoIg239nHKD45/B/NdiTE245TdVWnA8=", "controller"=>"user_sessions"}
+  [4;36;1mUser Load (0.9ms)[0m   [0;1mSELECT * FROM "users" WHERE (LOWER("users".email) = 'kyle.wiest@gmail.com') ORDER BY last_name LIMIT 1[0m
+Rendering template within layouts/application
+Rendering user_sessions/new
+  [4;35;1mCategory Load (0.7ms)[0m   [0mSELECT * FROM "categories" ORDER BY name, name[0m
+  [4;36;1mPost Load (0.5ms)[0m   [0;1mSELECT * FROM "posts" ORDER BY created_at DESC LIMIT 5[0m
+Completed in 431ms (View: 26, DB: 2) | 200 OK [http://localhost/user_sessions]
+
+
+Processing UserSessionsController#create (for 127.0.0.1 at 2011-02-09 14:22:10) [POST]
+  Parameters: {"commit"=>"Log in", "user_session"=>{"password"=>"[FILTERED]", "email"=>"kyle.wiest@gmail.com"}, "action"=>"create", "authenticity_token"=>"6sbUrpNFbewIQoIg239nHKD45/B/NdiTE245TdVWnA8=", "controller"=>"user_sessions"}
+  [4;35;1mUser Load (0.8ms)[0m   [0mSELECT * FROM "users" WHERE (LOWER("users".email) = 'kyle.wiest@gmail.com') ORDER BY last_name LIMIT 1[0m
+  [4;36;1mUser Update (0.4ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2011-02-09 22:22:10', "perishable_token" = 'SXafh5SUcH9CARnX6xP' WHERE "id" = 1[0m
+[paperclip] Saving attachments.
+  [4;35;1mUser Load (0.6ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;36;1mUser Update (0.5ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2011-02-09 22:22:10', "perishable_token" = 'afjHYFgnUDwhX4CJlZum', "last_login_at" = '2011-02-09 22:22:10' WHERE "id" = 1[0m
+[paperclip] Saving attachments.
+Redirected to http://localhost:3000/admin
+Completed in 38ms (DB: 2) | 302 Found [http://localhost/user_sessions]
+
+
+Processing AdminController#index (for 127.0.0.1 at 2011-02-09 14:22:10) [GET]
+  Parameters: {"action"=>"index", "controller"=>"admin"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+Rendering template within layouts/admin
+Rendering admin/index
+  [4;35;1mMeeting Load (0.8ms)[0m   [0mSELECT * FROM "meetings" WHERE (date < '2011-02-16' AND date >= '2011-02-09') ORDER BY date[0m
+  [4;36;1mVideo Load (0.6ms)[0m   [0;1mSELECT * FROM "videos" WHERE (created_at > '2011-02-02') ORDER BY created_at DESC[0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY last_name[0m
+Completed in 45ms (View: 23, DB: 2) | 200 OK [http://localhost/admin]
+
+
+Processing Admin::VideosController#index (for 127.0.0.1 at 2011-02-09 14:22:13) [GET]
+  Parameters: {"action"=>"index", "controller"=>"admin/videos"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;36;1mVideo Load (0.7ms)[0m   [0;1mSELECT * FROM "videos" ORDER BY created_at DESC[0m
+Rendering template within layouts/admin
+Rendering admin/videos/index
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY last_name[0m
+Rendered admin/videos/_video (7.3ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY last_name[0m
+Rendered admin/videos/_video (2.8ms)
+  [4;35;1mMeeting Load (0.6ms)[0m   [0mSELECT * FROM "meetings" WHERE (date < '2011-02-16' AND date >= '2011-02-09') ORDER BY date[0m
+  [4;36;1mVideo Load (0.5ms)[0m   [0;1mSELECT * FROM "videos" WHERE (created_at > '2011-02-02') ORDER BY created_at DESC[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY last_name[0m
+Completed in 114ms (View: 87, DB: 3) | 200 OK [http://localhost/admin/videos]
+
+
+Processing VideosController#index (for 127.0.0.1 at 2011-02-09 14:28:13) [GET]
+  Parameters: {"action"=>"index", "controller"=>"videos"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;36;1mVideo Load (0.7ms)[0m   [0;1mSELECT * FROM "videos" WHERE ("videos".user_id = 1) ORDER BY created_at DESC[0m
+Rendering template within layouts/application
+Rendering videos/index
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY last_name[0m
+Rendered admin/videos/_video (7.7ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY last_name[0m
+Rendered admin/videos/_video (2.8ms)
+
+ActionView::TemplateError (undefined method `user_video_path' for #<ActionView::Base:0x2dcb214>) on line #7 of app/views/videos/_video.html.erb:
+4: 	</div>
+5: 	<div style="float: right;">
+6:     <br />
+7: 		<%= link_to 'Watch', user_video_path(video.user_id, video), :class => "show" %>
+8: 	  <%= link_to 'Delete', user_video_path(video.user_id, video), :confirm => 'Are you sure?', :method => :delete, :class => "delete" %>
+9: 	</div>
+10: 	<strong>User: </strong><%= link_to video.user.full_name, video.user %><br />
+
+    app/views/videos/_video.html.erb:7
+    app/views/videos/index.html.erb:47
+    lib/flash_session_cookie_middleware.rb:19:in `call'
+    lib/flash_session_cookie_middleware.rb:19:in `call'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (123.1ms)
+Rendered rescues/_request_and_response (1.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing VideosController#index (for 127.0.0.1 at 2011-02-09 14:28:56) [GET]
+  Parameters: {"action"=>"index", "controller"=>"videos"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mVideo Load (0.7ms)[0m   [0mSELECT * FROM "videos" WHERE ("videos".user_id = 1) ORDER BY created_at DESC[0m
+Rendering template within layouts/application
+Rendering videos/index
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY last_name[0m
+Rendered admin/videos/_video (5.6ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY last_name[0m
+Rendered admin/videos/_video (2.9ms)
+Rendered videos/_video (1.5ms)
+Rendered videos/_video (0.8ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;36;1mCategory Load (0.6ms)[0m   [0;1mSELECT * FROM "categories" ORDER BY name, name[0m
+  [4;35;1mPost Load (0.5ms)[0m   [0mSELECT * FROM "posts" ORDER BY created_at DESC LIMIT 5[0m
+Completed in 58ms (View: 31, DB: 3) | 200 OK [http://localhost/videos]
+
+
+Processing VideosController#index (for 127.0.0.1 at 2011-02-09 14:29:39) [GET]
+  Parameters: {"action"=>"index", "controller"=>"videos"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;36;1mVideo Load (0.0ms)[0m   [0;1mSQLite3::SQLException: no such column: videos.order: SELECT * FROM "videos" WHERE ("videos"."order" = '--- :created_at
+') AND ("videos".user_id = 1) ORDER BY created_at DESC[0m
+
+ActiveRecord::StatementInvalid (SQLite3::SQLException: no such column: videos.order: SELECT * FROM "videos" WHERE ("videos"."order" = '--- :created_at
+') AND ("videos".user_id = 1)  ORDER BY created_at DESC):
+  app/controllers/videos_controller.rb:5:in `index'
+  lib/flash_session_cookie_middleware.rb:19:in `call'
+  lib/flash_session_cookie_middleware.rb:19:in `call'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (42.6ms)
+Rendered rescues/_request_and_response (0.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing VideosController#index (for 127.0.0.1 at 2011-02-09 14:30:45) [GET]
+  Parameters: {"action"=>"index", "controller"=>"videos"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mVideo Load (0.8ms)[0m   [0mSELECT * FROM "videos" WHERE ("videos".user_id = 1) ORDER BY created_at, created_at DESC[0m
+Rendering template within layouts/application
+Rendering videos/index
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY last_name[0m
+Rendered admin/videos/_video (5.7ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY last_name[0m
+Rendered admin/videos/_video (3.0ms)
+Rendered videos/_video (0.8ms)
+Rendered videos/_video (0.8ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;36;1mCategory Load (0.7ms)[0m   [0;1mSELECT * FROM "categories" ORDER BY name, name[0m
+  [4;35;1mPost Load (0.5ms)[0m   [0mSELECT * FROM "posts" ORDER BY created_at DESC LIMIT 5[0m
+Completed in 56ms (View: 29, DB: 3) | 200 OK [http://localhost/videos]
+
+
+Processing AdminController#index (for 127.0.0.1 at 2011-02-09 14:31:57) [GET]
+  Parameters: {"action"=>"index", "controller"=>"admin"}
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+Rendering template within layouts/admin
+Rendering admin/index
+  [4;36;1mMeeting Load (0.5ms)[0m   [0;1mSELECT * FROM "meetings" WHERE (date < '2011-02-16' AND date >= '2011-02-09') ORDER BY date[0m
+  [4;35;1mVideo Load (0.6ms)[0m   [0mSELECT * FROM "videos" WHERE (created_at > '2011-02-02') ORDER BY created_at DESC[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY last_name[0m
+Completed in 37ms (View: 16, DB: 2) | 200 OK [http://localhost/admin]
+
+
+Processing Admin::VideosController#index (for 127.0.0.1 at 2011-02-09 14:32:00) [GET]
+  Parameters: {"action"=>"index", "controller"=>"admin/videos"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mVideo Load (0.8ms)[0m   [0mSELECT * FROM "videos" ORDER BY created_at, created_at DESC[0m
+Rendering template within layouts/admin
+Rendering admin/videos/index
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY last_name[0m
+Rendered admin/videos/_video (5.6ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY last_name[0m
+Rendered admin/videos/_video (4.2ms)
+  [4;36;1mMeeting Load (0.5ms)[0m   [0;1mSELECT * FROM "meetings" WHERE (date < '2011-02-16' AND date >= '2011-02-09') ORDER BY date[0m
+  [4;35;1mVideo Load (0.5ms)[0m   [0mSELECT * FROM "videos" WHERE (created_at > '2011-02-02') ORDER BY created_at DESC[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY last_name[0m
+Completed in 44ms (View: 18, DB: 2) | 200 OK [http://localhost/admin/videos]
+
+
+Processing IndexController#index (for 127.0.0.1 at 2011-02-09 14:32:29) [GET]
+  Parameters: {"action"=>"index", "controller"=>"index"}
+Rendering template within layouts/application
+Rendering index/index
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mCategory Load (0.7ms)[0m   [0mSELECT * FROM "categories" ORDER BY name, name[0m
+  [4;36;1mPost Load (0.5ms)[0m   [0;1mSELECT * FROM "posts" ORDER BY created_at DESC LIMIT 5[0m
+Completed in 43ms (View: 39, DB: 2) | 200 OK [http://localhost/]
+
+
+Processing VideosController#index (for 127.0.0.1 at 2011-02-09 14:32:36) [GET]
+  Parameters: {"action"=>"index", "controller"=>"videos"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mVideo Load (0.8ms)[0m   [0mSELECT * FROM "videos" WHERE ("videos".user_id = 1) ORDER BY created_at, created_at DESC[0m
+Rendering template within layouts/application
+Rendering videos/index
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY last_name[0m
+Rendered admin/videos/_video (7.8ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY last_name[0m
+Rendered admin/videos/_video (2.8ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;36;1mCategory Load (0.7ms)[0m   [0;1mSELECT * FROM "categories" ORDER BY name, name[0m
+  [4;35;1mPost Load (0.5ms)[0m   [0mSELECT * FROM "posts" ORDER BY created_at DESC LIMIT 5[0m
+Completed in 121ms (View: 94, DB: 3) | 200 OK [http://localhost/videos/]
+
+
+Processing UploadsController#create (for 127.0.0.1 at 2011-02-09 14:32:46) [POST]
+  Parameters: {"Filename"=>"Oregon-Ducks-Power-Ballad.mp3", "folder"=>"/videos/", "action"=>"create", "authenticity_token"=>"6sbUrpNFbewIQoIg239nHKD45/B/NdiTE245TdVWnA8=", "_teacherducklings_session"=>"BAh7CiIVdXNlcl9jcmVkZW50aWFscyIBgGM4YjIyZDc0YjUxNWRlMTIwYTc2MjM5NjMxNzE4ZGIyOWRlZGY1ZWM4ZmRmMDM4MDJmNTUzN2YxOTM2NDIzYjg2Yjg0ZjhkMDFkN2I4ZjI4ZTJhNjg1ZTFjYzA2Y2Y0MmVkOTc5NDA5OTY5MTI4NTY2YjlhOWYwZTY2NGJhNjhjOhBfY3NyZl90b2tlbiIxNnNiVXJwTkZiZXdJUW9JZzIzOW5IS0Q0NS9CL05kaVRFMjQ1VGRWV25BOD06D3Nlc3Npb25faWQiJThmNjM5NDI3YzVkOTZkMjEyNDM1YWRkOGU2ZmUwZWYxIhh1c2VyX2NyZWRlbnRpYWxzX2lkaQYiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhhc2h7AAY6CkB1c2VkewA=--2ae53f773bde9255c5addfce50dca565c73021bf", "Upload"=>"Submit Query", "video"=>{"video"=>#<File:/var/folders/Fc/FcbVh523GCm8Fv+pUcT2vk+++TI/-Tmp-/RackMultipart20110209-36339-3mpfc7-0>}, "controller"=>"uploads"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY last_name LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY last_name LIMIT 1[0m
+  [4;36;1mVideo Create (0.4ms)[0m   [0;1mINSERT INTO "videos" ("created_at", "title", "updated_at", "video_content_type", "video_file_size", "user_id", "description", "video_file_name", "state") VALUES('2011-02-09 22:32:47', NULL, '2011-02-09 22:32:47', 'application/octet-stream', 6597345, 1, NULL, 'Oregon-Ducks-Power-Ballad.mp3', 'uploaded')[0m
+[paperclip] Saving attachments.
+[paperclip] saving /Users/kwiest2000/Sites/Teacher-Ducklings/public/system/videos/108/original/Oregon-Ducks-Power-Ballad.mp3
+  [4;35;1mVideo Update (0.3ms)[0m   [0mUPDATE "videos" SET "updated_at" = '2011-02-09 22:32:47', "title" = 'Kyle Wiest - February 9, 2011' WHERE "id" = 108[0m
+[paperclip] Saving attachments.
+  [4;36;1mDelayed::Job Create (0.3ms)[0m   [0;1mINSERT INTO "delayed_jobs" ("failed_at", "locked_by", "created_at", "handler", "updated_at", "priority", "run_at", "attempts", "locked_at", "last_error") VALUES(NULL, NULL, '2011-02-09 22:32:47', '--- !ruby/struct:Delayed::PerformableMethod 
+object: AR:Video:108
+method: :encode
+args: []
+
+', '2011-02-09 22:32:47', 0, '2011-02-09 22:32:47', 0, NULL, NULL)[0m
+
+ActionView::MissingTemplate (Missing template uploads/_video.erb in view path app/views):
+  app/controllers/uploads_controller.rb:9:in `create'
+  lib/flash_session_cookie_middleware.rb:19:in `call'
+  lib/flash_session_cookie_middleware.rb:19:in `call'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UploadsController#create (for 127.0.0.1 at 2011-02-09 14:33:18) [POST]
+  Parameters: {"Filename"=>"Oregon-Ducks-Power-Ballad.mp3", "folder"=>"/videos/", "action"=>"create", "authenticity_token"=>"6sbUrpNFbewIQoIg239nHKD45/B/NdiTE245TdVWnA8=", "_teacherducklings_session"=>"BAh7CiIVdXNlcl9jcmVkZW50aWFscyIBgGM4YjIyZDc0YjUxNWRlMTIwYTc2MjM5NjMxNzE4ZGIyOWRlZGY1ZWM4ZmRmMDM4MDJmNTUzN2YxOTM2NDIzYjg2Yjg0ZjhkMDFkN2I4ZjI4ZTJhNjg1ZTFjYzA2Y2Y0MmVkOTc5NDA5OTY5MTI4NTY2YjlhOWYwZTY2NGJhNjhjOhBfY3NyZl90b2tlbiIxNnNiVXJwTkZiZXdJUW9JZzIzOW5IS0Q0NS9CL05kaVRFMjQ1VGRWV25BOD06D3Nlc3Npb25faWQiJThmNjM5NDI3YzVkOTZkMjEyNDM1YWRkOGU2ZmUwZWYxIhh1c2VyX2NyZWRlbnRpYWxzX2lkaQYiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhhc2h7AAY6CkB1c2VkewA=--2ae53f773bde9255c5addfce50dca565c73021bf", "Upload"=>"Submit Query", "video"=>{"video"=>#<File:/var/folders/Fc/FcbVh523GCm8Fv+pUcT2vk+++TI/-Tmp-/RackMultipart20110209-36339-zdznxj-0>}, "controller"=>"uploads"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY last_name LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY last_name LIMIT 1[0m
+  [4;35;1mVideo Create (0.4ms)[0m   [0mINSERT INTO "videos" ("created_at", "title", "updated_at", "video_content_type", "video_file_size", "user_id", "description", "video_file_name", "state") VALUES('2011-02-09 22:33:18', NULL, '2011-02-09 22:33:18', 'application/octet-stream', 6597345, 1, NULL, 'Oregon-Ducks-Power-Ballad.mp3', 'uploaded')[0m
+[paperclip] Saving attachments.
+[paperclip] saving /Users/kwiest2000/Sites/Teacher-Ducklings/public/system/videos/109/original/Oregon-Ducks-Power-Ballad.mp3
+  [4;36;1mVideo Update (0.3ms)[0m   [0;1mUPDATE "videos" SET "updated_at" = '2011-02-09 22:33:18', "title" = 'Kyle Wiest - February 9, 2011' WHERE "id" = 109[0m
+[paperclip] Saving attachments.
+  [4;35;1mDelayed::Job Create (0.3ms)[0m   [0mINSERT INTO "delayed_jobs" ("failed_at", "locked_by", "created_at", "handler", "updated_at", "priority", "run_at", "attempts", "locked_at", "last_error") VALUES(NULL, NULL, '2011-02-09 22:33:18', '--- !ruby/struct:Delayed::PerformableMethod 
+object: AR:Video:109
+method: :encode
+args: []
+
+', '2011-02-09 22:33:18', 0, '2011-02-09 22:33:18', 0, NULL, NULL)[0m
+DEPRECATION WARNING: @video will no longer be implicitly assigned to video. (called from extract_options! at /Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/activesupport-2.3.10/lib/active_support/core_ext/array/extract_options.rb:15)
+DEPRECATION WARNING: @video will no longer be implicitly assigned to video. (called from generated code (/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/routing/route.rb:160)
+DEPRECATION WARNING: @video will no longer be implicitly assigned to video. (called from _run_erb_app47views47videos47_video46html46erb_locals_object_video at /Users/kwiest2000/Sites/Teacher-Ducklings/app/views/videos/_video.html.erb:9)
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY last_name[0m
+DEPRECATION WARNING: @video will no longer be implicitly assigned to video. (called from _run_erb_app47views47videos47_video46html46erb_locals_object_video at /Users/kwiest2000/Sites/Teacher-Ducklings/app/views/videos/_video.html.erb:9)
+DEPRECATION WARNING: @video will no longer be implicitly assigned to video. (called from _run_erb_app47views47videos47_video46html46erb_locals_object_video at /Users/kwiest2000/Sites/Teacher-Ducklings/app/views/videos/_video.html.erb:10)
+DEPRECATION WARNING: @video will no longer be implicitly assigned to video. (called from _run_erb_app47views47videos47_video46html46erb_locals_object_video at /Users/kwiest2000/Sites/Teacher-Ducklings/app/views/videos/_video.html.erb:10)
+DEPRECATION WARNING: @video will no longer be implicitly assigned to video. (called from _run_erb_app47views47videos47_video46html46erb_locals_object_video at /Users/kwiest2000/Sites/Teacher-Ducklings/app/views/videos/_video.html.erb:11)
+Rendered videos/_video (4.8ms)
+Completed in 496ms (View: 6, DB: 2) | 200 OK [http://localhost/upload]
+
+
+Processing AdminController#index (for 127.0.0.1 at 2011-02-09 14:33:44) [GET]
+  Parameters: {"action"=>"index", "controller"=>"admin"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+Rendering template within layouts/admin
+Rendering admin/index
+  [4;35;1mMeeting Load (0.5ms)[0m   [0mSELECT * FROM "meetings" WHERE (date < '2011-02-16' AND date >= '2011-02-09') ORDER BY date[0m
+  [4;36;1mVideo Load (0.8ms)[0m   [0;1mSELECT * FROM "videos" WHERE (created_at > '2011-02-02') ORDER BY created_at DESC[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY last_name[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY last_name[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY last_name[0m
+Completed in 39ms (View: 17, DB: 2) | 200 OK [http://localhost/admin]
+
+
+Processing Admin::VideosController#index (for 127.0.0.1 at 2011-02-09 14:33:45) [GET]
+  Parameters: {"action"=>"index", "controller"=>"admin/videos"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;36;1mVideo Load (0.9ms)[0m   [0;1mSELECT * FROM "videos" ORDER BY created_at, created_at DESC[0m
+Rendering template within layouts/admin
+Rendering admin/videos/index
+
+ActionView::TemplateError (Missing template admin/videos/_video.erb in view path app/views) on line #40 of app/views/admin/videos/index.html.erb:
+37: 
+38: <div id="videos">
+39: 	<% @videos.each do |video| %>
+40: 		<%= render 'admin/videos/video', :video => video %>
+41: 	<% end %>
+42: </div>
+
+    app/views/admin/videos/index.html.erb:40
+    app/views/admin/videos/index.html.erb:39:in `each'
+    app/views/admin/videos/index.html.erb:39
+    lib/flash_session_cookie_middleware.rb:19:in `call'
+    lib/flash_session_cookie_middleware.rb:19:in `call'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (45.9ms)
+Rendered rescues/_request_and_response (0.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing Admin::VideosController#index (for 127.0.0.1 at 2011-02-09 14:34:22) [GET]
+  Parameters: {"action"=>"index", "controller"=>"admin/videos"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mVideo Load (0.9ms)[0m   [0mSELECT * FROM "videos" ORDER BY created_at, created_at DESC[0m
+Rendering template within layouts/admin
+Rendering admin/videos/index
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY last_name[0m
+
+ActionView::TemplateError (undefined method `user_video_path' for #<ActionView::Base:0x2aaf968>) on line #3 of app/views/admin/videos/_video.html.erb:
+1: <p>
+2: 	<%= link_to video.user.full_name, video.user %> uploaded a video <%= time_ago_in_words(video.created_at) %> ago.
+3: 	<%= link_to "Watch it now", user_video_path(video.user.id, video) %>.
+4: </p>
+
+    app/views/admin/videos/_video.html.erb:3
+    app/views/admin/videos/index.html.erb:40
+    app/views/admin/videos/index.html.erb:39:in `each'
+    app/views/admin/videos/index.html.erb:39
+    lib/flash_session_cookie_middleware.rb:19:in `call'
+    lib/flash_session_cookie_middleware.rb:19:in `call'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (50.1ms)
+Rendered rescues/_request_and_response (0.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing Admin::VideosController#index (for 127.0.0.1 at 2011-02-09 14:35:07) [GET]
+  Parameters: {"action"=>"index", "controller"=>"admin/videos"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mVideo Load (1.0ms)[0m   [0mSELECT * FROM "videos" ORDER BY created_at, created_at DESC[0m
+Rendering template within layouts/admin
+Rendering admin/videos/index
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY last_name[0m
+Rendered admin/videos/_video (7.2ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY last_name[0m
+Rendered admin/videos/_video (2.7ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY last_name[0m
+Rendered admin/videos/_video (2.6ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY last_name[0m
+Rendered admin/videos/_video (2.6ms)
+  [4;36;1mMeeting Load (0.5ms)[0m   [0;1mSELECT * FROM "meetings" WHERE (date < '2011-02-16' AND date >= '2011-02-09') ORDER BY date[0m
+  [4;35;1mVideo Load (0.7ms)[0m   [0mSELECT * FROM "videos" WHERE (created_at > '2011-02-02') ORDER BY created_at DESC[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY last_name[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY last_name[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY last_name[0m
+Completed in 120ms (View: 92, DB: 3) | 200 OK [http://localhost/admin/videos]
+
+
+Processing VideosController#index (for 127.0.0.1 at 2011-02-09 14:35:14) [GET]
+  Parameters: {"action"=>"index", "controller"=>"videos"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mVideo Load (1.0ms)[0m   [0mSELECT * FROM "videos" WHERE ("videos".user_id = 1) ORDER BY created_at, created_at DESC[0m
+Rendering template within layouts/application
+Rendering videos/index
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY last_name[0m
+Rendered admin/videos/_video (5.9ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY last_name[0m
+Rendered admin/videos/_video (3.9ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY last_name[0m
+Rendered admin/videos/_video (2.7ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY last_name[0m
+Rendered admin/videos/_video (2.6ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;36;1mCategory Load (0.9ms)[0m   [0;1mSELECT * FROM "categories" ORDER BY name, name[0m
+  [4;35;1mPost Load (0.5ms)[0m   [0mSELECT * FROM "posts" ORDER BY created_at DESC LIMIT 5[0m
+Completed in 62ms (View: 33, DB: 3) | 200 OK [http://localhost/videos]
+
+
+Processing VideosController#index (for 127.0.0.1 at 2011-02-09 14:35:40) [GET]
+  Parameters: {"action"=>"index", "controller"=>"videos"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;36;1mVideo Load (1.0ms)[0m   [0;1mSELECT * FROM "videos" WHERE ("videos".user_id = 1) ORDER BY created_at, created_at DESC[0m
+Rendering template within layouts/application
+Rendering videos/index
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY last_name[0m
+Rendered admin/videos/_video (5.7ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY last_name[0m
+Rendered admin/videos/_video (4.0ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY last_name[0m
+Rendered admin/videos/_video (2.8ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY last_name[0m
+Rendered admin/videos/_video (2.6ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mCategory Load (0.7ms)[0m   [0mSELECT * FROM "categories" ORDER BY name, name[0m
+  [4;36;1mPost Load (0.5ms)[0m   [0;1mSELECT * FROM "posts" ORDER BY created_at DESC LIMIT 5[0m
+Completed in 61ms (View: 33, DB: 3) | 200 OK [http://localhost/videos]
+
+
+Processing VideosController#index (for 127.0.0.1 at 2011-02-09 14:36:00) [GET]
+  Parameters: {"action"=>"index", "controller"=>"videos"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mVideo Load (1.0ms)[0m   [0mSELECT * FROM "videos" WHERE ("videos".user_id = 1) ORDER BY created_at, created_at DESC[0m
+Rendering template within layouts/application
+Rendering videos/index
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY last_name[0m
+Rendered videos/_video (4.3ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY last_name[0m
+Rendered videos/_video (1.2ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY last_name[0m
+Rendered videos/_video (1.1ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY last_name[0m
+Rendered videos/_video (1.1ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;36;1mCategory Load (0.7ms)[0m   [0;1mSELECT * FROM "categories" ORDER BY name, name[0m
+  [4;35;1mPost Load (0.7ms)[0m   [0mSELECT * FROM "posts" ORDER BY created_at DESC LIMIT 5[0m
+Completed in 121ms (View: 94, DB: 3) | 200 OK [http://localhost/videos]
+
+
+Processing VideosController#show (for 127.0.0.1 at 2011-02-09 14:36:07) [GET]
+  Parameters: {"action"=>"show", "id"=>"104", "controller"=>"videos"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;36;1mVideo Load (0.3ms)[0m   [0;1mSELECT * FROM "videos" WHERE ("videos"."id" = 104 AND ("videos".user_id = 1)) ORDER BY created_at DESC[0m
+Rendering template within layouts/application
+Rendering videos/show
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "reviews" WHERE ("reviews".video_id = 104) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mCategory Load (0.7ms)[0m   [0mSELECT * FROM "categories" ORDER BY name, name[0m
+  [4;36;1mPost Load (0.7ms)[0m   [0;1mSELECT * FROM "posts" ORDER BY created_at DESC LIMIT 5[0m
+Completed in 123ms (View: 96, DB: 2) | 200 OK [http://localhost/videos/104]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-02-09 14:36:08) [GET]
+
+ActionController::RoutingError (No route matches "/javascripts/swfobject_old.js" with {:method=>:get}):
+  lib/flash_session_cookie_middleware.rb:19:in `call'
+  lib/flash_session_cookie_middleware.rb:19:in `call'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing VideosController#show (for 127.0.0.1 at 2011-02-09 14:36:33) [GET]
+  Parameters: {"action"=>"show", "id"=>"104", "controller"=>"videos"}
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mVideo Load (0.3ms)[0m   [0mSELECT * FROM "videos" WHERE ("videos"."id" = 104 AND ("videos".user_id = 1)) ORDER BY created_at DESC[0m
+Rendering template within layouts/application
+Rendering videos/show
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "reviews" WHERE ("reviews".video_id = 104) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mCategory Load (0.8ms)[0m   [0mSELECT * FROM "categories" ORDER BY name, name[0m
+  [4;36;1mPost Load (0.7ms)[0m   [0;1mSELECT * FROM "posts" ORDER BY created_at DESC LIMIT 5[0m
+Completed in 124ms (View: 92, DB: 2) | 200 OK [http://localhost/videos/104]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-02-09 14:36:33) [GET]
+
+ActionController::RoutingError (No route matches "/javascripts/swfobject_old.js" with {:method=>:get}):
+  lib/flash_session_cookie_middleware.rb:19:in `call'
+  lib/flash_session_cookie_middleware.rb:19:in `call'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing AdminController#index (for 127.0.0.1 at 2011-02-09 14:36:40) [GET]
+  Parameters: {"action"=>"index", "controller"=>"admin"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+Rendering template within layouts/admin
+Rendering admin/index
+  [4;35;1mMeeting Load (0.5ms)[0m   [0mSELECT * FROM "meetings" WHERE (date < '2011-02-16' AND date >= '2011-02-09') ORDER BY date[0m
+  [4;36;1mVideo Load (0.7ms)[0m   [0;1mSELECT * FROM "videos" WHERE (created_at > '2011-02-02') ORDER BY created_at DESC[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY last_name[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY last_name[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY last_name[0m
+Completed in 40ms (View: 18, DB: 2) | 200 OK [http://localhost/admin]

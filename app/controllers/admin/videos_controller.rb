@@ -1,19 +1,11 @@
 class Admin::VideosController < AdminController
-  before_filter :load_video, :except => [:index, :new, :create]
+  before_filter :load_video, :only => [:show, :destroy]
   
   def index
-    @videos = Video.all
+    @videos = Video.all(:order => 'created_at')
   end
 
   def show
-  end
-
-  def create
-    @video = current_user.videos.create(params[:video])
-    @video.title = "#{current_user.full_name} - #{Date.today.to_s(:long)}"
-    @video.save
-    @video.send_later(:encode)
-    render :partial => 'video'
   end
 
   def destroy

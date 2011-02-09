@@ -31,22 +31,3 @@
 		<p>Nobody has reviewed this video yet...</p>
 	<% end -%>
 </div>
-
-<% if admin? -%>
-	<h2>Add a Review</h2>
-	<% form_for Review.new, :url => reviews_path, :html => { :multipart => true } do |f| %>
-		<%= f.hidden_field :video_id, :value => @video.id %>
-		<p>
-			<%= f.label :description, "Description:" %>
-			<%= f.text_area :description, :rows => 3 %>
-		</p>
-		<p>
-			<%= f.label :pdf, "Attach a PDF:" %>
-			<%= f.file_field :pdf %>
-		</p>
-		<p>
-			<%= f.label "" %>
-			<%= f.submit "Add a Review", :class => "add-button" %>
-		</p>
-	<% end %>
-<% end -%>
