@@ -1,6 +1,19 @@
 class Video < ActiveRecord::Base
   include Permissions
   
+  belongs_to :user
+  has_many :meetings, :dependent => :destroy
+  has_many :reviews, :dependent => :destroy
+  has_attached_file :video
+  
+  validates_attachment_presence :video
+  
+  # Before the record is deleted, delete all converted flash files
+  # to save space
+  before_destroy :delete_flv_files
+  
+  
+  # State machine
   acts_as_state_machine :initial => :uploaded
   state :uploaded
   state :converting
@@ -21,14 +34,6 @@ class Video < ActiveRecord::Base
   
   default_scope :order => "created_at DESC"
   
-  belongs_to :user
-  has_many :meetings, :dependent => :destroy
-  has_many :reviews, :dependent => :destroy
-  has_attached_file :video
-  
-  #validates_presence_of :title
-  validates_attachment_presence :video
-  
   
   # Recent Uploads
   def self.find_recent_uploads
@@ -41,6 +46,7 @@ class Video < ActiveRecord::Base
   end
   
   def encode
+    self.convert!
     video_recipe  = "ffmpeg -i $input_file$ -ar 22050 -b 500k -i_qfactor 0.9 -qmin 6 -qmax 6 -g 500 -f flv -s $resolution$ -y $output_file$"
     options = { :input_file => video.path,
                 :output_file => "#{video.path}.flv",
@@ -56,6 +62,9 @@ class Video < ActiveRecord::Base
       self.error!
     end
   end
+  
+  
+  protected
 
   def delete_flv_files
     each_attachment do |name, attachment|

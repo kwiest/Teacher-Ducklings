@@ -12,6 +12,8 @@
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js"></script>
 	<script type="text/javascript" src="/tiny_mce/jquery.tinymce.js"></script>
 	<%= javascript_include_tag 'application' %>
+	
+	<%= yield :head %>
 
 </head>
 
@@ -33,7 +35,7 @@
 				<li><%= link_to "Categories", admin_categories_path %></li>
 				<li><%= link_to "Posts", admin_posts_path %></li>
 				<li><%= link_to "Links", admin_links_path %></li>
-				<li><%= link_to "Videos", admin_user_videos_path(current_user) %></li>
+				<li><%= link_to "Videos", admin_videos_path %></li>
 				<li><%= link_to "Reviews", admin_reviews_path %></li>
 				<li><%= link_to "Meetings", admin_meetings_path %></li>
 			</ul>
@@ -65,7 +67,12 @@
 				<h3>Recent Uploads</h3>
 				<% @videos = Video.find_recent_uploads -%>
 				<% if @videos.size > 0 -%>
-					<%= render :partial => "admin/video", :collection => @videos %>
+					<% @videos.each do |video| %>
+						<p>
+							<%= link_to video.user.full_name, admin_user_path(video.user) %> uploaded a video <%= time_ago_in_words(video.created_at) %> ago.
+							<%= link_to "Watch it now", admin_video_path(video) %>.
+						</p>
+					<% end %>
 				<% else -%>
 					<p>No videos uploaded in the last week.</p>
 				<% end -%>
