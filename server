@@ -1661,4 +1661,7 @@ Processing AdminController#index (for 127.0.0.1 at 2011-02-08 16:09:57) [GET]
   [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
   [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
 Rendering template within layouts/admin
-Rendering admin/inde
+Rendering admin/index
+  [4;35;1mMeeting Load (0.5ms)[0m   [0mSELECT * FROM "meetings" WHERE (date < '2011-02-15' AND date >= '2011-02-08') ORDER BY date[0m
+  [4;36;1mVideo Load (0.4ms)[0m   [0;1mSELECT * FROM "videos" WHERE (created_at > '2011-02-01') ORDER BY created_at DESC[0m
+Completed in 40ms (View: 20, DB: 1) | 200 OK [http://localhost/admin]
