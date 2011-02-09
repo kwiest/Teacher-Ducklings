@@ -1,7 +1,10 @@
 <h1>Edit User</h1>
 
-<% form_for @user, :html => { :multipart => true } do |f| %>
-	<%= render :partial => 'form', :locals => { :f => f } %>
+<% simple_form_for @user, :html => { :multipart => true } do |f| %>
+	<fieldset>
+		<%= render 'form', :f => f %>
+		<%= f.button :submit, 'Update profile' %>
+	</fieldset>
 <% end %>
 
-<%= link_to "Back", user_path(@user) %>
+<p><%= link_to '← Back', :back %></p>

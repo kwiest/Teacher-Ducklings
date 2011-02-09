@@ -1,45 +1,8 @@
 <%= f.error_messages %>
-
-<p>
-	<%= f.label :first_name, 'First Name:<span class="required">*</span>' %>
-	<%= f.text_field :first_name %>
-</p>
-
-<p>
-	<%= f.label :last_name, 'Last Name:<span class="required">*</span>' %>
-	<%= f.text_field :last_name %>
-</p>
-
-<p>
-	<%= f.label :phone_number, "Phone Number:" %>
-	<%= f.text_field :phone_number %>
-</p>
-
-<p>
-	<%= f.label :email, 'Email:<span class="required">*</span>' %>
-	<%= f.text_field :email %>
-</p>
-
-<p>
-	<%= f.label :password, 'Password:<span class="required">*</span>' %>
-	<%= f.password_field :password %>
-</p>
-
-<p>
-	<%= f.label :password_confirmation, 'Password Again:<span class="required">*</span>' %>
-	<%= f.password_field :password_confirmation %>
-</p>
-
-<p>
-	<%= f.label :photo, "User Picture:" %>
-	<%= f.file_field :photo %>
-</p>
-
-<p>
-	<%= f.label :admin, "Administrator:" %>
-	<%= f.check_box :admin %>
-</p>
-
-<p>
-	<%= f.submit 'Save', :class => :save %>
-</p>
+<%= f.input :first_name, :input_html => { :size => 40 } %>
+<%= f.input :last_name, :input_html => { :size => 40 } %>
+<%= f.input :phone_number, :required => false, :input_html => { :size => 40 } %>
+<%= f.input :email, :input_html => { :size => 40 } %>
+<%= f.input :password, :required => false, :hint => 'Only if required if you want to change it' %>
+<%= f.input :password_confirmation, :required => false %>
+<%= f.input :photo, :as => :file, :required => false %>
