@@ -43,7 +43,7 @@ class Admin::CategoriesController < AdminController
   protected
   
   def load_category
-    load_model(Category)
+    @category = load_model(Category)
   end
   
 end

@@ -31,13 +31,13 @@
 		<div id="nav">
 			<ul>
 				<li><%= link_to "Admin Home", admin_path %></li>
-				<li><%= link_to "Users", users_path %></li>
+				<li><%= link_to "Users", admin_users_path %></li>
 				<li><%= link_to "Categories", admin_categories_path %></li>
-				<li><%= link_to "Posts", posts_path %></li>
-				<li><%= link_to "Links", links_path %></li>
-				<li><%= link_to "Videos", user_videos_path(current_user) %></li>
-				<li><%= link_to "Reviews", reviews_path %></li>
-				<li><%= link_to "Meetings", meetings_path %></li>
+				<li><%= link_to "Posts", admin_posts_path %></li>
+				<li><%= link_to "Links", admin_links_path %></li>
+				<li><%= link_to "Videos", admin_user_videos_path(current_user) %></li>
+				<li><%= link_to "Reviews", admin_reviews_path %></li>
+				<li><%= link_to "Meetings", admin_meetings_path %></li>
 			</ul>
 		</div>
 		<div class="clear"></div>

@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
   protected
   
   def load_model(model_class)
-    @category = model_class.find(params[:id])
+    model_class.find(params[:id])
   rescue ActiveRecord::RecordNotFound
     flash[:error] = "We're sorry, but the #{model_class.to_s.downcase} you're looking for cannot be found."
   end
