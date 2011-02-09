@@ -8,10 +8,9 @@ require File.join(File.dirname(__FILE__), 'boot')
 
 Rails::Initializer.run do |config|
   # Gems
-  config.gem "authlogic"
-  config.gem "paperclip"
-  config.gem "calendar_date_select"
-  config.gem "rvideo"
+  config.gem "authlogic", :version => '2.1.6'
+  config.gem "paperclip", :version => '2.3.5'
+  config.gem "rvideo", :version => '0.9.3'
   config.gem "delayed_job", :version => '1.8.5'
   config.gem "simple_form", :version => '1.0.2'
   

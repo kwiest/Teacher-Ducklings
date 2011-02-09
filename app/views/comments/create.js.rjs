@@ -1,5 +1,0 @@
-page.insert_html :bottom, :comments, :partial => 'comment', :object => @comment
-page[:comment_form].reset
-page[@comment].visual_effect :highlight
-page.replace_html :comment_count, pluralize(@comment.post.comments.size, 'Comment')
-flash.discard

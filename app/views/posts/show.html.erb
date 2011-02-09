@@ -21,29 +21,19 @@
 </div>
 
 <h3>Leave a New Comment</h3>
-<% form_remote_for [@post, @post.comments.new], :html => { :id => "comment_form" } do |f| %>
-	<%= f.error_messages %>
+<% simple_form_for [@post, @post.comments.new] do |f| %>
+	<fieldset>
+		<%= f.error_messages %>
 	
-	<% if logged_in? -%>
-		<%= f.hidden_field :user_id, :value => current_user.id %>
-		<%= f.hidden_field :name, :value => current_user.full_name %>
-		<%= f.hidden_field :email, :value => current_user.email %>
-	<% else -%>
-		<p>
-			<%= f.label :name, 'Your Full Name:<span class="required">*</span>' %>
-			<%= f.text_field :name %>
-		</p>
-		<p>
-			<%= f.label :email, 'Your Email:<span class="required">*</span>' %>
-			<%= f.text_field :email %>
-		</p>
-	<% end -%>
-	<p>
-		<%= f.label :body, 'What\'s on your mind?<span class="required">*</span>' %>
-		<%= f.text_area :body, :rows => 5 %>
-	</p>
-	<p>
-		<%= f.label "" %>
-		<%= f.submit "Add Comment", :class => "add-button" %>
-	</p>
+		<% if logged_in? -%>
+			<%= f.input :user_id, :as => :hidden, :input_html => { :value => current_user.id } %>
+			<%= f.input :name, :as => :hidden, :input_html => { :value => current_user.full_name } %>
+			<%= f.input :email, :as => :hidden, :input_html => { :value => current_user.email } %>
+		<% else -%>
+			<%= f.input :name, :label => 'Your full name:' %>
+			<%= f.input :email %>
+		<% end -%>
+		<%= f.input :body, :label => "What's on your mind?", :input_html => { :rows => 5 } %>
+		<%= f.button :submit, 'Add comment', :id => 'submit_comment' %>
+	</fieldset>
 <% end -%>

@@ -205,6 +205,10 @@ label {
 	font-size: 13px;
 }
 
+label.check_boxes {
+	margin-bottom: 6px;
+}
+
 label.collection_check_boxes {
 	display: inline;
 	margin-right: 10px;
