@@ -1,17 +1,4 @@
 <%= f.error_messages %>
-
-<p>
-	<%= f.label :video_id, "Video to review:" %>
-	<%= f.collection_select :video_id, Video.find(:all), :id, :verbose_title %>
-</p>
-<p>
-	<%= f.label :description, "Description:" %>
-	<%= f.text_area :description, :rows => 5 %>
-</p>
-<p>
-	<%= f.label :pdf, "Attach a PDF:" %>
-	<%= f.file_field :pdf %>
-</p>
-<p>
-	<%= f.submit "Add a Review", :class => :save %>
-</p>
+<%= f.association :video, :label => 'Video to review', :prompt => 'Choose a video', :label_method => 'verbose_title' %>
+<%= f.input :description, :input_html => { :rows => 5 } %>
+<%= f.input :pdf, :as => :file, :label => 'Attach a PDF' %>

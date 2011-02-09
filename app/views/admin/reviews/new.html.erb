@@ -1,9 +1,10 @@
 <h1>Review a Video</h1>
 
-<% form_for @review, :html => { :multipart => true } do |f| %>
-  <%= render :partial => "form", :locals => { :f => f } %>
+<% simple_form_for @review, :url => admin_reviews_path, :html => { :multipart => true } do |f| %>
+	<fieldset>
+		<%= render 'form', :f => f %>
+		<%= f.button :submit, 'Create review' %>
+	</fieldset>
 <% end %>
 
-<p>
-	<%= link_to 'Cancel', reviews_path %>
-</p>
+<%= link_to '← Back', :back %>

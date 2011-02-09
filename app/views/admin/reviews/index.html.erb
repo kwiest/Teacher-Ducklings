@@ -1,6 +1,6 @@
 <h1>All Reviews</h1>
 
-<%= button_to "New Review", new_review_path, :class => :new_review, :method => :get %>
+<%= link_to 'New review', new_admin_review_path, :class => :large_button %>
 
 <p>&nbsp;</p>
 
@@ -8,9 +8,9 @@
 <div class="resource-row <%= cycle 'odd', 'even' %>">
 	<div style="float: right;">
     <br />
-		<%= link_to 'Show', review, :class => "show" %>
-	  <%= link_to 'Edit', edit_review_path(review), :class => "edit" %>
-	  <%= link_to 'Delete', review, :confirm => 'Are you sure?', :method => :delete, :class => "delete" %>
+		<%= link_to 'Show', admin_review_path(review), :class => "show" %>
+	  <%= link_to 'Edit', edit_admin_review_path(review), :class => "edit" %>
+	  <%= link_to 'Delete', admin_review_path(review), :confirm => 'Are you sure?', :method => :delete, :class => "delete" %>
 	</div>
 	<strong>Video: </strong><%=h review.video.verbose_title %><br />
   <strong>Created: </strong><%= time_ago_in_words review.created_at %> ago

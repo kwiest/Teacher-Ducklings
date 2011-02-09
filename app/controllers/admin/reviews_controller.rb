@@ -1,58 +1,51 @@
-class ReviewsController < ApplicationController
-  layout "admin"
+class Admin::ReviewsController < AdminController
+  before_filter :load_review, :except => [:index, :new, :create]
   
-  # GET /reviews
   def index
     @reviews = Review.all
   end
 
-  # GET /reviews/1
   def show
-    @review = Review.find(params[:id])
   end
 
-  # GET /reviews/new
   def new
-    @review = Review.new
+    @review = current_user.reviews.build
   end
 
-  # GET /reviews/1/edit
   def edit
-    @review = Review.find(params[:id])
   end
 
-  # POST /reviews
   def create
-    @review = Review.new(params[:review])
-    @review.user_id = current_user.id
+    @review = current_user.reviews.create(params[:review])
     
     if @review.save
       flash[:success] = "You successfully reviewed a video."
-      redirect_to reviews_path
+      redirect_to admin_reviews_path
     else
-      render :action => "new"
+      render :new
     end
   end
 
-  # PUT /reviews/1
   def update
-    @review = Review.find(params[:id])
-    
     if @review.update_attributes(params[:review])
       flash[:success] = "Your review was successfully updated"
-      redirect_to @review
+      redirect_to admin_reviews_path
     else
-      render :action => "edit"
+      render :edit
     end
   end
 
-  # DELETE /reviews/1
   def destroy
-    @review = Review.find(params[:id])
     @review.destroy
     
     flash[:notice] = "Your review was successfully deleted."
-    redirect_to reviews_path
+    redirect_to admin_reviews_path
   end
   
+  
+  protected
+  
+  def load_review
+    @review = load_model(Review)
+  end
 end
