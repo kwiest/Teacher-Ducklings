@@ -17,6 +17,7 @@ class User < ActiveRecord::Base
   def full_name
     [first_name, last_name].join(" ")
   end
+  alias_method :name, :full_name
   
   def deliver_password_reset_instructions!
     reset_perishable_token!

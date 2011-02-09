@@ -205,6 +205,11 @@ label {
 	font-size: 13px;
 }
 
+label.collection_check_boxes {
+	display: inline;
+	margin-right: 10px;
+}
+
 label.required abbr {
 	color: red;
 	border: none;
@@ -242,7 +247,7 @@ input[type=submit] {
 	margin: 24px 0 16px;
 }
 
-input.post-title-input {
+input.post-title {
 	font-size: 22px;
 }
 

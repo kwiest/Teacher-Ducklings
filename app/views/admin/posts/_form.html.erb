@@ -1,26 +1,5 @@
 <%= f.error_messages %>
-
-<p>
-	<%= f.label :user_id, "Author:" %>
-	<%= f.collection_select :user_id, User.find_all_by_admin(true), :id, :full_name %>
-</p>
-
-<p>
-	<%= f.label :category_ids, "Category:" %>
-	<% Category.find(:all).each do |category| -%>
-		<%= check_box_tag "post[category_ids][]", category.id, @post.categories.include?(category) %>
-		<%= category.name %> | 
-	<% end -%>
-</p>
-
-<p>
-  <%= f.label :title, 'Title:<span class="required">*</span>' %>
-  <%= f.text_field :title, :size => 50, :class => "post-title-input" %>
-</p>
-<p>
-  <%= f.label :body, 'Body:<span class="required">*</span>' %>
-  <%= f.text_area :body, :cols => 78, :rows => 20, :class => 'mceEditor' %>
-</p>
-<p>
-	<%= f.submit 'Publish Post', :class => :publish_post %>
-</p>
+<%= f.input :title, :input_html => { :size => 40, :class => 'post-title' } %>
+<%= f.input :body, :input_html => { :class => 'tinymce', :cols => 45, :rows => 30 }%>
+<%= f.association :user, :label => 'Author', :prompt => 'Choose an author', :conditions => { :admin => true } %>
+<%= f.association :categories, :as => :check_boxes %>
