@@ -3,7 +3,7 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :links
 
-  map.resources :categories
+  map.resources :categories, :only => :show
 
   map.resources :posts, :has_many => :comments
 

@@ -1,0 +1,8 @@
+<div class="resource-row <%= cycle 'odd', 'even' %>">
+	<div style="float: right;">
+    <%= link_to 'Edit', edit_admin_category_path(category), :class => 'edit' %>
+    <%= link_to 'Delete', admin_category_path(category), :confirm => 'Are you sure?', :method => :delete, :class => 'delete' %>
+	</div>
+	<strong>Name:</strong> <%= category.name %>
+</div>
+<div class="clear"></div>
