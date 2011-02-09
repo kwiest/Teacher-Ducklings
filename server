@@ -4130,3 +4130,74 @@ Rendering user_sessions/new
   [4;36;1mCategory Load (0.7ms)[0m   [0;1mSELECT * FROM "categories" ORDER BY name, name[0m
   [4;35;1mPost Load (0.5ms)[0m   [0mSELECT * FROM "posts" ORDER BY created_at DESC LIMIT 5[0m
 Completed in 36ms (View: 21, DB: 1) | 200 OK [http://localhost/login]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2011-02-08 16:47:36) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+  [4;36;1mCategory Load (0.7ms)[0m   [0;1mSELECT * FROM "categories" ORDER BY name, name[0m
+  [4;35;1mPost Load (0.5ms)[0m   [0mSELECT * FROM "posts" ORDER BY created_at DESC LIMIT 5[0m
+Completed in 102ms (View: 86, DB: 1) | 200 OK [http://localhost/login]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2011-02-08 16:47:53) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+  [4;36;1mCategory Load (0.7ms)[0m   [0;1mSELECT * FROM "categories" ORDER BY name, name[0m
+  [4;35;1mPost Load (0.6ms)[0m   [0mSELECT * FROM "posts" ORDER BY created_at DESC LIMIT 5[0m
+Completed in 39ms (View: 24, DB: 1) | 200 OK [http://localhost/login]
+
+
+Processing UserSessionsController#create (for 127.0.0.1 at 2011-02-08 16:49:29) [POST]
+  Parameters: {"commit"=>"Log in", "user_session"=>{"password"=>"[FILTERED]", "email"=>"kwiest@uoregon.edu"}, "action"=>"create", "authenticity_token"=>"RlmTmlzmQKkUkc/JU5DjU8wRRZEAZhPSJkHwuhZLE64=", "controller"=>"user_sessions"}
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" WHERE (LOWER("users".email) = 'kwiest@uoregon.edu') ORDER BY last_name LIMIT 1[0m
+Rendering template within layouts/application
+Rendering user_sessions/new
+  [4;35;1mCategory Load (0.6ms)[0m   [0mSELECT * FROM "categories" ORDER BY name, name[0m
+  [4;36;1mPost Load (0.5ms)[0m   [0;1mSELECT * FROM "posts" ORDER BY created_at DESC LIMIT 5[0m
+Completed in 39ms (View: 22, DB: 2) | 200 OK [http://localhost/user_sessions]
+
+
+Processing UserSessionsController#create (for 127.0.0.1 at 2011-02-08 16:49:36) [POST]
+  Parameters: {"commit"=>"Log in", "user_session"=>{"password"=>"[FILTERED]", "email"=>"kyle.wiest@gmail.com"}, "action"=>"create", "authenticity_token"=>"RlmTmlzmQKkUkc/JU5DjU8wRRZEAZhPSJkHwuhZLE64=", "controller"=>"user_sessions"}
+  [4;35;1mUser Load (0.7ms)[0m   [0mSELECT * FROM "users" WHERE (LOWER("users".email) = 'kyle.wiest@gmail.com') ORDER BY last_name LIMIT 1[0m
+Rendering template within layouts/application
+Rendering user_sessions/new
+  [4;36;1mCategory Load (0.7ms)[0m   [0;1mSELECT * FROM "categories" ORDER BY name, name[0m
+  [4;35;1mPost Load (0.6ms)[0m   [0mSELECT * FROM "posts" ORDER BY created_at DESC LIMIT 5[0m
+Completed in 102ms (View: 22, DB: 2) | 200 OK [http://localhost/user_sessions]
+
+
+Processing UserSessionsController#create (for 127.0.0.1 at 2011-02-08 16:49:42) [POST]
+  Parameters: {"commit"=>"Log in", "user_session"=>{"password"=>"[FILTERED]", "email"=>"kyle.wiest@gmail.com"}, "action"=>"create", "authenticity_token"=>"RlmTmlzmQKkUkc/JU5DjU8wRRZEAZhPSJkHwuhZLE64=", "controller"=>"user_sessions"}
+  [4;36;1mUser Load (0.7ms)[0m   [0;1mSELECT * FROM "users" WHERE (LOWER("users".email) = 'kyle.wiest@gmail.com') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mUser Update (0.4ms)[0m   [0mUPDATE "users" SET "updated_at" = '2011-02-09 00:49:42', "perishable_token" = '5jdFDqfTCgXxPGVYX' WHERE "id" = 1[0m
+[paperclip] Saving attachments.
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mUser Update (0.4ms)[0m   [0mUPDATE "users" SET "updated_at" = '2011-02-09 00:49:42', "perishable_token" = 'eZydu316vgpWxjisdzi', "last_login_at" = '2011-02-09 00:49:42' WHERE "id" = 1[0m
+[paperclip] Saving attachments.
+Redirected to http://localhost:3000/admin
+Completed in 33ms (DB: 2) | 302 Found [http://localhost/user_sessions]
+
+
+Processing AdminController#index (for 127.0.0.1 at 2011-02-08 16:49:42) [GET]
+  Parameters: {"action"=>"index", "controller"=>"admin"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+Rendering template within layouts/admin
+Rendering admin/index
+  [4;36;1mMeeting Load (0.7ms)[0m   [0;1mSELECT * FROM "meetings" WHERE (date < '2011-02-15' AND date >= '2011-02-08') ORDER BY date[0m
+  [4;35;1mVideo Load (0.5ms)[0m   [0mSELECT * FROM "videos" WHERE (created_at > '2011-02-01') ORDER BY created_at DESC[0m
+Completed in 96ms (View: 13, DB: 2) | 200 OK [http://localhost/admin]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-02-08 16:49:51) [GET]
+  Parameters: {"action"=>"index", "controller"=>"admin/posts"}
+
+LoadError (Expected /Users/kwiest2000/Sites/Teacher-Ducklings/app/controllers/admin/posts_controller.rb to define Admin::PostsController):
+  lib/flash_session_cookie_middleware.rb:19:in `call'
+  lib/flash_session_cookie_middleware.rb:19:in `call'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/kwiest2000/

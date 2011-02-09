@@ -9,7 +9,11 @@ class UserSessionsController < ApplicationController
       current_user.last_login_at = Time.now
       current_user.save
       flash[:success] = "Hi #{current_user.first_name}, so good to see you again!"  
-      redirect_to root_path
+      if current_user.admin?
+        redirect_to admin_path
+      else
+        redirect_to root_path
+      end
     else  
       render :action => 'new'  
     end  
