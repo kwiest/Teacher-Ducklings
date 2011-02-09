@@ -1,7 +1,0 @@
-<h1>New Post</h1>
-
-<% form_for(@post) do |f| %>
-  <%= render :partial => 'form', :locals => { :f => f, :post => @post }%>
-<% end %>
-
-<%= link_to 'Cancel', posts_path %>

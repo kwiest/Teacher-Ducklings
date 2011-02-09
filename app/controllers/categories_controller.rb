@@ -1,6 +1,6 @@
 class CategoriesController < ApplicationController
 
   def show
-    load_model(Category)
+    @category = load_model(Category)
   end
 end

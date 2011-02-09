@@ -5603,4 +5603,1250 @@ Processing Admin::PostsController#update (for 127.0.0.1 at 2011-02-08 17:30:43) 
   [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
   [4;36;1mPost Load (0.2ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 3) ORDER BY created_at DESC[0m
   [4;35;1mCategory Load (0.9ms)[0m   [0mSELECT * FROM "categories" WHERE ("categories"."id" IN (4,3,1,2)) ORDER BY name[0m
-  [4;36;1mCategory Load (0.6ms)[0m   [0;1mSELECT * FROM "categories" INNER JOI
+  [4;36;1mCategory Load (0.6ms)[0m   [0;1mSELECT * FROM "categories" INNER JOIN "categories_posts" ON "categories".id = "categories_posts".category_id WHERE ("categories_posts".post_id = 3 ) ORDER BY name[0m
+  [4;35;1mPost Update (0.2ms)[0m   [0mUPDATE "posts" SET "updated_at" = '2011-02-09 01:30:43', "body" = '<p>Another post here!</p>
+<p>And, it''s still here!</p>' WHERE "id" = 3[0m
+Redirected to http://localhost:3000/admin/posts
+Completed in 99ms (DB: 2) | 302 Found [http://localhost/admin/posts/3-say-what]
+
+
+Processing Admin::PostsController#index (for 127.0.0.1 at 2011-02-08 17:30:43) [GET]
+  Parameters: {"action"=>"index", "controller"=>"admin/posts"}
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;36;1mPost Load (0.7ms)[0m   [0;1mSELECT * FROM "posts" ORDER BY created_at DESC[0m
+Rendering template within layouts/admin
+Rendering admin/posts/index
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) ORDER BY last_name[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "comments" WHERE ("comments".post_id = 3) [0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY last_name[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "comments" WHERE ("comments".post_id = 1) [0m
+  [4;35;1mMeeting Load (0.4ms)[0m   [0mSELECT * FROM "meetings" WHERE (date < '2011-02-15' AND date >= '2011-02-08') ORDER BY date[0m
+  [4;36;1mVideo Load (0.5ms)[0m   [0;1mSELECT * FROM "videos" WHERE (created_at > '2011-02-01') ORDER BY created_at DESC[0m
+Completed in 52ms (View: 25, DB: 3) | 200 OK [http://localhost/admin/posts]
+
+
+Processing Admin::PostsController#destroy (for 127.0.0.1 at 2011-02-08 17:30:48) [DELETE]
+  Parameters: {"action"=>"destroy", "_method"=>"delete", "authenticity_token"=>"RlmTmlzmQKkUkc/JU5DjU8wRRZEAZhPSJkHwuhZLE64=", "id"=>"3-say-what", "controller"=>"admin/posts"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mPost Load (0.2ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 3) ORDER BY created_at DESC[0m
+  [4;36;1mCategory Load (0.7ms)[0m   [0;1mSELECT * FROM "categories" INNER JOIN "categories_posts" ON "categories".id = "categories_posts".category_id WHERE ("categories_posts".post_id = 3 ) ORDER BY name[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mDELETE FROM "categories_posts" WHERE post_id = 3 AND category_id IN (4,3,1,2)[0m
+  [4;36;1mPost Destroy (0.1ms)[0m   [0;1mDELETE FROM "posts" WHERE "id" = 3[0m
+Redirected to http://localhost:3000/admin/posts
+Completed in 36ms (DB: 2) | 302 Found [http://localhost/admin/posts/3-say-what]
+
+
+Processing Admin::PostsController#index (for 127.0.0.1 at 2011-02-08 17:30:48) [GET]
+  Parameters: {"action"=>"index", "controller"=>"admin/posts"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mPost Load (0.7ms)[0m   [0mSELECT * FROM "posts" ORDER BY created_at DESC[0m
+Rendering template within layouts/admin
+Rendering admin/posts/index
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY last_name[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "comments" WHERE ("comments".post_id = 1) [0m
+  [4;36;1mMeeting Load (0.5ms)[0m   [0;1mSELECT * FROM "meetings" WHERE (date < '2011-02-15' AND date >= '2011-02-08') ORDER BY date[0m
+  [4;35;1mVideo Load (0.4ms)[0m   [0mSELECT * FROM "videos" WHERE (created_at > '2011-02-01') ORDER BY created_at DESC[0m
+Completed in 48ms (View: 21, DB: 2) | 200 OK [http://localhost/admin/posts]
+
+
+Processing IndexController#index (for 127.0.0.1 at 2011-02-08 17:33:07) [GET]
+  Parameters: {"action"=>"index", "controller"=>"index"}
+Rendering template within layouts/application
+Rendering index/index
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;36;1mCategory Load (0.7ms)[0m   [0;1mSELECT * FROM "categories" ORDER BY name, name[0m
+  [4;35;1mPost Load (0.5ms)[0m   [0mSELECT * FROM "posts" ORDER BY created_at DESC LIMIT 5[0m
+Completed in 47ms (View: 44, DB: 2) | 200 OK [http://localhost/]
+
+
+Processing CategoriesController#show (for 127.0.0.1 at 2011-02-08 17:33:09) [GET]
+  Parameters: {"action"=>"show", "id"=>"4-behavior", "controller"=>"categories"}
+  [4;36;1mCategory Load (0.1ms)[0m   [0;1mSELECT * FROM "categories" WHERE ("categories"."id" = 4) ORDER BY name[0m
+Rendering template within layouts/application
+Rendering categories/show
+
+ActionView::TemplateError (undefined method `name' for nil:NilClass) on line #1 of app/views/categories/show.html.erb:
+1: <h1><%= @category.name %> Resources</h1>
+2: 
+3: <% if @category.posts.size > 0 -%>
+4: 	<%= render @category.posts %>
+
+    app/views/categories/show.html.erb:1
+    lib/flash_session_cookie_middleware.rb:19:in `call'
+    lib/flash_session_cookie_middleware.rb:19:in `call'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (40.1ms)
+Rendered rescues/_request_and_response (0.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing CategoriesController#show (for 127.0.0.1 at 2011-02-08 17:33:23) [GET]
+  Parameters: {"action"=>"show", "id"=>"4-behavior", "controller"=>"categories"}
+  [4;35;1mCategory Load (0.1ms)[0m   [0mSELECT * FROM "categories" WHERE ("categories"."id" = 4) ORDER BY name[0m
+Rendering template within layouts/application
+Rendering categories/show
+
+ActionView::TemplateError (undefined method `name' for nil:NilClass) on line #1 of app/views/categories/show.html.erb:
+1: <h1><%= @category.name %> Resources</h1>
+2: 
+3: <% if @category.posts.size > 0 -%>
+4: 	<%= render @category.posts %>
+
+    app/views/categories/show.html.erb:1
+    lib/flash_session_cookie_middleware.rb:19:in `call'
+    lib/flash_session_cookie_middleware.rb:19:in `call'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (105.3ms)
+Rendered rescues/_request_and_response (0.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing CategoriesController#show (for 127.0.0.1 at 2011-02-08 17:33:49) [GET]
+  Parameters: {"action"=>"show", "id"=>"4-behavior", "controller"=>"categories"}
+  [4;36;1mCategory Load (0.1ms)[0m   [0;1mSELECT * FROM "categories" WHERE ("categories"."id" = 4) ORDER BY name[0m
+Rendering template within layouts/application
+Rendering categories/show
+  [4;35;1mPost Load (0.6ms)[0m   [0mSELECT * FROM "posts" INNER JOIN "categories_posts" ON "posts".id = "categories_posts".post_id WHERE ("categories_posts".category_id = 4 ) ORDER BY created_at DESC[0m
+
+ActionView::TemplateError (Missing template posts/_post.erb in view path app/views) on line #4 of app/views/categories/show.html.erb:
+1: <h1><%= @category.name %> Resources</h1>
+2: 
+3: <% if @category.posts.size > 0 -%>
+4: 	<%= render @category.posts %>
+5: <% else -%>
+6: 	<h4>Sorry, there aren't any posts for <%= @category.name.downcase %> yet...</h4>
+7: <% end -%>
+
+    app/views/categories/show.html.erb:4
+    lib/flash_session_cookie_middleware.rb:19:in `call'
+    lib/flash_session_cookie_middleware.rb:19:in `call'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (109.3ms)
+Rendered rescues/_request_and_response (0.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing CategoriesController#show (for 127.0.0.1 at 2011-02-08 17:34:37) [GET]
+  Parameters: {"action"=>"show", "id"=>"4-behavior", "controller"=>"categories"}
+  [4;36;1mCategory Load (0.1ms)[0m   [0;1mSELECT * FROM "categories" WHERE ("categories"."id" = 4) ORDER BY name[0m
+Rendering template within layouts/application
+Rendering categories/show
+  [4;35;1mPost Load (0.6ms)[0m   [0mSELECT * FROM "posts" INNER JOIN "categories_posts" ON "posts".id = "categories_posts".post_id WHERE ("categories_posts".category_id = 4 ) ORDER BY created_at DESC[0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY last_name[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "comments" WHERE ("comments".post_id = 1) [0m
+  [4;36;1mCategory Load (0.6ms)[0m   [0;1mSELECT * FROM "categories" INNER JOIN "categories_posts" ON "categories".id = "categories_posts".category_id WHERE ("categories_posts".post_id = 1 ) ORDER BY name[0m
+Rendered posts/_post (29.8ms)
+  [4;35;1mLink Load (0.8ms)[0m   [0mSELECT * FROM "links" INNER JOIN "categories_links" ON "links".id = "categories_links".link_id WHERE ("categories_links".category_id = 4 ) ORDER BY name[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;36;1mCategory Load (0.6ms)[0m   [0;1mSELECT * FROM "categories" ORDER BY name, name[0m
+  [4;35;1mPost Load (0.5ms)[0m   [0mSELECT * FROM "posts" ORDER BY created_at DESC LIMIT 5[0m
+Completed in 64ms (View: 54, DB: 4) | 200 OK [http://localhost/categories/4-behavior]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2011-02-08 17:34:48) [GET]
+  Parameters: {"action"=>"show", "id"=>"1-update-coming", "controller"=>"posts"}
+  [4;36;1mPost Load (0.2ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 1) ORDER BY created_at DESC[0m
+Rendering template within layouts/application
+Rendering posts/show
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY last_name[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "comments" WHERE ("comments".post_id = 1) [0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "comments" WHERE ("comments".post_id = 1) [0m
+  [4;36;1mComment Load (0.3ms)[0m   [0;1mSELECT * FROM "comments" WHERE ("comments".post_id = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY last_name[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+Rendered comments/_comment (5.6ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY last_name[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+Rendered comments/_comment (4.5ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY last_name[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+Rendered comments/_comment (4.4ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;36;1mCategory Load (0.7ms)[0m   [0;1mSELECT * FROM "categories" ORDER BY name, name[0m
+  [4;35;1mPost Load (0.5ms)[0m   [0mSELECT * FROM "posts" ORDER BY created_at DESC LIMIT 5[0m
+Completed in 75ms (View: 65, DB: 3) | 200 OK [http://localhost/posts/1-update-coming]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-02-08 17:34:48) [GET]
+
+ActionController::RoutingError (No route matches "/system/photos/1/small/kyle.jpg" with {:method=>:get}):
+  lib/flash_session_cookie_middleware.rb:19:in `call'
+  lib/flash_session_cookie_middleware.rb:19:in `call'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing PostsController#edit (for 127.0.0.1 at 2011-02-08 17:35:04) [GET]
+  Parameters: {"action"=>"edit", "id"=>"1-update-coming", "controller"=>"posts"}
+
+ActionController::UnknownAction (No action responded to edit. Actions: index and show):
+  lib/flash_session_cookie_middleware.rb:19:in `call'
+  lib/flash_session_cookie_middleware.rb:19:in `call'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing AdminController#index (for 127.0.0.1 at 2011-02-08 17:37:00) [GET]
+  Parameters: {"action"=>"index", "controller"=>"admin"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+Rendering template within layouts/admin
+Rendering admin/index
+  [4;36;1mMeeting Load (0.5ms)[0m   [0;1mSELECT * FROM "meetings" WHERE (date < '2011-02-15' AND date >= '2011-02-08') ORDER BY date[0m
+  [4;35;1mVideo Load (0.5ms)[0m   [0mSELECT * FROM "videos" WHERE (created_at > '2011-02-01') ORDER BY created_at DESC[0m
+Completed in 36ms (View: 15, DB: 1) | 200 OK [http://localhost/admin]
+
+
+Processing Admin::PostsController#index (for 127.0.0.1 at 2011-02-08 17:37:01) [GET]
+  Parameters: {"action"=>"index", "controller"=>"admin/posts"}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;36;1mPost Load (0.6ms)[0m   [0;1mSELECT * FROM "posts" ORDER BY created_at DESC[0m
+Rendering template within layouts/admin
+Rendering admin/posts/index
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY last_name[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "comments" WHERE ("comments".post_id = 1) [0m
+  [4;35;1mMeeting Load (0.5ms)[0m   [0mSELECT * FROM "meetings" WHERE (date < '2011-02-15' AND date >= '2011-02-08') ORDER BY date[0m
+  [4;36;1mVideo Load (0.4ms)[0m   [0;1mSELECT * FROM "videos" WHERE (created_at > '2011-02-01') ORDER BY created_at DESC[0m
+Completed in 46ms (View: 21, DB: 2) | 200 OK [http://localhost/admin/posts]
+
+
+Processing Admin::PostsController#show (for 127.0.0.1 at 2011-02-08 17:37:03) [GET]
+  Parameters: {"action"=>"show", "id"=>"1-update-coming", "controller"=>"admin/posts"}
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mPost Load (0.2ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 1) ORDER BY created_at DESC[0m
+Rendering template within layouts/admin
+Rendering admin/posts/show
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY last_name[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "comments" WHERE ("comments".post_id = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+
+ActionView::TemplateError (undefined method `edit_post_path' for #<ActionView::Base:0x2af5b0c>) on line #12 of app/views/admin/posts/show.html.erb:
+9: 
+10: <% if admin? -%>
+11: 	<p>
+12: 		<%= link_to "Edit Post", edit_post_path(@post), :class => 'edit' %>
+13: 		<%= link_to "Delete Post", @post, :confirm => "Are you sure want to delete this post?", :method => 'delete', :class => 'delete' %>
+14: <% end -%>
+15: 
+
+    app/views/admin/posts/show.html.erb:12
+    lib/flash_session_cookie_middleware.rb:19:in `call'
+    lib/flash_session_cookie_middleware.rb:19:in `call'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (41.1ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing Admin::PostsController#show (for 127.0.0.1 at 2011-02-08 17:37:52) [GET]
+  Parameters: {"action"=>"show", "id"=>"1-update-coming", "controller"=>"admin/posts"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mPost Load (0.3ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 1) ORDER BY created_at DESC[0m
+Rendering template within layouts/admin
+Rendering admin/posts/show
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY last_name[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "comments" WHERE ("comments".post_id = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "comments" WHERE ("comments".post_id = 1) [0m
+  [4;35;1mComment Load (0.4ms)[0m   [0mSELECT * FROM "comments" WHERE ("comments".post_id = 1) [0m
+
+ActionView::TemplateError (Missing template admin/comments/_comment.erb in view path app/views) on line #24 of app/views/admin/posts/show.html.erb:
+21: <h3 id="comment_count"><%= pluralize(@post.comments.size, 'Comment') %></h3>
+22: <div id="comments">
+23: 	<% @post.comments.each do |comment| -%>
+24: 		<%= render :partial => comment %>
+25: 	<% end -%>
+26: </div>
+27: 
+
+    app/views/admin/posts/show.html.erb:24
+    app/views/admin/posts/show.html.erb:23
+    lib/flash_session_cookie_middleware.rb:19:in `call'
+    lib/flash_session_cookie_middleware.rb:19:in `call'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (46.4ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing Admin::PostsController#show (for 127.0.0.1 at 2011-02-08 17:39:09) [GET]
+  Parameters: {"action"=>"show", "id"=>"1-update-coming", "controller"=>"admin/posts"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;36;1mPost Load (0.2ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 1) ORDER BY created_at DESC[0m
+Rendering template within layouts/admin
+Rendering admin/posts/show
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY last_name[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "comments" WHERE ("comments".post_id = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "comments" WHERE ("comments".post_id = 1) [0m
+  [4;36;1mComment Load (0.3ms)[0m   [0;1mSELECT * FROM "comments" WHERE ("comments".post_id = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY last_name[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+Rendered admin/comments/_comment (6.1ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY last_name[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+Rendered admin/comments/_comment (4.5ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY last_name[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+Rendered admin/comments/_comment (4.4ms)
+  [4;35;1mMeeting Load (0.7ms)[0m   [0mSELECT * FROM "meetings" WHERE (date < '2011-02-15' AND date >= '2011-02-08') ORDER BY date[0m
+  [4;36;1mVideo Load (0.4ms)[0m   [0;1mSELECT * FROM "videos" WHERE (created_at > '2011-02-01') ORDER BY created_at DESC[0m
+Completed in 132ms (View: 42, DB: 3) | 200 OK [http://localhost/admin/posts/1-update-coming]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-02-08 17:39:09) [GET]
+
+ActionController::RoutingError (No route matches "/system/photos/1/small/kyle.jpg" with {:method=>:get}):
+  lib/flash_session_cookie_middleware.rb:19:in `call'
+  lib/flash_session_cookie_middleware.rb:19:in `call'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-02-08 17:39:09) [GET]
+
+ActionController::RoutingError (No route matches "/system/photos/1/small/kyle.jpg" with {:method=>:get}):
+  lib/flash_session_cookie_middleware.rb:19:in `call'
+  lib/flash_session_cookie_middleware.rb:19:in `call'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing Admin::PostsController#show (for 127.0.0.1 at 2011-02-08 17:40:01) [GET]
+  Parameters: {"action"=>"show", "id"=>"1-update-coming", "controller"=>"admin/posts"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mPost Load (0.2ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 1) ORDER BY created_at DESC[0m
+Rendering template within layouts/admin
+Rendering admin/posts/show
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY last_name[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "comments" WHERE ("comments".post_id = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "comments" WHERE ("comments".post_id = 1) [0m
+  [4;35;1mComment Load (0.5ms)[0m   [0mSELECT * FROM "comments" WHERE ("comments".post_id = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY last_name[0m
+Rendered admin/comments/_comment (4.0ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY last_name[0m
+Rendered admin/comments/_comment (3.0ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY last_name[0m
+Rendered admin/comments/_comment (3.0ms)
+  [4;35;1mMeeting Load (0.6ms)[0m   [0mSELECT * FROM "meetings" WHERE (date < '2011-02-15' AND date >= '2011-02-08') ORDER BY date[0m
+  [4;36;1mVideo Load (0.4ms)[0m   [0;1mSELECT * FROM "videos" WHERE (created_at > '2011-02-01') ORDER BY created_at DESC[0m
+Completed in 60ms (View: 34, DB: 3) | 200 OK [http://localhost/admin/posts/1-update-coming]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-02-08 17:40:01) [GET]
+
+ActionController::RoutingError (No route matches "/system/photos/1/small/kyle.jpg" with {:method=>:get}):
+  lib/flash_session_cookie_middleware.rb:19:in `call'
+  lib/flash_session_cookie_middleware.rb:19:in `call'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-02-08 17:40:01) [GET]
+
+ActionController::RoutingError (No route matches "/system/photos/1/small/kyle.jpg" with {:method=>:get}):
+  lib/flash_session_cookie_middleware.rb:19:in `call'
+  lib/flash_session_cookie_middleware.rb:19:in `call'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing Admin::PostsController#edit (for 127.0.0.1 at 2011-02-08 17:40:18) [GET]
+  Parameters: {"action"=>"edit", "id"=>"1-update-coming", "controller"=>"admin/posts"}
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mPost Load (0.2ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 1) ORDER BY created_at DESC[0m
+Rendering template within layouts/admin
+Rendering admin/posts/edit
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE (("users"."admin" = 't')) ORDER BY last_name[0m
+DEPRECATION WARNING: Kernel#returning has been deprecated in favor of Object#tap. (called from association at /Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/simple_form-1.0.2/lib/simple_form/form_builder.rb:175)
+  [4;35;1mCategory Load (0.5ms)[0m   [0mSELECT * FROM "categories" ORDER BY name[0m
+DEPRECATION WARNING: Kernel#returning has been deprecated in favor of Object#tap. (called from default_html_options_for_collection at /Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/simple_form-1.0.2/lib/simple_form/action_view_extensions/builder.rb:104)
+  [4;36;1mCategory Load (0.4ms)[0m   [0;1mSELECT "categories".id FROM "categories" INNER JOIN "categories_posts" ON "categories".id = "categories_posts".category_id WHERE ("categories_posts".post_id = 1 ) ORDER BY name[0m
+DEPRECATION WARNING: Kernel#returning has been deprecated in favor of Object#tap. (called from default_html_options_for_collection at /Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/simple_form-1.0.2/lib/simple_form/action_view_extensions/builder.rb:104)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT "categories".id FROM "categories" INNER JOIN "categories_posts" ON "categories".id = "categories_posts".category_id WHERE ("categories_posts".post_id = 1 ) ORDER BY name[0m
+DEPRECATION WARNING: Kernel#returning has been deprecated in favor of Object#tap. (called from default_html_options_for_collection at /Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/simple_form-1.0.2/lib/simple_form/action_view_extensions/builder.rb:104)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT "categories".id FROM "categories" INNER JOIN "categories_posts" ON "categories".id = "categories_posts".category_id WHERE ("categories_posts".post_id = 1 ) ORDER BY name[0m
+DEPRECATION WARNING: Kernel#returning has been deprecated in favor of Object#tap. (called from default_html_options_for_collection at /Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/simple_form-1.0.2/lib/simple_form/action_view_extensions/builder.rb:104)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT "categories".id FROM "categories" INNER JOIN "categories_posts" ON "categories".id = "categories_posts".category_id WHERE ("categories_posts".post_id = 1 ) ORDER BY name[0m
+DEPRECATION WARNING: Kernel#returning has been deprecated in favor of Object#tap. (called from association at /Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/simple_form-1.0.2/lib/simple_form/form_builder.rb:175)
+Rendered admin/posts/_form (18.0ms)
+  [4;36;1mMeeting Load (0.5ms)[0m   [0;1mSELECT * FROM "meetings" WHERE (date < '2011-02-15' AND date >= '2011-02-08') ORDER BY date[0m
+  [4;35;1mVideo Load (0.4ms)[0m   [0mSELECT * FROM "videos" WHERE (created_at > '2011-02-01') ORDER BY created_at DESC[0m
+Completed in 58ms (View: 30, DB: 3) | 200 OK [http://localhost/admin/posts/1-update-coming/edit]
+
+
+Processing Admin::PostsController#update (for 127.0.0.1 at 2011-02-08 17:40:37) [PUT]
+  Parameters: {"commit"=>"Update post", "post"=>{"body"=>"<p>Hello, as you can probably tell, we are in the midst of updating TeacherDucklings.org.</p>\r\n<p>The new site will contain a wide assortment of links to helpful resources, example documents, riveting stories, and Q&amp;As with some very experienced professionals.</p>\r\n<p>We hope to build a site that is useful for all students and graduates, so stay tuned.</p>\r\n<p>Here is a test of <strong>bold</strong> and <em>italics</em>.</p>\r\n<p>Here's a sample of a bulleted list:</p>\r\n<ul>\r\n<li>Oh, sweet</li>\r\n<li>Yep!</li>\r\n</ul>\r\n<p>And an ordered list:</p>\r\n<ol>\r\n<li>Oh yeah</li>\r\n<li>Keep going</li>\r\n</ol>\r\n<p>This text is <span style=\"text-decoration: line-through;\">striked</span></p>\r\n<p>A <a href=\"http://teacherducklings.org\">link</a></p>", "title"=>"Update Coming", "user_id"=>"1", "category_ids"=>["", "4", "", "", "1", ""]}, "action"=>"update", "_method"=>"put", "authenticity_token"=>"RlmTmlzmQKkUkc/JU5DjU8wRRZEAZhPSJkHwuhZLE64=", "id"=>"1-update-coming", "controller"=>"admin/posts"}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;36;1mPost Load (0.2ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 1) ORDER BY created_at DESC[0m
+  [4;35;1mCategory Load (0.8ms)[0m   [0mSELECT * FROM "categories" WHERE ("categories"."id" IN (4,1)) ORDER BY name[0m
+  [4;36;1mCategory Load (0.5ms)[0m   [0;1mSELECT * FROM "categories" INNER JOIN "categories_posts" ON "categories".id = "categories_posts".category_id WHERE ("categories_posts".post_id = 1 ) ORDER BY name[0m
+  [4;35;1mPost Update (0.2ms)[0m   [0mUPDATE "posts" SET "updated_at" = '2011-02-09 01:40:37', "body" = '<p>Hello, as you can probably tell, we are in the midst of updating TeacherDucklings.org.</p>
+<p>The new site will contain a wide assortment of links to helpful resources, example documents, riveting stories, and Q&amp;As with some very experienced professionals.</p>
+<p>We hope to build a site that is useful for all students and graduates, so stay tuned.</p>
+<p>Here is a test of <strong>bold</strong> and <em>italics</em>.</p>
+<p>Here''s a sample of a bulleted list:</p>
+<ul>
+<li>Oh, sweet</li>
+<li>Yep!</li>
+</ul>
+<p>And an ordered list:</p>
+<ol>
+<li>Oh yeah</li>
+<li>Keep going</li>
+</ol>
+<p>This text is <span style="text-decoration: line-through;">striked</span></p>
+<p>A <a href="http://teacherducklings.org">link</a></p>' WHERE "id" = 1[0m
+Redirected to http://localhost:3000/admin/posts
+Completed in 36ms (DB: 2) | 302 Found [http://localhost/admin/posts/1-update-coming]
+
+
+Processing Admin::PostsController#index (for 127.0.0.1 at 2011-02-08 17:40:37) [GET]
+  Parameters: {"action"=>"index", "controller"=>"admin/posts"}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;36;1mPost Load (0.6ms)[0m   [0;1mSELECT * FROM "posts" ORDER BY created_at DESC[0m
+Rendering template within layouts/admin
+Rendering admin/posts/index
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY last_name[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "comments" WHERE ("comments".post_id = 1) [0m
+  [4;35;1mMeeting Load (0.4ms)[0m   [0mSELECT * FROM "meetings" WHERE (date < '2011-02-15' AND date >= '2011-02-08') ORDER BY date[0m
+  [4;36;1mVideo Load (0.6ms)[0m   [0;1mSELECT * FROM "videos" WHERE (created_at > '2011-02-01') ORDER BY created_at DESC[0m
+Completed in 111ms (View: 85, DB: 2) | 200 OK [http://localhost/admin/posts]
+
+
+Processing IndexController#index (for 127.0.0.1 at 2011-02-08 17:40:47) [GET]
+  Parameters: {"action"=>"index", "controller"=>"index"}
+Rendering template within layouts/application
+Rendering index/index
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mCategory Load (0.7ms)[0m   [0mSELECT * FROM "categories" ORDER BY name, name[0m
+  [4;36;1mPost Load (0.5ms)[0m   [0;1mSELECT * FROM "posts" ORDER BY created_at DESC LIMIT 5[0m
+Completed in 40ms (View: 36, DB: 2) | 200 OK [http://localhost/]
+
+
+Processing CategoriesController#show (for 127.0.0.1 at 2011-02-08 17:40:48) [GET]
+  Parameters: {"action"=>"show", "id"=>"4-behavior", "controller"=>"categories"}
+  [4;35;1mCategory Load (0.1ms)[0m   [0mSELECT * FROM "categories" WHERE ("categories"."id" = 4) ORDER BY name[0m
+Rendering template within layouts/application
+Rendering categories/show
+  [4;36;1mPost Load (0.7ms)[0m   [0;1mSELECT * FROM "posts" INNER JOIN "categories_posts" ON "posts".id = "categories_posts".post_id WHERE ("categories_posts".category_id = 4 ) ORDER BY created_at DESC[0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+
+ActionView::TemplateError (undefined method `edit_post_path' for #<ActionView::Base:0x2a750b0>) on line #7 of app/views/posts/_post.html.erb:
+4: 
+5: <% if admin? -%>
+6: 	<p>
+7: 		<%= link_to "Edit Post", edit_post_path(post), :class => 'edit' %>
+8: 		<%= link_to "Delete Post", post, :confirm => "Are you sure want to delete this post?", :method => 'delete', :class => 'delete' %>
+9: <% end -%>
+10: 
+
+    app/views/posts/_post.html.erb:7
+    app/views/categories/show.html.erb:4
+    lib/flash_session_cookie_middleware.rb:19:in `call'
+    lib/flash_session_cookie_middleware.rb:19:in `call'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (52.7ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing CategoriesController#show (for 127.0.0.1 at 2011-02-08 17:41:31) [GET]
+  Parameters: {"action"=>"show", "id"=>"4-behavior", "controller"=>"categories"}
+  [4;35;1mCategory Load (0.2ms)[0m   [0mSELECT * FROM "categories" WHERE ("categories"."id" = 4) ORDER BY name[0m
+Rendering template within layouts/application
+Rendering categories/show
+  [4;36;1mPost Load (95.3ms)[0m   [0;1mSELECT * FROM "posts" INNER JOIN "categories_posts" ON "posts".id = "categories_posts".post_id WHERE ("categories_posts".category_id = 4 ) ORDER BY created_at DESC[0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+
+ActionView::TemplateError (undefined method `edit_post_path' for #<ActionView::Base:0x2d272b8>) on line #7 of app/views/posts/_post.html.erb:
+4: 
+5: <% if admin? -%>
+6: 	<p>
+7: 		<%= link_to "Edit Post", edit_post_path(post), :class => 'edit' %>
+8: 		<%= link_to "Delete Post", post, :confirm => "Are you sure want to delete this post?", :method => 'delete', :class => 'delete' %>
+9: <% end -%>
+10: 
+
+    app/views/posts/_post.html.erb:7
+    app/views/categories/show.html.erb:4
+    lib/flash_session_cookie_middleware.rb:19:in `call'
+    lib/flash_session_cookie_middleware.rb:19:in `call'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (111.8ms)
+Rendered rescues/_request_and_response (0.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing CategoriesController#show (for 127.0.0.1 at 2011-02-08 17:41:33) [GET]
+  Parameters: {"action"=>"show", "id"=>"4-behavior", "controller"=>"categories"}
+  [4;35;1mCategory Load (0.1ms)[0m   [0mSELECT * FROM "categories" WHERE ("categories"."id" = 4) ORDER BY name[0m
+Rendering template within layouts/application
+Rendering categories/show
+  [4;36;1mPost Load (0.6ms)[0m   [0;1mSELECT * FROM "posts" INNER JOIN "categories_posts" ON "posts".id = "categories_posts".post_id WHERE ("categories_posts".category_id = 4 ) ORDER BY created_at DESC[0m
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+
+ActionView::TemplateError (undefined method `edit_post_path' for #<ActionView::Base:0x2c3a5e4>) on line #7 of app/views/posts/_post.html.erb:
+4: 
+5: <% if admin? -%>
+6: 	<p>
+7: 		<%= link_to "Edit Post", edit_post_path(post), :class => 'edit' %>
+8: 		<%= link_to "Delete Post", post, :confirm => "Are you sure want to delete this post?", :method => 'delete', :class => 'delete' %>
+9: <% end -%>
+10: 
+
+    app/views/posts/_post.html.erb:7
+    app/views/categories/show.html.erb:4
+    lib/flash_session_cookie_middleware.rb:19:in `call'
+    lib/flash_session_cookie_middleware.rb:19:in `call'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (113.5ms)
+Rendered rescues/_request_and_response (0.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing CategoriesController#show (for 127.0.0.1 at 2011-02-08 17:41:59) [GET]
+  Parameters: {"action"=>"show", "id"=>"4-behavior", "controller"=>"categories"}
+  [4;35;1mCategory Load (0.1ms)[0m   [0mSELECT * FROM "categories" WHERE ("categories"."id" = 4) ORDER BY name[0m
+Rendering template within layouts/application
+Rendering categories/show
+  [4;36;1mPost Load (0.6ms)[0m   [0;1mSELECT * FROM "posts" INNER JOIN "categories_posts" ON "posts".id = "categories_posts".post_id WHERE ("categories_posts".category_id = 4 ) ORDER BY created_at DESC[0m
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+
+ActionView::TemplateError (undefined method `edit_post_path' for #<ActionView::Base:0x2b54cc4>) on line #7 of app/views/posts/_post.html.erb:
+4: 
+5: <% if admin? -%>
+6: 	<p>
+7: 		<%= link_to "Edit Post", edit_post_path(post), :class => 'edit' %>
+8: 		<%= link_to "Delete Post", post, :confirm => "Are you sure want to delete this post?", :method => 'delete', :class => 'delete' %>
+9: <% end -%>
+10: 
+
+    app/views/posts/_post.html.erb:7
+    app/views/categories/show.html.erb:4
+    lib/flash_session_cookie_middleware.rb:19:in `call'
+    lib/flash_session_cookie_middleware.rb:19:in `call'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (53.0ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing CategoriesController#show (for 127.0.0.1 at 2011-02-08 17:42:01) [GET]
+  Parameters: {"action"=>"show", "id"=>"4-behavior", "controller"=>"categories"}
+  [4;35;1mCategory Load (0.2ms)[0m   [0mSELECT * FROM "categories" WHERE ("categories"."id" = 4) ORDER BY name[0m
+Rendering template within layouts/application
+Rendering categories/show
+  [4;36;1mPost Load (0.6ms)[0m   [0;1mSELECT * FROM "posts" INNER JOIN "categories_posts" ON "posts".id = "categories_posts".post_id WHERE ("categories_posts".category_id = 4 ) ORDER BY created_at DESC[0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+
+ActionView::TemplateError (undefined method `edit_post_path' for #<ActionView::Base:0x2a57ccc>) on line #7 of app/views/posts/_post.html.erb:
+4: 
+5: <% if admin? -%>
+6: 	<p>
+7: 		<%= link_to "Edit Post", edit_post_path(post), :class => 'edit' %>
+8: 		<%= link_to "Delete Post", post, :confirm => "Are you sure want to delete this post?", :method => 'delete', :class => 'delete' %>
+9: <% end -%>
+10: 
+
+    app/views/posts/_post.html.erb:7
+    app/views/categories/show.html.erb:4
+    lib/flash_session_cookie_middleware.rb:19:in `call'
+    lib/flash_session_cookie_middleware.rb:19:in `call'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (52.5ms)
+Rendered rescues/_request_and_response (0.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing CategoriesController#show (for 127.0.0.1 at 2011-02-08 17:42:16) [GET]
+  Parameters: {"action"=>"show", "id"=>"4-behavior", "controller"=>"categories"}
+  [4;35;1mCategory Load (0.2ms)[0m   [0mSELECT * FROM "categories" WHERE ("categories"."id" = 4) ORDER BY name[0m
+Rendering template within layouts/application
+Rendering categories/show
+  [4;36;1mPost Load (0.7ms)[0m   [0;1mSELECT * FROM "posts" INNER JOIN "categories_posts" ON "posts".id = "categories_posts".post_id WHERE ("categories_posts".category_id = 4 ) ORDER BY created_at DESC[0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY last_name[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "comments" WHERE ("comments".post_id = 1) [0m
+  [4;35;1mCategory Load (0.6ms)[0m   [0mSELECT * FROM "categories" INNER JOIN "categories_posts" ON "categories".id = "categories_posts".category_id WHERE ("categories_posts".post_id = 1 ) ORDER BY name[0m
+Rendered posts/_post (21.6ms)
+  [4;36;1mLink Load (0.7ms)[0m   [0;1mSELECT * FROM "links" INNER JOIN "categories_links" ON "links".id = "categories_links".link_id WHERE ("categories_links".category_id = 4 ) ORDER BY name[0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;36;1mCategory Load (0.5ms)[0m   [0;1mSELECT * FROM "categories" ORDER BY name, name[0m
+  [4;35;1mPost Load (0.4ms)[0m   [0mSELECT * FROM "posts" ORDER BY created_at DESC LIMIT 5[0m
+Completed in 58ms (View: 48, DB: 4) | 200 OK [http://localhost/categories/4-behavior]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2011-02-08 17:42:21) [GET]
+  Parameters: {"action"=>"show", "id"=>"1-update-coming", "controller"=>"posts"}
+  [4;36;1mPost Load (0.2ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 1) ORDER BY created_at DESC[0m
+Rendering template within layouts/application
+Rendering posts/show
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY last_name[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "comments" WHERE ("comments".post_id = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "comments" WHERE ("comments".post_id = 1) [0m
+  [4;36;1mComment Load (0.3ms)[0m   [0;1mSELECT * FROM "comments" WHERE ("comments".post_id = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY last_name[0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+Rendered comments/_comment (9.8ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY last_name[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+Rendered comments/_comment (4.8ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY last_name[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+Rendered comments/_comment (4.6ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mCategory Load (0.7ms)[0m   [0mSELECT * FROM "categories" ORDER BY name, name[0m
+  [4;36;1mPost Load (0.5ms)[0m   [0;1mSELECT * FROM "posts" ORDER BY created_at DESC LIMIT 5[0m
+Completed in 69ms (View: 60, DB: 3) | 200 OK [http://localhost/posts/1-update-coming]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-02-08 17:42:21) [GET]
+
+ActionController::RoutingError (No route matches "/system/photos/1/small/kyle.jpg" with {:method=>:get}):
+  lib/flash_session_cookie_middleware.rb:19:in `call'
+  lib/flash_session_cookie_middleware.rb:19:in `call'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing AdminController#index (for 127.0.0.1 at 2011-02-08 17:42:27) [GET]
+  Parameters: {"action"=>"index", "controller"=>"admin"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+Rendering template within layouts/admin
+Rendering admin/index
+  [4;35;1mMeeting Load (0.5ms)[0m   [0mSELECT * FROM "meetings" WHERE (date < '2011-02-15' AND date >= '2011-02-08') ORDER BY date[0m
+  [4;36;1mVideo Load (0.4ms)[0m   [0;1mSELECT * FROM "videos" WHERE (created_at > '2011-02-01') ORDER BY created_at DESC[0m
+Completed in 95ms (View: 12, DB: 1) | 200 OK [http://localhost/admin]
+
+
+Processing Admin::PostsController#index (for 127.0.0.1 at 2011-02-08 17:44:22) [GET]
+  Parameters: {"action"=>"index", "controller"=>"admin/posts"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mPost Load (0.6ms)[0m   [0mSELECT * FROM "posts" ORDER BY created_at DESC[0m
+Rendering template within layouts/admin
+Rendering admin/posts/index
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY last_name[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "comments" WHERE ("comments".post_id = 1) [0m
+  [4;36;1mMeeting Load (0.4ms)[0m   [0;1mSELECT * FROM "meetings" WHERE (date < '2011-02-15' AND date >= '2011-02-08') ORDER BY date[0m
+  [4;35;1mVideo Load (0.5ms)[0m   [0mSELECT * FROM "videos" WHERE (created_at > '2011-02-01') ORDER BY created_at DESC[0m
+Completed in 45ms (View: 20, DB: 2) | 200 OK [http://localhost/admin/posts]
+
+
+Processing Admin::PostsController#show (for 127.0.0.1 at 2011-02-08 17:44:24) [GET]
+  Parameters: {"action"=>"show", "id"=>"1-update-coming", "controller"=>"admin/posts"}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;36;1mPost Load (0.2ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 1) ORDER BY created_at DESC[0m
+Rendering template within layouts/admin
+Rendering admin/posts/show
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY last_name[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "comments" WHERE ("comments".post_id = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "comments" WHERE ("comments".post_id = 1) [0m
+  [4;36;1mComment Load (0.3ms)[0m   [0;1mSELECT * FROM "comments" WHERE ("comments".post_id = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY last_name[0m
+Rendered admin/comments/_comment (3.2ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY last_name[0m
+Rendered admin/comments/_comment (2.9ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY last_name[0m
+Rendered admin/comments/_comment (3.0ms)
+  [4;36;1mMeeting Load (0.5ms)[0m   [0;1mSELECT * FROM "meetings" WHERE (date < '2011-02-15' AND date >= '2011-02-08') ORDER BY date[0m
+  [4;35;1mVideo Load (0.5ms)[0m   [0mSELECT * FROM "videos" WHERE (created_at > '2011-02-01') ORDER BY created_at DESC[0m
+Completed in 60ms (View: 34, DB: 2) | 200 OK [http://localhost/admin/posts/1-update-coming]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-02-08 17:44:24) [GET]
+
+ActionController::RoutingError (No route matches "/system/photos/1/small/kyle.jpg" with {:method=>:get}):
+  lib/flash_session_cookie_middleware.rb:19:in `call'
+  lib/flash_session_cookie_middleware.rb:19:in `call'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing Admin::CommentsController#destroy (for 127.0.0.1 at 2011-02-08 17:44:30) [DELETE]
+  Parameters: {"post_id"=>"1-update-coming", "action"=>"destroy", "_method"=>"delete", "authenticity_token"=>"RlmTmlzmQKkUkc/JU5DjU8wRRZEAZhPSJkHwuhZLE64=", "id"=>"29", "controller"=>"admin/comments"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+
+ActionController::UnknownAction (No action responded to destroy. Actions: delete and index):
+  lib/flash_session_cookie_middleware.rb:19:in `call'
+  lib/flash_session_cookie_middleware.rb:19:in `call'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing Admin::CommentsController#destroy (for 127.0.0.1 at 2011-02-08 17:45:00) [DELETE]
+  Parameters: {"post_id"=>"1-update-coming", "action"=>"destroy", "_method"=>"delete", "authenticity_token"=>"RlmTmlzmQKkUkc/JU5DjU8wRRZEAZhPSJkHwuhZLE64=", "id"=>"29", "controller"=>"admin/comments"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;36;1mPost Load (0.2ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 1) ORDER BY created_at DESC[0m
+  [4;35;1mComment Load (0.2ms)[0m   [0mSELECT * FROM "comments" WHERE ("comments"."id" = 29) [0m
+  [4;36;1mComment Destroy (0.3ms)[0m   [0;1mDELETE FROM "comments" WHERE "id" = 29[0m
+Redirected to http://localhost:3000/admin/posts/1-update-coming
+Completed in 34ms (DB: 1) | 302 Found [http://localhost/admin/posts/1-update-coming/comments/29]
+
+
+Processing Admin::PostsController#show (for 127.0.0.1 at 2011-02-08 17:45:00) [GET]
+  Parameters: {"action"=>"show", "id"=>"1-update-coming", "controller"=>"admin/posts"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mPost Load (0.2ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 1) ORDER BY created_at DESC[0m
+Rendering template within layouts/admin
+Rendering admin/posts/show
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY last_name[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "comments" WHERE ("comments".post_id = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "comments" WHERE ("comments".post_id = 1) [0m
+  [4;35;1mComment Load (0.4ms)[0m   [0mSELECT * FROM "comments" WHERE ("comments".post_id = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY last_name[0m
+Rendered admin/comments/_comment (3.4ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY last_name[0m
+Rendered admin/comments/_comment (3.2ms)
+  [4;36;1mMeeting Load (0.5ms)[0m   [0;1mSELECT * FROM "meetings" WHERE (date < '2011-02-15' AND date >= '2011-02-08') ORDER BY date[0m
+  [4;35;1mVideo Load (0.5ms)[0m   [0mSELECT * FROM "videos" WHERE (created_at > '2011-02-01') ORDER BY created_at DESC[0m
+Completed in 118ms (View: 29, DB: 3) | 200 OK [http://localhost/admin/posts/1-update-coming]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-02-08 17:45:00) [GET]
+
+ActionController::RoutingError (No route matches "/system/photos/1/small/kyle.jpg" with {:method=>:get}):
+  lib/flash_session_cookie_middleware.rb:19:in `call'
+  lib/flash_session_cookie_middleware.rb:19:in `call'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-02-08 17:45:00) [GET]
+
+ActionController::RoutingError (No route matches "/system/photos/1/small/kyle.jpg" with {:method=>:get}):
+  lib/flash_session_cookie_middleware.rb:19:in `call'
+  lib/flash_session_cookie_middleware.rb:19:in `call'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing Admin::PostsController#show (for 127.0.0.1 at 2011-02-08 17:45:19) [GET]
+  Parameters: {"action"=>"show", "id"=>"1-update-coming", "controller"=>"admin/posts"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;36;1mPost Load (0.2ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 1) ORDER BY created_at DESC[0m
+Rendering template within layouts/admin
+Rendering admin/posts/show
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY last_name[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "comments" WHERE ("comments".post_id = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "comments" WHERE ("comments".post_id = 1) [0m
+  [4;36;1mComment Load (0.3ms)[0m   [0;1mSELECT * FROM "comments" WHERE ("comments".post_id = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY last_name[0m
+Rendered admin/comments/_comment (3.1ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY last_name[0m
+Rendered admin/comments/_comment (3.1ms)
+  [4;35;1mMeeting Load (0.6ms)[0m   [0mSELECT * FROM "meetings" WHERE (date < '2011-02-15' AND date >= '2011-02-08') ORDER BY date[0m
+  [4;36;1mVideo Load (0.4ms)[0m   [0;1mSELECT * FROM "videos" WHERE (created_at > '2011-02-01') ORDER BY created_at DESC[0m
+Completed in 54ms (View: 27, DB: 2) | 200 OK [http://localhost/admin/posts/1-update-coming]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-02-08 17:45:19) [GET]
+
+ActionController::RoutingError (No route matches "/system/photos/1/small/kyle.jpg" with {:method=>:get}):
+  lib/flash_session_cookie_middleware.rb:19:in `call'
+  lib/flash_session_cookie_middleware.rb:19:in `call'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-02-08 17:45:19) [GET]
+
+ActionController::RoutingError (No route matches "/system/photos/1/small/kyle.jpg" with {:method=>:get}):
+  lib/flash_session_cookie_middleware.rb:19:in `call'
+  lib/flash_session_cookie_middleware.rb:19:in `call'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing Admin::UsersController#index (for 127.0.0.1 at 2011-02-08 17:45:21) [GET]
+  Parameters: {"action"=>"index", "controller"=>"admin/users"}
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mUser Load (1.2ms)[0m   [0mSELECT * FROM "users" ORDER BY last_name[0m
+Rendering template within layouts/admin
+Rendering admin/users/index
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "videos" WHERE ("videos".user_id = 4) [0m
+Rendered admin/users/_user (11.1ms)
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "videos" WHERE ("videos".user_id = 7) [0m
+Rendered admin/users/_user (3.2ms)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "videos" WHERE ("videos".user_id = 2) [0m
+Rendered admin/users/_user (3.3ms)
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "videos" WHERE ("videos".user_id = 3) [0m
+Rendered admin/users/_user (3.3ms)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "videos" WHERE ("videos".user_id = 1) [0m
+Rendered admin/users/_user (3.3ms)
+  [4;35;1mMeeting Load (0.5ms)[0m   [0mSELECT * FROM "meetings" WHERE (date < '2011-02-15' AND date >= '2011-02-08') ORDER BY date[0m
+  [4;36;1mVideo Load (0.4ms)[0m   [0;1mSELECT * FROM "videos" WHERE (created_at > '2011-02-01') ORDER BY created_at DESC[0m
+Completed in 59ms (View: 36, DB: 3) | 200 OK [http://localhost/admin/users]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-02-08 17:45:21) [GET]
+
+ActionController::RoutingError (No route matches "/system/photos/4/small/tammy.jpg" with {:method=>:get}):
+  lib/flash_session_cookie_middleware.rb:19:in `call'
+  lib/flash_session_cookie_middleware.rb:19:in `call'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-02-08 17:45:21) [GET]
+
+ActionController::RoutingError (No route matches "/photos/small/missing.png" with {:method=>:get}):
+  lib/flash_session_cookie_middleware.rb:19:in `call'
+  lib/flash_session_cookie_middleware.rb:19:in `call'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-02-08 17:45:21) [GET]
+
+ActionController::RoutingError (No route matches "/system/photos/3/small/jennifer.jpg" with {:method=>:get}):
+  lib/flash_session_cookie_middleware.rb:19:in `call'
+  lib/flash_session_cookie_middleware.rb:19:in `call'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-02-08 17:45:21) [GET]
+
+ActionController::RoutingError (No route matches "/system/photos/2/small/emma.jpg" with {:method=>:get}):
+  lib/flash_session_cookie_middleware.rb:19:in `call'
+  lib/flash_session_cookie_middleware.rb:19:in `call'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-02-08 17:45:21) [GET]
+
+ActionController::RoutingError (No route matches "/system/photos/1/small/kyle.jpg" with {:method=>:get}):
+  lib/flash_session_cookie_middleware.rb:19:in `call'
+  lib/flash_session_cookie_middleware.rb:19:in `call'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing Admin::PostsController#index (for 127.0.0.1 at 2011-02-08 17:45:50) [GET]
+  Parameters: {"action"=>"index", "controller"=>"admin/posts"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mPost Load (0.7ms)[0m   [0mSELECT * FROM "posts" ORDER BY created_at DESC[0m
+Rendering template within layouts/admin
+Rendering admin/posts/index
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY last_name[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "comments" WHERE ("comments".post_id = 1) [0m
+  [4;36;1mMeeting Load (0.4ms)[0m   [0;1mSELECT * FROM "meetings" WHERE (date < '2011-02-15' AND date >= '2011-02-08') ORDER BY date[0m
+  [4;35;1mVideo Load (0.4ms)[0m   [0mSELECT * FROM "videos" WHERE (created_at > '2011-02-01') ORDER BY created_at DESC[0m
+Completed in 46ms (View: 20, DB: 3) | 200 OK [http://localhost/admin/posts]
+
+
+Processing Admin::PostsController#show (for 127.0.0.1 at 2011-02-08 17:45:53) [GET]
+  Parameters: {"action"=>"show", "id"=>"1-update-coming", "controller"=>"admin/posts"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;36;1mPost Load (0.2ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 1) ORDER BY created_at DESC[0m
+Rendering template within layouts/admin
+Rendering admin/posts/show
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY last_name[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "comments" WHERE ("comments".post_id = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "comments" WHERE ("comments".post_id = 1) [0m
+  [4;36;1mComment Load (0.3ms)[0m   [0;1mSELECT * FROM "comments" WHERE ("comments".post_id = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY last_name[0m
+Rendered admin/comments/_comment (3.1ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY last_name[0m
+Rendered admin/comments/_comment (7.2ms)
+  [4;35;1mMeeting Load (0.6ms)[0m   [0mSELECT * FROM "meetings" WHERE (date < '2011-02-15' AND date >= '2011-02-08') ORDER BY date[0m
+  [4;36;1mVideo Load (0.5ms)[0m   [0;1mSELECT * FROM "videos" WHERE (created_at > '2011-02-01') ORDER BY created_at DESC[0m
+Completed in 114ms (View: 89, DB: 2) | 200 OK [http://localhost/admin/posts/1-update-coming]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-02-08 17:45:53) [GET]
+
+ActionController::RoutingError (No route matches "/system/photos/1/small/kyle.jpg" with {:method=>:get}):
+  lib/flash_session_cookie_middleware.rb:19:in `call'
+  lib/flash_session_cookie_middleware.rb:19:in `call'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing Admin::PostsController#edit (for 127.0.0.1 at 2011-02-08 17:45:58) [GET]
+  Parameters: {"action"=>"edit", "id"=>"1-update-coming", "controller"=>"admin/posts"}
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mPost Load (0.2ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 1) ORDER BY created_at DESC[0m
+Rendering template within layouts/admin
+Rendering admin/posts/edit
+  [4;36;1mUser Load (0.9ms)[0m   [0;1mSELECT * FROM "users" WHERE (("users"."admin" = 't')) ORDER BY last_name[0m
+DEPRECATION WARNING: Kernel#returning has been deprecated in favor of Object#tap. (called from association at /Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/simple_form-1.0.2/lib/simple_form/form_builder.rb:175)
+  [4;35;1mCategory Load (0.5ms)[0m   [0mSELECT * FROM "categories" ORDER BY name[0m
+DEPRECATION WARNING: Kernel#returning has been deprecated in favor of Object#tap. (called from default_html_options_for_collection at /Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/simple_form-1.0.2/lib/simple_form/action_view_extensions/builder.rb:104)
+  [4;36;1mCategory Load (0.4ms)[0m   [0;1mSELECT "categories".id FROM "categories" INNER JOIN "categories_posts" ON "categories".id = "categories_posts".category_id WHERE ("categories_posts".post_id = 1 ) ORDER BY name[0m
+DEPRECATION WARNING: Kernel#returning has been deprecated in favor of Object#tap. (called from default_html_options_for_collection at /Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/simple_form-1.0.2/lib/simple_form/action_view_extensions/builder.rb:104)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT "categories".id FROM "categories" INNER JOIN "categories_posts" ON "categories".id = "categories_posts".category_id WHERE ("categories_posts".post_id = 1 ) ORDER BY name[0m
+DEPRECATION WARNING: Kernel#returning has been deprecated in favor of Object#tap. (called from default_html_options_for_collection at /Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/simple_form-1.0.2/lib/simple_form/action_view_extensions/builder.rb:104)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT "categories".id FROM "categories" INNER JOIN "categories_posts" ON "categories".id = "categories_posts".category_id WHERE ("categories_posts".post_id = 1 ) ORDER BY name[0m
+DEPRECATION WARNING: Kernel#returning has been deprecated in favor of Object#tap. (called from default_html_options_for_collection at /Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/simple_form-1.0.2/lib/simple_form/action_view_extensions/builder.rb:104)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT "categories".id FROM "categories" INNER JOIN "categories_posts" ON "categories".id = "categories_posts".category_id WHERE ("categories_posts".post_id = 1 ) ORDER BY name[0m
+DEPRECATION WARNING: Kernel#returning has been deprecated in favor of Object#tap. (called from association at /Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/simple_form-1.0.2/lib/simple_form/form_builder.rb:175)
+Rendered admin/posts/_form (18.0ms)
+  [4;36;1mMeeting Load (0.5ms)[0m   [0;1mSELECT * FROM "meetings" WHERE (date < '2011-02-15' AND date >= '2011-02-08') ORDER BY date[0m
+  [4;35;1mVideo Load (0.6ms)[0m   [0mSELECT * FROM "videos" WHERE (created_at > '2011-02-01') ORDER BY created_at DESC[0m
+Completed in 119ms (View: 92, DB: 4) | 200 OK [http://localhost/admin/posts/1-update-coming/edit]
+
+
+Processing Admin::PostsController#show (for 127.0.0.1 at 2011-02-08 17:46:01) [GET]
+  Parameters: {"action"=>"show", "id"=>"1-update-coming", "controller"=>"admin/posts"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;36;1mPost Load (0.2ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 1) ORDER BY created_at DESC[0m
+Rendering template within layouts/admin
+Rendering admin/posts/show
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY last_name[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "comments" WHERE ("comments".post_id = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "comments" WHERE ("comments".post_id = 1) [0m
+  [4;36;1mComment Load (0.3ms)[0m   [0;1mSELECT * FROM "comments" WHERE ("comments".post_id = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY last_name[0m
+Rendered admin/comments/_comment (3.2ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY last_name[0m
+Rendered admin/comments/_comment (2.9ms)
+  [4;35;1mMeeting Load (0.5ms)[0m   [0mSELECT * FROM "meetings" WHERE (date < '2011-02-15' AND date >= '2011-02-08') ORDER BY date[0m
+  [4;36;1mVideo Load (0.5ms)[0m   [0;1mSELECT * FROM "videos" WHERE (created_at > '2011-02-01') ORDER BY created_at DESC[0m
+Completed in 53ms (View: 27, DB: 2) | 200 OK [http://localhost/admin/posts/1-update-coming]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-02-08 17:46:01) [GET]
+
+ActionController::RoutingError (No route matches "/system/photos/1/small/kyle.jpg" with {:method=>:get}):
+  lib/flash_session_cookie_middleware.rb:19:in `call'
+  lib/flash_session_cookie_middleware.rb:19:in `call'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/s

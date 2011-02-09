@@ -7,12 +7,6 @@
 	<%= pluralize(@post.comments.size, 'Comment') %>
 </p>
 
-<% if admin? -%>
-	<p>
-		<%= link_to "Edit Post", edit_post_path(@post), :class => 'edit' %>
-		<%= link_to "Delete Post", @post, :confirm => "Are you sure want to delete this post?", :method => 'delete', :class => 'delete' %>
-<% end -%>
-
 <div class="post_body">
   <%= @post.body %>
 </div>

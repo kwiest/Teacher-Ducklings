@@ -5,13 +5,12 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :categories, :only => :show
 
-  map.resources :posts, :has_many => :comments
+  map.resources :posts, :only => [:index, :show], :has_many => :comments
 
   map.resources :meetings
   map.my_meetings '/my_meetings', :controller => 'my_meetings', :action => 'index'
-
   
-  map.resources :users, :has_many => :videos
+  map.resources :users
   
   map.resources :user_sessions
   map.login '/login', :controller => 'user_sessions', :action => 'new'
@@ -26,7 +25,4 @@ ActionController::Routing::Routes.draw do |map|
   end
 
   map.root :controller => 'index'
-  
-  map.connect ':controller/:action/:id'
-  map.connect ':controller/:action/:id.:format'
 end
