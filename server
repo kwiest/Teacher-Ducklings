@@ -13446,4 +13446,98 @@ DEPRECATION WARNING: Kernel#returning has been deprecated in favor of Object#tap
 DEPRECATION WARNING: Kernel#returning has been deprecated in favor of Object#tap. (called from default_html_options_for_collection at /Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/simple_form-1.0.2/lib/simple_form/action_view_extensions/builder.rb:104)
   [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT "categories".id FROM "categories" INNER JOIN "categories_links" ON "categories".id = "categories_links".category_id WHERE ("categories_links".link_id = 5 ) ORDER BY name[0m
 DEPRECATION WARNING: Kernel#returning has been deprecated in favor of Object#tap. (called from association at /Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/simple_form-1.0.2/lib/simple_form/form_builder.rb:175)
-Rendered admin/links/_form
+Rendered admin/links/_form (17.4ms)
+  [4;35;1mMeeting Load (0.6ms)[0m   [0mSELECT * FROM "meetings" WHERE (date < '2011-02-16' AND date >= '2011-02-09') ORDER BY date[0m
+  [4;36;1mVideo Load (0.5ms)[0m   [0;1mSELECT * FROM "videos" WHERE (created_at > '2011-02-02') ORDER BY created_at DESC[0m
+Completed in 120ms (View: 93, DB: 3) | 200 OK [http://localhost/admin/links/5/edit]
+
+
+Processing Admin::LinksController#update (for 127.0.0.1 at 2011-02-09 12:10:18) [PUT]
+  Parameters: {"commit"=>"Update link", "action"=>"update", "_method"=>"put", "authenticity_token"=>"RlmTmlzmQKkUkc/JU5DjU8wRRZEAZhPSJkHwuhZLE64=", "id"=>"5", "controller"=>"admin/links", "link"=>{"name"=>"A test link", "url"=>"http://teacherducklings.org", "category_ids"=>["", "", "", "1", "", "2"], "description"=>""}}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mLink Load (0.2ms)[0m   [0mSELECT * FROM "links" WHERE ("links"."id" = 5) ORDER BY name[0m
+  [4;36;1mCategory Load (0.8ms)[0m   [0;1mSELECT * FROM "categories" WHERE ("categories"."id" IN (1,2)) ORDER BY name[0m
+  [4;35;1mCategory Load (0.4ms)[0m   [0mSELECT * FROM "categories" INNER JOIN "categories_links" ON "categories".id = "categories_links".category_id WHERE ("categories_links".link_id = 5 ) ORDER BY name[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mINSERT INTO "categories_links" ("link_id", "category_id") VALUES (5, 1)[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mINSERT INTO "categories_links" ("link_id", "category_id") VALUES (5, 2)[0m
+[paperclip] Saving attachments.
+Redirected to http://localhost:3000/admin/links
+Completed in 37ms (DB: 2) | 302 Found [http://localhost/admin/links/5]
+
+
+Processing Admin::LinksController#index (for 127.0.0.1 at 2011-02-09 12:10:18) [GET]
+  Parameters: {"action"=>"index", "controller"=>"admin/links"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;36;1mLink Load (0.9ms)[0m   [0;1mSELECT * FROM "links" ORDER BY name[0m
+Rendering template within layouts/admin
+Rendering admin/links/index
+Rendered admin/links/_link (69.6ms)
+Rendered admin/links/_link (2.4ms)
+Rendered admin/links/_link (2.9ms)
+Rendered admin/links/_link (2.2ms)
+  [4;35;1mMeeting Load (0.5ms)[0m   [0mSELECT * FROM "meetings" WHERE (date < '2011-02-16' AND date >= '2011-02-09') ORDER BY date[0m
+  [4;36;1mVideo Load (0.6ms)[0m   [0;1mSELECT * FROM "videos" WHERE (created_at > '2011-02-02') ORDER BY created_at DESC[0m
+Completed in 115ms (View: 90, DB: 2) | 200 OK [http://localhost/admin/links]
+
+
+Processing Admin::LinksController#destroy (for 127.0.0.1 at 2011-02-09 12:10:57) [DELETE]
+  Parameters: {"action"=>"destroy", "_method"=>"delete", "authenticity_token"=>"RlmTmlzmQKkUkc/JU5DjU8wRRZEAZhPSJkHwuhZLE64=", "id"=>"4", "controller"=>"admin/links"}
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mLink Load (0.2ms)[0m   [0mSELECT * FROM "links" WHERE ("links"."id" = 4) ORDER BY name[0m
+[paperclip] Deleting attachments.
+[paperclip] deleting /Users/kwiest2000/Sites/Teacher-Ducklings/public/system/documents/4/original/monkey coffee.jpg
+  [4;36;1mCategory Load (0.6ms)[0m   [0;1mSELECT * FROM "categories" INNER JOIN "categories_links" ON "categories".id = "categories_links".category_id WHERE ("categories_links".link_id = 4 ) ORDER BY name[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mDELETE FROM "categories_links" WHERE link_id = 4 AND category_id IN (4,3)[0m
+  [4;36;1mLink Destroy (0.1ms)[0m   [0;1mDELETE FROM "links" WHERE "id" = 4[0m
+Redirected to http://localhost:3000/admin/links
+Completed in 37ms (DB: 2) | 302 Found [http://localhost/admin/links/4]
+
+
+Processing Admin::LinksController#index (for 127.0.0.1 at 2011-02-09 12:10:57) [GET]
+  Parameters: {"action"=>"index", "controller"=>"admin/links"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mLink Load (0.9ms)[0m   [0mSELECT * FROM "links" ORDER BY name[0m
+Rendering template within layouts/admin
+Rendering admin/links/index
+Rendered admin/links/_link (4.2ms)
+Rendered admin/links/_link (2.5ms)
+Rendered admin/links/_link (2.3ms)
+  [4;36;1mMeeting Load (0.5ms)[0m   [0;1mSELECT * FROM "meetings" WHERE (date < '2011-02-16' AND date >= '2011-02-09') ORDER BY date[0m
+  [4;35;1mVideo Load (0.4ms)[0m   [0mSELECT * FROM "videos" WHERE (created_at > '2011-02-02') ORDER BY created_at DESC[0m
+Completed in 110ms (View: 22, DB: 2) | 200 OK [http://localhost/admin/links]
+
+
+Processing IndexController#index (for 127.0.0.1 at 2011-02-09 12:23:55) [GET]
+  Parameters: {"action"=>"index", "controller"=>"index"}
+Rendering template within layouts/application
+Rendering index/index
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;36;1mCategory Load (0.8ms)[0m   [0;1mSELECT * FROM "categories" ORDER BY name, name[0m
+  [4;35;1mPost Load (0.7ms)[0m   [0mSELECT * FROM "posts" ORDER BY created_at DESC LIMIT 5[0m
+Completed in 99ms (View: 95, DB: 2) | 200 OK [http://localhost/]
+
+
+Processing CategoriesController#show (for 127.0.0.1 at 2011-02-09 12:24:04) [GET]
+  Parameters: {"action"=>"show", "id"=>"4-behavior", "controller"=>"categories"}
+  [4;36;1mCategory Load (0.1ms)[0m   [0;1mSELECT * FROM "categories" WHERE ("categories"."id" = 4) ORDER BY name[0m
+Rendering template within layouts/application
+Rendering categories/show
+  [4;35;1mPost Load (0.6ms)[0m   [0mSELECT * FROM "posts" INNER JOIN "categories_posts" ON "posts".id = "categories_posts".post_id WHERE ("categories_posts".category_id = 4 ) ORDER BY created_at DESC[0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY last_name[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "comments" WHERE ("comments".post_id = 1) [0m
+  [4;36;1mCategory Load (0.6ms)[0m   [0;1mSELECT * FROM "categories" INNER JOIN "categories_posts" ON "categories".id = "categories_posts".category_id WHERE ("categories_posts".post_id = 1 ) ORDER BY name[0m
+Rendered posts/_post (22.0ms)
+  [4;35;1mLink Load (0.7ms)[0m   [0mSELECT * FROM "links" INNER JOIN "categories_links" ON "links".id = "categories_links".link_id WHERE ("categories_links".category_id = 4 ) ORDER BY name[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mCategory Load (0.6ms)[0m   [0mSELECT * FROM "categories" ORDER BY name, name[0m
+  [4;36;1mPost Load (0.6ms)[0m   [0;1mSELECT * FROM "posts" ORDER BY created_at DESC LIMIT 5[0m
+Completed in 56ms (View: 45, DB: 4) | 200 OK [http://localhost/categories/4-behavior]
