@@ -12650,3 +12650,800 @@ Rendered admin/comments/_comment (2.9ms)
   [4;35;1mMeeting Load (0.5ms)[0m   [0mSELECT * FROM "meetings" WHERE (date < '2011-02-16' AND date >= '2011-02-09') ORDER BY date[0m
   [4;36;1mVideo Load (0.4ms)[0m   [0;1mSELECT * FROM "videos" WHERE (created_at > '2011-02-02') ORDER BY created_at DESC[0m
 Completed in 130ms (View: 101, DB: 4) | 200 OK [http://localhost/admin/posts/1-update-coming]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-02-09 11:44:30) [GET]
+
+ActionController::RoutingError (No route matches "/system/photos/1/small/kyle.jpg" with {:method=>:get}):
+  lib/flash_session_cookie_middleware.rb:19:in `call'
+  lib/flash_session_cookie_middleware.rb:19:in `call'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-02-09 11:44:30) [GET]
+
+ActionController::RoutingError (No route matches "/system/photos/1/small/kyle.jpg" with {:method=>:get}):
+  lib/flash_session_cookie_middleware.rb:19:in `call'
+  lib/flash_session_cookie_middleware.rb:19:in `call'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing IndexController#index (for 127.0.0.1 at 2011-02-09 11:45:45) [GET]
+  Parameters: {"action"=>"index", "controller"=>"index"}
+Rendering template within layouts/application
+Rendering index/index
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mCategory Load (0.7ms)[0m   [0mSELECT * FROM "categories" ORDER BY name, name[0m
+  [4;36;1mPost Load (0.5ms)[0m   [0;1mSELECT * FROM "posts" ORDER BY created_at DESC LIMIT 5[0m
+Completed in 38ms (View: 35, DB: 2) | 200 OK [http://localhost/]
+
+
+Processing PostsController#index to atom (for 127.0.0.1 at 2011-02-09 11:45:50) [GET]
+  Parameters: {"format"=>"atom", "action"=>"index", "controller"=>"posts"}
+  [4;35;1mPost Load (1.0ms)[0m   [0mSELECT * FROM "posts" ORDER BY created_at DESC[0m
+Rendering posts/index
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY last_name[0m
+Completed in 32ms (View: 25, DB: 1) | 200 OK [http://localhost/posts.atom]
+
+
+Processing PostsController#index to atom (for 127.0.0.1 at 2011-02-09 11:45:50) [GET]
+  Parameters: {"format"=>"atom", "action"=>"index", "controller"=>"posts"}
+  [4;35;1mPost Load (1.0ms)[0m   [0mSELECT * FROM "posts" ORDER BY created_at DESC[0m
+Rendering posts/index
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) ORDER BY last_name[0m
+Completed in 32ms (View: 26, DB: 1) | 200 OK [http://localhost/posts.atom]
+
+
+Processing AdminController#index (for 127.0.0.1 at 2011-02-09 11:46:56) [GET]
+  Parameters: {"action"=>"index", "controller"=>"admin"}
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+Rendering template within layouts/admin
+Rendering admin/index
+  [4;35;1mMeeting Load (0.5ms)[0m   [0mSELECT * FROM "meetings" WHERE (date < '2011-02-16' AND date >= '2011-02-09') ORDER BY date[0m
+  [4;36;1mVideo Load (0.5ms)[0m   [0;1mSELECT * FROM "videos" WHERE (created_at > '2011-02-02') ORDER BY created_at DESC[0m
+Completed in 96ms (View: 15, DB: 1) | 200 OK [http://localhost/admin]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-02-09 11:46:58) [GET]
+  Parameters: {"action"=>"index", "controller"=>"admin/links"}
+
+LoadError (Expected /Users/kwiest2000/Sites/Teacher-Ducklings/app/controllers/admin/links_controller.rb to define Admin::LinksController):
+  lib/flash_session_cookie_middleware.rb:19:in `call'
+  lib/flash_session_cookie_middleware.rb:19:in `call'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (26.5ms)
+Rendered rescues/_request_and_response (0.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing Admin::LinksController#index (for 127.0.0.1 at 2011-02-09 11:49:04) [GET]
+  Parameters: {"action"=>"index", "controller"=>"admin/links"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mLink Load (0.8ms)[0m   [0mSELECT * FROM "links" ORDER BY name[0m
+Rendering template within layouts/admin
+Rendering admin/links/index
+Rendered admin/links/_link (6.0ms)
+Rendered admin/links/_link (2.5ms)
+Rendered admin/links/_link (2.1ms)
+  [4;36;1mMeeting Load (0.5ms)[0m   [0;1mSELECT * FROM "meetings" WHERE (date < '2011-02-16' AND date >= '2011-02-09') ORDER BY date[0m
+  [4;35;1mVideo Load (0.5ms)[0m   [0mSELECT * FROM "videos" WHERE (created_at > '2011-02-02') ORDER BY created_at DESC[0m
+Completed in 118ms (View: 28, DB: 2) | 200 OK [http://localhost/admin/links]
+
+
+Processing LinksController#edit (for 127.0.0.1 at 2011-02-09 11:49:11) [GET]
+  Parameters: {"action"=>"edit", "id"=>"4", "controller"=>"links"}
+
+NoMethodError (undefined method `admin_required' for #<LinksController:0x2c1d2dc>):
+  lib/flash_session_cookie_middleware.rb:19:in `call'
+  lib/flash_session_cookie_middleware.rb:19:in `call'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (32.6ms)
+Rendered rescues/_request_and_response (0.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing Admin::LinksController#index (for 127.0.0.1 at 2011-02-09 11:49:57) [GET]
+  Parameters: {"action"=>"index", "controller"=>"admin/links"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;36;1mLink Load (0.8ms)[0m   [0;1mSELECT * FROM "links" ORDER BY name[0m
+Rendering template within layouts/admin
+Rendering admin/links/index
+Rendered admin/links/_link (5.2ms)
+Rendered admin/links/_link (2.7ms)
+Rendered admin/links/_link (2.0ms)
+  [4;35;1mMeeting Load (0.5ms)[0m   [0mSELECT * FROM "meetings" WHERE (date < '2011-02-16' AND date >= '2011-02-09') ORDER BY date[0m
+  [4;36;1mVideo Load (0.4ms)[0m   [0;1mSELECT * FROM "videos" WHERE (created_at > '2011-02-02') ORDER BY created_at DESC[0m
+Completed in 50ms (View: 24, DB: 2) | 200 OK [http://localhost/admin/links]
+
+
+Processing Admin::LinksController#show (for 127.0.0.1 at 2011-02-09 11:49:58) [GET]
+  Parameters: {"action"=>"show", "id"=>"4", "controller"=>"admin/links"}
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mLink Load (0.3ms)[0m   [0mSELECT * FROM "links" WHERE ("links"."id" = 4) ORDER BY name[0m
+Rendering template within layouts/admin
+Rendering admin/links/show
+Rendered admin/links/_link (4.3ms)
+  [4;36;1mMeeting Load (0.6ms)[0m   [0;1mSELECT * FROM "meetings" WHERE (date < '2011-02-16' AND date >= '2011-02-09') ORDER BY date[0m
+  [4;35;1mVideo Load (0.4ms)[0m   [0mSELECT * FROM "videos" WHERE (created_at > '2011-02-02') ORDER BY created_at DESC[0m
+Completed in 105ms (View: 80, DB: 2) | 200 OK [http://localhost/admin/links/4]
+
+
+Processing Admin::LinksController#show (for 127.0.0.1 at 2011-02-09 11:50:27) [GET]
+  Parameters: {"action"=>"show", "id"=>"4", "controller"=>"admin/links"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;36;1mLink Load (0.2ms)[0m   [0;1mSELECT * FROM "links" WHERE ("links"."id" = 4) ORDER BY name[0m
+Rendering template within layouts/admin
+Rendering admin/links/show
+Rendered admin/links/_link (3.5ms)
+  [4;35;1mMeeting Load (0.5ms)[0m   [0mSELECT * FROM "meetings" WHERE (date < '2011-02-16' AND date >= '2011-02-09') ORDER BY date[0m
+  [4;36;1mVideo Load (0.4ms)[0m   [0;1mSELECT * FROM "videos" WHERE (created_at > '2011-02-02') ORDER BY created_at DESC[0m
+Completed in 43ms (View: 17, DB: 2) | 200 OK [http://localhost/admin/links/4]
+
+
+Processing Admin::LinksController#edit (for 127.0.0.1 at 2011-02-09 11:50:38) [GET]
+  Parameters: {"action"=>"edit", "id"=>"4", "controller"=>"admin/links"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mLink Load (0.2ms)[0m   [0mSELECT * FROM "links" WHERE ("links"."id" = 4) ORDER BY name[0m
+Rendering template within layouts/admin
+Rendering admin/links/edit
+  [4;36;1mCategory Load (0.7ms)[0m   [0;1mSELECT * FROM "categories" ORDER BY name[0m
+  [4;35;1mCategory Load (0.4ms)[0m   [0mSELECT "categories".id FROM "categories" INNER JOIN "categories_links" ON "categories".id = "categories_links".category_id WHERE ("categories"."id" = 4) AND ("categories_links".link_id = 4 ) ORDER BY name LIMIT 1[0m
+  [4;36;1mCategory Load (0.4ms)[0m   [0;1mSELECT "categories".id FROM "categories" INNER JOIN "categories_links" ON "categories".id = "categories_links".category_id WHERE ("categories"."id" = 3) AND ("categories_links".link_id = 4 ) ORDER BY name LIMIT 1[0m
+  [4;35;1mCategory Load (0.4ms)[0m   [0mSELECT "categories".id FROM "categories" INNER JOIN "categories_links" ON "categories".id = "categories_links".category_id WHERE ("categories"."id" = 1) AND ("categories_links".link_id = 4 ) ORDER BY name LIMIT 1[0m
+  [4;36;1mCategory Load (0.4ms)[0m   [0;1mSELECT "categories".id FROM "categories" INNER JOIN "categories_links" ON "categories".id = "categories_links".category_id WHERE ("categories"."id" = 2) AND ("categories_links".link_id = 4 ) ORDER BY name LIMIT 1[0m
+Rendered admin/links/_form (13.7ms)
+  [4;35;1mMeeting Load (0.7ms)[0m   [0mSELECT * FROM "meetings" WHERE (date < '2011-02-16' AND date >= '2011-02-09') ORDER BY date[0m
+  [4;36;1mVideo Load (0.4ms)[0m   [0;1mSELECT * FROM "videos" WHERE (created_at > '2011-02-02') ORDER BY created_at DESC[0m
+Completed in 120ms (View: 31, DB: 4) | 200 OK [http://localhost/admin/links/4/edit]
+
+
+Processing Admin::LinksController#edit (for 127.0.0.1 at 2011-02-09 11:54:51) [GET]
+  Parameters: {"action"=>"edit", "id"=>"4", "controller"=>"admin/links"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mLink Load (0.2ms)[0m   [0mSELECT * FROM "links" WHERE ("links"."id" = 4) ORDER BY name[0m
+Rendering template within layouts/admin
+Rendering admin/links/edit
+ERROR: compiling _run_erb_app47views47admin47links47edit46html46erb RAISED compile error
+/Users/kwiest2000/Sites/Teacher-Ducklings/app/views/admin/links/edit.html.erb:3: syntax error, unexpected ':', expecting kEND
+...l => admin_links_path(@link) :html => { :multipart => true }...
+                              ^
+/Users/kwiest2000/Sites/Teacher-Ducklings/app/views/admin/links/edit.html.erb:3: syntax error, unexpected ',', expecting kEND
+...tml => { :multipart => true }, :method => :put do |f| ; @out...
+                              ^
+/Users/kwiest2000/Sites/Teacher-Ducklings/app/views/admin/links/edit.html.erb:11: syntax error, unexpected kENSURE, expecting $end
+Function body:           def _run_erb_app47views47admin47links47edit46html46erb(local_assigns)
+            old_output_buffer = output_buffer;;@output_buffer = '';  __in_erb_template=true ; @output_buffer.concat "<h1>Editing link</h1>\n\n"
+
+;  simple_form_for @link, :url => admin_links_path(@link) :html => { :multipart => true }, :method => :put do |f| ; @output_buffer.concat "\n  <fieldset>\n\t\t"
+
+; @output_buffer.concat(( render 'form', :f => f ).to_s); @output_buffer.concat "\n\t\t"
+; @output_buffer.concat(( f.button :submit, 'Update link' ).to_s); @output_buffer.concat "\n\t</fieldset>\n"
+
+;  end ; @output_buffer.concat "\n\n"
+
+; @output_buffer.concat(( link_to '← Back', :back ).to_s); @output_buffer
+          ensure
+            self.output_buffer = old_output_buffer
+          end
+Backtrace: /Users/kwiest2000/Sites/Teacher-Ducklings/app/views/admin/links/edit.html.erb:11:in `compile!'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_view/renderable.rb:61:in `compile'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_view/renderable.rb:28:in `render'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_view/template.rb:205:in `render_template'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_view/base.rb:265:in `render'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_view/base.rb:348:in `_render_with_layout'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_view/base.rb:262:in `render'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/base.rb:1252:in `render_for_file'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/base.rb:936:in `render_without_benchmark'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/benchmarking.rb:51:in `render'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/activesupport-2.3.10/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/activesupport-2.3.10/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/benchmarking.rb:51:in `render'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/base.rb:1328:in `default_render'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/base.rb:1334:in `perform_action_without_filters'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/filters.rb:617:in `call_filters'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/activesupport-2.3.10/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/activesupport-2.3.10/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/rescue.rb:160:in `perform_action_without_flash'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/flash.rb:151:in `perform_action'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/base.rb:532:in `send'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/base.rb:532:in `process_without_filters'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/filters.rb:606:in `process'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/base.rb:391:in `process'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/base.rb:386:in `call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/routing/route_set.rb:438:in `call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/dispatcher.rb:87:in `dispatch'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/dispatcher.rb:121:in `_call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/dispatcher.rb:130:in `build_middleware_stack'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/activerecord-2.3.10/lib/active_record/query_cache.rb:29:in `call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/activerecord-2.3.10/lib/active_record/query_cache.rb:29:in `call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/activerecord-2.3.10/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/activerecord-2.3.10/lib/active_record/query_cache.rb:9:in `cache'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/activerecord-2.3.10/lib/active_record/query_cache.rb:28:in `call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/activerecord-2.3.10/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+/Users/kwiest2000/Sites/Teacher-Ducklings/lib/flash_session_cookie_middleware.rb:19:in `call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/string_coercion.rb:25:in `call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/rack-1.1.0/lib/rack/head.rb:9:in `call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/rack-1.1.0/lib/rack/methodoverride.rb:24:in `call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/params_parser.rb:15:in `call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/session/cookie_store.rb:100:in `call'
+/Users/kwiest2000/Sites/Teacher-Ducklings/lib/flash_session_cookie_middleware.rb:19:in `call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/failsafe.rb:26:in `call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/rack-1.1.0/lib/rack/lock.rb:11:in `call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/rack-1.1.0/lib/rack/lock.rb:11:in `synchronize'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/rack-1.1.0/lib/rack/lock.rb:11:in `call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/dispatcher.rb:114:in `call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/reloader.rb:34:in `run'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/actionpack-2.3.10/lib/action_controller/dispatcher.rb:108:in `call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/rails-2.3.10/lib/rails/rack/static.rb:31:in `call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/rack-1.1.0/lib/rack/urlmap.rb:47:in `call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/rack-1.1.0/lib/rack/urlmap.rb:41:in `each'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/rack-1.1.0/lib/rack/urlmap.rb:41:in `call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/rails-2.3.10/lib/rails/rack/log_tailer.rb:17:in `call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/rack-1.1.0/lib/rack/content_length.rb:13:in `call'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/rack-1.1.0/lib/rack/handler/webrick.rb:48:in `service'
+/Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+/Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+/Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+/Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:162:in `start'
+/Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+/Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:95:in `start'
+/Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:92:in `each'
+/Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:92:in `start'
+/Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:23:in `start'
+/Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:82:in `start'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/rack-1.1.0/lib/rack/handler/webrick.rb:14:in `run'
+/Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/rails-2.3.10/lib/commands/server.rb:111
+/Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:29:in `gem_original_require'
+/Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:29:in `require'
+script/server:3
+
+ActionView::TemplateError (compile error
+/Users/kwiest2000/Sites/Teacher-Ducklings/app/views/admin/links/edit.html.erb:3: syntax error, unexpected ':', expecting kEND
+...l => admin_links_path(@link) :html => { :multipart => true }...
+                              ^
+/Users/kwiest2000/Sites/Teacher-Ducklings/app/views/admin/links/edit.html.erb:3: syntax error, unexpected ',', expecting kEND
+...tml => { :multipart => true }, :method => :put do |f| ; @out...
+                              ^
+/Users/kwiest2000/Sites/Teacher-Ducklings/app/views/admin/links/edit.html.erb:11: syntax error, unexpected kENSURE, expecting $end) on line #3 of app/views/admin/links/edit.html.erb:
+1: <h1>Editing link</h1>
+2: 
+3: <% simple_form_for @link, :url => admin_links_path(@link) :html => { :multipart => true }, :method => :put do |f| %>
+4:   <fieldset>
+5: 		<%= render 'form', :f => f %>
+6: 		<%= f.button :submit, 'Update link' %>
+
+    app/views/admin/links/edit.html.erb:11:in `compile!'
+    lib/flash_session_cookie_middleware.rb:19:in `call'
+    lib/flash_session_cookie_middleware.rb:19:in `call'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (100.0ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing Admin::LinksController#edit (for 127.0.0.1 at 2011-02-09 11:55:04) [GET]
+  Parameters: {"action"=>"edit", "id"=>"4", "controller"=>"admin/links"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;36;1mLink Load (0.2ms)[0m   [0;1mSELECT * FROM "links" WHERE ("links"."id" = 4) ORDER BY name[0m
+Rendering template within layouts/admin
+Rendering admin/links/edit
+  [4;35;1mCategory Load (0.7ms)[0m   [0mSELECT * FROM "categories" ORDER BY name[0m
+DEPRECATION WARNING: Kernel#returning has been deprecated in favor of Object#tap. (called from default_html_options_for_collection at /Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/simple_form-1.0.2/lib/simple_form/action_view_extensions/builder.rb:104)
+  [4;36;1mCategory Load (0.5ms)[0m   [0;1mSELECT "categories".id FROM "categories" INNER JOIN "categories_links" ON "categories".id = "categories_links".category_id WHERE ("categories_links".link_id = 4 ) ORDER BY name[0m
+DEPRECATION WARNING: Kernel#returning has been deprecated in favor of Object#tap. (called from default_html_options_for_collection at /Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/simple_form-1.0.2/lib/simple_form/action_view_extensions/builder.rb:104)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT "categories".id FROM "categories" INNER JOIN "categories_links" ON "categories".id = "categories_links".category_id WHERE ("categories_links".link_id = 4 ) ORDER BY name[0m
+DEPRECATION WARNING: Kernel#returning has been deprecated in favor of Object#tap. (called from default_html_options_for_collection at /Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/simple_form-1.0.2/lib/simple_form/action_view_extensions/builder.rb:104)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT "categories".id FROM "categories" INNER JOIN "categories_links" ON "categories".id = "categories_links".category_id WHERE ("categories_links".link_id = 4 ) ORDER BY name[0m
+DEPRECATION WARNING: Kernel#returning has been deprecated in favor of Object#tap. (called from default_html_options_for_collection at /Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/simple_form-1.0.2/lib/simple_form/action_view_extensions/builder.rb:104)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT "categories".id FROM "categories" INNER JOIN "categories_links" ON "categories".id = "categories_links".category_id WHERE ("categories_links".link_id = 4 ) ORDER BY name[0m
+DEPRECATION WARNING: Kernel#returning has been deprecated in favor of Object#tap. (called from association at /Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/simple_form-1.0.2/lib/simple_form/form_builder.rb:175)
+Rendered admin/links/_form (15.0ms)
+  [4;36;1mMeeting Load (0.4ms)[0m   [0;1mSELECT * FROM "meetings" WHERE (date < '2011-02-16' AND date >= '2011-02-09') ORDER BY date[0m
+  [4;35;1mVideo Load (0.6ms)[0m   [0mSELECT * FROM "videos" WHERE (created_at > '2011-02-02') ORDER BY created_at DESC[0m
+Completed in 120ms (View: 93, DB: 3) | 200 OK [http://localhost/admin/links/4/edit]
+
+
+Processing Admin::LinksController#edit (for 127.0.0.1 at 2011-02-09 11:58:03) [GET]
+  Parameters: {"action"=>"edit", "id"=>"4", "controller"=>"admin/links"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;36;1mLink Load (0.2ms)[0m   [0;1mSELECT * FROM "links" WHERE ("links"."id" = 4) ORDER BY name[0m
+Rendering template within layouts/admin
+Rendering admin/links/edit
+  [4;35;1mCategory Load (0.6ms)[0m   [0mSELECT * FROM "categories" ORDER BY name[0m
+DEPRECATION WARNING: Kernel#returning has been deprecated in favor of Object#tap. (called from default_html_options_for_collection at /Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/simple_form-1.0.2/lib/simple_form/action_view_extensions/builder.rb:104)
+  [4;36;1mCategory Load (0.5ms)[0m   [0;1mSELECT "categories".id FROM "categories" INNER JOIN "categories_links" ON "categories".id = "categories_links".category_id WHERE ("categories_links".link_id = 4 ) ORDER BY name[0m
+DEPRECATION WARNING: Kernel#returning has been deprecated in favor of Object#tap. (called from default_html_options_for_collection at /Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/simple_form-1.0.2/lib/simple_form/action_view_extensions/builder.rb:104)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT "categories".id FROM "categories" INNER JOIN "categories_links" ON "categories".id = "categories_links".category_id WHERE ("categories_links".link_id = 4 ) ORDER BY name[0m
+DEPRECATION WARNING: Kernel#returning has been deprecated in favor of Object#tap. (called from default_html_options_for_collection at /Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/simple_form-1.0.2/lib/simple_form/action_view_extensions/builder.rb:104)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT "categories".id FROM "categories" INNER JOIN "categories_links" ON "categories".id = "categories_links".category_id WHERE ("categories_links".link_id = 4 ) ORDER BY name[0m
+DEPRECATION WARNING: Kernel#returning has been deprecated in favor of Object#tap. (called from default_html_options_for_collection at /Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/simple_form-1.0.2/lib/simple_form/action_view_extensions/builder.rb:104)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT "categories".id FROM "categories" INNER JOIN "categories_links" ON "categories".id = "categories_links".category_id WHERE ("categories_links".link_id = 4 ) ORDER BY name[0m
+DEPRECATION WARNING: Kernel#returning has been deprecated in favor of Object#tap. (called from association at /Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/simple_form-1.0.2/lib/simple_form/form_builder.rb:175)
+
+ActionView::TemplateError (undefined method `inpu' for #<SimpleForm::FormBuilder:0x2bddad8>) on line #4 of app/views/admin/links/_form.html.erb:
+1: <%= f.error_messages %>
+2: <%= f.association :categories, :as => :check_boxes %>
+3: <%= f.input :name %>
+4: <%= f.inpu :url, :label => 'Link URL' %>
+5: 
+6: <p>
+7:   <%= f.label :description, 'Description:' %>
+
+    app/views/admin/links/_form.html.erb:4
+    app/views/admin/links/edit.html.erb:5
+    /Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/simple_form-1.0.2/lib/simple_form/action_view_extensions/form_helper.rb:24:in `simple_form_for'
+    app/views/admin/links/edit.html.erb:3
+    lib/flash_session_cookie_middleware.rb:19:in `call'
+    lib/flash_session_cookie_middleware.rb:19:in `call'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (115.7ms)
+Rendered rescues/_request_and_response (0.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing Admin::LinksController#edit (for 127.0.0.1 at 2011-02-09 11:58:13) [GET]
+  Parameters: {"action"=>"edit", "id"=>"4", "controller"=>"admin/links"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;36;1mLink Load (0.3ms)[0m   [0;1mSELECT * FROM "links" WHERE ("links"."id" = 4) ORDER BY name[0m
+Rendering template within layouts/admin
+Rendering admin/links/edit
+  [4;35;1mCategory Load (0.7ms)[0m   [0mSELECT * FROM "categories" ORDER BY name[0m
+DEPRECATION WARNING: Kernel#returning has been deprecated in favor of Object#tap. (called from default_html_options_for_collection at /Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/simple_form-1.0.2/lib/simple_form/action_view_extensions/builder.rb:104)
+  [4;36;1mCategory Load (0.4ms)[0m   [0;1mSELECT "categories".id FROM "categories" INNER JOIN "categories_links" ON "categories".id = "categories_links".category_id WHERE ("categories_links".link_id = 4 ) ORDER BY name[0m
+DEPRECATION WARNING: Kernel#returning has been deprecated in favor of Object#tap. (called from default_html_options_for_collection at /Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/simple_form-1.0.2/lib/simple_form/action_view_extensions/builder.rb:104)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT "categories".id FROM "categories" INNER JOIN "categories_links" ON "categories".id = "categories_links".category_id WHERE ("categories_links".link_id = 4 ) ORDER BY name[0m
+DEPRECATION WARNING: Kernel#returning has been deprecated in favor of Object#tap. (called from default_html_options_for_collection at /Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/simple_form-1.0.2/lib/simple_form/action_view_extensions/builder.rb:104)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT "categories".id FROM "categories" INNER JOIN "categories_links" ON "categories".id = "categories_links".category_id WHERE ("categories_links".link_id = 4 ) ORDER BY name[0m
+DEPRECATION WARNING: Kernel#returning has been deprecated in favor of Object#tap. (called from default_html_options_for_collection at /Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/simple_form-1.0.2/lib/simple_form/action_view_extensions/builder.rb:104)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT "categories".id FROM "categories" INNER JOIN "categories_links" ON "categories".id = "categories_links".category_id WHERE ("categories_links".link_id = 4 ) ORDER BY name[0m
+DEPRECATION WARNING: Kernel#returning has been deprecated in favor of Object#tap. (called from association at /Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/simple_form-1.0.2/lib/simple_form/form_builder.rb:175)
+Rendered admin/links/_form (16.3ms)
+  [4;36;1mMeeting Load (0.5ms)[0m   [0;1mSELECT * FROM "meetings" WHERE (date < '2011-02-16' AND date >= '2011-02-09') ORDER BY date[0m
+  [4;35;1mVideo Load (0.6ms)[0m   [0mSELECT * FROM "videos" WHERE (created_at > '2011-02-02') ORDER BY created_at DESC[0m
+Completed in 119ms (View: 93, DB: 3) | 200 OK [http://localhost/admin/links/4/edit]
+
+
+Processing Admin::LinksController#edit (for 127.0.0.1 at 2011-02-09 11:58:43) [GET]
+  Parameters: {"action"=>"edit", "id"=>"4", "controller"=>"admin/links"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;36;1mLink Load (0.3ms)[0m   [0;1mSELECT * FROM "links" WHERE ("links"."id" = 4) ORDER BY name[0m
+Rendering template within layouts/admin
+Rendering admin/links/edit
+  [4;35;1mCategory Load (0.7ms)[0m   [0mSELECT * FROM "categories" ORDER BY name[0m
+DEPRECATION WARNING: Kernel#returning has been deprecated in favor of Object#tap. (called from default_html_options_for_collection at /Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/simple_form-1.0.2/lib/simple_form/action_view_extensions/builder.rb:104)
+  [4;36;1mCategory Load (0.4ms)[0m   [0;1mSELECT "categories".id FROM "categories" INNER JOIN "categories_links" ON "categories".id = "categories_links".category_id WHERE ("categories_links".link_id = 4 ) ORDER BY name[0m
+DEPRECATION WARNING: Kernel#returning has been deprecated in favor of Object#tap. (called from default_html_options_for_collection at /Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/simple_form-1.0.2/lib/simple_form/action_view_extensions/builder.rb:104)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT "categories".id FROM "categories" INNER JOIN "categories_links" ON "categories".id = "categories_links".category_id WHERE ("categories_links".link_id = 4 ) ORDER BY name[0m
+DEPRECATION WARNING: Kernel#returning has been deprecated in favor of Object#tap. (called from default_html_options_for_collection at /Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/simple_form-1.0.2/lib/simple_form/action_view_extensions/builder.rb:104)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT "categories".id FROM "categories" INNER JOIN "categories_links" ON "categories".id = "categories_links".category_id WHERE ("categories_links".link_id = 4 ) ORDER BY name[0m
+DEPRECATION WARNING: Kernel#returning has been deprecated in favor of Object#tap. (called from default_html_options_for_collection at /Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/simple_form-1.0.2/lib/simple_form/action_view_extensions/builder.rb:104)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT "categories".id FROM "categories" INNER JOIN "categories_links" ON "categories".id = "categories_links".category_id WHERE ("categories_links".link_id = 4 ) ORDER BY name[0m
+DEPRECATION WARNING: Kernel#returning has been deprecated in favor of Object#tap. (called from association at /Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/simple_form-1.0.2/lib/simple_form/form_builder.rb:175)
+Rendered admin/links/_form (16.7ms)
+  [4;36;1mMeeting Load (0.5ms)[0m   [0;1mSELECT * FROM "meetings" WHERE (date < '2011-02-16' AND date >= '2011-02-09') ORDER BY date[0m
+  [4;35;1mVideo Load (0.4ms)[0m   [0mSELECT * FROM "videos" WHERE (created_at > '2011-02-02') ORDER BY created_at DESC[0m
+Completed in 57ms (View: 31, DB: 3) | 200 OK [http://localhost/admin/links/4/edit]
+
+
+Processing Admin::LinksController#edit (for 127.0.0.1 at 2011-02-09 11:59:43) [GET]
+  Parameters: {"action"=>"edit", "id"=>"4", "controller"=>"admin/links"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;36;1mLink Load (0.2ms)[0m   [0;1mSELECT * FROM "links" WHERE ("links"."id" = 4) ORDER BY name[0m
+Rendering template within layouts/admin
+Rendering admin/links/edit
+  [4;35;1mCategory Load (0.7ms)[0m   [0mSELECT * FROM "categories" ORDER BY name[0m
+DEPRECATION WARNING: Kernel#returning has been deprecated in favor of Object#tap. (called from default_html_options_for_collection at /Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/simple_form-1.0.2/lib/simple_form/action_view_extensions/builder.rb:104)
+  [4;36;1mCategory Load (0.6ms)[0m   [0;1mSELECT "categories".id FROM "categories" INNER JOIN "categories_links" ON "categories".id = "categories_links".category_id WHERE ("categories_links".link_id = 4 ) ORDER BY name[0m
+DEPRECATION WARNING: Kernel#returning has been deprecated in favor of Object#tap. (called from default_html_options_for_collection at /Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/simple_form-1.0.2/lib/simple_form/action_view_extensions/builder.rb:104)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT "categories".id FROM "categories" INNER JOIN "categories_links" ON "categories".id = "categories_links".category_id WHERE ("categories_links".link_id = 4 ) ORDER BY name[0m
+DEPRECATION WARNING: Kernel#returning has been deprecated in favor of Object#tap. (called from default_html_options_for_collection at /Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/simple_form-1.0.2/lib/simple_form/action_view_extensions/builder.rb:104)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT "categories".id FROM "categories" INNER JOIN "categories_links" ON "categories".id = "categories_links".category_id WHERE ("categories_links".link_id = 4 ) ORDER BY name[0m
+DEPRECATION WARNING: Kernel#returning has been deprecated in favor of Object#tap. (called from default_html_options_for_collection at /Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/simple_form-1.0.2/lib/simple_form/action_view_extensions/builder.rb:104)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT "categories".id FROM "categories" INNER JOIN "categories_links" ON "categories".id = "categories_links".category_id WHERE ("categories_links".link_id = 4 ) ORDER BY name[0m
+DEPRECATION WARNING: Kernel#returning has been deprecated in favor of Object#tap. (called from association at /Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/simple_form-1.0.2/lib/simple_form/form_builder.rb:175)
+Rendered admin/links/_form (16.8ms)
+  [4;36;1mMeeting Load (0.5ms)[0m   [0;1mSELECT * FROM "meetings" WHERE (date < '2011-02-16' AND date >= '2011-02-09') ORDER BY date[0m
+  [4;35;1mVideo Load (0.4ms)[0m   [0mSELECT * FROM "videos" WHERE (created_at > '2011-02-02') ORDER BY created_at DESC[0m
+Completed in 57ms (View: 31, DB: 3) | 200 OK [http://localhost/admin/links/4/edit]
+
+
+Processing Admin::LinksController#edit (for 127.0.0.1 at 2011-02-09 12:01:10) [GET]
+  Parameters: {"action"=>"edit", "id"=>"4", "controller"=>"admin/links"}
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;36;1mLink Load (0.2ms)[0m   [0;1mSELECT * FROM "links" WHERE ("links"."id" = 4) ORDER BY name[0m
+Rendering template within layouts/admin
+Rendering admin/links/edit
+  [4;35;1mCategory Load (0.6ms)[0m   [0mSELECT * FROM "categories" ORDER BY name[0m
+DEPRECATION WARNING: Kernel#returning has been deprecated in favor of Object#tap. (called from default_html_options_for_collection at /Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/simple_form-1.0.2/lib/simple_form/action_view_extensions/builder.rb:104)
+  [4;36;1mCategory Load (0.4ms)[0m   [0;1mSELECT "categories".id FROM "categories" INNER JOIN "categories_links" ON "categories".id = "categories_links".category_id WHERE ("categories_links".link_id = 4 ) ORDER BY name[0m
+DEPRECATION WARNING: Kernel#returning has been deprecated in favor of Object#tap. (called from default_html_options_for_collection at /Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/simple_form-1.0.2/lib/simple_form/action_view_extensions/builder.rb:104)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT "categories".id FROM "categories" INNER JOIN "categories_links" ON "categories".id = "categories_links".category_id WHERE ("categories_links".link_id = 4 ) ORDER BY name[0m
+DEPRECATION WARNING: Kernel#returning has been deprecated in favor of Object#tap. (called from default_html_options_for_collection at /Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/simple_form-1.0.2/lib/simple_form/action_view_extensions/builder.rb:104)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT "categories".id FROM "categories" INNER JOIN "categories_links" ON "categories".id = "categories_links".category_id WHERE ("categories_links".link_id = 4 ) ORDER BY name[0m
+DEPRECATION WARNING: Kernel#returning has been deprecated in favor of Object#tap. (called from default_html_options_for_collection at /Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/simple_form-1.0.2/lib/simple_form/action_view_extensions/builder.rb:104)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT "categories".id FROM "categories" INNER JOIN "categories_links" ON "categories".id = "categories_links".category_id WHERE ("categories_links".link_id = 4 ) ORDER BY name[0m
+DEPRECATION WARNING: Kernel#returning has been deprecated in favor of Object#tap. (called from association at /Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/simple_form-1.0.2/lib/simple_form/form_builder.rb:175)
+Rendered admin/links/_form (17.9ms)
+  [4;36;1mMeeting Load (0.5ms)[0m   [0;1mSELECT * FROM "meetings" WHERE (date < '2011-02-16' AND date >= '2011-02-09') ORDER BY date[0m
+  [4;35;1mVideo Load (0.4ms)[0m   [0mSELECT * FROM "videos" WHERE (created_at > '2011-02-02') ORDER BY created_at DESC[0m
+Completed in 120ms (View: 32, DB: 3) | 200 OK [http://localhost/admin/links/4/edit]
+
+
+Processing Admin::LinksController#edit (for 127.0.0.1 at 2011-02-09 12:01:39) [GET]
+  Parameters: {"action"=>"edit", "id"=>"4", "controller"=>"admin/links"}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;36;1mLink Load (0.2ms)[0m   [0;1mSELECT * FROM "links" WHERE ("links"."id" = 4) ORDER BY name[0m
+Rendering template within layouts/admin
+Rendering admin/links/edit
+  [4;35;1mCategory Load (0.6ms)[0m   [0mSELECT * FROM "categories" ORDER BY name[0m
+DEPRECATION WARNING: Kernel#returning has been deprecated in favor of Object#tap. (called from default_html_options_for_collection at /Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/simple_form-1.0.2/lib/simple_form/action_view_extensions/builder.rb:104)
+  [4;36;1mCategory Load (0.5ms)[0m   [0;1mSELECT "categories".id FROM "categories" INNER JOIN "categories_links" ON "categories".id = "categories_links".category_id WHERE ("categories_links".link_id = 4 ) ORDER BY name[0m
+DEPRECATION WARNING: Kernel#returning has been deprecated in favor of Object#tap. (called from default_html_options_for_collection at /Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/simple_form-1.0.2/lib/simple_form/action_view_extensions/builder.rb:104)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT "categories".id FROM "categories" INNER JOIN "categories_links" ON "categories".id = "categories_links".category_id WHERE ("categories_links".link_id = 4 ) ORDER BY name[0m
+DEPRECATION WARNING: Kernel#returning has been deprecated in favor of Object#tap. (called from default_html_options_for_collection at /Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/simple_form-1.0.2/lib/simple_form/action_view_extensions/builder.rb:104)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT "categories".id FROM "categories" INNER JOIN "categories_links" ON "categories".id = "categories_links".category_id WHERE ("categories_links".link_id = 4 ) ORDER BY name[0m
+DEPRECATION WARNING: Kernel#returning has been deprecated in favor of Object#tap. (called from default_html_options_for_collection at /Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/simple_form-1.0.2/lib/simple_form/action_view_extensions/builder.rb:104)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT "categories".id FROM "categories" INNER JOIN "categories_links" ON "categories".id = "categories_links".category_id WHERE ("categories_links".link_id = 4 ) ORDER BY name[0m
+DEPRECATION WARNING: Kernel#returning has been deprecated in favor of Object#tap. (called from association at /Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/simple_form-1.0.2/lib/simple_form/form_builder.rb:175)
+Rendered admin/links/_form (80.2ms)
+  [4;36;1mMeeting Load (0.5ms)[0m   [0;1mSELECT * FROM "meetings" WHERE (date < '2011-02-16' AND date >= '2011-02-09') ORDER BY date[0m
+  [4;35;1mVideo Load (0.4ms)[0m   [0mSELECT * FROM "videos" WHERE (created_at > '2011-02-02') ORDER BY created_at DESC[0m
+Completed in 121ms (View: 95, DB: 3) | 200 OK [http://localhost/admin/links/4/edit]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-02-09 12:01:57) [PUT]
+  Parameters: {"commit"=>"Update link", "_method"=>"put", "authenticity_token"=>"RlmTmlzmQKkUkc/JU5DjU8wRRZEAZhPSJkHwuhZLE64=", "link"=>{"name"=>"Johnn Snaps It", "url"=>"", "document"=>#<File:/var/folders/Fc/FcbVh523GCm8Fv+pUcT2vk+++TI/-Tmp-/RackMultipart20110209-35680-c3ap64-0>, "category_ids"=>["", "4", "", "3", "", ""], "description"=>"No URL for this one son!"}}
+
+ActionController::MethodNotAllowed (Only get and post requests are allowed.):
+  lib/flash_session_cookie_middleware.rb:19:in `call'
+  lib/flash_session_cookie_middleware.rb:19:in `call'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (23.9ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (method_not_allowed)
+
+
+Processing Admin::LinksController#edit (for 127.0.0.1 at 2011-02-09 12:02:12) [GET]
+  Parameters: {"action"=>"edit", "id"=>"4", "controller"=>"admin/links"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;36;1mLink Load (0.2ms)[0m   [0;1mSELECT * FROM "links" WHERE ("links"."id" = 4) ORDER BY name[0m
+Rendering template within layouts/admin
+Rendering admin/links/edit
+  [4;35;1mCategory Load (0.6ms)[0m   [0mSELECT * FROM "categories" ORDER BY name[0m
+DEPRECATION WARNING: Kernel#returning has been deprecated in favor of Object#tap. (called from default_html_options_for_collection at /Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/simple_form-1.0.2/lib/simple_form/action_view_extensions/builder.rb:104)
+  [4;36;1mCategory Load (0.4ms)[0m   [0;1mSELECT "categories".id FROM "categories" INNER JOIN "categories_links" ON "categories".id = "categories_links".category_id WHERE ("categories_links".link_id = 4 ) ORDER BY name[0m
+DEPRECATION WARNING: Kernel#returning has been deprecated in favor of Object#tap. (called from default_html_options_for_collection at /Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/simple_form-1.0.2/lib/simple_form/action_view_extensions/builder.rb:104)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT "categories".id FROM "categories" INNER JOIN "categories_links" ON "categories".id = "categories_links".category_id WHERE ("categories_links".link_id = 4 ) ORDER BY name[0m
+DEPRECATION WARNING: Kernel#returning has been deprecated in favor of Object#tap. (called from default_html_options_for_collection at /Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/simple_form-1.0.2/lib/simple_form/action_view_extensions/builder.rb:104)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT "categories".id FROM "categories" INNER JOIN "categories_links" ON "categories".id = "categories_links".category_id WHERE ("categories_links".link_id = 4 ) ORDER BY name[0m
+DEPRECATION WARNING: Kernel#returning has been deprecated in favor of Object#tap. (called from default_html_options_for_collection at /Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/simple_form-1.0.2/lib/simple_form/action_view_extensions/builder.rb:104)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT "categories".id FROM "categories" INNER JOIN "categories_links" ON "categories".id = "categories_links".category_id WHERE ("categories_links".link_id = 4 ) ORDER BY name[0m
+DEPRECATION WARNING: Kernel#returning has been deprecated in favor of Object#tap. (called from association at /Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/simple_form-1.0.2/lib/simple_form/form_builder.rb:175)
+Rendered admin/links/_form (17.9ms)
+  [4;36;1mMeeting Load (0.5ms)[0m   [0;1mSELECT * FROM "meetings" WHERE (date < '2011-02-16' AND date >= '2011-02-09') ORDER BY date[0m
+  [4;35;1mVideo Load (0.4ms)[0m   [0mSELECT * FROM "videos" WHERE (created_at > '2011-02-02') ORDER BY created_at DESC[0m
+Completed in 123ms (View: 30, DB: 3) | 200 OK [http://localhost/admin/links/4/edit]
+
+
+Processing Admin::LinksController#edit (for 127.0.0.1 at 2011-02-09 12:03:13) [GET]
+  Parameters: {"action"=>"edit", "id"=>"4", "controller"=>"admin/links"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;36;1mLink Load (0.2ms)[0m   [0;1mSELECT * FROM "links" WHERE ("links"."id" = 4) ORDER BY name[0m
+Rendering template within layouts/admin
+Rendering admin/links/edit
+  [4;35;1mCategory Load (0.9ms)[0m   [0mSELECT * FROM "categories" ORDER BY name[0m
+DEPRECATION WARNING: Kernel#returning has been deprecated in favor of Object#tap. (called from default_html_options_for_collection at /Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/simple_form-1.0.2/lib/simple_form/action_view_extensions/builder.rb:104)
+  [4;36;1mCategory Load (0.6ms)[0m   [0;1mSELECT "categories".id FROM "categories" INNER JOIN "categories_links" ON "categories".id = "categories_links".category_id WHERE ("categories_links".link_id = 4 ) ORDER BY name[0m
+DEPRECATION WARNING: Kernel#returning has been deprecated in favor of Object#tap. (called from default_html_options_for_collection at /Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/simple_form-1.0.2/lib/simple_form/action_view_extensions/builder.rb:104)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT "categories".id FROM "categories" INNER JOIN "categories_links" ON "categories".id = "categories_links".category_id WHERE ("categories_links".link_id = 4 ) ORDER BY name[0m
+DEPRECATION WARNING: Kernel#returning has been deprecated in favor of Object#tap. (called from default_html_options_for_collection at /Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/simple_form-1.0.2/lib/simple_form/action_view_extensions/builder.rb:104)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT "categories".id FROM "categories" INNER JOIN "categories_links" ON "categories".id = "categories_links".category_id WHERE ("categories_links".link_id = 4 ) ORDER BY name[0m
+DEPRECATION WARNING: Kernel#returning has been deprecated in favor of Object#tap. (called from default_html_options_for_collection at /Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/simple_form-1.0.2/lib/simple_form/action_view_extensions/builder.rb:104)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT "categories".id FROM "categories" INNER JOIN "categories_links" ON "categories".id = "categories_links".category_id WHERE ("categories_links".link_id = 4 ) ORDER BY name[0m
+DEPRECATION WARNING: Kernel#returning has been deprecated in favor of Object#tap. (called from association at /Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/simple_form-1.0.2/lib/simple_form/form_builder.rb:175)
+Rendered admin/links/_form (79.4ms)
+  [4;36;1mMeeting Load (0.5ms)[0m   [0;1mSELECT * FROM "meetings" WHERE (date < '2011-02-16' AND date >= '2011-02-09') ORDER BY date[0m
+  [4;35;1mVideo Load (0.5ms)[0m   [0mSELECT * FROM "videos" WHERE (created_at > '2011-02-02') ORDER BY created_at DESC[0m
+Completed in 121ms (View: 94, DB: 3) | 200 OK [http://localhost/admin/links/4/edit]
+
+
+Processing Admin::LinksController#update (for 127.0.0.1 at 2011-02-09 12:03:22) [PUT]
+  Parameters: {"commit"=>"Update link", "action"=>"update", "_method"=>"put", "authenticity_token"=>"RlmTmlzmQKkUkc/JU5DjU8wRRZEAZhPSJkHwuhZLE64=", "id"=>"4", "controller"=>"admin/links", "link"=>{"name"=>"Johnn Snaps It", "url"=>"", "document"=>#<File:/var/folders/Fc/FcbVh523GCm8Fv+pUcT2vk+++TI/-Tmp-/RackMultipart20110209-35680-1ddpwus-0>, "category_ids"=>["", "4", "", "3", "", ""], "description"=>"No URL for this one son!"}}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;36;1mLink Load (0.3ms)[0m   [0;1mSELECT * FROM "links" WHERE ("links"."id" = 4) ORDER BY name[0m
+  [4;35;1mCategory Load (0.8ms)[0m   [0mSELECT * FROM "categories" WHERE ("categories"."id" IN (4,3)) ORDER BY name[0m
+  [4;36;1mCategory Load (0.5ms)[0m   [0;1mSELECT * FROM "categories" INNER JOIN "categories_links" ON "categories".id = "categories_links".category_id WHERE ("categories_links".link_id = 4 ) ORDER BY name[0m
+  [4;35;1mLink Update (0.6ms)[0m   [0mUPDATE "links" SET "document_content_type" = 'image/jpeg', "updated_at" = '2011-02-09 20:03:22', "document_file_size" = 27738, "document_file_name" = 'monkey coffee.jpg' WHERE "id" = 4[0m
+[paperclip] Saving attachments.
+
+Errno::EEXIST (File exists - /Users/kwiest2000/Sites/Teacher-Ducklings/public/system):
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/fileutils.rb:243:in `mkdir'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/fileutils.rb:243:in `fu_mkdir'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/fileutils.rb:217:in `mkdir_p'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/fileutils.rb:215:in `reverse_each'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/fileutils.rb:215:in `mkdir_p'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/fileutils.rb:201:in `each'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/fileutils.rb:201:in `mkdir_p'
+  paperclip (2.3.5) lib/paperclip/storage/filesystem.rb:39:in `flush_writes'
+  paperclip (2.3.5) lib/paperclip/storage/filesystem.rb:37:in `each'
+  paperclip (2.3.5) lib/paperclip/storage/filesystem.rb:37:in `flush_writes'
+  paperclip (2.3.5) lib/paperclip/attachment.rb:148:in `save'
+  paperclip (2.3.5) lib/paperclip.rb:357:in `send'
+  paperclip (2.3.5) lib/paperclip.rb:357:in `save_attached_files'
+  paperclip (2.3.5) lib/paperclip.rb:350:in `each_attachment'
+  paperclip (2.3.5) lib/paperclip.rb:349:in `each'
+  paperclip (2.3.5) lib/paperclip.rb:349:in `each_attachment'
+  paperclip (2.3.5) lib/paperclip.rb:356:in `save_attached_files'
+  app/controllers/admin/links_controller.rb:30:in `update'
+  lib/flash_session_cookie_middleware.rb:19:in `call'
+  lib/flash_session_cookie_middleware.rb:19:in `call'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (116.9ms)
+Rendered rescues/_request_and_response (0.5ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing Admin::LinksController#update (for 127.0.0.1 at 2011-02-09 12:06:36) [PUT]
+  Parameters: {"commit"=>"Update link", "action"=>"update", "_method"=>"put", "authenticity_token"=>"RlmTmlzmQKkUkc/JU5DjU8wRRZEAZhPSJkHwuhZLE64=", "id"=>"4", "controller"=>"admin/links", "link"=>{"name"=>"Johnn Snaps It", "url"=>"", "document"=>#<File:/var/folders/Fc/FcbVh523GCm8Fv+pUcT2vk+++TI/-Tmp-/RackMultipart20110209-35680-7n4hgv-0>, "category_ids"=>["", "4", "", "3", "", ""], "description"=>"No URL for this one son!"}}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;36;1mLink Load (0.2ms)[0m   [0;1mSELECT * FROM "links" WHERE ("links"."id" = 4) ORDER BY name[0m
+  [4;35;1mCategory Load (0.8ms)[0m   [0mSELECT * FROM "categories" WHERE ("categories"."id" IN (4,3)) ORDER BY name[0m
+  [4;36;1mCategory Load (0.5ms)[0m   [0;1mSELECT * FROM "categories" INNER JOIN "categories_links" ON "categories".id = "categories_links".category_id WHERE ("categories_links".link_id = 4 ) ORDER BY name[0m
+  [4;35;1mLink Update (0.2ms)[0m   [0mUPDATE "links" SET "document_content_type" = 'image/jpeg', "updated_at" = '2011-02-09 20:06:36', "document_file_size" = 27738, "document_file_name" = 'monkey coffee.jpg' WHERE "id" = 4[0m
+[paperclip] Saving attachments.
+
+Errno::EEXIST (File exists - /Users/kwiest2000/Sites/Teacher-Ducklings/public/system):
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/fileutils.rb:243:in `mkdir'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/fileutils.rb:243:in `fu_mkdir'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/fileutils.rb:217:in `mkdir_p'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/fileutils.rb:215:in `reverse_each'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/fileutils.rb:215:in `mkdir_p'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/fileutils.rb:201:in `each'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/fileutils.rb:201:in `mkdir_p'
+  paperclip (2.3.5) lib/paperclip/storage/filesystem.rb:39:in `flush_writes'
+  paperclip (2.3.5) lib/paperclip/storage/filesystem.rb:37:in `each'
+  paperclip (2.3.5) lib/paperclip/storage/filesystem.rb:37:in `flush_writes'
+  paperclip (2.3.5) lib/paperclip/attachment.rb:148:in `save'
+  paperclip (2.3.5) lib/paperclip.rb:357:in `send'
+  paperclip (2.3.5) lib/paperclip.rb:357:in `save_attached_files'
+  paperclip (2.3.5) lib/paperclip.rb:350:in `each_attachment'
+  paperclip (2.3.5) lib/paperclip.rb:349:in `each'
+  paperclip (2.3.5) lib/paperclip.rb:349:in `each_attachment'
+  paperclip (2.3.5) lib/paperclip.rb:356:in `save_attached_files'
+  app/controllers/admin/links_controller.rb:30:in `update'
+  lib/flash_session_cookie_middleware.rb:19:in `call'
+  lib/flash_session_cookie_middleware.rb:19:in `call'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/kwiest2000/.rvm/rubies/ree-1.8.7-2010.02/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (56.5ms)
+Rendered rescues/_request_and_response (0.5ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing Admin::LinksController#update (for 127.0.0.1 at 2011-02-09 12:07:10) [PUT]
+  Parameters: {"commit"=>"Update link", "action"=>"update", "_method"=>"put", "authenticity_token"=>"RlmTmlzmQKkUkc/JU5DjU8wRRZEAZhPSJkHwuhZLE64=", "id"=>"4", "controller"=>"admin/links", "link"=>{"name"=>"Johnn Snaps It", "url"=>"", "document"=>#<File:/var/folders/Fc/FcbVh523GCm8Fv+pUcT2vk+++TI/-Tmp-/RackMultipart20110209-35680-5s3j43-0>, "category_ids"=>["", "4", "", "3", "", ""], "description"=>"No URL for this one son!"}}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;36;1mLink Load (0.2ms)[0m   [0;1mSELECT * FROM "links" WHERE ("links"."id" = 4) ORDER BY name[0m
+  [4;35;1mCategory Load (0.8ms)[0m   [0mSELECT * FROM "categories" WHERE ("categories"."id" IN (4,3)) ORDER BY name[0m
+  [4;36;1mCategory Load (0.5ms)[0m   [0;1mSELECT * FROM "categories" INNER JOIN "categories_links" ON "categories".id = "categories_links".category_id WHERE ("categories_links".link_id = 4 ) ORDER BY name[0m
+  [4;35;1mLink Update (0.2ms)[0m   [0mUPDATE "links" SET "document_content_type" = 'image/jpeg', "updated_at" = '2011-02-09 20:07:11', "document_file_size" = 27738, "document_file_name" = 'monkey coffee.jpg' WHERE "id" = 4[0m
+[paperclip] Saving attachments.
+[paperclip] saving /Users/kwiest2000/Sites/Teacher-Ducklings/public/system/documents/4/original/monkey coffee.jpg
+Redirected to http://localhost:3000/admin/links
+Completed in 106ms (DB: 2) | 302 Found [http://localhost/admin/links/4]
+
+
+Processing Admin::LinksController#index (for 127.0.0.1 at 2011-02-09 12:07:11) [GET]
+  Parameters: {"action"=>"index", "controller"=>"admin/links"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;36;1mLink Load (0.8ms)[0m   [0;1mSELECT * FROM "links" ORDER BY name[0m
+Rendering template within layouts/admin
+Rendering admin/links/index
+Rendered admin/links/_link (4.3ms)
+Rendered admin/links/_link (2.4ms)
+Rendered admin/links/_link (2.6ms)
+  [4;35;1mMeeting Load (0.5ms)[0m   [0mSELECT * FROM "meetings" WHERE (date < '2011-02-16' AND date >= '2011-02-09') ORDER BY date[0m
+  [4;36;1mVideo Load (0.4ms)[0m   [0;1mSELECT * FROM "videos" WHERE (created_at > '2011-02-02') ORDER BY created_at DESC[0m
+Completed in 47ms (View: 21, DB: 2) | 200 OK [http://localhost/admin/links]
+
+
+Processing Admin::LinksController#index (for 127.0.0.1 at 2011-02-09 12:09:51) [GET]
+  Parameters: {"action"=>"index", "controller"=>"admin/links"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mLink Load (0.8ms)[0m   [0mSELECT * FROM "links" ORDER BY name[0m
+Rendering template within layouts/admin
+Rendering admin/links/index
+Rendered admin/links/_link (4.4ms)
+Rendered admin/links/_link (3.3ms)
+Rendered admin/links/_link (2.1ms)
+  [4;36;1mMeeting Load (0.5ms)[0m   [0;1mSELECT * FROM "meetings" WHERE (date < '2011-02-16' AND date >= '2011-02-09') ORDER BY date[0m
+  [4;35;1mVideo Load (0.4ms)[0m   [0mSELECT * FROM "videos" WHERE (created_at > '2011-02-02') ORDER BY created_at DESC[0m
+Completed in 50ms (View: 24, DB: 2) | 200 OK [http://localhost/admin/links]
+
+
+Processing Admin::LinksController#new (for 127.0.0.1 at 2011-02-09 12:09:52) [GET]
+  Parameters: {"action"=>"new", "controller"=>"admin/links"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+Rendering template within layouts/admin
+Rendering admin/links/new
+  [4;36;1mCategory Load (0.8ms)[0m   [0;1mSELECT * FROM "categories" ORDER BY name[0m
+DEPRECATION WARNING: Kernel#returning has been deprecated in favor of Object#tap. (called from default_html_options_for_collection at /Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/simple_form-1.0.2/lib/simple_form/action_view_extensions/builder.rb:104)
+  [4;35;1mCategory Load (0.4ms)[0m   [0mSELECT "categories".id FROM "categories" INNER JOIN "categories_links" ON "categories".id = "categories_links".category_id WHERE ("categories_links".link_id = NULL ) ORDER BY name[0m
+DEPRECATION WARNING: Kernel#returning has been deprecated in favor of Object#tap. (called from default_html_options_for_collection at /Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/simple_form-1.0.2/lib/simple_form/action_view_extensions/builder.rb:104)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT "categories".id FROM "categories" INNER JOIN "categories_links" ON "categories".id = "categories_links".category_id WHERE ("categories_links".link_id = NULL ) ORDER BY name[0m
+DEPRECATION WARNING: Kernel#returning has been deprecated in favor of Object#tap. (called from default_html_options_for_collection at /Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/simple_form-1.0.2/lib/simple_form/action_view_extensions/builder.rb:104)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT "categories".id FROM "categories" INNER JOIN "categories_links" ON "categories".id = "categories_links".category_id WHERE ("categories_links".link_id = NULL ) ORDER BY name[0m
+DEPRECATION WARNING: Kernel#returning has been deprecated in favor of Object#tap. (called from default_html_options_for_collection at /Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/simple_form-1.0.2/lib/simple_form/action_view_extensions/builder.rb:104)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT "categories".id FROM "categories" INNER JOIN "categories_links" ON "categories".id = "categories_links".category_id WHERE ("categories_links".link_id = NULL ) ORDER BY name[0m
+DEPRECATION WARNING: Kernel#returning has been deprecated in favor of Object#tap. (called from association at /Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/simple_form-1.0.2/lib/simple_form/form_builder.rb:175)
+Rendered admin/links/_form (78.9ms)
+  [4;35;1mMeeting Load (0.5ms)[0m   [0mSELECT * FROM "meetings" WHERE (date < '2011-02-16' AND date >= '2011-02-09') ORDER BY date[0m
+  [4;36;1mVideo Load (0.5ms)[0m   [0;1mSELECT * FROM "videos" WHERE (created_at > '2011-02-02') ORDER BY created_at DESC[0m
+Completed in 120ms (View: 94, DB: 3) | 200 OK [http://localhost/admin/links/new]
+
+
+Processing Admin::LinksController#create (for 127.0.0.1 at 2011-02-09 12:10:12) [POST]
+  Parameters: {"commit"=>"Create link", "action"=>"create", "authenticity_token"=>"RlmTmlzmQKkUkc/JU5DjU8wRRZEAZhPSJkHwuhZLE64=", "controller"=>"admin/links", "link"=>{"name"=>"A test link", "url"=>"http://teacherducklings.org", "category_ids"=>["", "", "", ""], "description"=>""}}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mLink Create (0.4ms)[0m   [0mINSERT INTO "links" ("name", "created_at", "document_file_size", "updated_at", "document_file_name", "url", "description", "document_content_type") VALUES('A test link', '2011-02-09 20:10:12', NULL, '2011-02-09 20:10:12', NULL, 'http://teacherducklings.org', '', NULL)[0m
+[paperclip] Saving attachments.
+Redirected to http://localhost:3000/admin/links
+Completed in 31ms (DB: 1) | 302 Found [http://localhost/admin/links]
+
+
+Processing Admin::LinksController#index (for 127.0.0.1 at 2011-02-09 12:10:12) [GET]
+  Parameters: {"action"=>"index", "controller"=>"admin/links"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;36;1mLink Load (0.9ms)[0m   [0;1mSELECT * FROM "links" ORDER BY name[0m
+Rendering template within layouts/admin
+Rendering admin/links/index
+Rendered admin/links/_link (4.5ms)
+Rendered admin/links/_link (2.4ms)
+Rendered admin/links/_link (2.9ms)
+Rendered admin/links/_link (2.2ms)
+  [4;35;1mMeeting Load (0.5ms)[0m   [0mSELECT * FROM "meetings" WHERE (date < '2011-02-16' AND date >= '2011-02-09') ORDER BY date[0m
+  [4;36;1mVideo Load (0.4ms)[0m   [0;1mSELECT * FROM "videos" WHERE (created_at > '2011-02-02') ORDER BY created_at DESC[0m
+Completed in 114ms (View: 25, DB: 2) | 200 OK [http://localhost/admin/links]
+
+
+Processing Admin::LinksController#edit (for 127.0.0.1 at 2011-02-09 12:10:15) [GET]
+  Parameters: {"action"=>"edit", "id"=>"5", "controller"=>"admin/links"}
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') ORDER BY last_name LIMIT 1[0m
+  [4;35;1mLink Load (0.2ms)[0m   [0mSELECT * FROM "links" WHERE ("links"."id" = 5) ORDER BY name[0m
+Rendering template within layouts/admin
+Rendering admin/links/edit
+  [4;36;1mCategory Load (0.6ms)[0m   [0;1mSELECT * FROM "categories" ORDER BY name[0m
+DEPRECATION WARNING: Kernel#returning has been deprecated in favor of Object#tap. (called from default_html_options_for_collection at /Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/simple_form-1.0.2/lib/simple_form/action_view_extensions/builder.rb:104)
+  [4;35;1mCategory Load (0.4ms)[0m   [0mSELECT "categories".id FROM "categories" INNER JOIN "categories_links" ON "categories".id = "categories_links".category_id WHERE ("categories_links".link_id = 5 ) ORDER BY name[0m
+DEPRECATION WARNING: Kernel#returning has been deprecated in favor of Object#tap. (called from default_html_options_for_collection at /Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/simple_form-1.0.2/lib/simple_form/action_view_extensions/builder.rb:104)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT "categories".id FROM "categories" INNER JOIN "categories_links" ON "categories".id = "categories_links".category_id WHERE ("categories_links".link_id = 5 ) ORDER BY name[0m
+DEPRECATION WARNING: Kernel#returning has been deprecated in favor of Object#tap. (called from default_html_options_for_collection at /Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/simple_form-1.0.2/lib/simple_form/action_view_extensions/builder.rb:104)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT "categories".id FROM "categories" INNER JOIN "categories_links" ON "categories".id = "categories_links".category_id WHERE ("categories_links".link_id = 5 ) ORDER BY name[0m
+DEPRECATION WARNING: Kernel#returning has been deprecated in favor of Object#tap. (called from default_html_options_for_collection at /Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/simple_form-1.0.2/lib/simple_form/action_view_extensions/builder.rb:104)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT "categories".id FROM "categories" INNER JOIN "categories_links" ON "categories".id = "categories_links".category_id WHERE ("categories_links".link_id = 5 ) ORDER BY name[0m
+DEPRECATION WARNING: Kernel#returning has been deprecated in favor of Object#tap. (called from association at /Users/kwiest2000/.rvm/gems/ree-1.8.7-2010.02@teacherducklings/gems/simple_form-1.0.2/lib/simple_form/form_builder.rb:175)
+Rendered admin/links/_form

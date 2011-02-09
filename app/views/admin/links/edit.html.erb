@@ -1,7 +1,10 @@
 <h1>Editing link</h1>
 
-<% form_for @link, :html => { :multipart => true } do |f| %>
-  <%= render :partial => 'form', :locals => { :f => f } %>
+<% simple_form_for @link, :url => admin_link_path(@link), :html => { :multipart => true }, :method => :put do |f| %>
+  <fieldset>
+		<%= render 'form', :f => f %>
+		<%= f.button :submit, 'Update link' %>
+	</fieldset>
 <% end %>
 
-<p><%= link_to 'Cancel', links_path %></p>
+<%= link_to '← Back', :back %>
