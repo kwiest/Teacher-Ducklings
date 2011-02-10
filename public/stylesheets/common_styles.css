@@ -446,6 +446,25 @@ li.upcoming {
 #calendar li {
   margin: 0;
   padding: 0;
-  font-size: 11px;
-  text-align: center;
+  font-size: 12px;
+}
+
+/* Calendar tooltips */
+
+#tooltip {
+	position: absolute;
+	z-index: 3000;
+	background: transparent url('/images/tooltip.png') no-repeat;
+	height: 70px;
+	width: 160px;
+	padding: 25px;
+	text-align: center;
+}
+
+#tooltip h3, #tooltip div { 
+	font-size: 12px;
+	font-weight: normal;
+	color: #fff;
+	line-height: 16px;
+	letter-spacing: normal;
 }

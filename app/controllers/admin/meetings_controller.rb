@@ -2,12 +2,13 @@ class Admin::MeetingsController < AdminController
   before_filter :load_meeting, :except => [:index, :new, :create]
 
   def index
-    @meetings = Meeting.all(:order => "date")
+    @meetings = Meeting.all
     @date = params[:month] ? Date.parse(params[:month]) : Date.today
   end
 
   def show
     @video = @meeting.video
+    render 'meetings/show', :layout => 'meeting'
   end
 
   def new

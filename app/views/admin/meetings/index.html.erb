@@ -20,7 +20,11 @@
       <ul>
         <% for meeting in meetings %>
           <li>
-						<%= link_to "#{meeting.time} - #{User.find(meeting.user_to_meet_with_id).full_name}", admin_meeting_path(meeting) %>
+						<%= link_to "#{meeting.time} - #{User.find(meeting.user_to_meet_with_id).full_name}", 
+							admin_meeting_path(meeting), 
+							:class => 'has-tip', 
+							:title => "#{meeting.user.full_name} meeting with #{User.find(meeting.user_to_meet_with_id).full_name} at #{meeting.time}" 
+						%>
 					</li>
         <% end %>
       </ul>

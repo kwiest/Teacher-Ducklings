@@ -42,5 +42,14 @@ $(function() {
 		
 		return false;
 	});
+	
+	// Calendar Tooltip
+	$('.has-tip').tooltip({
+		showURL: false
+		, fixPNG: true
+		, top: -120
+		, left: -100
+		, track: true
+	});
 		
 });
