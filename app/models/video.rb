@@ -4,7 +4,9 @@ class Video < ActiveRecord::Base
   belongs_to :user
   has_many :meetings, :dependent => :destroy
   has_many :reviews, :dependent => :destroy
-  has_attached_file :video
+  has_attached_file :video,
+    :url => "/videos/:id/:style/:basename.:extension",
+    :path => ":rails_root/public/videos/:id/:style/:basename.:extension"
   
   validates_attachment_presence :video
   

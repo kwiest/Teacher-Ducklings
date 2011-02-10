@@ -11,7 +11,9 @@ class User < ActiveRecord::Base
   has_many :reviews, :dependent => :destroy
   has_many :meetings, :dependent => :destroy
   has_attached_file :photo,
-                    :styles => { :small => "50x50#", :medium => "150x150#" }
+                    :styles => { :small => "50x50#", :medium => "150x150#" },
+                    :url => "/photos/:id/:style/:basename.:extension",
+                    :path => ":rails_root/public/photos/:id/:style/:basename.:extension"
 
   validates_presence_of :first_name, :last_name, :email
   
