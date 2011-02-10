@@ -1,0 +1,43 @@
+<h2><%= @video.verbose_title %></h2>
+
+<h3>Uploaded <%= time_ago_in_words @video.created_at %> ago</h3>
+
+<% content_for :head do -%>
+	<%= javascript_include_tag 'swfobject_old' %>
+<% end -%>
+
+<% if @video.converting? -%>
+	<div class="notice">Video is still converting, please be patient</div>
+<% elsif @video.error? -%>
+	<div class="error">There was an error while converting your video</div>
+<% else -%>
+	<%= player( {
+								:file => "#{@video.video.url}.flv",
+								:skin => :dangdang
+							},
+							{
+								:width => 640,
+								:height => 360
+							} ) %>
+<% end -%>
+
+<p>&nbsp;</p>
+
+<h2>Video Reviews</h2>
+<div id="reviews">
+	<% if @video.reviews.size > 0 -%>
+		<%= render :partial => '/reviews/review', :collection => @video.reviews %>
+	<% else -%>
+		<p>Nobody has reviewed this video yet...</p>
+	<% end -%>
+</div>
+
+
+<h2>Add a Review</h2>
+<% simple_form_for @video.reviews.new, :url => admin_reviews_path, :html => { :multipart => true } do |f| %>
+	<fieldset>
+		<%= f.input :description, :input_html => { :rows => 3 } %>
+		<%= f.input :pdf, :as => :file, :label => 'Attach a PDF', :required => false %>
+		<%= f.button :submit, 'Create review' %>
+	</fieldset>
+<% end %>
