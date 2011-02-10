@@ -7,6 +7,7 @@
   <title>Teacher Ducklings -- <%= controller_name.capitalize %> | <%= controller.action_name.capitalize %></title>
 	<%= stylesheet_link_tag 'common_styles' %>  
 	<%= stylesheet_link_tag 'duckling_admin_styles' %>
+	<%= stylesheet_link_tag 'cupertino/jquery-ui-1.8.9.custom'%>
 
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js"></script>
@@ -57,25 +58,21 @@
 			
 			<div id="secondary-content">
 				<h3>Upcoming Meetings</h3>
-				<% @upcoming_meetings = Meeting.find_upcoming_meetings -%>
-				<% if @upcoming_meetings.size > 0 -%>
-						<%= render :partial => "admin/meeting", :collection => @upcoming_meetings %>
-				<% else -%>
-					<p>You have no meetings scheduled for the next 7 days.</p>
-				<% end -%>
+				<% for meeting in Meeting.find_upcoming_meetings %>
+					<p>
+						<%= meeting.user.full_name %> has a meeting with <%= User.find(meeting.user_to_meet_with_id).full_name %>
+						in <%= pluralize(meeting.days_from_today_to_meeting, 'day') %>. Go to the 
+						<%= link_to "meeting room", meeting_path(meeting) %> now.
+					</p>	
+				<% end %>	
 				
 				<h3>Recent Uploads</h3>
-				<% @videos = Video.find_recent_uploads -%>
-				<% if @videos.size > 0 -%>
-					<% @videos.each do |video| %>
-						<p>
-							<%= link_to video.user.full_name, admin_user_path(video.user) %> uploaded a video <%= time_ago_in_words(video.created_at) %> ago.
-							<%= link_to "Watch it now", admin_video_path(video) %>.
-						</p>
-					<% end %>
-				<% else -%>
-					<p>No videos uploaded in the last week.</p>
-				<% end -%>
+				<% for video in Video.find_recent_uploads %>
+					<p>
+						<%= link_to video.user.full_name, admin_user_path(video.user) %> uploaded a video <%= time_ago_in_words(video.created_at) %> ago.
+						<%= link_to "Watch it now", admin_video_path(video) %>.
+					</p>
+				<% end %>
 			</div>
 			
 		<div class="clear"></div>

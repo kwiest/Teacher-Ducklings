@@ -1,6 +1,0 @@
-<p>
-	You have a meeting in <%= pluralize(meeting.days_from_today_to_meeting, 'day') %>
-	to review <%= meeting.video.user.full_name %>'s video
-	<%= link_to meeting.video.verbose_title, user_video_path(meeting.video.user_id, meeting.video) %>. Go to the 
-	<%= link_to "meeting room", meeting_path(meeting) %> now.
-</p>

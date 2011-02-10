@@ -1,11 +1,15 @@
 <% if @meeting.expired? -%>
 	<h1>Sorry, this meeting has expired.</h1>
+	<p><%= link_to 'Edit meeting', edit_admin_meeting_path(@meeting), :class => 'edit' %> | <%= link_to '← Back', :back %></p>
 <% else -%>
-	<h1><%= @video.verbose_title %></h1>
+	<h1>Meeting with <%= User.find(@meeting.user_to_meet_with_id).full_name %></h1>
+	<h3>Viewing: <%= @video.verbose_title %></h3>
 
 	<p>
 	  <strong>When:</strong> In <%= pluralize(@meeting.days_from_today_to_meeting, "day") %>, at <%=h @meeting.time %>
 	</p>
+	
+	<p><%= link_to 'Edit meeting', edit_admin_meeting_path(@meeting), :class => 'edit' %> | <%= link_to '← Back', :back %></p>
 
 	<div class="float-left">
 		<% content_for :head do -%>
@@ -29,9 +33,11 @@
 	</div>
 
 	<div class="float-left">
-		<object type="application/x-shockwave-flash" data="http://www.tokbox.com/vc/r5fv2azwsb2pqhv0" width="375" height="425" pid="4a6cc6c9917bfdca">
-			<param name="movie" value="http://www.tokbox.com/vc/r5fv2azwsb2pqhv0"/>
-			<param name="flashvars" value="guestList=true&textChat=true&showExpandButton=true"/>
+		<object type="application/x-shockwave-flash" data="http://me.tokbox.com/vc/tdxmz02dz00wmx6g/10" width="375" height="425">
+			<param name="movie" value="http://me.tokbox.com/vc/tdxmz02dz00wmx6g/10" />
+			<param name="allowFullScreen" value="true" />
+			<param name="allowScriptAccess" value="always" />
+			<param name="flashvars" value="guestList=false&textChat=true" />
 		</object>
 	</div>
 	<div class="clear"></div>

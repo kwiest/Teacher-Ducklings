@@ -1,13 +1,13 @@
 <div class="resource-row <%= cycle 'odd', 'even' %>">
 	<div style="float: right;">
 		<br />
-		<%= link_to 'Go to Meeting', meeting, :class => 'show' %>
-    <%= link_to 'Edit', edit_meeting_path(meeting), :class => 'edit' %>
-    <%= link_to 'Cancel', meeting, :confirm => 'Are you sure?', :method => :delete, :class => 'delete' %>
+		<%= link_to 'Go to Meeting', admin_meeting_path(meeting), :class => 'show' %>
+    <%= link_to 'Edit', edit_admin_meeting_path(meeting), :class => 'edit' %>
+    <%= link_to 'Cancel', admin_meeting_path(meeting), :confirm => 'Are you sure?', :method => :delete, :class => 'delete' %>
 	</div>
-	<strong>Date:</strong> <%=h meeting.date %>, <%= meeting.time %><br />
+	<strong>Date:</strong> <%= meeting.date %> @ <%= meeting.time %><br />
 	<strong>User:</strong> <%= meeting.video.user.full_name %>, 
-	<strong>Video:</strong> <%= link_to meeting.video.verbose_title, user_video_path(meeting.video.user_id, meeting.video) %><br />
-	<strong>Confirmed:</strong> <%=h meeting.confirmed %>
+	<strong>Video:</strong> <%= link_to meeting.video.verbose_title, admin_video_path(meeting.video) %><br />
+	<strong>Confirmed:</strong> <%= meeting.confirmed %>
 </div>
 <div class="clear"></div>

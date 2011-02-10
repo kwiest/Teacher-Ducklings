@@ -1,30 +1,7 @@
 <%= f.error_messages %>
-
-<p>
-	<label for="meeting_date">Date:<span class="required">*</span></label>
-	<%= f.text_field :date %>
-	<img class="calendar_date_select_popup_icon" src="/images/calendar_date_select/calendar.gif?1248665445" onclick="new CalendarDateSelect( $(this).previous(), {year_range:1} );" alt="Calendar"/>
-</p>
-
-<p>
-	<label for="meeting_time">Time:<span class="required">*</span></label>
-	<%= f.text_field :time %>
-</p>
-
-<p>
-	<%= f.label :user_to_meet_with_id, "Meet with:" %>
-	<%= f.collection_select(:user_to_meet_with_id, @users, :id, :full_name) %>
-</p>
-
-<p>
-	<label for="meeting_video_id">Video to Watch:<span class="required">*</span></label>
-	<%= f.collection_select(:video_id, @videos, :id, :verbose_title) %>
-</p>
-
-<p>
-	<%= f.check_box :confirmed %> Confirmed?
-</p>
-
-<p>
-	<%= f.submit 'Save Meeting', :class => :save %>
-</p>
+<%= f.input :date, :as => :string, :input_html => { :size => 40, :class => 'datepicker' } %>
+<%= f.input :time, :input_html => { :size => 40 } %>
+<%= f.association :user, :label => 'Administrator', :collection => User.all(:conditions => { :admin => true }), :label_method => 'full_name', :value_method => :id, :prompt => 'Please choose an administrator' %>
+<%= f.input :user_to_meet_with_id, :label => 'Meet with', :collection => User.all, :label_method => 'full_name', :value_method => :id, :prompt => 'Please choose a user' %>
+<%= f.association :video, :label_method => 'verbose_title', :prompt => 'Please choose a video' %>
+<%= f.input :confirmed, :as => :boolean %>

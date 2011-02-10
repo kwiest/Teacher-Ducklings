@@ -2,7 +2,7 @@
 // This file is automatically included by javascript_include_tag :defaults
 
 $(function() {
-	//$('.datepicker').datepicker({dateFormat: "yy-mm-dd"});
+	$('.datepicker').datepicker({dateFormat: "yy-mm-dd"});
 	
 	// TinyMCE Rich Text Editor
 	$('.tinymce').tinymce({
