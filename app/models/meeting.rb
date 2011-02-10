@@ -1,6 +1,6 @@
 class Meeting < ActiveRecord::Base
   belongs_to :video
-  belongs_to :user
+  belongs_to :user, :foreign_key => 'creator_id'
     
   validates_presence_of :date, :time
   

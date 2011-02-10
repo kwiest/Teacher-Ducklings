@@ -48,7 +48,7 @@ class Video < ActiveRecord::Base
   end
   
   def encode
-    self.convert!
+    convert!
     video_recipe  = "ffmpeg -i $input_file$ -ar 22050 -b 500k -i_qfactor 0.9 -qmin 6 -qmax 6 -g 500 -f flv -s $resolution$ -y $output_file$"
     options = { :input_file => video.path,
                 :output_file => "#{video.path}.flv",
@@ -58,11 +58,17 @@ class Video < ActiveRecord::Base
     video_transcoder = RVideo::Transcoder.new
     begin
       video_transcoder.execute(video_recipe, options)
-      self.converted!
+      capture_screenshot
+      converted!
     rescue Exception => e
       RAILS_DEFAULT_LOGGER.error(e.message)
-      self.error!
+      error!
     end
+  end
+  
+  def capture_screenshot
+    transcoder = RVideo::Transcoder.new(video.path)
+    transcoder.capture_frame('10s')
   end
   
   
