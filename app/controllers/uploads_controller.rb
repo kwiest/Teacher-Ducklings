@@ -1,5 +1,5 @@
 class UploadsController < ApplicationController
-  before_filter :login_required
+  skip_before_filter :verify_authenticity_token
   
   def create
     @video = current_user.videos.create(params[:video])

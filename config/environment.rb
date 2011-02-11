@@ -14,8 +14,5 @@ Rails::Initializer.run do |config|
   config.gem "delayed_job", :version => '1.8.5'
   config.gem "simple_form", :version => '1.0.2'
   
-  # Flash Session Key Middleware
-  config.middleware.use "FlashSessionCookieMiddleware"
-  
   config.time_zone = 'Pacific Time (US & Canada)'
 end

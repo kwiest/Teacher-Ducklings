@@ -2,7 +2,7 @@ class VideosController < ApplicationController
   before_filter :login_required
   
   def index
-    @videos = current_user.videos.all(:order => 'created_at')
+    @videos = current_user.videos.all(:order => 'created_at DESC')
   end
 
   def show

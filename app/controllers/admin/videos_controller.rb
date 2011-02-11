@@ -2,7 +2,7 @@ class Admin::VideosController < AdminController
   before_filter :load_video, :only => [:show, :destroy]
   
   def index
-    @videos = Video.all(:order => 'created_at')
+    @videos = Video.all(:order => 'created_at DESC')
   end
 
   def show
