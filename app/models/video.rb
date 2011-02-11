@@ -6,7 +6,7 @@ class Video < ActiveRecord::Base
   has_many :reviews, :dependent => :destroy
   has_attached_file :video,
     :url => "/videos/:id/:style/:basename.:extension",
-    :path => ":rails_root/:public/videos/:id/:style/:basename.:extension"
+    :path => ":rails_root/public/videos/:id/:style/:basename.:extension"
   
   # Path to the temp file uploaded
   attr_accessor :tmp_upload_dir
