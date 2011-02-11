@@ -24,9 +24,6 @@ class Video < ActiveRecord::Base
   # Clean up
   before_create :set_title
   after_save :clean_tmp_upload_dir
-  
-  # Before the record is deleted, delete all files
-  before_destroy :delete_files
     
   
   # State machine
@@ -79,6 +76,32 @@ class Video < ActiveRecord::Base
     end
   end
   
+  # Override default flush_deletes paperclip method
+  def flush_deletes
+    @queued_for_delete.each do |path|
+      begin
+        logger.info "[paperclip] Deleting #{path} and #{path}.flv"
+        FileUtils.rm(path) if File.exist?(path)
+        FileUtils.rm("#{path}.flv") if File.exist?("#{path}.flv")
+      rescue Errno::ENOENT => e
+        logger.info "[paperclip] ERROR - Could not delete files: #{e.message}"
+      end
+      
+      # Now wind through dirs to remove them
+      begin
+        while(true)
+          path = File.dirname(path)
+          FileUtils.rmdir(path)
+        end
+      rescue Errno::EEXIST, Errno::ENOTEMPTY, Errno::ENOENT, Errno::EINVAL, Errno::ENOTDIR
+        # Stop!
+      rescue SystemCallError => e
+        logger.info "[paperclip] ERROR - Could not delete directories: #{e.class}"
+      end
+    end
+    @queued_for_delete = []
+  end
+  
   
   private
   
@@ -86,12 +109,6 @@ class Video < ActiveRecord::Base
     FileUtils.rm_r(tmp_upload_dir) if self.tmp_upload_dir && File.directory?(tmp_upload_dir)
   end
 
-  def delete_files
-    FileUtils.rm("#{video.path}.flv")
-  rescue Exception => e
-    logger.info "Flash file for #{video.path} could not be removed. #{e.message}"
-  end
-  
   def set_title
     title = "#{user.full_name} - #{Date.today.to_s(:med)}"
   end
