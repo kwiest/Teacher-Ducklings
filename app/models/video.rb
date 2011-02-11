@@ -22,7 +22,8 @@ class Video < ActiveRecord::Base
   end
   
   # Clean up
-  after_save :set_title, :clean_tmp_upload_dir
+  before_create :set_title
+  after_save :clean_tmp_upload_dir
   
   # Before the record is deleted, delete all files
   before_destroy :delete_files
@@ -73,7 +74,7 @@ class Video < ActiveRecord::Base
       video_transcoder.execute(video_recipe, options)
       converted!
     rescue Exception => e
-      RAILS_DEFAULT_LOGGER.error(e.message)
+      logger.debug "Video could not be converted! #{e.message}"
       error!
     end
   end
@@ -86,7 +87,9 @@ class Video < ActiveRecord::Base
   end
 
   def delete_files
-    FileUtils.rm("#{self.video.path}.flv") if File.exists?("#{self.video.path}.flv")
+    FileUtils.rm("#{video.path}.flv")
+  rescue Exception => e
+    logger.debug "Flash file for #{video.path} could not be removed. #{e.message}"
   end
   
   def set_title
