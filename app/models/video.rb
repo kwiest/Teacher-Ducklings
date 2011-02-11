@@ -4,12 +4,25 @@ class Video < ActiveRecord::Base
   belongs_to :user
   has_many :meetings, :dependent => :destroy
   has_many :reviews, :dependent => :destroy
+  has_attached_file :video,
+    :url => "/videos/:id/:style/:basename.:extension",
+    :path => ":rails_root/:public/videos/:id/:style/:basename.:extension"
   
   # Path to the temp file uploaded
-  attr_accessor :tmp_path
+  attr_accessor :tmp_upload_dir
   
-  # Create directories and move files before saving
-  before_create :finalize_files, :set_title
+  def fast_video=(file)
+    if file && file.respond_to?('[]')
+      self.tmp_upload_dir = "#{file['tmp_path']}_1"
+      tmp_file_path = "#{self.tmp_upload_dir}/#{file['file_name']}"
+      FileUtils.mkdir_p self.tmp_upload_dir
+      FileUtils.mv(file['tmp_path'], tmp_file_path)
+      self.video = File.new(tmp_file_path, 'rb')
+    end
+  end
+  
+  # Clean up
+  after_save :set_title, :clean_tmp_upload_dir
   
   # Before the record is deleted, delete all files
   before_destroy :delete_files
@@ -67,21 +80,17 @@ class Video < ActiveRecord::Base
   
   
   private
+  
+  def clean_tmp_upload_dir
+    FileUtils.rm_r(tmp_upload_dir) if self.tmp_upload_dir && File.directory?(tmp_upload_dir)
+  end
 
   def delete_files
-    FileUtils.rm("/var/www/rails_apps/teacherducklings/shared/#{file_path}.flv")
-    FileUtils.rm("/var/www/rails_apps/teacherducklings/shared/#{file_path}")
-    FileUtils.rmdir("/var/www/rails_apps/teacherducklings/shared/videos/#{id}")
+    FileUtils.rm("#{self.video.path}.flv") if File.exists?("#{self.video.path}.flv")
   end
   
   def set_title
-    title = "#{current_user.full_name} - #{Date.today.to_s(:long)}"
-  end
-  
-  def finalize_files
-    file_path = "/videos/#{id}/#{name}"
-    FileUtils.mkdir(file_path)
-    FileUtils.mv(tmp_path, file_path)
+    title = "#{user.full_name} - #{Date.today.to_s(:med)}"
   end
   
 end

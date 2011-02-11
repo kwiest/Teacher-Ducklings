@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110211053043) do
+ActiveRecord::Schema.define(:version => 20091014163723) do
 
   create_table "categories", :force => true do |t|
     t.string "name"
@@ -118,10 +118,6 @@ ActiveRecord::Schema.define(:version => 20110211053043) do
     t.string   "state"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "file_name"
-    t.string   "file_size"
-    t.string   "file_content_type"
-    t.string   "file_path"
   end
 
 end
