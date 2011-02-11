@@ -15,6 +15,20 @@ class Video < ActiveRecord::Base
   before_destroy :delete_flv_files
   
   
+  # fast_video=(file) method to use nginx fast upload module
+  # file should be an array with:
+  # [name], [content_type], [path]
+  # Temporarily store videos in /var/www/rails_apps/teacherducklings/shared/upload_tmps
+  def fast_video=(file)
+    if file && file.respond_to?('[]')
+      tmp_upload_dir = "/var/www/rails_apps/teacherducklings/shared/upload_tmps"
+      tmp_file_path = "#{tmp_upload_dir}/#{file['name']}"
+      FileUtils.mv(file['path'], tmp_file_path)
+      video = File.new(tmp_file_path)
+    end
+  end
+  
+  
   # State machine
   acts_as_state_machine :initial => :uploaded
   state :uploaded

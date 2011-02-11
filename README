@@ -1,2 +1,8 @@
-Teacher Ducklings Video Conferencing Appliction
+Teacher Ducklings Video Conferencing Application
+
+Because still a Rails 2.3 app, you need to manually install table_builder plugin
+- cd vendor/plugins
+- git clone http://github.com/p8/table_builder.git
+- cd table_builder
+- git checkout -b pre-gem 21bb3fd2361b04076e7337603fcdd83b6428b47f
 
