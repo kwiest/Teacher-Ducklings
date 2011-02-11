@@ -74,7 +74,7 @@ class Video < ActiveRecord::Base
       video_transcoder.execute(video_recipe, options)
       converted!
     rescue Exception => e
-      logger.debug "Video could not be converted! #{e.message}"
+      logger.info "Video could not be converted! #{e.message}"
       error!
     end
   end
@@ -89,7 +89,7 @@ class Video < ActiveRecord::Base
   def delete_files
     FileUtils.rm("#{video.path}.flv")
   rescue Exception => e
-    logger.debug "Flash file for #{video.path} could not be removed. #{e.message}"
+    logger.info "Flash file for #{video.path} could not be removed. #{e.message}"
   end
   
   def set_title
