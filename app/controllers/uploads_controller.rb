@@ -2,10 +2,10 @@ class UploadsController < ApplicationController
   skip_before_filter :verify_authenticity_token
   
   def create
-    @video = current_user.videos.create(params[:fast_video])
-    @video.title = "#{current_user.full_name} - #{Date.today.to_s(:long)}"
+    @user = User.find(params[:user_id])
+    @video = @user.videos.create(params[:video])
     @video.save
     @video.send_later(:encode)
-    render :partial => 'videos/video'
+    render :partial => 'admin/videos/video', :video => @video
   end
 end

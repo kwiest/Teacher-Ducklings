@@ -4,30 +4,16 @@ class Video < ActiveRecord::Base
   belongs_to :user
   has_many :meetings, :dependent => :destroy
   has_many :reviews, :dependent => :destroy
-  has_attached_file :video,
-    :url => "/videos/:id/:style/:basename.:extension",
-    :path => ":rails_root/public/videos/:id/:style/:basename.:extension"
   
-  validates_attachment_presence :video
+  # Path to the temp file uploaded
+  attr_accessor :tmp_path
   
-  # Before the record is deleted, delete all converted flash files
-  # to save space
-  before_destroy :delete_flv_files
+  # Create directories and move files before saving
+  before_create :finalize_files, :set_title
   
-  
-  # fast_video=(file) method to use nginx fast upload module
-  # file should be an array with:
-  # [name], [content_type], [path]
-  # Temporarily store videos in /var/www/rails_apps/teacherducklings/shared/upload_tmps
-  def fast_video=(file)
-    if file && file.respond_to?('[]')
-      tmp_upload_dir = "/var/www/rails_apps/teacherducklings/shared/upload_tmps"
-      tmp_file_path = "#{tmp_upload_dir}/#{file['name']}"
-      FileUtils.mv(file['path'], tmp_file_path)
-      video = File.new(tmp_file_path)
-    end
-  end
-  
+  # Before the record is deleted, delete all files
+  before_destroy :delete_files
+    
   
   # State machine
   acts_as_state_machine :initial => :uploaded
@@ -72,7 +58,6 @@ class Video < ActiveRecord::Base
     video_transcoder = RVideo::Transcoder.new
     begin
       video_transcoder.execute(video_recipe, options)
-      capture_screenshot
       converted!
     rescue Exception => e
       RAILS_DEFAULT_LOGGER.error(e.message)
@@ -80,25 +65,23 @@ class Video < ActiveRecord::Base
     end
   end
   
-  def capture_screenshot
-    transcoder = RVideo::Transcoder.new(video.path)
-    transcoder.capture_frame('10s')
+  
+  private
+
+  def delete_files
+    FileUtils.rm("/var/www/rails_apps/teacherducklings/shared/#{file_path}.flv")
+    FileUtils.rm("/var/www/rails_apps/teacherducklings/shared/#{file_path}")
+    FileUtils.rmdir("/var/www/rails_apps/teacherducklings/shared/videos/#{id}")
   end
   
+  def set_title
+    title = "#{current_user.full_name} - #{Date.today.to_s(:long)}"
+  end
   
-  protected
-
-  def delete_flv_files
-    each_attachment do |name, attachment|
-      begin
-        path = "#{attachment.path}.flv"
-        RAILS_DEFAULT_LOGGER.info("Attempting to delete #{path}")
-        FileUtils.rm(path) if File.exist?(path)
-      rescue Errno::ENOENT => e
-        RAILS_DEFAULT_LOGGER.info(e.message)
-        # Log it, then ignore and move on
-      end
-    end
+  def finalize_files
+    file_path = "/videos/#{id}/#{name}"
+    FileUtils.mkdir(file_path)
+    FileUtils.mv(tmp_path, file_path)
   end
   
 end

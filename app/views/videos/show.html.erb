@@ -1,24 +1,20 @@
-<h2><%= @video.verbose_title %></h2>
+<% content_for :head do %>
+ <script type="text/javascript" src="/javascripts/flowplayer-3.2.4.min.js"></script>
+<% end %>
 
-<h3>Uploaded <%= time_ago_in_words @video.created_at %> ago</h3>
+<h2><%= @video.title %></h2>
 
-<% content_for :head do -%>
-	<%= javascript_include_tag 'swfobject_old' %>
-<% end -%>
+<h3>
+	Uploaded <%= time_ago_in_words @video.created_at %> ago<br />
+	By: <%= @video.user.full_name %>
+</h3>
 
-<% if @video.state == 'converting' -%>
+<% if @video.converting? -%>
 	<div class="notice">Video is still converting, please be patient</div>
-<% elsif @video.state == 'error' -%>
+<% elsif @video.error? -%>
 	<div class="error">There was an error while converting your video</div>
-<% elsif @video.state == 'converted' -%>
-	<%= player( {
-								:file => "#{@video.video.url}.flv",
-								:skin => :dangdang
-							},
-							{
-								:width => 640,
-								:height => 360
-							} ) %>
+<% else -%>
+	<a href="<%= "#{@video.file_path}.flv" %>" id="player"></a>
 <% end -%>
 
 <p>&nbsp;</p>
@@ -31,3 +27,13 @@
 		<p>Nobody has reviewed this video yet...</p>
 	<% end -%>
 </div>
+
+
+<script type="text/javascript">
+	flowplayer("player", "/swf/flowplayer-3.2.5.swf", {
+		clip: {
+			autoPlay: false
+			, autoBuffering: true
+		}
+	});
+</script>

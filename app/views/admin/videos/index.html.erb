@@ -17,6 +17,9 @@
 				buttonImg	    : '/images/new_video.png',
 				onComplete    : function(event, queueID, fileObj, response, data){
 					$('#videos').prepend(response);
+				},
+				scriptData		: {
+					user_id : <%= current_user.id %>
 				}
 			});
 		})
