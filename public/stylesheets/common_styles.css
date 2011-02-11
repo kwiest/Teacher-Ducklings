@@ -181,6 +181,12 @@ a#player {
 	height: 360px;
 }
 
+a#admin_player {
+	display: block;
+	width: 480px;
+	height: 270px;
+}
+
 
 /******************************************************************
  * Forms

@@ -24,7 +24,7 @@
 	<% elsif @video.error? -%>
 		<div class="error">There was an error while converting your video</div>
 	<% else -%>
-		<a href="<%= "#{@video.video.url}.flv" %>" id="player"></a>
+		<a href="<%= "#{@video.video.url}.flv" %>" id="admin_player"></a>
 	<% end -%>
 </div>
 
