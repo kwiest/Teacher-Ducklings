@@ -1,3 +1,7 @@
+<% content_for :head do %>
+ <script type="text/javascript" src="/javascripts/flowplayer-3.2.4.min.js"></script>
+<% end %>
+
 <%= link_to '← Back', :back %>
 
 <h1><%= @meeting.user.full_name %> meeting with <%= User.find(@meeting.user_to_meet_with_id).full_name %></h1>
@@ -15,19 +19,12 @@
 <% end %>
 
 <div class="float-left">
-	<% if @video.state == 'converting' -%>
+	<% if @video.converting? -%>
 		<div class="notice">Video is still converting, please be patient</div>
-	<% elsif @video.state == 'error' -%>
+	<% elsif @video.error? -%>
 		<div class="error">There was an error while converting your video</div>
-	<% elsif @video.state == 'converted' -%>
-	<%= player( {
-								:file => "#{@video.video.url}.flv",
-								:skin => :dangdang
-							},
-							{
-								:width => 480,
-								:height => 270
-							} ) %>
+	<% else -%>
+		<a href="<%= "#{@video.video.url}.flv" %>" id="player"></a>
 	<% end -%>
 </div>
 
@@ -40,3 +37,12 @@
 	</object>
 </div>
 <div class="clear"></div>
+
+<script type="text/javascript">
+	flowplayer("player", "/swf/flowplayer-3.2.5.swf", {
+		clip: {
+			autoPlay: false
+			, autoBuffering: true
+		}
+	});
+</script>
