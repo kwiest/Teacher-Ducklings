@@ -1,0 +1,41 @@
+GEM
+  remote: http://rubygems.org/
+  specs:
+    actionmailer (2.3.10)
+      actionpack (= 2.3.10)
+    actionpack (2.3.10)
+      activesupport (= 2.3.10)
+      rack (~> 1.1.0)
+    activerecord (2.3.10)
+      activesupport (= 2.3.10)
+    activeresource (2.3.10)
+      activesupport (= 2.3.10)
+    activesupport (2.3.10)
+    authlogic (2.1.6)
+      activesupport
+    delayed_job (1.8.5)
+    paperclip (2.3.5)
+      activerecord
+      activesupport
+    rack (1.1.2)
+    rails (2.3.10)
+      actionmailer (= 2.3.10)
+      actionpack (= 2.3.10)
+      activerecord (= 2.3.10)
+      activeresource (= 2.3.10)
+      activesupport (= 2.3.10)
+      rake (>= 0.8.3)
+    rake (0.9.2)
+    rvideo (0.9.3)
+    simple_form (1.0.2)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  authlogic (= 2.1.6)
+  delayed_job (= 1.8.5)
+  paperclip (= 2.3.5)
+  rails (= 2.3.10)
+  rvideo (= 0.9.3)
+  simple_form (= 1.0.2)
