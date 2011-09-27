@@ -1,6 +1,6 @@
 source :rubygems
 
-gem 'rails', '2.3.10'
+gem 'rails', '2.3.14'
 
 gem 'authlogic', '2.1.6'
 gem 'paperclip', '2.3.5'
