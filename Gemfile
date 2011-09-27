@@ -8,8 +8,14 @@ gem 'aws', '2.5.6'
 gem 'rvideo', '0.9.3'
 gem 'simple_form', '1.0.2'
 gem 'zencoder', '2.3.1'
-gem 'postmark-rails', '0.4.0'
+gem 'postmark', '0.9.8'
+gem 'postmark-rails', '0.4.1'
 
 group :development do
+  gem 'sqlite3'
   gem 'heroku'
+end
+
+group :production do
+  gem 'pg'
 end
