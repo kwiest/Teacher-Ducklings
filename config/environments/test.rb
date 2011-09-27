@@ -32,8 +32,6 @@ config.gem "rspec-rails", :lib => false
 config.gem "factory_girl", :source => "http://gemcutter.org"
 config.gem "shoulda", :source => "http://gemcutter.org"
 config.gem "timecop"
-config.gem "fakeweb"
-config.gem "webrat"
 
 config.after_initialize do
   Timecop.travel(Time.now)

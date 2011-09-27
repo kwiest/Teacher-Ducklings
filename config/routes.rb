@@ -13,9 +13,9 @@ ActionController::Routing::Routes.draw do |map|
   
   map.admin '/admin', :controller => 'admin'
   map.namespace :admin, :path_prefix => '/admin', :name_prefix => 'admin_' do |admin|
-    admin.resources :reviews, :links, :categories, :meetings, :users
-    admin.resources :videos, :only => [:index, :show, :destroy]
-    admin.resources :posts, :has_many => :comments
+  admin.resources :reviews, :links, :categories, :meetings, :users
+  admin.resources :videos, :only => [:index, :show, :destroy]
+  admin.resources :posts, :has_many => :comments
   end
   
   # Video upload to pass to nginx upload module
