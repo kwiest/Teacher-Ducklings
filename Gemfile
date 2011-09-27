@@ -14,6 +14,7 @@ gem 'postmark-rails', '0.4.1'
 group :development do
   gem 'sqlite3'
   gem 'heroku'
+  gem 'taps'
 end
 
 group :production do
