@@ -5,8 +5,14 @@ class Video < ActiveRecord::Base
   has_many :meetings, :dependent => :destroy
   has_many :reviews, :dependent => :destroy
   has_attached_file :video,
-    :url => "/videos/:id/:style/:basename.:extension",
-    :path => ":rails_root/public/videos/:id/:style/:basename.:extension"
+    :storage        => :s3,
+    :bucket         => ENV['S3_BUCKET'],
+    :s3_credentials => {
+      :access_key_id      => ENV['S3_KEY'],
+      :secret_access_key  => ENV['S3_SECRET']
+    },
+    :url  => "/videos/:id/:basename.:extension",
+    :path => "/videos/:id/:basename.:extension"
   
   # Path to the temp file uploaded
   attr_accessor :tmp_upload_dir
