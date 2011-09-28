@@ -1,11 +1,26 @@
 class Admin::VideosController < AdminController
   before_filter :load_video, :only => [:show, :destroy]
+
+  def show
+    @video.check_zencoder_status
+  end
   
   def index
     @videos = Video.all(:order => 'created_at DESC')
   end
 
-  def show
+  def new
+    @video = current_user.videos.new
+  end
+
+  def create
+    @video = current_user.videos.create(params[:video])
+    if @video.save
+      flash[:success] = 'Video successfully created!'
+      redirect_to admin_videos_path
+    else
+      render :action => 'new'
+    end
   end
 
   def destroy

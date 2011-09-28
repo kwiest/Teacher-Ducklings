@@ -1,13 +1,6 @@
-<% content_for :head do %>
-    <%= javascript_include_tag 'swfobject' %>
-    <%= javascript_include_tag 'jquery.uploadify.v2.1.4.min' %>
-    <%= stylesheet_link_tag 'uploadify' %>
-    <% session_key_name = ActionController::Base.session_options[:key] -%>
-<% end %>
-
 <h1>All Videos</h1>
 
-<%= s3_uploader :key => 'video', :button_img => '/images/new_video.png' %>
+<%= link_to "New video", new_admin_video_path, :class => "large_button" %>
 
 <p>&nbsp;</p>
 

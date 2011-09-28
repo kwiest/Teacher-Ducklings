@@ -11,9 +11,9 @@ Rails::Initializer.run do |config|
   config.gem 'authlogic', :version => '2.1.6'
   config.gem 'aws', :version => '2.5.6'
   config.gem 'paperclip', :version => '2.3.5'
-  config.gem 'rvideo', :version => '0.9.3'
   config.gem 'simple_form', :version => '1.0.2'
   config.gem 'zencoder', :version => '2.3.1'
+  config.gem 'state_machine', :version => '1.0.2'
 
   config.gem 'postmark', :version => '0.9.8'
   config.gem 'postmark-rails', :version => '0.4.1'
