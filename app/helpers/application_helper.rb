@@ -34,19 +34,7 @@ module ApplicationHelper
     ).gsub("\n", "")
 
     out = ""
-    #out << %(
-      #<form action="https://#{bucket}.s3.amazonaws.com/" method="post" enctype="multipart/form-data" id="upload-form">
-        #<input type="hidden" name="key" value="#{key}s/${filename}">
-        #<input type="hidden" name="AWSAccessKeyId" value="#{access_key}">
-        #<input type="hidden" name="acl" value="#{acl}">
-        #<input type="hidden" name="policy" value="#{policy}">
-        #<input type="hidden" name="signature" value="#{signature}">
-        #<input type="hidden" name="success_action_status" value="201">
-
-        #<input id="upload_#{options[:key]}" name="file" type="file">
-    #)
-
-    out << link_to("New #{key}", "#", :id => "upload_#{key}")
+    out << link_to("Choose file", "#", :id => "upload_#{key}")
     out << %(
       <script type="text/javascript">
           $(function() {
@@ -59,7 +47,7 @@ module ApplicationHelper
                   'cancelImg'     : '/images/cancel.png',
                   'height'        : 40,
                   'width'         : 150,
-                  'buttonImg'     : '#{options[:button_img]}',
+                  'buttonText'    : '#{options[:button_text]}',
                   'folder'        : '#{key}',
                   'fileExt'       : '#{file_ext}',
                   'scriptData'    : {
@@ -76,9 +64,10 @@ module ApplicationHelper
                     xml = $.parseXML(response);
                     fileName = $(xml).find("Key").text();
                     console.log(fileName);
+                    $("##{key}_#{key}_file_name").val(fileName);
                     $("#upload_#{key}Uploader").hide();
-                    $("#video_video_file_name").val(fileName);
-                    $("#new_#{key}").show();
+                    $("#instructions").show();
+                    $("input[name=commit]").removeAttr("disabled");
                   },
                   'onError'       : function(event, id, fileObj, errorObj) {
                     console.log(event);

@@ -13,6 +13,7 @@ class Video < ActiveRecord::Base
 
   # Callbacks
   after_create :encode
+  before_destroy :delete_files_from_s3
 
   #has_attached_file :video,
     #:storage        => :s3,
@@ -35,7 +36,7 @@ class Video < ActiveRecord::Base
     end
     
     event :error do
-      transition :converting => :error
+      transition any => :error
     end
   end 
   
@@ -59,19 +60,32 @@ class Video < ActiveRecord::Base
             :video_codec => "h264",
             :url => "s3://#{ENV['S3_BUCKET']}/#{self.video_file_name}.mp4",
             :access_control => [
-              :permission => "READ",
-              :grantee => "http://acs.amazonaws.com/groups/global/AllUsers"
+              {
+                :grantee => "http://acs.amazonaws.com/groups/global/AllUsers",
+                :permission => "READ"
+              },
+              {
+                :grantee => "kyle.wiest@gmail.com",
+                :permission => "FULL_CONTROL"
+              }
             ]
           }
         ]
       }
     )
-    self.zencoder_job_id = response.body['id']
+    self.zencoder_job_id = response.body.fetch 'id' do
+      self.zencoder_error_message = "Could not successfully queue job on Zencoder"
+      error!
+      return response
+    end
+
     convert!
+    response
   rescue Zencoder::HTTPError => e
     self.zencoder_error_message = e.message
     $Log.info "#{e.message} - error"
-    #error!
+    error!
+    response
   end
 
   def check_zencoder_status
@@ -84,7 +98,7 @@ class Video < ActiveRecord::Base
       complete!
     elsif status == "processing"
       return status
-    else
+    elsif status == "failed"
       self.zencoder_error_message = result.body['job']['input_media_file']['error_message']
       error!
     end
@@ -96,4 +110,16 @@ class Video < ActiveRecord::Base
     "https://#{ENV['S3_BUCKET']}.s3.amazonaws.com/#{self.video_file_name}.mp4"
   end
   
+
+  private
+
+    def delete_files_from_s3
+      aws           = Aws::S3.new(ENV['S3_KEY'], ENV['S3_SECRET'])
+      bucket        = aws.bucket(ENV['S3_BUCKET'])
+      video         = bucket.key(self.video_file_name)
+      encoded_video = bucket.key(encoded_file_name)
+
+      video.delete
+      encoded_video.delete
+    end
 end

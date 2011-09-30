@@ -28,6 +28,12 @@
   <div class="video-js-box">
     <video class="video-js" width="640" height="360"> 
       <source src="<%= @video.encoded_file_name %>" type="video/mp4" />
+
+      <object class="vjs-flash-fallback" width="640" height="360" type="application/x-shockwave-flash" data="http://releases.flowplayer.org/swf/flowplayer-3.2.1.swf">
+        <param name="movie" value="http://releases.flowplayer.org/swf/flowplayer-3.2.1.swf" />
+        <param name="allowfullscreen" value="true" />
+        <param name="flashvars" value='config={"playlist":["<%= @video.encoded_file_name %>", {"url": "<%= @video.encoded_file_name %>", "autoPlay": false, "autoBuffering": true}]}' />
+      </object>
     </video>
   </div>
 <% end -%>
