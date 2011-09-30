@@ -10,6 +10,7 @@ Rails::Initializer.run do |config|
   # Gems
   config.gem 'authlogic', :version => '2.1.6'
   config.gem 'aws', :version => '2.5.6'
+  config.gem 'aws-s3', :version => '0.6.2'
   config.gem 'paperclip', :version => '2.3.5'
   config.gem 'simple_form', :version => '1.0.2'
   config.gem 'zencoder', :version => '2.3.1'

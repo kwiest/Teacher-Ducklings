@@ -18,6 +18,11 @@ GEM
       http_connection
       uuidtools
       xml-simple
+    aws-s3 (0.6.2)
+      builder
+      mime-types
+      xml-simple
+    builder (3.0.0)
     factory_girl (2.1.2)
       activesupport
     heroku (2.8.4)
@@ -83,6 +88,7 @@ PLATFORMS
 DEPENDENCIES
   authlogic (= 2.1.6)
   aws (= 2.5.6)
+  aws-s3 (= 0.6.2)
   factory_girl
   heroku
   paperclip (= 2.3.5)
