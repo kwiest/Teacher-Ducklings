@@ -10,10 +10,16 @@ class User < ActiveRecord::Base
   has_many :comments, :dependent => :destroy
   has_many :reviews, :dependent => :destroy
   has_many :meetings, :dependent => :destroy, :foreign_key => "creator_id"
+
   has_attached_file :photo,
-                    :styles => { :small => "50x50#", :medium => "150x150#" },
-                    :url => "/photos/:id/:style/:basename.:extension",
-                    :path => ":rails_root/public/photos/:id/:style/:basename.:extension"
+    :storage => :s3,
+    :bucket => ENV['S3_BUCKET'],
+    :s3_credentials => {
+      :access_key_id => ENV['S3_KEY'],
+      :secret_access_key => ENV['S3_SECRET']
+    },
+    :url => '/photos/:id/:basename.:extension',
+    :path => '/photos/:id/:basename.:extension'
 
   validates_presence_of :first_name, :last_name, :email
   

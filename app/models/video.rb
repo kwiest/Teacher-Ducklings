@@ -15,16 +15,6 @@ class Video < ActiveRecord::Base
   after_create :encode
   before_destroy :delete_files_from_s3
 
-  #has_attached_file :video,
-    #:storage        => :s3,
-    #:bucket         => ENV['S3_BUCKET'],
-    #:s3_credentials => {
-      #:access_key_id      => ENV['S3_KEY'],
-      #:secret_access_key  => ENV['S3_SECRET']
-    #},
-    #:url  => "/videos/:id/:basename.:extension",
-    #:path => "/videos/:id/:basename.:extension"
-  
   # State machine
   state_machine :initial => :uploaded do
     event :convert do

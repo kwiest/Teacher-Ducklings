@@ -227,8 +227,18 @@ label.check_boxes {
 }
 
 label.collection_check_boxes {
-	display: inline;
-	margin-right: 10px;
+  display: block;
+  margin-top: 0;
+  margin-right: 10px;
+}
+
+label.collection_check_boxes:after {
+  clear: both;
+  content: ".";
+  display: block;
+  line-height: 0;
+  height: 0;
+  visibility: hidden;
 }
 
 label.required abbr {
@@ -261,6 +271,12 @@ input {
 	font-size: 13px;
 	padding: 2px;
 	margin: 4px;
+}
+
+input.check_boxes {
+  display: block;
+  float: left;
+  margin-bottom: 6px;
 }
 
 input[type=submit] {
@@ -484,4 +500,13 @@ li.upcoming {
 	color: #fff;
 	line-height: 16px;
 	letter-spacing: normal;
+}
+
+
+/* Reviews */
+
+#reviews .video-review {
+  width: 620px;
+  border: 1px solid #f5f5f5;
+  padding: 10px;
 }

@@ -24,22 +24,19 @@
 	<!-- End Header -->
 	
 		<div id="main-body">
-			<div id="primary-content">
-				<% flash.each do |name,value| -%>
-					<div class="<%= name %>"><%= value %></div>
-				<% end -%>
-				
-				<h3>
-					<%= link_to "Home", root_path %>
-					<% if admin? -%>
-						| <%= link_to "Admin Panel", admin_path %>
-					<% end -%>
-				</h3>
+            <% flash.each do |name,value| -%>
+                <div class="<%= name %>"><%= value %></div>
+            <% end -%>
+            
+            <h3>
+                <%= link_to "Home", root_path %>
+                <% if admin? -%>
+                    | <%= link_to "Admin Panel", admin_path %>
+                <% end -%>
+            </h3>
 
-				<%= yield %>
-				<div class="clear"></div>
-			</div>
-			<!-- End Primary Content -->
+            <%= yield %>
+            <div class="clear"></div>
 	
 		<div id="footer">
 			<p>&copy; Copyright 2009 Teacher Ducklings</p>
