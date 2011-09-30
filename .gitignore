@@ -7,11 +7,6 @@ config/deploy.rb
 config/database.yml
 config/s3.yml
 db/*.sqlite3
-system
-photos
-videos
-pdfs
-documents
 .rvmrc
 .powenv
 .powrc
