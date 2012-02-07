@@ -41,14 +41,7 @@ class User < ActiveRecord::Base
 
   def generate_tok_token(session_id)
     open_tok = OpenTok::OpenTokSDK.new ENV['TOKBOX_API_KEY'], ENV['TOKBOX_API_SECRET']
-    open_tok.generate_token(:session_id => session_id, :role => role)
+    open_tok.generate_token(:session_id => session_id)
   end
 
-
-  private
-
-  def role
-    self.admin? ? 'MODERATOR' : 'SUBSCRIBER'
-  end
-  
 end
