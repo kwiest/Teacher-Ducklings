@@ -1,41 +1,11 @@
-<% content_for :head do %>
-	<%= javascript_include_tag 'swfobject' %>
-	<%= javascript_include_tag 'jquery.uploadify.v2.1.4.min' %>
-	<%= stylesheet_link_tag 'uploadify' %>
-	<% session_key_name = ActionController::Base.session_options[:key] -%>
-	
-	<script type="text/javascript">
-		$(function() {
-			$('#upload_video').uploadify({
-				script        : '/upload',
-				uploader      : '/swf/uploadify.swf',
-				fileDataName  : 'video[video]',
-				auto          : 'true',
-				cancelImg     : '/images/cancel.png',
-				height				: 40,
-				width					: 150,
-				buttonImg	    : '/images/new_video.png',
-				onComplete    : function(event, queueID, fileObj, response, data){
-					$('#videos').prepend(response);
-				},
-				scriptData		: {
-					user_id : <%= current_user.id %>
-				}
-			});
-		})
-	</script>
-<% end %>
-
 <h1>All Videos</h1>
 
-<div id="uploads" class="new_video"></div>
-
-<input id="upload_video" name="upload_video" type="file">
+<%= link_to "New video", new_admin_video_path, :class => "large_button" %>
 
 <p>&nbsp;</p>
 
 <div id="videos">
-	<% @videos.each do |video| %>
-		<%= render 'admin/videos/video', :video => video %>
-	<% end %>
+    <% @videos.each do |video| %>
+        <%= render 'admin/videos/video', :video => video %>
+    <% end %>
 </div>

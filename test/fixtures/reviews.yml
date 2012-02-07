@@ -1,9 +1,0 @@
-# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
-
-one:
-  video_id: 1
-  description: MyText
-
-two:
-  video_id: 1
-  description: MyText

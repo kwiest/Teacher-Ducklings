@@ -1,0 +1,22 @@
+<% content_for :head do %>
+    <%= javascript_include_tag 'swfobject' %>
+    <%= javascript_include_tag 'jquery.uploadify.v2.1.4.min' %>
+    <%= stylesheet_link_tag 'uploadify' %>
+<% end %>
+
+<h1>New video</h1>
+
+<% simple_form_for @video, :url => admin_videos_path do |f| %>
+  <fieldset>
+    <legend>Video details</legend>
+    <%= s3_uploader :key => 'video', :button_text => 'Choose video file' %>
+    <div id="instructions" style="display: none;">
+      Now please complete the form and save.
+    </div>
+
+    <%= render 'form', :f => f %>
+
+    <%= f.button :submit, 'Save video', :disabled => true %>
+  </fieldset>
+<% end %>
+
