@@ -13,8 +13,8 @@
       var api_key, session_id, token, session, publisher, subscriber;
 
       api_key = "<%= ENV['TOKBOX_API_KEY'] %>";
-      session_id = "2_MX4xMTcyNzc2Mn4xMjcuMC4wLjF-MjAxMi0wMi0wNyAxOTo0ODo1NS4yNjYzMTArMDA6MDB-MC4yMzcxODI0ODczMDN-";
-      token = "devtoken";
+      session_id = "<%= @meeting.tok_session_id %>";
+      token = "<%= @token %>";
 
       session = TB.initSession(session_id);
       session.addEventListener('sessionConnected', sessionConnectedHandler);
@@ -91,6 +91,6 @@
 </div>
 
 <div id="tokbox-container">
-  <div id="tokbox-stream"></div>
+  <div id="tokbox-stream">TokBox is loading...</div>
 </div>
 <div class="clear"></div>
