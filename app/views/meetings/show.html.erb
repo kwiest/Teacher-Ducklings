@@ -12,7 +12,6 @@
 <%= link_to '← Back', :back %>
 
 <h1><%= @meeting.user.full_name %> meeting with <%= User.find(@meeting.user_to_meet_with_id).full_name %></h1>
-<h3>Viewing: <%= @video.verbose_title %></h3>
 
 <p>
   <strong>When:</strong> In <%= pluralize(@meeting.days_from_today_to_meeting, "day") %>, at <%=h @meeting.time %>
@@ -32,6 +31,7 @@
     <% elsif @video.error? -%>
       <div class="error">There was an error while converting your video</div>
     <% elsif @video.complete? -%>
+      <h3>Viewing: <%= @video.verbose_title %></h3>
       <div class="video-js-box">
         <video class="video-js" width="640" height="360">
           <source src="<%= @video.encoded_file_name %>" type="video/mp4" />
