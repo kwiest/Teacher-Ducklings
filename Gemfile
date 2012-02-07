@@ -11,6 +11,7 @@ gem 'zencoder', '2.3.1'
 gem 'state_machine', '1.0.2'
 gem 'postmark', '0.9.8'
 gem 'postmark-rails', '0.4.1'
+gem 'opentok', '~> 0.0.5'
 
 group :development do
   gem 'sqlite3'

@@ -35,6 +35,7 @@ GEM
     launchy (2.0.5)
       addressable (~> 2.2.6)
     mime-types (1.16)
+    opentok (0.0.5)
     paperclip (2.3.5)
       activerecord
       activesupport
@@ -91,6 +92,7 @@ DEPENDENCIES
   aws-s3 (= 0.6.2)
   factory_girl
   heroku
+  opentok (~> 0.0.5)
   paperclip (= 2.3.5)
   pg
   postmark (= 0.9.8)
