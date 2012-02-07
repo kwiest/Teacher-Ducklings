@@ -3,6 +3,7 @@ log
 tmp
 tmp/**/*
 .DS_Store
+*.swp
 config/deploy.rb
 config/database.yml
 config/s3.yml
