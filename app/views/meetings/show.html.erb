@@ -25,7 +25,7 @@
 	</p>
 <% end %>
 
-<%= if @video %>
+<% if @video %>
   <div class="float-left">
     <% if @video.converting? -%>
       <div class="notice">Video is still converting, please be patient</div>
