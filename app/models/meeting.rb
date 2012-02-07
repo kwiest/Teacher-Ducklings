@@ -2,7 +2,7 @@ class Meeting < ActiveRecord::Base
   belongs_to :video
   belongs_to :user, :foreign_key => 'creator_id'
     
-  validates_presence_of :date, :time
+  validates_presence_of :date, :time, :video, :user
   
   def self.find_upcoming_meetings
     upcoming = Date.today + 7
