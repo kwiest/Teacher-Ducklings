@@ -1,10 +1,55 @@
 <% content_for :head do %>
   <%= javascript_include_tag "video" %>
   <%= stylesheet_link_tag "video-js" %>
+  <script type="text/javascript" src="http://staging.tokbox.com/v0.91/js/TB.min.js"></script>
+  <!-- production -->
+  <%#<script src="http://static.opentok.com/v0.91/js/TB.min.js"></script>%>
 
   <script type="text/javascript">
     $(function() {
       VideoJS.setupAllWhenReady();
+      TB.setLogLevel(TB.DEBUG);
+
+      var api_key, session_id, token, session, publisher, subscriber;
+
+      api_key = "<%= ENV['TOKBOX_API_KEY'] %>";
+      session_id = "2_MX4xMTcyNzc2Mn4xMjcuMC4wLjF-MjAxMi0wMi0wNyAxOTo0ODo1NS4yNjYzMTArMDA6MDB-MC4yMzcxODI0ODczMDN-";
+      token = "devtoken";
+
+      session = TB.initSession(session_id);
+      session.addEventListener('sessionConnected', sessionConnectedHandler);
+      session.addEventListener('streamCreated', streamCreatedHandler);
+      session.connect(api_key, token);
+
+      function sessionConnectedHandler(event) {
+        publisher = session.publish('tokbox-stream');
+
+        // subscribe to any streams that were already in the session
+        subscribeToStreams(event.streams);
+      }
+
+      function streamCreatedHandler(event) {
+        // subscribe anytime a new stream is published
+        subscribeToStreams(event.streams);
+      }
+
+      function subscribeToStreams(streams) {
+        for (var i=0; i < streams.length; i++) {
+          // make sure that the stream doesn't already exist
+          if (streams[i].connection.connectionId == session.connection.connectionId) {
+            return;
+          }
+
+          // build a new div to house the stream
+          var div = document.createElement('div');
+          div.setAttribute('id', 'stream' + streams[i].streamId);
+          $("#tokbox-stream").append(div);
+
+          // subscribe to the stream
+          session.subscribe(stream[i], div.id, { width: '330', height: '247' });
+        }
+      }
+
     });
   </script>
 <% end %>
@@ -24,35 +69,28 @@
 	</p>
 <% end %>
 
-<% if @video %>
-  <div class="float-left">
-    <% if @video.converting? -%>
-      <div class="notice">Video is still converting, please be patient</div>
-    <% elsif @video.error? -%>
-      <div class="error">There was an error while converting your video</div>
-    <% elsif @video.complete? -%>
-      <h3>Viewing: <%= @video.verbose_title %></h3>
-      <div class="video-js-box">
-        <video class="video-js" width="640" height="360">
-          <source src="<%= @video.encoded_file_name %>" type="video/mp4" />
-
-          <object class="vjs-flash-fallback" width="640" height="360" type="application/x-shockwave-flash" data="http://releases.flowplayer.org/swf/flowplayer-3.2.1.swf">
-            <param name="movie" value="http://releases.flowplayer.org/swf/flowplayer-3.2.1.swf" />
-            <param name="allowfullscreen" value="true" />
-            <param name="flashvars" value='config={"playlist":["<%= @video.encoded_file_name %>", {"url": "<%= @video.encoded_file_name %>", "autoPlay": false, "autoBuffering": true}]}' />
-          </object>
-        </video>
-      </div>
-    <% end -%>
-  </div>
-<% end %>
-
 <div class="float-left">
-	<object type="application/x-shockwave-flash" data="http://me.tokbox.com/vc/tdxmz02dz00wmx6g/10" width="375" height="425">
-		<param name="movie" value="http://me.tokbox.com/vc/tdxmz02dz00wmx6g/10" />
-		<param name="allowFullScreen" value="true" />
-		<param name="allowScriptAccess" value="always" />
-		<param name="flashvars" value="guestList=false&textChat=true" />
-	</object>
+  <% if @video.converting? -%>
+    <div class="notice">Video is still converting, please be patient</div>
+  <% elsif @video.error? -%>
+    <div class="error">There was an error while converting your video</div>
+  <% elsif @video.complete? -%>
+    <h3>Viewing: <%= @video.verbose_title %></h3>
+    <div class="video-js-box">
+      <video class="video-js" width="640" height="360">
+        <source src="<%= @video.encoded_file_name %>" type="video/mp4" />
+
+        <object class="vjs-flash-fallback" width="640" height="360" type="application/x-shockwave-flash" data="http://releases.flowplayer.org/swf/flowplayer-3.2.1.swf">
+          <param name="movie" value="http://releases.flowplayer.org/swf/flowplayer-3.2.1.swf" />
+          <param name="allowfullscreen" value="true" />
+          <param name="flashvars" value='config={"playlist":["<%= @video.encoded_file_name %>", {"url": "<%= @video.encoded_file_name %>", "autoPlay": false, "autoBuffering": true}]}' />
+        </object>
+      </video>
+    </div>
+  <% end -%>
+</div>
+
+<div id="tokbox-container">
+  <div id="tokbox-stream"></div>
 </div>
 <div class="clear"></div>
