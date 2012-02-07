@@ -20,6 +20,7 @@ class Admin::MeetingsController < AdminController
 
   def create
     @meeting = current_user.meetings.new(params[:meeting])
+    @meeting.set_tok_session_id request.remote_addr
 
     if @meeting.save
       flash[:success] = 'Meeting was successfully created.'
