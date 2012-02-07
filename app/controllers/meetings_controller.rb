@@ -11,6 +11,7 @@ class MeetingsController < ApplicationController
       flash[:error] = "Sorry, this meeting isn't for you!"
       redirect_to root_path
     else
+      @token = current_user.generate_tok_token(@meeting.tok_session_id)
       @video = @meeting.video
       render :layout => 'meeting'
     end
