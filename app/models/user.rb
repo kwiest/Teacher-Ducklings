@@ -1,3 +1,5 @@
+require 'opentok'
+
 class User < ActiveRecord::Base
   include Permissions
   
@@ -35,6 +37,18 @@ class User < ActiveRecord::Base
   
   def user
     self
+  end
+
+  def generate_tok_token(session_id)
+    open_tok = OpenTok::OpenTokSDK.new ENV['TOKBOX_API_KEY'], ENV['TOKBOX_API_SECRET']
+    open_tok.generate_token(:session_id => session_id, :role => role)
+  end
+
+
+  private
+
+  def role
+    self.admin? ? 'MODERATOR' : 'SUBSCRIBER'
   end
   
 end
