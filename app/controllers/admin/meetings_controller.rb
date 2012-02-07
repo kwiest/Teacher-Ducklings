@@ -6,11 +6,6 @@ class Admin::MeetingsController < AdminController
     @date = params[:month] ? Date.parse(params[:month]) : Date.today
   end
 
-  def show
-    @video = @meeting.video
-    render 'meetings/show', :layout => 'meeting'
-  end
-
   def new
     @meeting = Meeting.new
   end
