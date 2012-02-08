@@ -1,9 +1,10 @@
 <% content_for :head do %>
   <%= javascript_include_tag "video" %>
   <%= stylesheet_link_tag "video-js" %>
-  <script type="text/javascript" src="http://staging.tokbox.com/v0.91/js/TB.min.js"></script>
+  <!-- development -->
+  <%#<script type="text/javascript" src="http://staging.tokbox.com/v0.91/js/TB.min.js"></script>%>
   <!-- production -->
-  <%#<script src="http://static.opentok.com/v0.91/js/TB.min.js"></script>%>
+  <script src="http://static.opentok.com/v0.91/js/TB.min.js"></script>
 
   <script type="text/javascript">
     $(function() {
