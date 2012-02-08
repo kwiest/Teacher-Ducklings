@@ -59,17 +59,15 @@ module ApplicationHelper
                     'success_action_status' : '201',
                     'Content-Type'          : ''
                   },
-                  'onComplete'    : function(event, queueID, fileObj, response, data){
+                  'onComplete': function(event, queueID, fileObj, response, data){
                     var xml, fileName;
                     xml = $.parseXML(response);
                     fileName = $(xml).find("Key").text();
-                    console.log(fileName);
                     $("##{key}_#{key}_file_name").val(fileName);
                     $("#upload_#{key}Uploader").hide();
                     $("#instructions").show();
-                    $("input[name=commit]").removeAttr("disabled");
                   },
-                  'onError'       : function(event, id, fileObj, errorObj) {
+                  'onError': function(event, id, fileObj, errorObj) {
                     console.log(event);
                     console.log(id);
                     console.log(fileObj);
