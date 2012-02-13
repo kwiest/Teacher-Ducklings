@@ -6,7 +6,7 @@
 	<h4>Sorry, there aren't any posts for <%= @category.name.downcase %> yet...</h4>
 <% end -%>
 
-<% content_for :links do -%>
+<%= content_for :links do -%>
 	<h3><%= @category.name %> Links</h3>
 	
 	<% if @category.links.size > 0 %>
