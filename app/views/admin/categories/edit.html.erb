@@ -1,6 +1,6 @@
 <h1>Editing category</h1>
 
-<% simple_form_for @category, :url => admin_category_path(@category), :method => :put do |f| %>
+<%= simple_form_for @category, :url => admin_category_path(@category), :method => :put do |f| %>
 	<fieldset>
 		<%= render 'form', :f => f %>
 		<%= f.button :submit, 'Update category' %>
