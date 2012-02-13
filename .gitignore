@@ -11,6 +11,8 @@ db/*.sqlite3
 .rvmrc
 .powenv
 .powrc
+.bundle
+
 <<<<<<< HEAD:.gitignore
 =======
 config.ru
