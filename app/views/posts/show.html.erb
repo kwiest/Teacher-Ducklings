@@ -21,7 +21,7 @@
 </div>
 
 <h3>Leave a New Comment</h3>
-<% simple_form_for [@post, @post.comments.new] do |f| %>
+<%= simple_form_for [@post, @post.comments.new] do |f| %>
 	<fieldset>
 		<%= f.error_messages %>
 	
