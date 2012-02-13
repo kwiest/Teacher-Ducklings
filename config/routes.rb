@@ -1,22 +1,23 @@
-ActionController::Routing::Routes.draw do |map|
-  map.resources :reviews, :links, :users, :meetings
-  map.resources :videos, :only => [:index, :show]
-  
-  map.resources :categories, :only => :show
+TeacherDucklings::Application.routes.draw do
+  resources :reviews, :links, :users, :meetings
+  resources :videos, only: [:index, :show]
+  resources :categories, only: :show
 
-  map.resources :posts, :only => [:index, :show], :has_many => :comments
+  resources :posts, only: [:index, :show] do
+    resources :comments
+  end
   
-  map.resources :user_sessions
-  map.login '/login', :controller => 'user_sessions', :action => 'new'
-  map.logout '/logout', :controller => 'user_sessions', :action => 'destroy'
-  map.resources :password_resets
-  
-  map.admin '/admin', :controller => 'admin'
-  map.namespace :admin, :path_prefix => '/admin', :name_prefix => 'admin_' do |admin|
-  admin.resources :reviews, :links, :categories, :meetings, :users
-  admin.resources :videos
-  admin.resources :posts, :has_many => :comments
+  resources :user_sessions
+  resources :password_resets
+  match '/login'  => 'user_sessions#new'
+  match '/logout' => 'user_sessions#destroy'
+
+  namespace :admin do
+    resources :reviews, :links, :categories, :meetings, :users, :videos
+    resources :posts do
+      resources :comments
+    end
   end
 
-  map.root :controller => 'index'
+  root to: 'index#index'
 end
