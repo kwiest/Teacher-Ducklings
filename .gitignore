@@ -12,8 +12,3 @@ db/*.sqlite3
 .powenv
 .powrc
 .bundle
-
-<<<<<<< HEAD:.gitignore
-=======
-config.ru
->>>>>>> heroku:.gitignore
