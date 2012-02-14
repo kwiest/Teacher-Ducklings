@@ -2,11 +2,10 @@
 
 <%= simple_form_for @user_session do |f| -%>
 	<fieldset>
-		<%= f.error_messages %>
 		<%= f.input :email, :input_html => { :size => 40 } %>
 		<%= f.input :password %>
+        <%= link_to "Help! I forgot my password.", new_password_reset_path %>
 		<%= f.button :submit, 'Log in' %>
 	</fieldset>
 <% end %>
 
-<p><%= link_to "Forgot Your Password?", new_password_reset_path %></p>
