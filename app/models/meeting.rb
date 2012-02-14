@@ -11,11 +11,6 @@ class Meeting < ActiveRecord::Base
     find(:all, :conditions => [ 'date < ? AND date >= ?', upcoming, Date.today ], :order => 'date')
   end
   
-  def self.find_recent_meetings
-    past = Date.today - 7
-    find(:all, :conditions => [ 'date > ? AND date < ?', past, Date.today ], :order => 'date')
-  end
-  
   def days_from_today_to_meeting
     date - Date.today
   end
