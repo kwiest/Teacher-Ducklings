@@ -1,11 +1,8 @@
-# Filters added to this controller apply to all controllers in the application.
-# Likewise, all the methods added will be available for all controllers.
-
 class ApplicationController < ActionController::Base
   helper :all # include all helpers, all the time
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
 
-  helper_method :current_user, :current_user_session, :logged_in?, :login_required, :admin_required, :admin?, :require_no_user
+  helper_method :current_user, :logged_in?, :admin?
   
   
   protected
