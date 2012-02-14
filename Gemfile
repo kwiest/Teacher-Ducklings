@@ -3,7 +3,7 @@ source :rubygems
 #gem 'rails', '2.3.14'
 gem 'rails', '3.0.10'
 
-gem 'authlogic', '2.1.6'
+gem 'authlogic', '~> 3.1.0'
 gem 'paperclip', '2.3.5'
 gem 'aws', '2.5.6'
 gem 'aws-s3', '0.6.2'
