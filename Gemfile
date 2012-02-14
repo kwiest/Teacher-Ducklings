@@ -25,10 +25,10 @@ group :production do
 end
 
 group :test, :development do
-  gem 'rspec-rails', '~> 1.3.4'
+  gem 'rspec-rails', '~> 2.8.0'
 end
 
 group :test do
   gem 'factory_girl'
-  gem 'shoulda'
+  gem 'shoulda-matchers'
 end
