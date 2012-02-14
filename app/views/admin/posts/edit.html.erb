@@ -1,6 +1,6 @@
 <h1>Editing Post</h1>
 
-<% simple_form_for @post, :url => admin_post_path(@post), :method => :put do |f| %>
+<%= simple_form_for @post, :url => admin_post_path(@post), :method => :put do |f| %>
 	<fieldset style="width: 550px;">
 		<%= render 'form', :f => f %>
 		<%= f.button :submit, 'Update post' %>
