@@ -1,6 +1,6 @@
 <h1>Update Your Review</h1>
 
-<% simple_form_for @review, :url => admin_review_path(@review), :html => { :multipart => true } do |f| %>
+<%= simple_form_for @review, :url => admin_review_path(@review), :html => { :multipart => true } do |f| %>
 	<fieldset>
 		<%= render 'form', :f => f %>
 		<%= f.button :submit, 'Update review' %>
