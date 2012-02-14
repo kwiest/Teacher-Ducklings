@@ -17,6 +17,8 @@ TeacherDucklings::Application.routes.draw do
     resources :posts do
       resources :comments
     end
+
+    root to: 'dashboard#index'
   end
 
   root to: 'index#index'
