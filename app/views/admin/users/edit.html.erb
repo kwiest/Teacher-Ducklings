@@ -1,6 +1,6 @@
 <h1>Edit User</h1>
 
-<% simple_form_for @user, :url => admin_user_path(@user), :html => { :multipart => true }, :method => :put do |f| -%>
+<%= simple_form_for @user, :url => admin_user_path(@user), :html => { :multipart => true }, :method => :put do |f| -%>
 	<fieldset>
 		<%= render 'form', :f => f %>
 		<%= f.button :submit, 'Update user' %>
