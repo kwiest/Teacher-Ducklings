@@ -1,6 +1,6 @@
 <h1>New Post</h1>
 
-<% simple_form_for @post, :url => admin_posts_path do |f| %>
+<%= simple_form_for @post, :url => admin_posts_path do |f| %>
 	<fieldset style="width: 550px;">
 		<%= render 'form', :f => f %>
 		<%= f.button :submit, 'Create post' %>
