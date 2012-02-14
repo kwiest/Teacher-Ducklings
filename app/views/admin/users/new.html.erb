@@ -1,6 +1,6 @@
 <h1>Create New User</h1>
 
-<% simple_form_for @user, :url => admin_users_path, :html => { :multipart => true } do |f| -%>
+<%= simple_form_for @user, :url => admin_users_path, :html => { :multipart => true } do |f| -%>
 	<fieldset>
 		<%= render 'form', :f => f %>
 		<%= f.button :submit, 'Save user' %>
