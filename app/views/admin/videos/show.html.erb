@@ -1,4 +1,4 @@
-<% content_for :head do %>
+<%= content_for :head do %>
   <%= javascript_include_tag "video" %>
   <%= stylesheet_link_tag "video-js" %>
 
@@ -51,7 +51,7 @@
 
 
 <h2>Add a Review</h2>
-<% simple_form_for @video.reviews.new, :url => admin_reviews_path, :html => { :multipart => true } do |f| %>
+<%= simple_form_for @video.reviews.new, :url => admin_reviews_path, :html => { :multipart => true } do |f| %>
     <fieldset>
         <%= f.input :description, :input_html => { :rows => 3 } %>
         <%= f.input :pdf, :as => :file, :label => 'Attach a PDF', :required => false %>
