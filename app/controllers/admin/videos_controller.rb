@@ -16,6 +16,7 @@ class Admin::VideosController < AdminController
   def create
     @video = current_user.videos.create(params[:video])
     if @video.save
+      @video.encode
       flash[:success] = 'Video successfully created!'
       redirect_to admin_videos_path
     else
@@ -24,6 +25,7 @@ class Admin::VideosController < AdminController
   end
 
   def destroy
+    @video.delete_files_from_s3
     @video.destroy
     
     flash[:notice] = "Video successfully deleted"

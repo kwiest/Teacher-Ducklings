@@ -11,10 +11,6 @@ class Video < ActiveRecord::Base
 
   default_scope :order => "created_at DESC"
 
-  # Callbacks
-  after_create :encode
-  before_destroy :delete_files_from_s3
-
   # State machine
   state_machine :initial => :uploaded do
     event :convert do
