@@ -1,6 +1,6 @@
 <h1>Editing meeting</h1>
 
-<% simple_form_for @meeting, :url => admin_meeting_path(@meeting) do |f| %>
+<%= simple_form_for @meeting, :url => admin_meeting_path(@meeting) do |f| %>
 	<fieldset>
 		<%= render 'form', :f => f %>
 		<%= f.button :submit, 'Update meeting' %>
