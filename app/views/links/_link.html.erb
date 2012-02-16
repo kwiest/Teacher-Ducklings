@@ -1,0 +1,16 @@
+<li class="category-link">
+  <h5 class="link-name"><%= link.name %></h5>
+  <div class="link-description">
+    <strong>Description:</strong> <%= link.description %>
+  </div>
+  <% if link.url.present? %>
+    <div class="link-url">
+      <strong>URL:</strong> <%= link_to link.url %>
+    </div>
+  <% end %>
+  <% if link.document.present? %>
+    <div class="link-document">
+      <strong>File:</strong> <%= link_to link.document_file_name, link.document.url %>
+    </div>
+  <% end %>
+</li>

@@ -4,12 +4,11 @@
 
 <p class="post_time">
 	By: <%= post.user.full_name %>, <%= time_ago_in_words(post.created_at) %> ago. 
-	<%= pluralize(post.comments.size, 'Comment') %><br />
 	Under 
 	<% post.categories.each do |c| -%>
 		<%= link_to c.name, c %> 
 	<% end -%>
 </p>
 <div class="post_body">
-	<%= post.body %>
+	<%= post.body.html_safe %>
 </div>
