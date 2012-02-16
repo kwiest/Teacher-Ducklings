@@ -1,5 +1,6 @@
 class VideosController < ApplicationController
   before_filter :login_required
+  before_filter :find_recent_posts
   
   def index
     @videos = current_user.videos.all(:order => 'created_at DESC')

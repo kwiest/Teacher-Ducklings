@@ -1,4 +1,5 @@
 class CategoriesController < ApplicationController
+  before_filter :find_recent_posts
 
   def show
     @category = Category.find_with_posts_and_links(params[:id])

@@ -12,6 +12,10 @@ class ApplicationController < ActionController::Base
   rescue ActiveRecord::RecordNotFound
     flash[:error] = "We're sorry, but the #{model_class.to_s.downcase} you're looking for cannot be found."
   end
+
+  def find_recent_posts
+    @posts = Post.recent
+  end
   
   
   private

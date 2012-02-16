@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_filter :find_recent_posts
   before_filter :load_user
 
   def show

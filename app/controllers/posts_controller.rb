@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  before_filter :find_recent_posts
+
   def index
     @posts = Post.all
 

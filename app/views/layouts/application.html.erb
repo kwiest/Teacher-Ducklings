@@ -11,91 +11,93 @@
   <script type="text/javascript" src="/tiny_mce/jquery.tinymce.js"></script>
   <%= javascript_include_tag :all %>
 
-	<%= yield :head %>
+  <%= yield :head %>
 </head>
 <body>
-	<!-- Main Page Wrap -->
-	<div id="page-wrap">
-		<div id="header">
-			<div class="float-right">
-				<% if logged_in? %>
-					<div>
-						Logged in as: <strong><%= current_user.full_name %></strong> (<%= link_to "Logout", logout_path %>)
-					</div>
-					<% if admin? -%>
-						<%= link_to "Admin Panel", admin_path %>
-					<% else -%>
-						<%= link_to "My Profile", current_user %> | 
-						<%= link_to "My Videos", videos_path %> | 
-						<%= link_to "My Meetings", meetings_path %>
-					<% end -%>
-				<% else %>
-					<div>
-						You are not currently logged in. <%= link_to "Login", login_path %>
-					</div>
-				<% end %>
-			</div>
-			<div class="clear"></div>
-			<div id="logo">
-				<img src="/images/logo.png" alt="Teacher Ducklings" />
-			</div>
-			<div id="nav">
-				<ul>
-					<li><%= link_to "Home", root_path %></li>
-					
-					<% Category.find(:all, :order => "name").each do |c| -%>
-						<li><%= link_to c.name, c %></li>
-					<% end -%>
-				</ul>
-			</div>
-		</div>
-		<!-- End Header -->
-		
-		<div id="main-body">
-			<div id="primary-content">
-				<% flash.each do |name,value| -%>
-					<div class="<%= name %>"><%= value %></div>
-				<% end -%>
+  <!-- Main Page Wrap -->
+  <div id="page-wrap">
+    <div id="header">
+      <div class="float-right">
+        <% if logged_in? %>
+          <div>
+            Logged in as: <strong><%= current_user.full_name %></strong> (<%= link_to "Logout", logout_path %>)
+          </div>
+          <% if admin? -%>
+            <%= link_to "Admin Panel", admin_root_path %>
+          <% else -%>
+            <%= link_to "My Profile", current_user %> | 
+            <%= link_to "My Videos", videos_path %> | 
+            <%= link_to "My Meetings", meetings_path %>
+          <% end -%>
+        <% else %>
+          <div>
+            You are not currently logged in. <%= link_to "Login", login_path %>
+          </div>
+        <% end %>
+      </div>
+      <div class="clear"></div>
 
-				<%= yield %>
-			</div>
-			<!-- End Primary Content -->
-		
-			<div id="secondary-content">
-				<div class="inner">
-					<%= yield :links %>
-					
-					<h3>Recent Posts</h3>
-					<ul>
-						<% Post.find(:all, :limit => 5).each do |post| -%>
-							<li><%= link_to post.title, post %></li>
-						<% end -%>
-					</ul>
-					
-					<p class="uo-ed">
-						<a href="http://education.uoregon.edu/">UofO College of Education</a>
-					</p>
-					<p class="feed">
-						<%= link_to "Subscribe to our RSS feed", posts_path(:format => "atom") %>
-					</p>
-					<p class="facebook">
-						<a href="http://www.facebook.com/group.php?gid=125314150002">Teacher Ducklings Facebook Group!</a>
-					</p>
-				</div>
-			</div>
-			<!-- End Secondary Content -->
-			<div class="clear"></div>
-		
-			<div id="footer">
-				<p>&copy; Copyright 2009 Teacher Ducklings</p>
-			</div>
-			<!-- End Footer -->
-			
-		</div>
-		<!-- End Main Body -->
-		
-	</div>
-	<!-- End Page Wrap -->
+      <div id="logo">
+          <img src="/images/logo.png" alt="Teacher Ducklings" />
+      </div>
+
+      <div id="nav">
+          <ul>
+              <li><%= link_to "Home", root_path %></li>
+              
+              <% Category.find(:all, :order => "name").each do |c| -%>
+                  <li><%= link_to c.name, c %></li>
+              <% end -%>
+          </ul>
+      </div>
+    </div>
+    <!-- End Header -->
+      
+    <div id="main-body">
+      <div id="primary-content">
+        <% flash.each do |name,value| -%>
+            <div class="<%= name %>"><%= value %></div>
+        <% end %>
+
+        <%= yield %>
+      </div>
+      <!-- End Primary Content -->
+    
+      <div id="secondary-content">
+        <div class="inner">
+          <%= yield :links %>
+          
+          <h3>Recent Posts</h3>
+          <ul>
+            <% @posts.each do |post| %>
+              <li><%= link_to post.title, post %></li>
+            <% end %>
+          </ul>
+          
+          <p class="uo-ed">
+            <a href="http://education.uoregon.edu/">UofO College of Education</a>
+          </p>
+          <p class="feed">
+            <%= link_to "Subscribe to our RSS feed", posts_path(:format => "atom") %>
+          </p>
+          <p class="facebook">
+            <a href="http://www.facebook.com/group.php?gid=125314150002">Teacher Ducklings Facebook Group!</a>
+          </p>
+        </div>
+      </div>
+      <!-- End Secondary Content -->
+      <div class="clear"></div>
+    
+      <div id="footer">
+          <p>&copy; Copyright Teacher Ducklings</p>
+      </div>
+      <!-- End Footer -->
+        
+    </div>
+    <!-- End Main Body -->
+      
+  </div>
+  <!-- End Page Wrap -->
 
 </body>
 </html>

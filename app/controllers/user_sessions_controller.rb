@@ -1,4 +1,6 @@
 class UserSessionsController < ApplicationController
+  before_filter :find_recent_posts
+
   def new
     @user_session = UserSession.new
   end

@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+  before_filter :find_recent_posts
   
   def create
     @post = Post.find(params[:post_id])
