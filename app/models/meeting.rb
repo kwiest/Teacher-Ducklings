@@ -4,7 +4,14 @@ class Meeting < ActiveRecord::Base
   belongs_to :video
   belongs_to :user, :foreign_key => 'creator_id'
     
-  validates_presence_of :date, :time, :video, :user
+  validates :date,  presence: true
+  validates :time,  presence: true
+  validates :video, presence: true
+  validates :user,  presence: true
+
+  def self.for_user(user)
+    where(user_to_meet_with_id: user).order('date ASC')
+  end
 
   def self.find_upcoming_meetings
     upcoming = Date.today + 7
