@@ -11,6 +11,8 @@ class Meeting < ActiveRecord::Base
   validates :user,  presence: true
 
   default_scope includes(:video, :moderator, :user).order('date ASC')
+  scope :for_user, lambda { |user| where(user_to_meet_with_id: user) }
+  scope :for_moderator, lambda { |mod| where(creator_id: mod) }
 
   def self.find_upcoming_meetings
     now      = Date.today
