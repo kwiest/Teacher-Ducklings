@@ -3,47 +3,47 @@
 <head>
   <meta charset="utf-8">
   <title>Teacher Ducklings -- <%= controller_name.capitalize %> | <%= controller.action_name.capitalize %></title>
-	<%= stylesheet_link_tag 'common_styles' %>  
-	<%= stylesheet_link_tag 'duckling_meeting_styles' %>
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <%= stylesheet_link_tag 'common_styles' %>  
+  <%= stylesheet_link_tag 'duckling_meeting_styles' %>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 
-	<%= yield :head %>
+  <%= yield :head %>
 </head>
 
 <body>
-	<div id="header">
-		<div style="float: left;">
-			<h2>Teacher Ducklings Meeting Room</h2>
-		</div>
-		<div style="float: right;">
-			Logged in as: <strong><%= current_user.full_name %></strong> (<%= link_to "Logout", logout_path %>)
-		</div>
-		<div class="clear"></div>
-	</div>
-	<!-- End Header -->
-	
-		<div id="main-body">
-            <% flash.each do |name,value| -%>
-                <div class="<%= name %>"><%= value %></div>
-            <% end -%>
-            
-            <h3>
-                <%= link_to "Home", root_path %>
-                <% if admin? -%>
-                    | <%= link_to "Admin Panel", admin_path %>
-                <% end -%>
-            </h3>
+  <div id="header">
+    <div style="float: left;">
+      <h2>Teacher Ducklings Meeting Room</h2>
+    </div>
+    <div style="float: right;">
+      Logged in as: <strong><%= current_user.full_name %></strong> (<%= link_to "Logout", logout_path %>)
+    </div>
+    <div class="clear"></div>
+  </div>
+  <!-- End Header -->
+  
+  <div id="main-body">
+    <% flash.each do |name,value| -%>
+        <div class="<%= name %>"><%= value %></div>
+    <% end -%>
+    
+    <h3>
+        <%= link_to "Home", root_path %>
+        <% if admin? -%>
+            | <%= link_to "Admin Panel", admin_root_path %>
+        <% end -%>
+    </h3>
 
-            <%= yield %>
-            <div class="clear"></div>
-	
-		<div id="footer">
-			<p>&copy; Copyright 2009 Teacher Ducklings</p>
-		</div>
-		<!-- End Footer -->
-		
-	</div>
-	<!-- End Main Body -->
+    <%= yield %>
+    <div class="clear"></div>
+
+    <div id="footer">
+        <p>&copy; Copyright Teacher Ducklings</p>
+    </div>
+    <!-- End Footer -->
+      
+  </div>
+  <!-- End Main Body -->
 
 </body>
 </html>
