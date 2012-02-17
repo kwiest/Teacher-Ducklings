@@ -1,11 +1,11 @@
 <div class="resource-row <%= cycle 'odd', 'even' %>">
 	<div style="float: right;">
 		<br />
-		<%= link_to 'Go to Meeting', meeting, :class => 'show' %>
+		<%= link_to 'Go to Meeting', meeting, class: 'show' %>
 	</div>
-	<strong>In:</strong> <%= pluralize(meeting.days_from_today_to_meeting, 'day') %> at <%= meeting.time %><br />
-	<strong>Meeting With:</strong> <%= meeting.user.full_name %><br /> 
-	<strong>Video:</strong> <%= link_to meeting.video.title, video_path(meeting.video) %><br />
-	<strong>Confirmed?</strong> <%=h meeting.confirmed %>
+    <strong>When:</strong> <%= meeting.date %> at <%= meeting.time %><br />
+	<strong>With:</strong> <%= meeting.user.full_name %><br /> 
+	<strong>Reviewing:</strong> <%= link_to meeting.video.title, video_path(meeting.video) %><br />
+	<strong>Confirmed?</strong> <%= meeting.confirmed? %>
 </div>
 <div class="clear"></div>
