@@ -2,20 +2,22 @@ require 'opentok'
 
 class Meeting < ActiveRecord::Base
   belongs_to :video
-  belongs_to :user, :foreign_key => 'creator_id'
+  belongs_to :moderator, foreign_key: 'creator_id', class_name: 'User'
+  belongs_to :user,      foreign_key: 'user_to_meet_with_id'
     
   validates :date,  presence: true
   validates :time,  presence: true
   validates :video, presence: true
   validates :user,  presence: true
 
-  def self.for_user(user)
-    where(user_to_meet_with_id: user).order('date ASC')
-  end
+  default_scope includes(:video, :moderator, :user).order('date ASC')
 
   def self.find_upcoming_meetings
-    upcoming = Date.today + 7
-    find(:all, :conditions => [ 'date < ? AND date >= ?', upcoming, Date.today ], :order => 'date')
+    now      = Date.today
+    upcoming = now + 7
+
+    where("date >= :start_date AND date < :end_date",
+          { start_date: now, end_date: upcoming }) 
   end
   
   def days_from_today_to_meeting

@@ -12,7 +12,8 @@ describe Meeting do
     should validate_presence_of(:video)
   end
 
-  it 'should belong to a user and a video' do
+  it 'should belong to a moderator, a user and a video' do
+    should belong_to(:moderator)
     should belong_to(:user)
     should belong_to(:video)
   end
@@ -22,6 +23,7 @@ describe Meeting do
     d2 = (Date.today + 1).to_s
     m1 = Meeting.create!(date: d1, time: time, user: user, video: video)
     m2 = Meeting.create!(date: d2, time: time, user: user, video: video)
+
     meetings = Meeting.find_upcoming_meetings
     meetings.include?(m1).should be_false
     meetings.include?(m2).should be_true
