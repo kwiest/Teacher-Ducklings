@@ -2,6 +2,7 @@ class MeetingsController < ApplicationController
   before_filter :login_required
   
   def index
+    find_recent_posts
     @meetings = Meeting.for_user(current_user)
   end
   
