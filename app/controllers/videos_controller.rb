@@ -3,7 +3,7 @@ class VideosController < ApplicationController
   before_filter :find_recent_posts
   
   def index
-    @videos = current_user.videos.all(:order => 'created_at DESC')
+    @videos = current_user.videos
   end
 
   def show
@@ -11,6 +11,6 @@ class VideosController < ApplicationController
     @video.check_zencoder_status
   rescue ActiveRecord::RecordNotFound
     flash[:error] = "We're sorry, but the video you're looking for cannot be found."
-    redirect_to user_path(current_user)
+    redirect_to videos_path
   end
 end
