@@ -23,7 +23,7 @@ class Meeting < ActiveRecord::Base
   end
   
   def days_from_today_to_meeting
-    date - Date.today
+    (date - Date.today).to_i
   end
   
   def expired?
