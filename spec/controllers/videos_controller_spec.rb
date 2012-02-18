@@ -20,7 +20,7 @@ describe VideosController do
   describe 'GET show' do
     it 'should assign the video' do
       user.stub_chain(:videos, :find) { video }
-      video.stub(:check_zencoder_status) { true }
+      video.stub(:check_encoding_status) { 'complete' }
 
       get :show, id: video.id
       assigns(:video).should == video
@@ -28,7 +28,7 @@ describe VideosController do
 
     it 'should check the zencoder status' do
       user.stub_chain(:videos, :find) { video }
-      video.should_receive(:check_zencoder_status) { 'complete' }
+      video.should_receive(:check_encoding_status) { 'complete' }
       get :show, id: video.id
     end
 
