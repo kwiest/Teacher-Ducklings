@@ -5,7 +5,6 @@
   <title>Teacher Ducklings -- <%= controller_name.capitalize %> | <%= controller.action_name.capitalize %></title>
   <%= stylesheet_link_tag 'common_styles' %>  
   <%= stylesheet_link_tag 'duckling_meeting_styles' %>
-  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 
   <%= yield :head %>
 </head>
@@ -44,6 +43,9 @@
       
   </div>
   <!-- End Main Body -->
+
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <%= yield :javascript %>
 
 </body>
 </html>

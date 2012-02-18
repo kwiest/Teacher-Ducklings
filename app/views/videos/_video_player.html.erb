@@ -1,0 +1,29 @@
+<%= content_for :head do %>
+  <%= stylesheet_link_tag 'video-js' %>
+<% end %>
+
+<%= content_for :javascript do %>
+  <%= javascript_include_tag 'video' %>
+<% end %>
+
+
+<div id="video" class="float-left">
+  <% if video.converting? -%>
+    <div class="notice">Video is still converting, please be patient</div>
+  <% elsif video.error? -%>
+    <div class="error">There was an error while converting your video</div>
+  <% elsif video.complete? -%>
+    <h3>Viewing: <%= video.verbose_title %></h3>
+
+    <div class="video-js-box">
+      <video class="video-js" width="640" height="360">
+        <source src="<%= video.encoded_file_name %>" type="video/mp4" />
+        <object class="vjs-flash-fallback" width="640" height="360" type="application/x-shockwave-flash" data="http://releases.flowplayer.org/swf/flowplayer-3.2.1.swf">
+          <param name="movie" value="http://releases.flowplayer.org/swf/flowplayer-3.2.1.swf" />
+          <param name="allowfullscreen" value="true" />
+          <param name="flashvars" value='config={"playlist":["<%= video.encoded_file_name %>", {"url": "<%= video.encoded_file_name %>", "autoPlay": false, "autoBuffering": true}]}' />
+        </object>
+      </video>
+    </div>
+  <% end %>
+</div>

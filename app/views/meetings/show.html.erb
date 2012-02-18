@@ -1,11 +1,12 @@
 <%= content_for :head do %>
-  <%= javascript_include_tag "video" %>
   <%= stylesheet_link_tag "video-js" %>
-  <!-- development -->
-  <%#<script type="text/javascript" src="http://staging.tokbox.com/v0.91/js/TB.min.js"></script>%>
+<% end %>
+
+<%= content_for :javascript do %>
   <!-- production -->
   <script src="http://static.opentok.com/v0.91/js/TB.min.js"></script>
-
+  <!-- test -->
+  <%#<script type="text/javascript" src="http://staging.tokbox.com/v0.91/js/TB.min.js"></script>%>
   <script type="text/javascript">
     $(function() {
       VideoJS.setupAllWhenReady();
@@ -55,41 +56,20 @@
   </script>
 <% end %>
 
-<%= link_to '← Back', :back %>
-
-<h1><%= @meeting.user.full_name %> meeting with <%= User.find(@meeting.user_to_meet_with_id).full_name %></h1>
+<h1><%= @meeting.moderator.full_name %> meeting with <%= @meeting.user.full_name %></h1>
 
 <p>
-  <strong>When:</strong> In <%= pluralize(@meeting.days_from_today_to_meeting, "day") %>, at <%=h @meeting.time %>
+  <strong>When:</strong> In <%= @meeting.date %>, at <%= @meeting.time %>
 </p>
 
-<% if current_user.admin? %>
-	<p>
-		<%= link_to 'Edit meeting', edit_admin_meeting_path(@meeting), :class => 'edit' %> | 
-		<%= link_to 'Delete meeting', admin_meeting_path(@meeting), :class => 'delete', :method => :delete, :confirm => 'Are you sure you want to destroy this meeting?' %>
-	</p>
+<% if admin? %>
+  <p>
+    <%= link_to 'Edit meeting', edit_admin_meeting_path(@meeting), :class => 'edit' %> | 
+    <%= link_to 'Delete meeting', admin_meeting_path(@meeting), :class => 'delete', :method => :delete, :confirm => 'Are you sure you want to destroy this meeting?' %>
+  </p>
 <% end %>
 
-<div class="float-left">
-  <% if @video.converting? -%>
-    <div class="notice">Video is still converting, please be patient</div>
-  <% elsif @video.error? -%>
-    <div class="error">There was an error while converting your video</div>
-  <% elsif @video.complete? -%>
-    <h3>Viewing: <%= @video.verbose_title %></h3>
-    <div class="video-js-box">
-      <video class="video-js" width="640" height="360">
-        <source src="<%= @video.encoded_file_name %>" type="video/mp4" />
-
-        <object class="vjs-flash-fallback" width="640" height="360" type="application/x-shockwave-flash" data="http://releases.flowplayer.org/swf/flowplayer-3.2.1.swf">
-          <param name="movie" value="http://releases.flowplayer.org/swf/flowplayer-3.2.1.swf" />
-          <param name="allowfullscreen" value="true" />
-          <param name="flashvars" value='config={"playlist":["<%= @video.encoded_file_name %>", {"url": "<%= @video.encoded_file_name %>", "autoPlay": false, "autoBuffering": true}]}' />
-        </object>
-      </video>
-    </div>
-  <% end -%>
-</div>
+<%= render 'videos/video_player', video: @video %>
 
 <div id="tokbox-container">
   <div id="tokbox-stream">TokBox is loading...</div>
