@@ -6,11 +6,6 @@
   <%= stylesheet_link_tag 'common_styles' %>
   <%= stylesheet_link_tag 'duckling_styles' %>
 
-  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js"></script>
-  <script type="text/javascript" src="/tiny_mce/jquery.tinymce.js"></script>
-  <%= javascript_include_tag :all %>
-
   <%= yield :head %>
 </head>
 <body>
@@ -98,6 +93,13 @@
       
   </div>
   <!-- End Page Wrap -->
+
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js"></script>
+  <script type="text/javascript" src="/tiny_mce/jquery.tinymce.js"></script>
+  <%= javascript_include_tag :all %>
+
+  <%= yield :javascript %>
 
 </body>
 </html>
