@@ -1,11 +1,12 @@
 class Admin::LinksController < AdminController
-  before_filter :load_link, :except => [:index, :new, :create]
+  rescue_from ActiveRecord::RecordNotFound, with: :link_not_found
   
   def index
     @links = Link.all
   end
   
   def show
+    @link = Link.find(params[:id])
   end
 
   def new
@@ -13,6 +14,7 @@ class Admin::LinksController < AdminController
   end
 
   def edit
+    @link = Link.find(params[:id])
   end
 
   def create
@@ -22,20 +24,23 @@ class Admin::LinksController < AdminController
       flash[:success] = 'Link was successfully created.'
       redirect_to admin_links_path
     else
-      render :new
+      render action: 'new'
     end
   end
 
   def update
+    @link = Link.find(params[:id])
+
     if @link.update_attributes(params[:link])
       flash[:success] = 'Link was successfully updated.'
       redirect_to admin_links_path
     else
-      render :edit
+      render action: 'edit'
     end
   end
 
   def destroy
+    @link = Link.find(params[:id])
     @link.destroy
     
     flash[:notice] = 'Link was successfully deleted.'
@@ -45,8 +50,9 @@ class Admin::LinksController < AdminController
   
   protected
   
-  def load_link
-    @link = load_model(Link)
+  def link_not_found
+    flash[:error] = 'Sorry, but we could not find that link.'
+    redirect_to admin_links_path
   end
   
 end
