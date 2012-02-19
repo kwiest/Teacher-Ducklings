@@ -1,5 +1,5 @@
 class Admin::MeetingsController < AdminController
-  before_filter :load_meeting, :except => [:index, :new, :create]
+  rescue_from ActiveRecord::RecordNotFound, with: :meeting_not_found
 
   def index
     @meetings = Meeting.all
@@ -11,40 +11,46 @@ class Admin::MeetingsController < AdminController
   end
 
   def edit
+    @meeting = Meeting.find(params[:id])
   end
 
   def create
-    @meeting = current_user.meetings.new(params[:meeting])
+    @meeting = Meeting.new(params[:meeting])
     @meeting.set_tok_session_id request.remote_addr
 
     if @meeting.save
-      flash[:success] = 'Meeting was successfully created.'
+      flash[:success] = 'Meeting was successfully scheduled.'
       redirect_to admin_meetings_path
     else
-      render :new
+      render action: 'new'
     end
   end
 
   def update
+    @meeting = Meeting.find(params[:id])
+    @meeting.set_tok_session_id request.remote_addr
+
     if @meeting.update_attributes(params[:meeting])
       flash[:success] = 'Meeting was successfully updated.'
       redirect_to admin_meetings_path
     else
-      render :edit
+      render action: 'edit'
     end
   end
 
   def destroy
+    @meeting = Meeting.find(params[:id])
     @meeting.destroy
 
-    flash[:notice] = "Meeting Deleted"
+    flash[:notice] = "Meeting was successfully deleted."
     redirect_to admin_meetings_path
   end
   
   
   protected
   
-  def load_meeting
-    @meeting = load_model(Meeting)
+  def meeting_not_found
+    flash[:error] = 'Sorry, but that meeting could not be found.'
+    redirect_to admin_meetings_path
   end
 end
