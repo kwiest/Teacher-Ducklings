@@ -12,8 +12,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-    rescue ActiveRecord::RecordNotFound
-      flash[:error] = "We're sorry, but the post you're looking for cannot be found."
-      redirect_to root_path
+  rescue ActiveRecord::RecordNotFound
+    redirect_to root_path, notice: "Sorry, but the post you're looking for cannot be found."
   end
 end
