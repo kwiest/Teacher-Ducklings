@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_filter :login_required
   before_filter :find_recent_posts
   before_filter :load_user
 
@@ -10,10 +11,10 @@ class UsersController < ApplicationController
 
   def update
     if @user.update_attributes(params[:user])
-      flash[:success] = 'User was successfully updated.'
+      flash[:success] = 'User profile successfully updated.'
       redirect_to @user
     else
-      render :edit
+      render action: 'edit'
     end
   end
   
