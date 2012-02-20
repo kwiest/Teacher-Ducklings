@@ -1,5 +1,5 @@
 TeacherDucklings::Application.routes.draw do
-  resources :reviews, :links, :users, :meetings
+  resources :links, :users, :meetings
   resources :videos, only: [:index, :show]
   resources :categories, only: :show
 
@@ -13,9 +13,14 @@ TeacherDucklings::Application.routes.draw do
   match '/logout' => 'user_sessions#destroy'
 
   namespace :admin do
-    resources :reviews, :links, :categories, :meetings, :users, :videos
+    resources :links, :categories, :meetings, :users
+
     resources :posts do
       resources :comments
+    end
+
+    resources :videos do
+      resources :reviews
     end
 
     root to: 'dashboard#index'
