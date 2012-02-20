@@ -48,7 +48,7 @@ class ApplicationController < ActionController::Base
   end
   
   def access_denied
-    redirect_to root_path, error: "Sorry, but you don't have access to that page." 
+    redirect_to root_path, notice: "Sorry, but you don't have access to that page." 
   end
 
 end
