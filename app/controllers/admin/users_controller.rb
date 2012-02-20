@@ -1,11 +1,12 @@
 class Admin::UsersController < AdminController
-  before_filter :load_user, :except => [:index, :new, :create]
+  rescue_from ActiveRecord::RecordNotFound, with: :user_not_found
   
   def index
     @users = User.all
   end
   
   def show
+    @user = User.find(params[:id])
   end
   
   def new
@@ -13,40 +14,42 @@ class Admin::UsersController < AdminController
   end
   
   def edit
+    @user = User.find(params[:id])
   end
 
   def create
     @user = User.new(params[:user])
     
     if @user.save
-      flash[:success] = "New user created!"
+      flash[:success] = 'New user was successfully created.'
       redirect_to admin_users_path
     else
-      render :new
+      render action: 'new'
     end
   end
   
   def update
+    @user = User.find(params[:id])
+
     if @user.update_attributes(params[:user])
       flash[:success] = 'User was successfully updated.'
       redirect_to admin_users_path
     else
-      render :edit
+      render action: 'edit'
     end
   end
   
   def destroy
+    @user = User.find(params[:id])
     @user.destroy
-    
-    flash[:notice] = "User deleted."
-    redirect_to admin_users_path
+    redirect_to admin_users_path, notice: 'User was successfully deleted.'
   end
   
   
   protected
   
-  def load_user
-    @user = load_model(User)
+  def user_not_found
+    redirect_to admin_users_path, notice: 'Sorry, but that user could not be found.'
   end
   
 end
