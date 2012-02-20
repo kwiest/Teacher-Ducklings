@@ -1,51 +1,59 @@
 class Admin::ReviewsController < AdminController
-  before_filter :load_review, :except => [:index, :new, :create]
+  rescue_from ActiveRecord::RecordNotFound, with: :review_not_found
+  before_filter :load_video
   
-  def index
-    @reviews = Review.all
-  end
-
   def show
+    @review = @video.reviews.find(params[:id])
   end
 
   def new
-    @review = current_user.reviews.build
+    @review = @video.reviews.new
   end
 
   def edit
+    @review = @video.reviews.find(params[:id])
   end
 
   def create
-    @review = current_user.reviews.create(params[:review])
+    @review_params = params[:review].merge(user_id: current_user.id)
+    @review = @video.reviews.new(@review_params)
     
     if @review.save
-      flash[:success] = "You successfully reviewed a video."
-      redirect_to admin_reviews_path
+      flash[:success] = 'Your review was successfully recorded.'
+      redirect_to admin_video_path(@video)
     else
-      render :new
+      render action: 'new'
     end
   end
 
   def update
+    @review = @video.reviews.find(params[:id])
+
     if @review.update_attributes(params[:review])
-      flash[:success] = "Your review was successfully updated"
-      redirect_to admin_reviews_path
+      flash[:success] = 'Your review was successfully updated.'
+      redirect_to admin_video_path(@video)
     else
-      render :edit
+      render action: 'edit'
     end
   end
 
   def destroy
+    @review = @video.reviews.find(params[:id])
     @review.destroy
     
-    flash[:notice] = "Your review was successfully deleted."
-    redirect_to admin_reviews_path
+    redirect_to admin_video_path(@video), notice: 'Your review was successfully deleted.'
   end
   
   
   protected
   
-  def load_review
-    @review = load_model(Review)
+  def load_video
+    @video = Video.find(params[:video_id])
+  rescue ActiveRecord::RecordNotFound
+    redirect_to admin_videos_path, notice: 'Sorry, but we cannot find that video.'
+  end
+  
+  def review_not_found
+    redirect_to admin_video_path(@video), notice: 'Sorry, but we cannot find that review.'
   end
 end
