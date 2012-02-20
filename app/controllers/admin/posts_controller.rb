@@ -1,11 +1,12 @@
 class Admin::PostsController < AdminController
-  before_filter :load_post, :except => [:index, :new, :create]
+  rescue_from ActiveRecord::RecordNotFound, with: :post_not_found
   
   def index
     @posts = Post.all
   end
 
   def show
+    @post = Post.find(params[:id])
   end
 
   def new
@@ -13,40 +14,44 @@ class Admin::PostsController < AdminController
   end
 
   def edit
+    @post = Post.find(params[:id])
   end
 
-  # POST /posts
   def create
     @post = Post.new(params[:post])
     
     if @post.save
-      flash[:success] = 'Post successfully published.'
+      flash[:success] = 'Post was successfully published.'
       redirect_to admin_posts_path
     else
-      render :new
+      render action: 'new'
     end
   end
 
   def update
+    @post = Post.find(params[:id])
+
     if @post.update_attributes(params[:post])
-      flash[:success] = 'Post successfully updated and published.'
+      flash[:success] = 'Post was successfully updated and published.'
       redirect_to admin_posts_path
     else
-      render :edit
+      render action: 'edit'
     end
   end
 
   def destroy
+    @post = Post.find(params[:id])
     @post.destroy
     
-    flash[:notice] = 'Post successfully deleted.'
+    flash[:notice] = 'Post was successfully deleted.'
     redirect_to admin_posts_path
   end
   
   
   protected
   
-  def load_post
-    @post = load_model(Post)
+  def post_not_found
+    flash[:notice] = 'Sorry, but we cannot find that post.'
+    redirect_to admin_posts_path
   end
 end
