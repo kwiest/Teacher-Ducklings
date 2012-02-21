@@ -23,7 +23,6 @@
 <h3>Leave a New Comment</h3>
 <%= simple_form_for [@post, @post.comments.new] do |f| %>
 	<fieldset>
-		<%= f.error_messages %>
 	
 		<% if logged_in? -%>
 			<%= f.input :user_id, :as => :hidden, :input_html => { :value => current_user.id } %>

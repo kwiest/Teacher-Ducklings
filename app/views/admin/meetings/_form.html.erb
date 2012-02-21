@@ -1,4 +1,3 @@
-<%= f.error_messages %>
 <%= f.input :date, :as => :string, :input_html => { :size => 40, :class => 'datepicker' } %>
 <%= f.input :time, :input_html => { :size => 40 } %>
 <%= f.association :user, :label => 'Administrator', :collection => User.all(:conditions => { :admin => true }), :label_method => 'full_name', :value_method => :id, :prompt => 'Please choose an administrator' %>
