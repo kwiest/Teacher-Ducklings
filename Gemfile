@@ -1,6 +1,5 @@
 source :rubygems
 
-#gem 'rails', '2.3.14'
 gem 'rails', '3.0.10'
 
 gem 'authlogic', '~> 3.1.0'
@@ -30,4 +29,6 @@ end
 
 group :test do
   gem 'shoulda-matchers'
+  gem 'cucumber-rails'
+  gem 'capybara'
 end
