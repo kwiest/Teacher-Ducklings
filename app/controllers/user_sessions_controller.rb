@@ -1,5 +1,7 @@
 class UserSessionsController < ApplicationController
   before_filter :find_recent_posts
+  before_filter :redirect_home_if_logged_in, only: [:new, :create]
+  before_filter :login_required, only: [:destroy]
 
   def new
     @user_session = UserSession.new
@@ -21,10 +23,15 @@ class UserSessionsController < ApplicationController
   end
 
   def destroy
-    @user_session = UserSession.find  
+    @user_session = current_user_session
     @user_session.destroy  
-    flash[:notice] = "Bye now. Come back soon!"  
-    redirect_to root_path
+    redirect_to root_path, notice: 'Bye now. Come back soon!'
   end
 
+
+  private
+
+  def redirect_home_if_logged_in
+    redirect_to(root_path, notice: 'You are already logged in.') if logged_in?
+  end
 end
