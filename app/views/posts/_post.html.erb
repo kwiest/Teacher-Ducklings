@@ -1,14 +1,16 @@
-<h3 class="post_title">
-	<%= link_to post.title, post %>
-</h3>
+<div class="post">
+  <h3 class="post_title">
+      <%= link_to post.title, post %>
+  </h3>
 
-<p class="post_time">
-	By: <%= post.user.full_name %>, <%= time_ago_in_words(post.created_at) %> ago. 
-	Under 
-	<% post.categories.each do |c| -%>
-		<%= link_to c.name, c %> 
-	<% end -%>
-</p>
-<div class="post_body">
-	<%= post.body.html_safe %>
+  <p class="post_time">
+      By: <%= post.user.full_name %>, <%= time_ago_in_words(post.created_at) %> ago. 
+      Under 
+      <% post.categories.each do |c| -%>
+          <%= link_to c.name, c %> 
+      <% end -%>
+  </p>
+  <div class="post_body">
+      <%= post.body.html_safe %>
+  </div>
 </div>

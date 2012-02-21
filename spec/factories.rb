@@ -16,4 +16,24 @@ FactoryGirl.define do
     password_confirmation 'secret'
     admin true 
   end
+
+  factory :category do
+    name 'Math'
+  end
+
+  factory :post1, class: Post do
+    title 'Test post 1'
+    body 'Test post 1 body'
+  end
+
+  factory :post2, class: Post do
+    title 'Test post 2'
+    body 'Test post 2 body'
+  end
+
+  factory :link do
+    name 'Tool'
+    description 'A handy tool'
+    url 'http://example.com/tool.pdf'
+  end
 end
