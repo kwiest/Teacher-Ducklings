@@ -29,7 +29,6 @@ end
 
 group :test do
   gem 'shoulda-matchers'
-  gem 'cucumber-rails'
   gem 'capybara'
   gem 'database_cleaner'
 end
