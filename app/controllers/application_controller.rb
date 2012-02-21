@@ -43,7 +43,7 @@ class ApplicationController < ActionController::Base
   
   def require_no_user
     if logged_in?
-      redirect_to root_path, error: "Sorry, but you can't reset your password if you're already logged in."
+      redirect_to root_path, notice: "Sorry, but you can't reset your password if you're already logged in."
     end
   end
   
