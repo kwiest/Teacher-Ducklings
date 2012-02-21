@@ -15,7 +15,8 @@
       <div class="float-right">
         <% if logged_in? %>
           <div>
-            Logged in as: <strong><%= current_user.full_name %></strong> (<%= link_to "Logout", logout_path %>)
+            Logged in as: <strong><%= current_user.full_name %></strong> 
+            (<%= link_to "Logout", logout_path, rel: "log-out" %>)
           </div>
           <% if admin? -%>
             <%= link_to "Admin Panel", admin_root_path %>
@@ -26,7 +27,8 @@
           <% end -%>
         <% else %>
           <div>
-            You are not currently logged in. <%= link_to "Login", login_path %>
+            You are not currently logged in. 
+            <%= link_to "Login", login_path, rel: "log-in" %>
           </div>
         <% end %>
       </div>
@@ -37,12 +39,11 @@
       </div>
 
       <div id="nav">
-          <ul>
+          <ul id="categories">
               <li><%= link_to "Home", root_path %></li>
-              
-              <% Category.find(:all, :order => "name").each do |c| -%>
+              <% @categories.each do |c| %>
                   <li><%= link_to c.name, c %></li>
-              <% end -%>
+              <% end %>
           </ul>
       </div>
     </div>
@@ -63,7 +64,7 @@
           <%= yield :links %>
           
           <h3>Recent Posts</h3>
-          <ul>
+          <ul id="recent-posts">
             <% @posts.each do |post| %>
               <li><%= link_to post.title, post %></li>
             <% end %>

@@ -1,4 +1,6 @@
 class CommentsController < ApplicationController
+  before_filter :assign_categories
+
   def create
     @post = Post.find(params[:post_id])
     @comment = @post.comments.new(params[:comment])

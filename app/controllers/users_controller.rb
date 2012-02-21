@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_filter :login_required
+  before_filter :assign_categories
   before_filter :find_recent_posts
   before_filter :load_user
 

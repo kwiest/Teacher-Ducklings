@@ -2,6 +2,7 @@ class PasswordResetsController < ApplicationController
   before_filter :require_no_user
   before_filter :load_user_using_perishable_token, only: [:edit, :update]
   before_filter :find_recent_posts, except: [:create, :update]
+  before_filter :assign_categories
   
   def new
   end

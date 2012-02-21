@@ -1,5 +1,6 @@
 class VideosController < ApplicationController
   before_filter :login_required
+  before_filter :assign_categories
   before_filter :find_recent_posts
   
   def index

@@ -1,4 +1,5 @@
 class MeetingsController < ApplicationController
+  before_filter :assign_categories
   before_filter :login_required
   
   def index

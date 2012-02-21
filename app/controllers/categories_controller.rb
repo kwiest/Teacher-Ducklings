@@ -1,4 +1,5 @@
 class CategoriesController < ApplicationController
+  before_filter :assign_categories
   before_filter :find_recent_posts
 
   def show

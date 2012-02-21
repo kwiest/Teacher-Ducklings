@@ -1,4 +1,5 @@
 class UserSessionsController < ApplicationController
+  before_filter :assign_categories
   before_filter :find_recent_posts
   before_filter :redirect_home_if_logged_in, only: [:new, :create]
   before_filter :login_required, only: [:destroy]

@@ -16,6 +16,10 @@ class ApplicationController < ActionController::Base
   def find_recent_posts
     @posts = Post.recent
   end
+
+  def assign_categories
+    @categories = Category.all
+  end
   
   
   private
