@@ -167,6 +167,8 @@ h5.link-name {
 }
 
 .comment-pic img {
+  width: inherit;
+  height: inherit;
 	padding: 3px;
 	background: #fff;
 	border: 1px solid #b1b1b1;

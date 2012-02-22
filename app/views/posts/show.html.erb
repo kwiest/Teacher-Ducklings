@@ -1,4 +1,4 @@
-<h1 class="post_title">
+<h1 id="post-title" class="post_title">
 	<%= @post.title %>
 </h1>
 
@@ -7,8 +7,8 @@
 	<%= pluralize(@post.comments.size, 'Comment') %>
 </p>
 
-<div class="post_body">
-  <%= @post.body %>
+<div id="post-body" class="post_body">
+  <%= @post.body.html_safe %>
 </div>
 
 <p>&nbsp;</p>
@@ -20,19 +20,13 @@
 	<% end -%>
 </div>
 
-<h3>Leave a New Comment</h3>
-<%= simple_form_for [@post, @post.comments.new] do |f| %>
-	<fieldset>
-	
-		<% if logged_in? -%>
-			<%= f.input :user_id, :as => :hidden, :input_html => { :value => current_user.id } %>
-			<%= f.input :name, :as => :hidden, :input_html => { :value => current_user.full_name } %>
-			<%= f.input :email, :as => :hidden, :input_html => { :value => current_user.email } %>
-		<% else -%>
-			<%= f.input :name, :label => 'Your full name:' %>
-			<%= f.input :email %>
-		<% end -%>
-		<%= f.input :body, :label => "What's on your mind?", :input_html => { :rows => 5 } %>
-		<%= f.button :submit, 'Add comment', :id => 'submit_comment' %>
+<% if logged_in? %>
+  <h3>Leave a new comment</h3>
+  <%= simple_form_for [@post, @post.comments.new] do |f| %>
+    <fieldset>
+      <%= f.input :user_id, as: :hidden, input_html: { value: current_user.id } %>
+      <%= f.input :body, label: "What's on your mind?", input_html: { rows: 5 } %>
+      <%= f.button :submit, 'Add comment' %>
 	</fieldset>
-<% end -%>
+  <% end %>
+<% end %>

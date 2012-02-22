@@ -1,23 +1,18 @@
 <%= div_for comment do -%>
-	<div class="comment-pic">
-		<% if comment.user.blank? -%>
-			<%= image_tag "/photos/small/missing.png", :border => 0 %>
-		<% else -%>
-			<%= image_tag comment.user.photo.url(:small) %>
-		<% end -%>
-	</div>
+  <div class="comment-pic">
+    <%= image_tag comment.user.photo.url(:small) %>
+  </div>
 	
-	<div class="comment-body">
-		<p><strong>
-			<%= time_ago_in_words(comment.created_at).camelize %> ago, <%= comment.name %> said:
-		</strong></p>
-		<p><%= comment.body %></p>
-	</div>
-	<div class="clear"></div>
-	
-	<% if admin? -%>
-		<p>
-			<%= link_to "Delete Comment", admin_post_comment_path(@post, comment), :confirm => 'Are you sure you want to delete this comment?', :method => :delete, :class => "delete" %>
-		</p>
-	<% end -%>
+  <div class="comment-body">
+    <p><strong>
+        <%= time_ago_in_words(comment.created_at).camelize %>
+        ago, <%= comment.user.full_name %> said:
+    </strong></p>
+    <p><%= comment.body %></p>
+  </div>
+  <div class="clear"></div>
+  
+  <% if admin? %>
+    <%= link_to "Delete comment", admin_post_comment_path(@post, comment), confirm: 'Are you sure you want to delete this comment?', method: :delete, class: 'delete' %>
+  <% end %>
 <% end -%>
