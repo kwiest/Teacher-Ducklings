@@ -1,0 +1,40 @@
+#reviews {
+  margin-top: 24px;
+  width: 640px;
+
+  .review {
+    margin: 12px 0;
+    padding: 3px;
+    border-bottom: 1px dashed #b1b1b1;
+
+    .attachment {
+      float: right;
+      width: 50px;
+    }
+
+    .description {
+      float: left;
+      width: 500px;
+    }
+
+    .actions {
+      margin-top: 3px;
+
+      .edit, .delete {
+        padding-left: 18px;
+      }
+
+      .edit {
+        background: transparent url(image_path('icons/paper&pencil_16.png')) left no-repeat;
+      }
+
+      .delete {
+        background: transparent url(image_path('icons/cancel_16.png')) left no-repeat;
+      }
+    }
+  }
+
+  form {
+    margin-top: 24px;
+  }
+}

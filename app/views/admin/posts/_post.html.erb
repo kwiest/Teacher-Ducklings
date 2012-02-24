@@ -1,0 +1,28 @@
+<div class="resource-row <%= cycle 'odd', 'even' %>">
+  <%= div_for post do %>
+    <div class="title">
+      <h4><%= post.title %></h4>
+    </div>
+    <div class="clear"></div>
+
+    <div class="publish-info">
+      <div class="author">
+        <strong>Author: </strong><%= post.user.full_name %>
+      </div>
+      <div class="date">
+        <strong>Last Publish Date: </strong><%= time_ago_in_words(post.updated_at) %> ago
+      </div>
+      <div class="comments">
+        <strong>Comments: </strong><%= pluralize(post.comments.size, 'Comment') %>
+      </div>
+    </div>
+
+    <div class="actions">
+      <%= link_to "Show", admin_post_path(post), class: :show %>
+      <%= link_to "Edit", edit_admin_post_path(post), class: :edit %>
+      <%= link_to "Delete", admin_post_path(post), confirm: "Are you sure you want to delete this post?", method: :delete, class: :delete %>
+    </div>
+
+  <% end %>
+  <div class="clear"></div>
+</div>

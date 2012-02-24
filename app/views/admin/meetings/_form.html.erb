@@ -1,6 +1,6 @@
-<%= f.input :date, :as => :string, :input_html => { :size => 40, :class => 'datepicker' } %>
-<%= f.input :time, :input_html => { :size => 40 } %>
-<%= f.association :user, :label => 'Administrator', :collection => User.all(:conditions => { :admin => true }), :label_method => 'full_name', :value_method => :id, :prompt => 'Please choose an administrator' %>
-<%= f.input :user_to_meet_with_id, :label => 'Meet with', :collection => User.all, :label_method => 'full_name', :value_method => :id, :prompt => 'Please choose a user' %>
-<%= f.association :video, :label_method => 'verbose_title', :prompt => 'Please choose a video' %>
-<%= f.input :confirmed, :as => :boolean %>
+<%= f.input :date, as: :string, input_html: { size: 40, class: 'datepicker' } %>
+<%= f.input :time, input_html: { size: 40 } %>
+<%= f.association :moderator, collection: @admins, label_method: 'full_name', include_blank: false %>
+<%= f.association :user, label: 'Meet with', collection: @users, label_method: 'full_name', include_blank: false %>
+<%= f.association :video, label_method: 'verbose_title', include_blank: false %>
+<%= f.input :confirmed, as: :boolean %>

@@ -1,11 +1,7 @@
 <h1>All Videos</h1>
 
-<%= link_to "New video", new_admin_video_path, :class => "large_button" %>
-
-<p>&nbsp;</p>
+<%= link_to 'New video', new_admin_video_path, :class => 'btn btn-success btn-large' %>
 
 <div id="videos">
-    <% @videos.each do |video| %>
-        <%= render 'admin/videos/video', :video => video %>
-    <% end %>
+  <%= render @videos %>
 </div>

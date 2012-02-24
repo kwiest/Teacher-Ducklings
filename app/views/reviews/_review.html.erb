@@ -1,0 +1,18 @@
+<%= div_for review do %>
+  <div class="attachment">
+    <% if review.pdf.present? %>
+      <%= link_to image_tag('icons/pdf_48.png'), review.pdf.url %>
+    <% end %>
+  </div>
+
+  <div class="info">
+    <h4>Reviewed by: <%= review.user.full_name %></h4>
+    <span class="time"><%= time_ago_in_words(review.updated_at) %> ago.</span>
+  </div>
+
+  <div class="description">
+    <strong>Description: </strong><%= review.description %>
+  </div>
+
+  <div class="clear"></div>
+<% end %>

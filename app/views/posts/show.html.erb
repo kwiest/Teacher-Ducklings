@@ -1,32 +1,20 @@
-<h1 id="post-title" class="post_title">
-	<%= @post.title %>
-</h1>
+<%= render @post %>
 
-<p class="post_time">
-	By: <%= @post.user.full_name %>, <%= time_ago_in_words(@post.created_at) %> ago.
-	<%= pluralize(@post.comments.size, 'Comment') %>
-</p>
-
-<div id="post-body" class="post_body">
-  <%= @post.body.html_safe %>
-</div>
-
-<p>&nbsp;</p>
-
-<h3 id="comment_count"><%= pluralize(@post.comments.size, 'Comment') %></h3>
 <div id="comments">
-	<% @post.comments.each do |comment| -%>
-		<%= render :partial => comment %>
-	<% end -%>
+  <h3>Comments (<%= @post.comments.count %>)</h3>
+  <%= render @post.comments %>
 </div>
 
 <% if logged_in? %>
-  <h3>Leave a new comment</h3>
-  <%= simple_form_for [@post, @post.comments.new] do |f| %>
+  <%= simple_form_for [@post, @post.comments.new], html: { class: 'form-vertical' } do |f| %>
     <fieldset>
+      <legend>Leave a new comment</legend>
       <%= f.input :user_id, as: :hidden, input_html: { value: current_user.id } %>
-      <%= f.input :body, label: "What's on your mind?", input_html: { rows: 5 } %>
-      <%= f.button :submit, 'Add comment' %>
+      <%= f.input :body, label: "What's on your mind?", input_html: { rows: 5, cols: 35 } %>
 	</fieldset>
+
+    <div class="form-actions">
+      <%= f.button :submit, 'Add comment', class: 'btn btn-primary' %>
+    </div>
   <% end %>
 <% end %>

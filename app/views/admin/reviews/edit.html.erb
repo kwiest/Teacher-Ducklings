@@ -1,10 +1,18 @@
 <h1>Update Your Review</h1>
 
-<%= simple_form_for @review, :url => admin_review_path(@review), :html => { :multipart => true } do |f| %>
-	<fieldset>
-		<%= render 'form', :f => f %>
-		<%= f.button :submit, 'Update review' %>
-	</fieldset>
-<% end %>
+<%= simple_form_for @review, url: admin_video_review_path(@video, @review), html: { multipart: true, class: 'form-vertical' } do |f| %>
+  <fieldset>
+    <%= f.input :description, input_html: { rows: 5 } %>
+    <% if @review.pdf.present? %>
+      <%= f.input :pdf, as: :string, disabled: true, value: @review.pdf_file_name,
+        hint: 'File already attached' %>
+    <% else %>
+      <%= f.input :pdf, as: :file, label: 'Attach a PDF', required: false %>
+    <% end %>
+  </fieldset>
 
-<%= link_to '← Back', :back %>
+  <div class="form-actions">
+    <%= f.button :submit, 'Update review', class: 'btn btn-primary' %>
+    <%= link_to 'Cancel', :back, class: 'btn btn-danger' %>
+  </div>
+<% end %>

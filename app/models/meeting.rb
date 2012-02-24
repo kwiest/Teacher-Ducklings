@@ -5,10 +5,11 @@ class Meeting < ActiveRecord::Base
   belongs_to :moderator, foreign_key: 'creator_id', class_name: 'User'
   belongs_to :user,      foreign_key: 'user_to_meet_with_id'
     
-  validates :date,  presence: true
-  validates :time,  presence: true
-  validates :video, presence: true
-  validates :user,  presence: true
+  validates :date,       presence: true
+  validates :time,       presence: true
+  validates :video,      presence: true
+  validates :moderator,  presence: true
+  validates :user,       presence: true
 
   default_scope includes(:video, :moderator, :user).order('date ASC')
   scope :for_user, lambda { |user| where(user_to_meet_with_id: user) }

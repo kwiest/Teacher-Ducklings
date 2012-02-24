@@ -8,10 +8,14 @@ class Admin::MeetingsController < AdminController
 
   def new
     @meeting = Meeting.new
+    @admins = User.admins
+    @users = User.all
   end
 
   def edit
     @meeting = Meeting.find(params[:id])
+    @admins = User.admins
+    @users = User.all
   end
 
   def create

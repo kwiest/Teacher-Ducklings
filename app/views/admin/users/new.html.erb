@@ -1,10 +1,13 @@
 <h1>Create New User</h1>
 
-<%= simple_form_for @user, :url => admin_users_path, :html => { :multipart => true } do |f| -%>
-	<fieldset>
-		<%= render 'form', :f => f %>
-		<%= f.button :submit, 'Save user' %>
-	</fieldset>
-<% end -%>
+<%= simple_form_for @user, url: admin_users_path, html: { multipart: true, class: 'form-vertical' } do |f| %>
+  <fieldset>
+    <legend>User details</legend>
+    <%= render 'form', f: f %>
+  </fieldset>
 
-<p><%= link_to '← Back', :back %></p>
+  <div class="form-actions">
+    <%= f.button :submit, 'Save user', class: 'btn btn-primary' %>
+    <%= link_to 'Cancel', :back, class: 'btn btn-danger' %>
+  </div>
+<% end %>

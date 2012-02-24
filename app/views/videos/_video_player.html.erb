@@ -1,17 +1,8 @@
-<%= content_for :head do %>
-  <%= stylesheet_link_tag 'video-js' %>
-<% end %>
-
-<%= content_for :javascript do %>
-  <%= javascript_include_tag 'video' %>
-<% end %>
-
-
-<div id="video" class="float-left">
+<div id="video">
   <% if video.converting? -%>
-    <div class="notice">Video is still converting, please be patient</div>
+    <div class="alert">Video is still converting, please be patient</div>
   <% elsif video.error? -%>
-    <div class="error">There was an error while converting your video</div>
+    <div class="alert alert-error">There was an error while converting your video</div>
   <% elsif video.complete? -%>
     <h3>Viewing: <%= video.verbose_title %></h3>
 

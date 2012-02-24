@@ -1,14 +1,23 @@
-<div class="video-review">
-	<% if review.pdf? -%>
-		<div class="float-right">
-			<%= link_to image_tag("/images/icons/pdf_48.png"), review.pdf.url %>
-		</div>
-	<% end -%>
-	
-	<h4>Reviewed By: <%= review.user.full_name %> <%= time_ago_in_words(review.updated_at) %> ago</h4>
+<%= div_for review do %>
+  <div class="info">
+    <h4>Reviewed by: <%= review.user.full_name %></h4>
+    <span class="time"><%= time_ago_in_words(review.updated_at) %> ago.</span>
+  </div>
 
-	<p>
-		<strong>Description:</strong> <%=h review.description %>
-	</p>
-	<div class="clear"></div>
-</div>
+  <div class="attachment">
+    <% if review.pdf.present? %>
+      <%= link_to image_tag('icons/pdf_48.png'), review.pdf.url %>
+    <% end %>
+  </div>
+
+  <div class="description">
+    <strong>Description: </strong><%= review.description %>
+  </div>
+
+  <div class="actions">
+    <%= link_to 'Edit review', edit_admin_video_review_path(@video, review), class: 'edit' %>
+    <%= link_to 'Delete review', admin_video_review_path(@video, review), method: :delete,
+      confirm: 'Are you sure you want to delete this review?', class: 'delete' %>
+  </div>
+  <div class="clear"></div>
+<% end %>

@@ -3,8 +3,9 @@
 <head>
   <meta charset="utf-8">
   <title>Teacher Ducklings -- <%= controller_name.capitalize %> | <%= controller.action_name.capitalize %></title>
-  <%= stylesheet_link_tag 'common_styles' %>
-  <%= stylesheet_link_tag 'duckling_styles' %>
+  <%= stylesheet_link_tag 'application' %>
+
+  <%= javascript_include_tag 'modernizr-2.5.3' %>
 
   <%= yield :head %>
 </head>
@@ -12,7 +13,8 @@
   <!-- Main Page Wrap -->
   <div id="page-wrap">
     <div id="header">
-      <div class="float-right">
+
+      <div id="user-info" class="clearfix">
         <% if logged_in? %>
           <div>
             Logged in as: <strong><%= current_user.full_name %></strong> 
@@ -32,19 +34,18 @@
           </div>
         <% end %>
       </div>
-      <div class="clear"></div>
 
       <div id="logo">
-          <img src="/images/logo.png" alt="Teacher Ducklings" />
+        <%= image_tag('logo.png') %>
       </div>
 
-      <div id="nav">
-          <ul id="categories">
-              <li><%= link_to "Home", root_path %></li>
-              <% @categories.each do |c| %>
-                  <li><%= link_to c.name, c %></li>
-              <% end %>
-          </ul>
+      <div id="nav" class="clearfix">
+        <ul id="categories">
+          <li><%= link_to "Home", root_path %></li>
+          <% @categories.each do |c| %>
+            <li><%= link_to c.name, c %></li>
+          <% end %>
+        </ul>
       </div>
     </div>
     <!-- End Header -->
@@ -52,14 +53,16 @@
     <div id="main-body">
       <div id="primary-content">
         <% flash.each do |name,value| -%>
-            <div class="<%= name %>"><%= value %></div>
+          <div class="alert alert-<%= name %>">
+            <%= value %>
+          </div>
         <% end %>
 
         <%= yield %>
       </div>
       <!-- End Primary Content -->
     
-      <div id="secondary-content">
+      <div id="secondary-content" class="clearfix">
         <div class="inner">
           <%= yield :links %>
           
@@ -70,14 +73,17 @@
             <% end %>
           </ul>
           
+          <h3>Links</h3>
           <p class="uo-ed">
             <a href="http://education.uoregon.edu/">UofO College of Education</a>
           </p>
+
           <p class="feed">
-            <%= link_to "Subscribe to our RSS feed", posts_path(:format => "atom") %>
+            <%= link_to "Subscribe to our RSS feed", posts_path(format: "atom") %>
           </p>
+
           <p class="facebook">
-            <a href="http://www.facebook.com/group.php?gid=125314150002">Teacher Ducklings Facebook Group!</a>
+            <a href="http://www.facebook.com/group.php?gid=125314150002">Facebook Group</a>
           </p>
         </div>
       </div>
@@ -95,11 +101,7 @@
   </div>
   <!-- End Page Wrap -->
 
-  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js"></script>
-  <script type="text/javascript" src="/tiny_mce/jquery.tinymce.js"></script>
-  <%= javascript_include_tag :all %>
-
+  <%= javascript_include_tag 'application' %>
   <%= yield :javascript %>
 
 </body>

@@ -1,0 +1,75 @@
+.post {
+  margin-bottom: 20px;
+
+  .title {
+    color: green;
+    margin: 0 0 6px 0;
+
+    a, a:visited {
+      color: inherit;
+      font-weight: bold;
+      text-decoration: underline;
+    }
+  }
+
+  .publisher-info {
+    margin-bottom: 20px;
+    color: #999;
+    font-size: 12px;
+
+    a, a:visited {
+      color: inherit;
+    }
+  }
+
+  .body {
+    li {
+      margin-left: 36px;
+    }
+  }
+}
+
+#comments {
+  padding: 18px 0;
+  margin-bottom: 36px;
+  border-top: 1px solid #b1b1b1;
+
+  .comment {
+    margin-bottom: 8px;
+    padding: 4px;
+    border-bottom: 1px dashed #b1b1b1;
+
+    p {
+      font-size: 12px;
+      line-height: 1.2;
+    }
+    
+    .body {
+      float: left;
+      width: 560px;
+    }
+
+    .pic {
+      float: left;
+      margin-right: 24px;
+      height: 60px;
+      width: 60px;
+
+      img {
+        height: inherit;
+        width: inherit;
+        padding: 3px;
+        background: #fff;
+        border: 1px solid #b1b1b1;
+      }
+    }
+
+    .delete-comment {
+      font-size: 11px;
+      height: 16px;
+      margin-left: 80px;
+      padding-left: 16px;
+      background: transparent url(image_path('icons/cancel_16.png')) left no-repeat;
+    }
+  }
+}

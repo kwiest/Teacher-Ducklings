@@ -1,23 +1,27 @@
-<%= content_for :head do %>
-    <%= javascript_include_tag 'swfobject' %>
-    <%= javascript_include_tag 'jquery.uploadify.v2.1.4.min' %>
-    <%= stylesheet_link_tag 'uploadify' %>
+<%= content_for :javascript do %>
+  <%= javascript_include_tag 'swfobject' %>
+  <%= s3_upload_script({ key: 'video', button_text: 'Choose video file' }).html_safe %>
 <% end %>
+
 
 <h1>New video</h1>
 
-<%= simple_form_for @video, :url => admin_videos_path do |f| %>
+<%= simple_form_for @video, url: admin_videos_path do |f| %>
   <fieldset>
     <legend>Video details</legend>
-    <%= s3_uploader :key => 'video', :button_text => 'Choose video file' %>
-    <div id="instructions" style="display: none;">
-      Now please complete the form and save.
+    <div class='control-group'>
+      <%= link_to 'Choose video file', '#', id: 'upload_video', class: 'btn' %>
+      <div id="instructions" class="alert alert-success" style="display: none;">
+        Now please complete the form and save.
+      </div>
     </div>
 
-    <%= render 'form', :f => f %>
-
-    <%= f.button :submit, 'Save video' %>
-    Please wait for the video to finish uploading before hitting 'Save video.'
+    <%= render 'form', f: f %>
   </fieldset>
+
+  <div class="form-actions">
+    <%= f.button :submit, 'Save video', class: 'btn btn-primary' %>
+    Please wait for the video to finish uploading before hitting 'Save video.'
+  </div>
 <% end %>
 

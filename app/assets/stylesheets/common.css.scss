@@ -1,0 +1,66 @@
+body {
+  font-family: 'Helvetica Neue', Helvetica, 'Lucida Grande', sans-serif;
+}
+
+/******************************************************************
+ * Utility
+ ******************************************************************/
+ 
+.float-left {
+  float: left;
+  margin: 0 24px 24px 0;
+}
+
+.float-right {
+  float: right;
+  margin: 0 0 24px 24px;
+}
+
+.clear {
+  clear: both;
+}
+
+.center {
+  text-align: center;
+}
+
+.inner {
+  padding: 10px;
+}
+
+
+/******************************************************************
+ * Video player
+ ******************************************************************/
+
+a#player {
+  display: block;
+  width: 640px;
+  height: 360px;
+}
+
+a#admin_player {
+  display: block;
+  width: 480px;
+  height: 270px;
+}
+
+/******************************************************************
+ * Page
+ ******************************************************************/
+
+#main-body {
+  padding: 20px;
+}
+
+#footer {
+  margin-top: 60px;
+  padding: 20px;
+  border-top: 3px solid #333;
+  text-align: center;
+}
+
+li.upcoming { 
+  list-style-type: none;
+}
+

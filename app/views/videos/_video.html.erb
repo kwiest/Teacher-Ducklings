@@ -1,13 +1,18 @@
-<div class="resource-row <%= cycle 'odd', 'even' %>">
-	<div style="float: left;">
-		<%= image_tag 'movie.png' %>
-	</div>
-	<div style="float: right;">
-    <br />
-		<%= link_to 'Watch', video_path(video), :class => "show" %>
-	</div>
-	<strong>User: </strong><%= link_to video.user.full_name, video.user %><br />
-	<strong>Original File: </strong><%= video.video_file_name %> - <strong>Status: </strong><%= video.state %></strong><br />
-  <strong>Created: </strong><%= time_ago_in_words video.created_at %> ago
-	<div class="clear"></div>
-</div>
+<%= div_for video do %>
+  <div class="name">
+    <%= link_to video do %>
+      <h4><%= video.title %></h4>
+    <% end %>
+  </div>
+
+  <div class="image">
+    <%= link_to image_tag('movie.png'), video %>
+  </div>
+
+  <div class="info">
+    <div class="file"><strong>Original file: </strong><%= video.video_file_name %></div>
+    <div class="state"><strong>Status: </strong><%= video.state.camelize %></div>
+    <div class="date"><strong>Created: </strong><%= time_ago_in_words(video.created_at) %> ago.</div>
+  </div>
+  <div class="clear"></div>
+<% end %>

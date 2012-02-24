@@ -1,5 +1,16 @@
 TeacherDucklings::Application.configure do
   # Settings specified here will take precedence over those in config/environment.rb
+  
+  # Do not compress assets
+  config.assets.compress = false
+  config.assets.debug    = true
+
+  # Raise an exception on mass-assignment protection violations
+  config.active_record.mass_assignment_sanitizer = :strict
+
+  # Log the query plan for queries taking longer than this
+  # SQLite, MySQL, and PostgreSQL only
+  config.active_record.auto_explain_threshold_in_seconds = 0.5
 
   # In the development environment your application's code is reloaded on
   # every request.  This slows down response time but is perfect for development
@@ -10,9 +21,8 @@ TeacherDucklings::Application.configure do
   config.whiny_nils = true
 
   # Show full error reports and disable caching
-  config.action_controller.consider_all_requests_local = true
-  config.action_view.debug_rjs                         = true
-  config.action_controller.perform_caching             = false
+  config.consider_all_requests_local         = true
+  config.action_controller.perform_caching   = false
 
   # Don't care if the mailer can't send
   config.action_mailer.raise_delivery_errors = false

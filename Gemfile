@@ -1,17 +1,26 @@
 source :rubygems
 
-gem 'rails', '3.0.10'
+gem 'rails', '3.2.1'
 
 gem 'authlogic', '~> 3.1.0'
-gem 'paperclip', '2.3.5'
-gem 'aws', '2.5.6'
-gem 'aws-s3', '0.6.2'
-gem 'simple_form', '~> 1.5.2'
+gem 'paperclip', '~> 2.6.0'
+gem 'aws-sdk', '~> 1.3.5'
+gem 'simple_form', '~> 2.0.0.rc'
+gem 'anjlab-bootstrap-rails', '>= 2.0', require: 'bootstrap-rails'
 gem 'zencoder', '2.3.1'
-gem 'state_machine', '1.0.2'
+gem 'state_machine', '~> 1.1.2'
 gem 'postmark', '0.9.8'
 gem 'postmark-rails', '0.4.1'
 gem 'opentok', '~> 0.0.5'
+gem 'watu_table_builder', require: 'table_builder'
+gem 'jquery-rails'
+gem 'tinymce-rails'
+
+group :assets do
+  gem 'sass-rails', '~> 3.2.3'
+  gem 'coffee-rails', '~> 3.2.1'
+  gem 'uglifier', '>= 1.0.3'
+end
 
 group :development do
   gem 'sqlite3'

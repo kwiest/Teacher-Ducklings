@@ -1,16 +1,20 @@
-<div class="post">
-  <h3 class="post_title">
-      <%= link_to post.title, post %>
-  </h3>
+<%= div_for post do %>
+  <%= link_to post do %>
+    <h2 class="title"><%= post.title %></h2>
+  <% end %>
 
-  <p class="post_time">
-      By: <%= post.user.full_name %>, <%= time_ago_in_words(post.created_at) %> ago. 
-      Under 
-      <% post.categories.each do |c| -%>
-          <%= link_to c.name, c %> 
-      <% end -%>
-  </p>
-  <div class="post_body">
-      <%= post.body.html_safe %>
+  <div class="publisher-info">
+    <span class="author">By: <%= post.user.full_name %></span>,
+    <span class="time"><%= time_ago_in_words(post.created_at) %> ago.</span>
+    <div class="categories">
+      Under: 
+      <% post.categories.each do |c| %>
+        <%= link_to c.name, c %> |
+      <% end %>
+    </div>
   </div>
-</div>
+
+  <div class="body">
+    <%= post.body.html_safe %>
+  </div>
+<% end %>

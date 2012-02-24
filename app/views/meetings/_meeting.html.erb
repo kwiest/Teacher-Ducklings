@@ -1,11 +1,14 @@
-<div class="resource-row <%= cycle 'odd', 'even' %>">
-	<div style="float: right;">
-		<br />
-		<%= link_to 'Go to Meeting', meeting, class: 'show' %>
-	</div>
-    <strong>When:</strong> <%= meeting.date %> at <%= meeting.time %><br />
-	<strong>With:</strong> <%= meeting.user.full_name %><br /> 
-	<strong>Reviewing:</strong> <%= link_to meeting.video.title, video_path(meeting.video) %><br />
-	<strong>Confirmed?</strong> <%= meeting.confirmed? %>
-</div>
-<div class="clear"></div>
+<%= div_for meeting do %>
+  <div class="info">
+    <div class="when"><strong>When: </strong><%= meeting.date %> at <%= meeting.time %></div>
+    <div class="with"><strong>With: </strong><%= meeting.user.full_name %></div>
+    <div class="video"><strong>Video: </strong> <%= link_to meeting.video.title, meeting.video %></div>
+    <div class="confirmed"><strong>Confirmed? </strong><%= meeting.confirmed? %></div>
+  </div>
+
+  <div class="actions">
+    <%= link_to 'Go to Meeting Room', meeting, class: 'show' %>
+  </div>
+
+  <div class="clear"></div>
+<% end %>

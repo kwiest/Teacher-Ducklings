@@ -1,7 +1,7 @@
 <h1>Category Links</h1>
 
-<%= link_to 'New link', new_admin_link_path, :class => :large_button %>
+<%= link_to 'New link', new_admin_link_path, class: 'btn btn-success btn-large' %>
 
-<p>&nbsp;</p>
-
-<%= render @links %>
+<div id="links">
+  <%= render @links %>
+</div>

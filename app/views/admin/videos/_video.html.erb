@@ -1,14 +1,30 @@
 <div class="resource-row <%= cycle 'odd', 'even' %>">
-	<div style="float: left;">
-		<%= image_tag 'movie.png' %>
-	</div>
-	<div style="float: right;">
-    <br />
-		<%= link_to 'Watch', admin_video_path(video), :class => "show" %>
-	  <%= link_to 'Delete', admin_video_path(video), :confirm => 'Are you sure?', :method => :delete, :class => "delete" %>
-	</div>
-	<strong>User: </strong><%= link_to video.user.full_name, admin_user_path(video.user) %><br />
-	<strong>Original File: </strong><%= video.video_file_name %> - <strong>Status: </strong><%= video.state %></strong><br />
-  <strong>Created: </strong><%= time_ago_in_words video.created_at %> ago
-	<div class="clear"></div>
+  <%= div_for video do %>
+    <div class="title">
+      <h4><%= video.title %></h4>
+    </div>
+    <div class="clear"></div>
+
+    <div class="image">
+      <%= image_tag 'movie.png' %>
+    </div>
+
+    <div class="info">
+      <div class="user">
+        <strong>User: </strong><%= link_to video.user.full_name, admin_user_path(video.user) %>
+      </div>
+      <div class="state">
+        <strong>Status: </strong><%= video.state.camelize %>
+      </div>
+      <div class="date">
+        <strong>Created: </strong><%= time_ago_in_words video.created_at %> ago
+      </div>
+    </div>
+
+    <div class="actions">
+      <%= link_to 'Watch', admin_video_path(video), class: 'show' %>
+	  <%= link_to 'Delete', admin_video_path(video), confirm: 'Are you sure?', method: :delete, class: 'delete' %>
+    </div>
+  <% end %>
+  <div class="clear"></div>
 </div>

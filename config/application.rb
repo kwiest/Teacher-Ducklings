@@ -2,7 +2,9 @@ require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
 
-Bundler.require(:default, Rails.env) if defined?(Bundler)
+if defined?(Bundler)
+  Bundler.require *Rails.groups(assets: %w(development test))
+end
 
 module TeacherDucklings
   class Application < Rails::Application
@@ -13,6 +15,10 @@ module TeacherDucklings
     # Custom directories with classes and modules you want to be autoloadable.
     # config.autoload_paths += %W(#{config.root}/extras)
     config.autoload_paths += %W(#{config.root}/lib)
+
+    # Enable the Asset Pipeline
+    config.assets.enabled = true
+    config.assets.version = '1.0'
     
     # Only load the plugins named here, in the order given (default is alphabetical).
     # :all can be used as a placeholder for all plugins not explicitly named.

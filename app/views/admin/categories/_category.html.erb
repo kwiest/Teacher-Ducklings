@@ -1,8 +1,14 @@
 <div class="resource-row <%= cycle 'odd', 'even' %>">
-	<div style="float: right;">
-    <%= link_to 'Edit', edit_admin_category_path(category), :class => 'edit' %>
-    <%= link_to 'Delete', admin_category_path(category), :confirm => 'Are you sure?', :method => :delete, :class => 'delete' %>
-	</div>
-	<strong>Name:</strong> <%= category.name %>
+  <%= div_for category do %>
+    <div class="name">
+      <h4><%= category.name %></h4>
+    </div>
+    <div class="clear"></div>
+
+    <div class="actions">
+      <%= link_to 'Edit', edit_admin_category_path(category), :class => 'edit' %>
+      <%= link_to 'Delete', admin_category_path(category), :confirm => 'Are you sure?', :method => :delete, :class => 'delete' %>
+    </div>
+  <% end %>
+  <div class="clear"></div>
 </div>
-<div class="clear"></div>

@@ -1,10 +1,12 @@
 <h1>New category</h1>
 
-<%= simple_form_for @category, :url => admin_categories_path do |f| %>
-	<fieldset>
-		<%= render 'form', :f => f %>
-		<%= f.button :submit, 'Save category' %>
-	</fieldset>
-<% end %>
+<%= simple_form_for @category, url: admin_categories_path, html: { class: 'form-vertical' } do |f| %>
+  <fieldset>
+    <%= render 'form', :f => f %>
+  </fieldset>
 
-<p><%= link_to '← Back', :back %></p>
+  <div class="form-actions">
+    <%= f.button :submit, 'Save category', class: 'btn btn-primary' %>
+    <%= link_to 'Cancel', :back, class: 'btn btn-danger' %>
+  </div>
+<% end %>

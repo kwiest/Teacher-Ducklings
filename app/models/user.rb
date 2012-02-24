@@ -3,7 +3,8 @@ require 'opentok'
 class User < ActiveRecord::Base
   include Permissions
   
-  default_scope :order => :last_name
+  default_scope order: :last_name
+  scope :admins, where(admin: true)
   
   acts_as_authentic
   

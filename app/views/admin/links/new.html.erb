@@ -1,10 +1,12 @@
 <h1>Create a New Link</h1>
 
-<%= simple_form_for @link, :url => admin_links_path, :html => { :multipart => true }, :method => :put do |f| %>
+<%= simple_form_for @link, url: admin_links_path, html: { multipart: true, class: 'form-vertical' } do |f| %>
   <fieldset>
-		<%= render 'form', :f => f %>
-		<%= f.button :submit, 'Create link' %>
-	</fieldset>
-<% end %>
+    <%= render 'form', f: f %>
+  </fieldset>
 
-<%= link_to '← Back', :back %>
+  <div class="form-actions">
+    <%= f.button :submit, 'Create link', class: 'btn btn-primary' %>
+    <%= link_to 'Cancel', :back, class: 'btn btn-danger' %>
+  </div>
+<% end %>

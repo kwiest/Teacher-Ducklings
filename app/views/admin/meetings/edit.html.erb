@@ -1,10 +1,12 @@
 <h1>Editing meeting</h1>
 
-<%= simple_form_for @meeting, :url => admin_meeting_path(@meeting) do |f| %>
-	<fieldset>
-		<%= render 'form', :f => f %>
-		<%= f.button :submit, 'Update meeting' %>
-	</fieldset>
-<% end %>
+<%= simple_form_for @meeting, url: admin_meeting_path(@meeting) do |f| %>
+  <fieldset>
+    <%= render 'form', f: f %>
+  </fieldset>
 
-<p><%= link_to '← Back', :back %></p>
+  <div class="form-actions">
+    <%= f.button :submit, 'Update meeting', class: 'btn btn-primary' %>
+    <%= link_to 'Cancel', :back, class: 'btn btn-danger' %>
+  </div>
+<% end %>

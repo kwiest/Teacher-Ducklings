@@ -1,7 +1,7 @@
 <h1>User Administration</h1>
 
-<%= link_to "New user", new_admin_user_path, :class => :large_button %>
+<%= link_to "New user", new_admin_user_path, class: 'btn btn-success btn-large' %>
 
-<p>&nbsp;</p>
-
-<%= render @users %>
+<div id="users">
+  <%= render @users %>
+</div>

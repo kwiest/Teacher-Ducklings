@@ -1,41 +1,24 @@
 # Methods added to this helper will be available to all templates in the application.
 module ApplicationHelper
-  def s3_uploader(options = {})
-    bucket = ENV['S3_BUCKET']
-    access_key = ENV['S3_KEY']
-    secret_key = ENV['S3_SECRET']
+  def bucket
+    ENV['S3_BUCKET']
+  end
 
+  def access_key
+    ENV['S3_KEY']
+  end
+
+  def secret_key
+    ENV['S3_SECRET']
+  end
+
+  def s3_upload_script(options = {})
     key = options[:key] || ''
     content_type = options[:content_type] || ''
-    acl = options[:acl] || 'public-read'
-    expiration_date = 10.hours.from_now.utc.strftime('%Y-%m-%dT%H:%M:%S.000Z')
-    max_filesize = 500.megabyte
     file_ext = options[:file_ext] || '*.*'
+    acl = options[:acl] || 'public-read'
 
-    policy = Base64.encode64(
-      "{'expiration': '#{expiration_date}',
-        'conditions': [
-          {'bucket': '#{bucket}'},
-          ['starts-with', '$key', '#{key}'],
-          {'acl': '#{acl}'},
-          ['content-length-range', '0', '#{max_filesize}'],
-          {'success_action_status': '201'},
-          ['starts-with', '$folder', ''],
-          ['starts-with', '$Filename', ''],
-          ['starts-with', '$fileext', '']
-        ]
-      }").gsub(/\n|\r/, '')
-
-    signature = Base64.encode64(
-      OpenSSL::HMAC.digest(
-        OpenSSL::Digest::Digest.new('sha1'),
-        secret_key, policy
-      )
-    ).gsub("\n", "")
-
-    out = ""
-    out << link_to("Choose file", "#", :id => "upload_#{key}")
-    out << %(
+    script = <<-eos
       <script type="text/javascript">
           $(function() {
               $('#upload_#{key}').uploadify({
@@ -44,18 +27,18 @@ module ApplicationHelper
                   'auto'          : 'true',
                   'multi'         : 'false',
                   'fileDataName'  : 'file',
-                  'cancelImg'     : '/images/cancel.png',
+                  'cancelImg'     : '/assets/cancel.png',
                   'height'        : 40,
                   'width'         : 150,
                   'buttonText'    : '#{options[:button_text]}',
-                  'folder'        : '#{key}',
+                  'folder'        : '#{key}s',
                   'fileExt'       : '#{file_ext}',
                   'scriptData'    : {
                     'key'                   : '#{key}s/${filename}',
                     'AWSAccessKeyId'        : '#{access_key}',
                     'acl'                   : '#{acl}',
-                    'policy'                : encodeURIComponent('#{policy}'),
-                    'signature'             : encodeURIComponent('#{signature}'),
+                    'policy'                : encodeURIComponent('#{s3_policy}'),
+                    'signature'             : encodeURIComponent('#{s3_signature(s3_policy)}'),
                     'success_action_status' : '201',
                     'Content-Type'          : ''
                   },
@@ -76,6 +59,35 @@ module ApplicationHelper
               });
           })
       </script>
-    )
+    eos
+  end
+
+  def s3_policy(options = {})
+    key = options[:key] || ''
+    content_type = options[:content_type] || ''
+    acl = options[:acl] || 'public-read'
+    expiration_date = 10.hours.from_now.utc.strftime('%Y-%m-%dT%H:%M:%S.000Z')
+    max_filesize = 500.megabyte
+    file_ext = options[:file_ext] || '*.*'
+
+    Base64.encode64(
+      "{'expiration': '#{expiration_date}',
+        'conditions': [
+          {'bucket': '#{bucket}'},
+          ['starts-with', '$key', '#{key}'],
+          {'acl': '#{acl}'},
+          ['content-length-range', '0', '#{max_filesize}'],
+          {'success_action_status': '201'},
+          ['starts-with', '$folder', ''],
+          ['starts-with', '$Filename', ''],
+          ['starts-with', '$fileext', '']
+        ]
+      }").gsub(/\n|\r/, '')
+  end
+
+  def s3_signature(policy)
+    Base64.encode64(
+      OpenSSL::HMAC.digest(OpenSSL::Digest::Digest.new('sha1'), secret_key, s3_policy)
+    ).gsub("\n", "")
   end
 end

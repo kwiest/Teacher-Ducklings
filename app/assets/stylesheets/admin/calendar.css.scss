@@ -1,0 +1,60 @@
+#calendar {
+  table {
+    border-collapse: collapse;
+    width: 100%;
+
+    td, th {
+      font-size: 10px;
+      padding: 6px;
+      border: 1px solid #999;
+    }
+
+    th {
+      background-color: #ddd;
+      color: #666;
+      text-align: center;
+      width: 14.2857142857143%;
+    }
+
+    td {
+      background-color: #fff;
+      color: #777;
+      height: 80px;
+      vertical-align: top;
+      font-size: 16px;
+    }
+  }
+
+  .notmonth {
+    color: #ccc;
+  }
+
+  #month {
+    margin: 0;
+    padding: 10px 0;
+    text-align: center;
+
+    a, a:hover {
+      text-decoration: none;
+      padding: 0 10px;
+      color: #999;
+    }
+  }
+
+  .today {
+    background-color: #d7f2ff;
+  }
+
+  ul {
+    margin: 5px 0 0 0;
+    padding: 0;
+    font-size: 12px;
+    list-style-type: none;
+    
+    li {
+      margin: 0;
+      padding: 0;
+      font-size: 12px;
+    }
+  }
+}

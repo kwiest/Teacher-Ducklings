@@ -11,10 +11,12 @@ class Admin::PostsController < AdminController
 
   def new
     @post = Post.new
+    @admins = User.admins
   end
 
   def edit
     @post = Post.find(params[:id])
+    @admins = User.admins
   end
 
   def create

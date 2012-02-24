@@ -1,0 +1,133 @@
+#users, #categories, #posts, #links, #videos {
+  margin-top: 20px;
+}
+
+.resource-row {
+  border-bottom: 1px solid #aaa;
+  font-size: 12px;
+
+  .even {
+    background-color: #edf3fe;
+  }
+
+  h4 {
+    margin: 3px 0;
+    font-size: 18px;
+  }
+
+  .actions {
+    float: right;
+    padding-bottom: 6px;
+    width: 220px;
+
+    .show, .edit, .delete {
+      display: inline;
+      padding: 0 18px;
+    }
+
+    .show {
+      background: transparent url(image_path('icons/search_16.png')) left no-repeat;
+    }
+
+    .edit {
+      background: transparent url(image_path('icons/paper&pencil_16.png')) left no-repeat;
+    }
+
+    .delete {
+      background: transparent url(image_path('icons/cancel_16.png')) left no-repeat;
+    }
+  }
+
+  /**********************************************************************
+  /* Users
+  /**********************************************************************/
+  .user {
+    padding: 3px;
+
+    .pic {
+      float: left;
+      height: 60px;
+      width: 60px;
+      margin-right: 12px;
+
+      img {
+        height: inherit;
+        width: inherit;
+      }
+    }
+
+    .contact-info {
+      float: left;
+
+      .phone, .email, .admin {
+        margin-bottom: 2px;
+      }
+    }
+  }
+
+  
+  /**********************************************************************
+  /* Categories
+  /**********************************************************************/
+  .category {
+  }
+
+
+  /**********************************************************************
+  /* Posts
+  /**********************************************************************/
+  .post {
+    padding: 3px;
+
+    .publish-info {
+      float: left;
+
+      .author, .date, .comments {
+        margin-bottom: 2px;
+      }
+    }
+  }
+
+
+  /**********************************************************************
+  /* Links
+  /**********************************************************************/
+  .link {
+    padding: 3px;
+
+    .info {
+      float: left;
+      width: 600px;
+
+      .url, .description, .document {
+        margin-bottom: 2px;
+      }
+    }
+  }
+
+
+  /**********************************************************************
+  /* Videos
+  /**********************************************************************/
+  .video {
+    padding: 3px;
+
+    .image {
+      float: left;
+      margin-right: 12px;
+    }
+
+    .info {
+      float: left;
+
+      .user, .state, .date {
+        margin-bottom: 2px;
+      }
+    }
+  }
+}
+
+.resource-row:hover {
+  background-color: #fff6bf;
+}
+

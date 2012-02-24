@@ -1,4 +1,4 @@
-<%= f.input :title, :input_html => { :size => 40, :class => 'post-title' } %>
-<%= f.input :body, :input_html => { :class => 'tinymce', :cols => 45, :rows => 30 }%>
-<%= f.association :user, :label => 'Author', :prompt => 'Choose an author', :conditions => { :admin => true } %>
-<%= f.association :categories, :as => :check_boxes, :required => false %>
+<%= f.input :title, input_html: { size: 40, class: 'post-title' } %>
+<%= f.input :body, input_html: { class: 'tinymce', cols: 45, rows: 25 }%>
+<%= f.association :user, label: 'Author', collection: @admins, include_blank: false %>
+<%= f.association :categories, as: :check_boxes, required: false %>

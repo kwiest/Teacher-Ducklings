@@ -1,5 +1,5 @@
-<%= f.association :categories, :as => :check_boxes %>
-<%= f.input :name, :input_html => { :size => 40 } %>
-<%= f.input :url, :label => 'Link URL', :input_html => { :size => 40 }, :required => false %>
-<%= f.input :description, :input_html => { :rows => 5 }, :required => false %>
-<%= f.input :document, :as => :file, :required => false %>
+<%= f.association :categories, as: :check_boxes %>
+<%= f.input :name %>
+<%= f.input :url, label: 'Link URL', hint: 'http://www.example.com', required: false %>
+<%= f.input :description, input_html: { rows: 5 }, required: false %>
+<%= f.input :document, as: :file, required: false %>

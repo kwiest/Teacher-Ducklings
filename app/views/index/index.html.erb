@@ -1,30 +1,30 @@
 <h1>Welcome!</h1>
 <% if logged_in? %>
+  <div class="alert">
     <% if admin? %>
-        <h3>
-            Hey there <%= current_user.first_name %>, it looks like you're a site administrator, so why don't you
-            head over to the <%= link_to "Admin Panel", admin_root_path %>
-        </h3>
+      <h4 class="alert-heading">Hey there <%= current_user.first_name %></h4>
+        It looks like you're a site administrator, so why don't you
+        head over to the <%= link_to "Admin Panel", admin_root_path %>
+      </h4>
     <% else %>
-        <h3>
-            Greetings <%= current_user.first_name %>!
-        </h3>
+      <h4 class="alert-heading">Greetings <%= current_user.first_name %>!</h4>
     <% end %>
+  </div>
 <% end %>
 <p>
-    The purpose of this website is to offer access to useful documents, articles, ideas and contact information
-    for our current students, graduates, mentoring teachers and other interested parties.
+  The purpose of this website is to offer access to useful documents, articles, ideas and contact information
+  for our current students, graduates, mentoring teachers and other interested parties.
 </p>
 <p>
-    Content is organized by subject area. Each area can be accessed by clicking on the corresponding tab at the
-    top of the page. Available documents are listed on the side. Resources, articles, and related websites that
-    you may find of interest are listed as well. When possible, a direct link has been provided.
+  Content is organized by subject area. Each area can be accessed by clicking on the corresponding tab at the
+  top of the page. Available documents are listed on the side. Resources, articles, and related websites that
+  you may find of interest are listed as well. When possible, a direct link has been provided.
 </p>
 <p class="float-left">
-    <%= image_tag "emma.jpg", :border => 0 %>
+  <%= image_tag "emma.jpg", :border => 0 %>
 </p>
 <p>
-    The site is supervised by Emma Martin PhD who is the Program Coordinator for the Early Childhood/Elementary
+  The site is supervised by Emma Martin PhD who is the Program Coordinator for the Early Childhood/Elementary
   Special Education Licensure Program in the College of Education at the University of Oregon. Dr. Martin plays 
   a pivotal role in orchestrating the effective and efficient development and implementation of research-based 
   training, on-going supervision and instructional support to pre-service teachers. Dr. Martin's areas of
@@ -38,6 +38,6 @@
   as part of an administrative support team. 
 </p>
 <p>
-    If you have any questions or comments please contact us at <%= mail_to "teacherducklings@gmail.com" %>. We would 
-    like your input or any suggestions you may have. Please check back soon for more updates.
+  If you have any questions or comments please contact us at <%= mail_to "teacherducklings@gmail.com" %>. We would 
+  like your input or any suggestions you may have. Please check back soon for more updates.
 </p>     

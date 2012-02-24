@@ -1,60 +1,50 @@
-<%= content_for :head do %>
-  <%= javascript_include_tag "video" %>
-  <%= stylesheet_link_tag "video-js" %>
+<%= div_for @video do %>
+  <div class="title">
+    <h2><%= @video.title %></h2>
+  </div>
 
-  <script type="text/javascript">
-    $(function() {
-      VideoJS.setupAllWhenReady();
-    });
-  </script>
+  <div class="info">
+    <strong>Uploaded:</strong> <%= time_ago_in_words @video.created_at %> ago<br />
+    <strong>By:</strong> <%= @video.user.full_name %>
+  </div>
+
+  <div class="description">
+    <strong>Description:</strong><%= @video.description %>
+  </div>
+
+  <% if @video.converting? -%>
+    <div class="alert">Video is still converting, please be patient</div>
+  <% elsif @video.error? -%>
+    <div class="alert alert-error">There was an error while converting your video</div>
+  <% elsif @video.complete? -%>
+    <div class="video-js-box">
+      <video class="video-js" width="640" height="360"> 
+        <source src="<%= @video.encoded_file_name %>" type="video/mp4" />
+
+        <object class="vjs-flash-fallback" width="640" height="360" type="application/x-shockwave-flash" data="http://releases.flowplayer.org/swf/flowplayer-3.2.1.swf">
+          <param name="movie" value="http://releases.flowplayer.org/swf/flowplayer-3.2.1.swf" />
+          <param name="allowfullscreen" value="true" />
+          <param name="flashvars" value='config={"playlist":["<%= @video.encoded_file_name %>", {"url": "<%= @video.encoded_file_name %>", "autoPlay": false, "autoBuffering": true}]}' />
+        </object>
+      </video>
+    </div>
+  <% end -%>
 <% end %>
 
-<h2><%= @video.title %></h2>
-
-<p>
-  <strong>Description:</strong><%= @video.description %>
-</p>
-
-<p>
-  <strong>Uploaded:</strong> <%= time_ago_in_words @video.created_at %> ago<br />
-  <strong>By:</strong> <%= @video.user.full_name %>
-</p>
-
-<% if @video.converting? -%>
-  <div class="notice">Video is still converting, please be patient</div>
-<% elsif @video.error? -%>
-  <div class="error">There was an error while converting your video</div>
-<% elsif @video.complete? -%>
-  <div class="video-js-box">
-    <video class="video-js" width="640" height="360"> 
-      <source src="<%= @video.encoded_file_name %>" type="video/mp4" />
-
-      <object class="vjs-flash-fallback" width="640" height="360" type="application/x-shockwave-flash" data="http://releases.flowplayer.org/swf/flowplayer-3.2.1.swf">
-        <param name="movie" value="http://releases.flowplayer.org/swf/flowplayer-3.2.1.swf" />
-        <param name="allowfullscreen" value="true" />
-        <param name="flashvars" value='config={"playlist":["<%= @video.encoded_file_name %>", {"url": "<%= @video.encoded_file_name %>", "autoPlay": false, "autoBuffering": true}]}' />
-      </object>
-    </video>
-  </div>
-<% end -%>
-
-<p>&nbsp;</p>
-
-<h2>Video Reviews</h2>
 <div id="reviews">
-  <% if @video.reviews.size > 0 -%>
-    <%= render :partial => '/admin/reviews/review', :collection => @video.reviews %>
-  <% else -%>
-    <p>Nobody has reviewed this video yet...</p>
-  <% end -%>
+  <h2>Video Reviews</h2>
+  <%= render @video.reviews %>
+
+  <%= simple_form_for @video.reviews.new, url: admin_video_reviews_path(@video), html: { multipart: true, class: 'form-vertical' } do |f| %>
+    <fieldset>
+      <legend>Add a review</legend>
+      <%= f.input :description, input_html: { rows: 3 } %>
+      <%= f.input :pdf, as: :file, label: 'Attach a PDF', required: false %>
+    </fieldset>
+
+    <div class="form-actions">
+      <%= f.button :submit, 'Create review', class: 'btn btn-primary' %>
+    </div>
+  <% end %>
 </div>
 
-
-<h2>Add a Review</h2>
-<%= simple_form_for @video.reviews.new, :url => admin_reviews_path, :html => { :multipart => true } do |f| %>
-    <fieldset>
-        <%= f.input :description, :input_html => { :rows => 3 } %>
-        <%= f.input :pdf, :as => :file, :label => 'Attach a PDF', :required => false %>
-        <%= f.button :submit, 'Create review' %>
-    </fieldset>
-<% end %>

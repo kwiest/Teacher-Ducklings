@@ -1,16 +1,14 @@
-<h1>Change My Password</h1>
+<h1>Password Rest</h1>
 
-<%= form_for @user, :url => password_reset_path, :method => :put do |f| -%>
-	
-	<p>
-		<%= f.label :password, "Password:" %>
-		<%= f.password_field :password %>
-	</p>
-	<p>
-		<%= f.label :password_confirmation, "Password Again:" %>
-		<%= f.password_field :password_confirmation %>
-	</p>
-	<p>
-		<%= f.submit "Change My Password", :class => :save %>
-	</p>
-<% end -%>
+<%= simple_form_for @user, url: password_reset_path, html: { class: 'form-vertical' } do |f| %>
+  <fieldset>
+    <legend>Change my password</legend>
+    <%= f.input :password %>
+    <%= f.input :password_confirmation %>
+  </fieldset>
+
+  <div class="form-actions">
+    <%= f.button :submit, 'Change my password', class: 'btn btn-primary' %>
+    <%= link_to 'Cancel', login_path, class: 'btn btn-danger' %>
+  </div>
+<% end %>

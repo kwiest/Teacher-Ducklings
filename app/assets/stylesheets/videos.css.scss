@@ -1,0 +1,16 @@
+#videos {
+  margin-top: 24px;
+
+  .video {
+    padding: 3px;
+    margin-bottom: 12px;
+
+    .image {
+      float: right;
+    }
+
+    .info {
+      float: left;
+    }
+  }
+}

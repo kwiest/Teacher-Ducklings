@@ -1,11 +1,12 @@
 TeacherDucklings::Application.configure do
-  ENV['S3_KEY'] = 'AKIAJJS76LHBMMUAS25A'
-  ENV['S3_SECRET'] = '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'
   ENV['S3_BUCKET'] = 'teacherducklings-test'
-  ENV['ZENCODER_API_KEY'] = '430c2da3719c97f45098f52d11601eca'
-  ENV['POSTMARK_API_KEY'] = '23c53650-4523-44d6-b24f-6e6f3dd79898'
-  ENV['TOKBOX_API_KEY'] = '11727762'
-  ENV['TOKBOX_API_SECRET'] = '1800b0dda3f984e52e8e7f765a1fdd3b8a7df13b'
+
+  # Configure static asset server with Cache-Control for performance
+  config.serve_static_assets  = true
+  config.static_cache_control = 'public, max-age=3600'
+
+  # Allow passing debug_assets=true as a query param to load pages with unpackaged assets
+  config.assets.allow_debugging = true
 
   # Settings specified here will take precedence over those in config/environment.rb
 
@@ -19,7 +20,7 @@ TeacherDucklings::Application.configure do
   config.whiny_nils = true
 
   # Show full error reports and disable caching
-  config.consider_all_requests_local = true
+  config.consider_all_requests_local                   = true
   config.action_controller.perform_caching             = false
   # config.action_view.cache_template_loading            = true
 

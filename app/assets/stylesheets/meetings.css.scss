@@ -1,0 +1,23 @@
+#meetings {
+  margin-top: 24px;
+
+  .meeting {
+    margin-bottom: 12px;
+    padding: 3px;
+    border-bottom: 1px dashed #b1b1b1;
+
+    .info {
+      float: left;
+      margin-right: 12px;
+    }
+
+    .actions {
+      float: right;
+
+      .show {
+        padding-left: 18px;
+        background: transparent url(image_path('icons/search_16.png')) left no-repeat;
+      }
+    }
+  }
+}
