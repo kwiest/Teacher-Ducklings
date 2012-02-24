@@ -12,7 +12,7 @@ describe Admin::ReviewsController do
 
   context 'If the parent video is not found' do
     before do
-      Video.should_receive(:find).with(video.id) { raise ActiveRecord::RecordNotFound }
+      Video.should_receive(:find).with(video.id.to_s) { raise ActiveRecord::RecordNotFound }
     end
 
     describe 'GET show' do
@@ -66,7 +66,7 @@ describe Admin::ReviewsController do
 
   context 'If the parent video is found' do
     before do
-      Video.should_receive(:find).with(video.id) { video }
+      Video.should_receive(:find).with(video.id.to_s) { video }
     end
 
     describe 'GET show' do

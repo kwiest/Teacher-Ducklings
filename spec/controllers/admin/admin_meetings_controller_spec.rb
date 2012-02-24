@@ -39,13 +39,13 @@ describe Admin::MeetingsController do
 
   describe 'GET edit' do
     it 'should assign the meeting by :id' do
-      Meeting.should_receive(:find).with(meeting.id) { meeting }
+      Meeting.should_receive(:find).with(meeting.id.to_s) { meeting }
       get :edit, id: meeting.id
       assigns(:meeting).should == meeting
     end
 
     it 'should redirect if the meeting cannot be found' do
-      Meeting.should_receive(:find).with(meeting.id) { raise ActiveRecord::RecordNotFound }
+      Meeting.should_receive(:find).with(meeting.id.to_s) { raise ActiveRecord::RecordNotFound }
       get :edit, id: meeting.id
       flash[:error].should == 'Sorry, but that meeting could not be found.'
       response.should redirect_to admin_meetings_path
@@ -74,7 +74,7 @@ describe Admin::MeetingsController do
 
   describe 'PUT update' do
     it "should update the meeting's attributes by :id" do
-      Meeting.should_receive(:find).with(meeting.id) { meeting }
+      Meeting.should_receive(:find).with(meeting.id.to_s) { meeting }
       meeting.should_receive(:set_tok_session_id) { true }
       meeting.should_receive(:update_attributes) { true }
 
@@ -84,7 +84,7 @@ describe Admin::MeetingsController do
     end
 
     it 'should re-render the "edit" template if it is not valid' do
-      Meeting.should_receive(:find).with(meeting.id) { meeting }
+      Meeting.should_receive(:find).with(meeting.id.to_s) { meeting }
       meeting.should_receive(:set_tok_session_id) { true }
       meeting.should_receive(:update_attributes) { false }
 
@@ -93,7 +93,7 @@ describe Admin::MeetingsController do
     end
 
     it 'should redirect if the meeting cannot be found' do
-      Meeting.should_receive(:find).with(meeting.id) { raise ActiveRecord::RecordNotFound }
+      Meeting.should_receive(:find).with(meeting.id.to_s) { raise ActiveRecord::RecordNotFound }
       put :update, id: meeting.id
       flash[:error].should == 'Sorry, but that meeting could not be found.'
       response.should redirect_to admin_meetings_path
@@ -102,7 +102,7 @@ describe Admin::MeetingsController do
 
   describe 'DELETE destroy' do
     it 'should destroy the meeting by :id' do
-      Meeting.should_receive(:find).with(meeting.id) { meeting }
+      Meeting.should_receive(:find).with(meeting.id.to_s) { meeting }
       meeting.should_receive(:destroy) { true }
 
       delete :destroy, id: meeting.id
@@ -111,7 +111,7 @@ describe Admin::MeetingsController do
     end
 
     it 'should redirect if the meeting cannot be found' do
-      Meeting.should_receive(:find).with(meeting.id) { raise ActiveRecord::RecordNotFound }
+      Meeting.should_receive(:find).with(meeting.id.to_s) { raise ActiveRecord::RecordNotFound }
       delete :destroy, id: meeting.id
       flash[:error].should == 'Sorry, but that meeting could not be found.'
       response.should redirect_to admin_meetings_path

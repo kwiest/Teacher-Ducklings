@@ -12,7 +12,7 @@ describe Admin::CommentsController do
 
   describe 'DELETE destroy' do
     it 'should destroy the comment by :id' do
-      Post.should_receive(:find).with(post.id) { post }
+      Post.should_receive(:find).with(post.id.to_s) { post }
       post.stub_chain(:comments, :find) { comment }
       comment.should_receive(:destroy) { true }
 
@@ -22,7 +22,7 @@ describe Admin::CommentsController do
     end
 
     it 'should redirect if the post cannot be found' do
-      Post.should_receive(:find).with(post.id) { raise ActiveRecord::RecordNotFound }
+      Post.should_receive(:find).with(post.id.to_s) { raise ActiveRecord::RecordNotFound }
 
       delete :destroy, post_id: post.id, id: comment.id
       response.should redirect_to admin_posts_path
@@ -30,7 +30,7 @@ describe Admin::CommentsController do
     end
 
     it 'should redirect if the comment cannot be found' do
-      Post.should_receive(:find).with(post.id) { post }
+      Post.should_receive(:find).with(post.id.to_s) { post }
       post.stub_chain(:comments, :find) { raise ActiveRecord::RecordNotFound }
 
       delete :destroy, post_id: post.id, id: comment.id

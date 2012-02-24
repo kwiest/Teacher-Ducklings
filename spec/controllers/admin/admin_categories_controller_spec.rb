@@ -27,7 +27,7 @@ describe Admin::CategoriesController do
 
   describe 'GET edit' do
     it 'should assign the category by id' do
-      Category.should_receive(:find).with(category.id) { category }
+      Category.should_receive(:find).with(category.id.to_s) { category }
       get :edit, id: category.id
       assigns(:category).should == category
     end
@@ -60,7 +60,7 @@ describe Admin::CategoriesController do
 
   describe 'PUT update' do
     it 'should destroy the category by :id' do
-      Category.should_receive(:find).with(category.id) { category }
+      Category.should_receive(:find).with(category.id.to_s) { category }
       category.should_receive(:destroy) { true }
       delete :destroy, id: category.id
       response.should redirect_to admin_categories_path

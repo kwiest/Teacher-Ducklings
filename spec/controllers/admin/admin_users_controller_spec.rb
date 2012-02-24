@@ -19,13 +19,13 @@ describe Admin::UsersController do
 
   describe 'GET show' do
     it 'should assign the user by :id' do
-      User.should_receive(:find).with(user.id) { user }
+      User.should_receive(:find).with(user.id.to_s) { user }
       get :show, id: user.id
       assigns(:user).should == user
     end
 
     it 'should redirect if the user cannot be found' do
-      User.should_receive(:find).with(user.id) { raise ActiveRecord::RecordNotFound }
+      User.should_receive(:find).with(user.id.to_s) { raise ActiveRecord::RecordNotFound }
       get :show, id: user.id
       flash[:notice].should == 'Sorry, but that user could not be found.'
       response.should redirect_to admin_users_path
@@ -42,13 +42,13 @@ describe Admin::UsersController do
 
   describe 'GET edit' do
     it 'should assign the user by :id' do
-      User.should_receive(:find).with(user.id) { user }
+      User.should_receive(:find).with(user.id.to_s) { user }
       get :edit, id: user.id
       assigns(:user).should == user
     end
 
     it 'should redirect if the user cannot be found' do
-      User.should_receive(:find).with(user.id) { raise ActiveRecord::RecordNotFound }
+      User.should_receive(:find).with(user.id.to_s) { raise ActiveRecord::RecordNotFound }
       get :edit, id: user.id
       flash[:notice].should == 'Sorry, but that user could not be found.'
       response.should redirect_to admin_users_path
@@ -75,7 +75,7 @@ describe Admin::UsersController do
 
   describe 'PUT update' do
     it 'should update the user attributes and redirect if valid' do
-      User.should_receive(:find).with(user.id) { user }
+      User.should_receive(:find).with(user.id.to_s) { user }
       user.should_receive(:update_attributes) { true }
 
       put :update, id: user.id
@@ -84,7 +84,7 @@ describe Admin::UsersController do
     end
 
     it 'should re-render the "edit" template if the user cannot be updated' do
-      User.should_receive(:find).with(user.id) { user }
+      User.should_receive(:find).with(user.id.to_s) { user }
       user.should_receive(:update_attributes) { false }
 
       put :update, id: user.id
@@ -93,7 +93,7 @@ describe Admin::UsersController do
     end
 
     it 'should redirect if the user cannot be found' do
-      User.should_receive(:find).with(user.id) { raise ActiveRecord::RecordNotFound }
+      User.should_receive(:find).with(user.id.to_s) { raise ActiveRecord::RecordNotFound }
       put :update, id: user.id
       flash[:notice].should == 'Sorry, but that user could not be found.'
       response.should redirect_to admin_users_path
@@ -102,7 +102,7 @@ describe Admin::UsersController do
 
   describe 'DELETE destroy' do
     it 'should delete the user by :id' do
-      User.should_receive(:find).with(user.id) { user }
+      User.should_receive(:find).with(user.id.to_s) { user }
       user.should_receive(:destroy) { true }
       
       delete :destroy, id: user.id
@@ -111,7 +111,7 @@ describe Admin::UsersController do
     end
 
     it 'should redirect if the user cannot be found' do
-      User.should_receive(:find).with(user.id) { raise ActiveRecord::RecordNotFound }
+      User.should_receive(:find).with(user.id.to_s) { raise ActiveRecord::RecordNotFound }
       delete :destroy, id: user.id
       flash[:notice].should == 'Sorry, but that user could not be found.'
       response.should redirect_to admin_users_path

@@ -19,7 +19,7 @@ describe Admin::VideosController do
 
   describe 'GET show' do
     it 'should assign the video by :id and check its encoding status' do
-      Video.should_receive(:find).with(video.id) { video }
+      Video.should_receive(:find).with(video.id.to_s) { video }
       video.should_receive(:check_encoding_status) { 'converting' }
 
       get :show, id: video.id
@@ -27,7 +27,7 @@ describe Admin::VideosController do
     end
 
     it 'should redirect if the video cannot be found' do
-      Video.should_receive(:find).with(video.id) { raise ActiveRecord::RecordNotFound }
+      Video.should_receive(:find).with(video.id.to_s) { raise ActiveRecord::RecordNotFound }
 
       get :show, id: video.id
       flash[:notice].should == 'Sorry, but that video could not be found.'
@@ -69,7 +69,7 @@ describe Admin::VideosController do
 
   describe 'DELETE destroy' do
     it 'should delete files on s3, then delete the video, then redirect' do
-      Video.should_receive(:find).with(video.id) { video }
+      Video.should_receive(:find).with(video.id.to_s) { video }
       video.should_receive(:delete_files_from_s3) { true }
       video.should_receive(:destroy) { true }
 
@@ -79,7 +79,7 @@ describe Admin::VideosController do
     end
 
     it 'should redirect if the video cannot be found' do
-      Video.should_receive(:find).with(video.id) { raise ActiveRecord::RecordNotFound }
+      Video.should_receive(:find).with(video.id.to_s) { raise ActiveRecord::RecordNotFound }
 
       delete :destroy, id: video.id
       flash[:notice].should == 'Sorry, but that video could not be found.'

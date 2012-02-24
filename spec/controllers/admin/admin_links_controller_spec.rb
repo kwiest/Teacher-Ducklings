@@ -19,13 +19,13 @@ describe Admin::LinksController do
 
   describe 'GET show' do
     it 'should assign the link by :id' do
-      Link.should_receive(:find).with(link.id) { link }
+      Link.should_receive(:find).with(link.id.to_s) { link }
       get :show, id: link.id
       assigns(:link).should == link
     end
 
     it 'should redirect if the link cannot be found' do
-      Link.should_receive(:find).with(link.id) { raise ActiveRecord::RecordNotFound }
+      Link.should_receive(:find).with(link.id.to_s) { raise ActiveRecord::RecordNotFound }
       get :show, id: link.id
       flash[:error].should == 'Sorry, but we could not find that link.'
       response.should redirect_to admin_links_path
@@ -43,14 +43,14 @@ describe Admin::LinksController do
 
   describe 'GET edit' do
     it 'should assign the link by :id' do
-      Link.should_receive(:find).with(link.id) { link }
+      Link.should_receive(:find).with(link.id.to_s) { link }
       get :edit, id: link.id
       assigns(:link).should == link
       response.should render_template 'edit'
     end
 
     it 'should redirect if the link cannot be found' do
-      Link.should_receive(:find).with(link.id) { raise ActiveRecord::RecordNotFound }
+      Link.should_receive(:find).with(link.id.to_s) { raise ActiveRecord::RecordNotFound }
       get :edit, id: link.id
       flash[:error].should == 'Sorry, but we could not find that link.'
       response.should redirect_to admin_links_path
@@ -77,7 +77,7 @@ describe Admin::LinksController do
 
   describe 'PUT update' do
     it 'should update the attributes of the link by :id' do
-      Link.should_receive(:find).with(link.id) { link }
+      Link.should_receive(:find).with(link.id.to_s) { link }
       link.should_receive(:update_attributes) { true }
       put :update, id: link.id
       flash[:success].should == 'Link was successfully updated.'
@@ -85,7 +85,7 @@ describe Admin::LinksController do
     end
 
     it 'should re-render the edit template if the link does not save' do
-      Link.should_receive(:find).with(link.id) { link }
+      Link.should_receive(:find).with(link.id.to_s) { link }
       link.should_receive(:update_attributes) { false }
       put :update, id: link.id
       assigns(:link).should == link
@@ -93,7 +93,7 @@ describe Admin::LinksController do
     end
 
     it 'should redirect if the link cannot be found' do
-      Link.should_receive(:find).with(link.id) { raise ActiveRecord::RecordNotFound }
+      Link.should_receive(:find).with(link.id.to_s) { raise ActiveRecord::RecordNotFound }
       put :update, id: link.id
       flash[:error].should == 'Sorry, but we could not find that link.'
       response.should redirect_to admin_links_path
@@ -102,7 +102,7 @@ describe Admin::LinksController do
 
   describe 'DELETE destroy' do
     it 'should destroy the link by :id' do
-      Link.should_receive(:find).with(link.id) { link }
+      Link.should_receive(:find).with(link.id.to_s) { link }
       link.should_receive(:destroy) { true }
       delete :destroy, id: link.id
       flash[:notice].should == 'Link was successfully deleted.'
@@ -110,7 +110,7 @@ describe Admin::LinksController do
     end
 
     it 'should redirect if the link cannot be found' do
-      Link.should_receive(:find).with(link.id) { raise ActiveRecord::RecordNotFound }
+      Link.should_receive(:find).with(link.id.to_s) { raise ActiveRecord::RecordNotFound }
       delete :destroy, id: link.id
       flash[:error].should == 'Sorry, but we could not find that link.'
       response.should redirect_to admin_links_path

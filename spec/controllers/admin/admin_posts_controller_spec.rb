@@ -19,13 +19,13 @@ describe Admin::PostsController do
 
   describe 'GET show' do
     it 'should assign the post by :id' do
-      Post.should_receive(:find).with(post_model.id) { post_model }
+      Post.should_receive(:find).with(post_model.id.to_s) { post_model }
       get :show, id: post_model.id
       assigns(:post).should == post_model
     end
 
     it 'should redirect if the post cannot be found' do
-      Post.should_receive(:find).with(post_model.id) { raise ActiveRecord::RecordNotFound }
+      Post.should_receive(:find).with(post_model.id.to_s) { raise ActiveRecord::RecordNotFound }
       get :show, id: post_model.id
       flash[:notice].should == 'Sorry, but we cannot find that post.'
       response.should redirect_to admin_posts_path
@@ -42,13 +42,13 @@ describe Admin::PostsController do
 
   describe 'GET edit' do
     it 'should assign the post by :id' do
-      Post.should_receive(:find).with(post_model.id) { post_model }
+      Post.should_receive(:find).with(post_model.id.to_s) { post_model }
       get :edit, id: post_model.id
       assigns(:post).should == post_model
     end
 
     it 'should redirect if the post cannot be found' do
-      Post.should_receive(:find).with(post_model.id) { raise ActiveRecord::RecordNotFound }
+      Post.should_receive(:find).with(post_model.id.to_s) { raise ActiveRecord::RecordNotFound }
       get :edit, id: post_model.id
       flash[:notice].should == 'Sorry, but we cannot find that post.'
       response.should redirect_to admin_posts_path
@@ -75,7 +75,7 @@ describe Admin::PostsController do
 
   describe 'PUT update' do
     it 'should update the attributes of the post and redirect to admin_posts_path' do
-      Post.should_receive(:find).with(post_model.id) { post_model }
+      Post.should_receive(:find).with(post_model.id.to_s) { post_model }
       post_model.should_receive(:update_attributes) { true }
       put :update, id: post_model.id
       flash[:success].should == 'Post was successfully updated and published.'
@@ -83,7 +83,7 @@ describe Admin::PostsController do
     end
 
     it 'should re-render the "edit" template if the post cannot update its attributes' do
-      Post.should_receive(:find).with(post_model.id) { post_model }
+      Post.should_receive(:find).with(post_model.id.to_s) { post_model }
       post_model.should_receive(:update_attributes) { false }
       put :update, id: post_model.id
       assigns(:post).should == post_model
@@ -91,7 +91,7 @@ describe Admin::PostsController do
     end
 
     it 'should redirect if the post cannot be found' do
-      Post.should_receive(:find).with(post_model.id) { raise ActiveRecord::RecordNotFound }
+      Post.should_receive(:find).with(post_model.id.to_s) { raise ActiveRecord::RecordNotFound }
       put :update, id: post_model.id
       flash[:notice].should == 'Sorry, but we cannot find that post.'
       response.should redirect_to admin_posts_path
@@ -100,7 +100,7 @@ describe Admin::PostsController do
 
   describe 'DELETE destroy' do
     it 'should destroy the post by :id and redirect to admin_posts_path' do
-      Post.should_receive(:find).with(post_model.id) { post_model }
+      Post.should_receive(:find).with(post_model.id.to_s) { post_model }
       post_model.should_receive(:destroy) { true }
       delete :destroy, id: post_model.id
       flash[:notice].should == 'Post was successfully deleted.'
@@ -108,7 +108,7 @@ describe Admin::PostsController do
     end
 
     it 'should redirect if the post cannot be found' do
-      Post.should_receive(:find).with(post_model.id) { raise ActiveRecord::RecordNotFound }
+      Post.should_receive(:find).with(post_model.id.to_s) { raise ActiveRecord::RecordNotFound }
       delete :destroy, id: post_model.id
       flash[:notice].should == 'Sorry, but we cannot find that post.'
       response.should redirect_to admin_posts_path
