@@ -8,6 +8,7 @@ describe Meeting do
   it 'should validate' do
     should validate_presence_of(:date)
     should validate_presence_of(:time)
+    should validate_presence_of(:moderator)
     should validate_presence_of(:user)
     should validate_presence_of(:video)
   end
@@ -21,8 +22,8 @@ describe Meeting do
   it 'should find all meetings that are within 7 days of today' do
     d1 = (Date.today + 7).to_s
     d2 = (Date.today + 1).to_s
-    m1 = Meeting.create!(date: d1, time: time, user: user, video: video)
-    m2 = Meeting.create!(date: d2, time: time, user: user, video: video)
+    m1 = Meeting.create!(date: d1, time: time, moderator: user, user: user, video: video)
+    m2 = Meeting.create!(date: d2, time: time, moderator: user, user: user, video: video)
 
     meetings = Meeting.find_upcoming_meetings
     meetings.include?(m1).should be_false
