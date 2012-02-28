@@ -5,6 +5,7 @@ describe 'Looking at the category pages' do
   let(:post1)    { Factory(:post1) }
   let(:post2)    { Factory(:post2) }
   let(:link)     { Factory(:link) }
+  let(:admin)    { Factory(:admin) }
 
   it 'should display the name of the category' do
     visit category_path(category)
@@ -17,6 +18,7 @@ describe 'Looking at the category pages' do
   end
 
   it 'should only include posts belonging to the category' do
+    post1.update_attributes(user: admin)
     category.posts << post1
     visit category_path(category)
     
