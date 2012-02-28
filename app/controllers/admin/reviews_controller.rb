@@ -1,14 +1,6 @@
 class Admin::ReviewsController < AdminController
   rescue_from ActiveRecord::RecordNotFound, with: :review_not_found
   before_filter :load_video
-  
-  def show
-    @review = @video.reviews.find(params[:id])
-  end
-
-  def new
-    @review = @video.reviews.new
-  end
 
   def edit
     @review = @video.reviews.find(params[:id])
@@ -22,7 +14,8 @@ class Admin::ReviewsController < AdminController
       flash[:success] = 'Your review was successfully recorded.'
       redirect_to admin_video_path(@video)
     else
-      render action: 'new'
+      flash[:error] = 'Your review could not be saved. Please make sure all required fields are filled-in, and try again.'
+      redirect_to admin_video_path(@video)
     end
   end
 

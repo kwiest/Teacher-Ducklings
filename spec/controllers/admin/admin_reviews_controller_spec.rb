@@ -6,29 +6,15 @@ describe Admin::ReviewsController do
   let(:user)   { mock_model(User, admin: true) }
 
   before do
-    subject.stub(:logged_in?)   { true }
-    subject.stub(:current_user) { user }
+    subject.stub(:logged_in?)             { true }
+    subject.stub(:current_user)           { user }
+    subject.stub(:find_recent_videos)     { true }
+    subject.stub(:find_upcoming_meetings) { true }
   end
 
   context 'If the parent video is not found' do
     before do
       Video.should_receive(:find).with(video.id.to_s) { raise ActiveRecord::RecordNotFound }
-    end
-
-    describe 'GET show' do
-      it 'should redirect if the video cannot be found' do
-        get :show, video_id: video.id, id: review.id
-        flash[:notice].should == 'Sorry, but we cannot find that video.'
-        response.should redirect_to admin_videos_path
-      end
-    end
-
-    describe 'GET new' do
-      it 'should redirect if the video cannot be found' do
-        get :new, video_id: video.id
-        flash[:notice].should == 'Sorry, but we cannot find that video.'
-        response.should redirect_to admin_videos_path
-      end
     end
 
     describe 'GET edit' do
@@ -69,31 +55,6 @@ describe Admin::ReviewsController do
       Video.should_receive(:find).with(video.id.to_s) { video }
     end
 
-    describe 'GET show' do
-      it 'should assign the review by :id' do
-        video.stub_chain(:reviews, :find) { review }
-
-        get :show, video_id: video.id, id: review.id
-        assigns(:review).should == review
-      end
-
-      it 'should redirect if the review cannot be found' do
-        video.stub_chain(:reviews, :find) { raise ActiveRecord::RecordNotFound }
-
-        get :show, video_id: video.id, id: review.id
-        flash[:notice].should == 'Sorry, but we cannot find that review.'
-        response.should redirect_to admin_video_path(video)
-      end
-    end
-
-    describe 'GET new' do
-      it 'should assign a new review' do
-        video.stub_chain(:reviews, :new) { review }
-        get :new, video_id: video.id
-        assigns(:review) { review }
-      end
-    end
-
     describe 'GET edit' do
       it 'should assign the review by :id' do
         video.stub_chain(:reviews, :find) { review }
@@ -121,13 +82,14 @@ describe Admin::ReviewsController do
         response.should redirect_to admin_video_path(video)
       end
 
-      it 'should re-render the "new" template if the review cannot save' do
+      it 'should redirect to the video page if the review cannot save' do
         video.stub_chain(:reviews, :new) { review }
         review.should_receive(:save) { false }
 
         post :create, video_id: video.id, review: { description: 'Good job!' }
         assigns(:review).should == review
-        response.should render_template 'new'
+        response.should redirect_to admin_video_path(video)
+        flash[:error].should == 'Your review could not be saved. Please make sure all required fields are filled-in, and try again.'
       end
     end
 
