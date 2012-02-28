@@ -5,8 +5,10 @@ describe Admin::VideosController do
   let(:user)  { stub(:user, admin: true) }
 
   before do
-    subject.stub(:logged_in?)   { true }
-    subject.stub(:current_user) { user }
+    subject.stub(:logged_in?)             { true }
+    subject.stub(:current_user)           { user }
+    subject.stub(:find_recent_videos)     { true }
+    subject.stub(:find_upcoming_meetings) { true }
   end
 
   describe 'GET index' do
