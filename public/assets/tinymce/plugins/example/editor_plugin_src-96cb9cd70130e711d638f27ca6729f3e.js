@@ -1,0 +1,10 @@
+/**
+ * editor_plugin_src.js
+ *
+ * Copyright 2009, Moxiecode Systems AB
+ * Released under LGPL License.
+ *
+ * License: http://tinymce.moxiecode.com/license
+ * Contributing: http://tinymce.moxiecode.com/contributing
+ */
+(function(){tinymce.PluginManager.requireLangPack("example"),tinymce.create("tinymce.plugins.ExamplePlugin",{init:function(a,b){a.addCommand("mceExample",function(){a.windowManager.open({file:b+"/dialog.htm",width:320+parseInt(a.getLang("example.delta_width",0)),height:120+parseInt(a.getLang("example.delta_height",0)),inline:1},{plugin_url:b,some_custom_arg:"custom arg"})}),a.addButton("example",{title:"example.desc",cmd:"mceExample",image:b+"/img/example.gif"}),a.onNodeChange.add(function(a,b,c){b.setActive("example",c.nodeName=="IMG")})},createControl:function(a,b){return null},getInfo:function(){return{longname:"Example plugin",author:"Some author",authorurl:"http://tinymce.moxiecode.com",infourl:"http://wiki.moxiecode.com/index.php/TinyMCE:Plugins/example",version:"1.0"}}}),tinymce.PluginManager.add("example",tinymce.plugins.ExamplePlugin)})();
