@@ -75,7 +75,7 @@ describe PasswordResetsController do
         User.should_receive(:find_by_email).with('me@example.com') { user }
         user.should_receive(:deliver_password_reset_instructions!) { true }
 
-        post :create, email: 'me@example.com'
+        post :create, user: { email: 'me@example.com' }
         flash[:success].should == 'Instructions on how to reset your password have been emailed to you.'
         response.should redirect_to root_path
       end
@@ -84,7 +84,7 @@ describe PasswordResetsController do
         User.should_receive(:find_by_email).with('me@example.com') { nil }
         user.should_not_receive(:deliver_password_reset_instructions!) { true }
 
-        post :create, email: 'me@example.com'
+        post :create, user: { email: 'me@example.com' }
         response.should render_template 'new'
       end
     end
