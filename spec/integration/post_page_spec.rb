@@ -12,8 +12,8 @@ describe 'Looking at a post page' do
 
   it 'should display the title and body of the post' do
     visit post_path(post_model)
-    page.has_selector?('h1#post-title', text: post_model.title).should be_true
-    page.has_selector?('div#post-body', text: post_model.body).should be_true
+    page.has_selector?('.title', text: post_model.title).should be_true
+    page.has_selector?('.body', text: post_model.body).should be_true
   end
 
   it 'should have a list of comments' do
@@ -26,8 +26,8 @@ describe 'Looking at a post page' do
     c2 = Comment.create(user: user, body: 'Comment 2')
 
     visit post_path(post_model)
-    page.has_selector?('#comments .comment .comment-body', text: c1.body).should be_true
-    page.has_selector?('#comments .comment .comment-body', text: c2.body).should_not be_true
+    page.has_selector?('#comments .comment .body', text: c1.body).should be_true
+    page.has_selector?('#comments .comment .body', text: c2.body).should_not be_true
   end
 
   context 'comments' do
@@ -42,14 +42,14 @@ describe 'Looking at a post page' do
       end
 
       it 'should display a new comment form' do
-        page.has_selector?('h3', text: 'Leave a new comment').should be_true
+        page.has_selector?('#new_comment').should be_true
         page.has_field?('comment_body').should be_true
       end
     
       it 'should create a new comment for the post' do
         fill_in('comment_body', with: 'What a great post!')
-        click_button('comment_submit')
-        page.has_selector?('#comments .comment .comment-body', text: 'What a great post!').should be_true
+        click_button 'Add comment'
+        page.has_selector?('#comments .comment .body', text: 'What a great post!').should be_true
       end
 
       it 'should not display a link to delete a comment' do
@@ -61,7 +61,7 @@ describe 'Looking at a post page' do
       it 'should not have a form if the user is not logged in' do
         logout
         visit post_path(post_model)
-        page.has_selector?('h3', text: 'Leave a new comment').should_not be_true
+        page.has_selector?('#new_comment').should be_false
         page.has_field?('comment_body').should_not be_true
       end
 
