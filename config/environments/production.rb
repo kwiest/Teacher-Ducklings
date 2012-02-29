@@ -5,6 +5,7 @@ TeacherDucklings::Application.configure do
   # Don't fallback to asset pipeline
   # Generate digests for asset URLs
   config.assets.compress = true
+  config.assets.precompile += %w( vendor/assets/**/* )
   config.assets.compile  = false
   config.assets.digest   = true
 
