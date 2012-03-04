@@ -31,7 +31,7 @@
         if (!publisher) {
           var parentDiv = $('#tokbox-container');
           var publisherDiv = document.createElement('div');
-          publisherDiv.setAttributes('id', 'opentok-publisher');
+          publisherDiv.setAttribute('id', 'opentok-publisher');
           $(parentDiv).append(publisherDiv);
           publisher = session.publish(publisherDiv.id);
         }
@@ -73,6 +73,8 @@
         $('#subscribers').append(subscriberDiv);
         subscibers[stream.streamId] = session.subscribe(stream, subscriberDiv.id);
       }
+
+      startPublishing();
 
     });
   </script>
