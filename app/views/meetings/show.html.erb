@@ -17,20 +17,13 @@
     } else {
       session = TB.initSession(session_id);
 
-      session.addEventListener('exception', exceptionHandler);
       session.addEventListener('sessionConnected', sessionConnectedHandler);
       session.addEventListener('sessionDisconnected', sessionDisconnectedHandler);
       session.addEventListener('streamCreated', streamCreatedHandler);
     }
 
-    function exceptionHandler(event) {
-      alert('Exception!' + event.code + '::' + event.message);
-    }
-
     function connect() {
       session.connect(api_key, token);
-      alert('connecting');
-      console.log(session);
     }
 
     function startPublishing() {
@@ -39,6 +32,7 @@
         var publisherDiv = document.createElement('div');
         publisherDiv.setAttribute('id', 'opentok-publisher');
         $(parentDiv).append(publisherDiv);
+        console.log('about to publish, heres the session: ' + session.connected + ' id: ' + session.connectionId);
         publisher = session.publish(publisherDiv.id);
       }
     }
