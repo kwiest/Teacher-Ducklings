@@ -40,7 +40,7 @@
           // build a new div to house the stream
           var div = document.createElement('div');
           div.setAttribute('id', 'stream' + streams[i].streamId);
-          $("#tokbox-stream").append(div);
+          document.body.appendChild(div);
 
           // subscribe to the stream
           session.subscribe(streams[i], div.id, { width: '330', height: '247' });
