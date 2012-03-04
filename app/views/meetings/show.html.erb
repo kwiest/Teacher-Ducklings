@@ -17,6 +17,7 @@
     } else {
       session = TB.initSession(session_id);
 
+      session.addEventListener('exception', exceptionHandler);
       session.addEventListener('sessionConnected', sessionConnectedHandler);
       session.addEventListener('sessionDisconnected', sessionDisconnectedHandler);
       session.addEventListener('streamCreated', streamCreatedHandler);
@@ -28,6 +29,8 @@
 
     function connect() {
       session.connect(api_key, token);
+      alert('connecting');
+      console.log(session);
     }
 
     function startPublishing() {
