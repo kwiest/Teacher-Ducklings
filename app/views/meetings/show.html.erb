@@ -4,75 +4,74 @@
   <!-- test -->
   <%#<script type="text/javascript" src="http://staging.tokbox.com/v0.91/js/TB.min.js"></script>%>
   <script type="text/javascript">
+    TB.setLogLevel(TB.DEBUG);
+
+    var api_key, session_id, token, session, publisher, div;
+    var subscribers = {};
+    api_key = "<%= ENV['TOKBOX_API_KEY'] %>";
+    session_id = "<%= @meeting.tok_session_id %>";
+    token = "<%= @token %>";
+
+    if (TB.checkSystemRequirements() != TB.HAS_REQUIREMENTS) {
+      alert("Sorry, but your system does not meet the minimum requirements to video conference with TokBox.");
+    } else {
+      session = TB.initSession(session_id);
+
+      session.addEventListener('sessionConnected', sessionConnectedHandler);
+      session.addEventListener('sessionDisconnected', sessionDisconnectedHandler);
+      session.addEventListener('streamCreated', streamCreatedHandler);
+      session.connect(api_key, token);
+    }
+
+    function startPublishing() {
+      if (!publisher) {
+        var parentDiv = $('#tokbox-container');
+        var publisherDiv = document.createElement('div');
+        publisherDiv.setAttribute('id', 'opentok-publisher');
+        $(parentDiv).append(publisherDiv);
+        publisher = session.publish(publisherDiv.id);
+      }
+    }
+
+    function stopPublishing() {
+      if (publisher) {
+        session.unpublish(publisher);
+      }
+      publisher = null;
+    }
+
+    function sessionConnectedHandler(event) {
+      // Subscribe to all streams curently available
+      for (var i=0; i < event.streams.length; i++) { 
+        addStream(event.streams[i]);
+      }
+    }
+
+    function sessionDisconnectedHandler(event) {
+      publisher = null;
+    }
+
+    function streamCreatedHandler(event) {
+      // Subscribe to all streams curently available
+      for (var i=0; i < event.streams.length; i++) { 
+        addStream(event.streams[i]);
+      }
+    }
+
+    function addStream(stream) {
+      // make sure that the stream doesn't already exist
+      if (stream.connection.connectionId == session.connection.connectionId) {
+        return;
+      }
+
+      var subscriberDiv = document.createElement('div');
+      subscriberDiv.setAttribute('id', stream.streamId);
+      $('#subscribers').append(subscriberDiv);
+      subscibers[stream.streamId] = session.subscribe(stream, subscriberDiv.id);
+    }
+
     $(function() {
-      TB.setLogLevel(TB.DEBUG);
-
-      var api_key, session_id, token, session, publisher, div;
-      var subscribers = {};
-      api_key = "<%= ENV['TOKBOX_API_KEY'] %>";
-      session_id = "<%= @meeting.tok_session_id %>";
-      token = "<%= @token %>";
-
-      if (TB.checkSystemRequirements() != TB.HAS_REQUIREMENTS) {
-        alert("Sorry, but your system does not meet the minimum requirements to video conference with TokBox.");
-      } else {
-        session = TB.initSession(session_id);
-
-        session.addEventListener('sessionConnected', sessionConnectedHandler);
-        session.addEventListener('sessionDisconnected', sessionDisconnectedHandler);
-        session.addEventListener('streamCreated', streamCreatedHandler);
-        session.connect(api_key, token);
-      }
-
-      function startPublishing() {
-        if (!publisher) {
-          var parentDiv = $('#tokbox-container');
-          var publisherDiv = document.createElement('div');
-          publisherDiv.setAttribute('id', 'opentok-publisher');
-          $(parentDiv).append(publisherDiv);
-          publisher = session.publish(publisherDiv.id);
-        }
-      }
-
-      function stopPublishing() {
-        if (publisher) {
-          session.unpublish(publisher);
-        }
-        publisher = null;
-      }
-
-      function sessionConnectedHandler(event) {
-        // Subscribe to all streams curently available
-        for (var i=0; i < event.streams.length; i++) { 
-          addStream(event.streams[i]);
-        }
-      }
-
-      function sessionDisconnectedHandler(event) {
-        publisher = null;
-      }
-
-      function streamCreatedHandler(event) {
-        // Subscribe to all streams curently available
-        for (var i=0; i < event.streams.length; i++) { 
-          addStream(event.streams[i]);
-        }
-      }
-
-      function addStream(stream) {
-        // make sure that the stream doesn't already exist
-        if (stream.connection.connectionId == session.connection.connectionId) {
-          return;
-        }
-
-        var subscriberDiv = document.createElement('div');
-        subscriberDiv.setAttribute('id', stream.streamId);
-        $('#subscribers').append(subscriberDiv);
-        subscibers[stream.streamId] = session.subscribe(stream, subscriberDiv.id);
-      }
-
       startPublishing();
-
     });
   </script>
 <% end %>
