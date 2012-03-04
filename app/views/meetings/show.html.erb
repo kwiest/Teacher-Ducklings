@@ -22,6 +22,10 @@
       session.addEventListener('streamCreated', streamCreatedHandler);
     }
 
+    function exceptionHandler(event) {
+      alert('Exception!' + event.code + '::' + event.message);
+    }
+
     function connect() {
       session.connect(api_key, token);
     }
