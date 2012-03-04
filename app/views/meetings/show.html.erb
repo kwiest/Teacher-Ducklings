@@ -7,44 +7,71 @@
     $(function() {
       TB.setLogLevel(TB.DEBUG);
 
-      var api_key, session_id, token, session, publisher, subscriber;
-
+      var api_key, session_id, token, session, publisher, div;
+      var subscribers = {};
       api_key = "<%= ENV['TOKBOX_API_KEY'] %>";
       session_id = "<%= @meeting.tok_session_id %>";
       token = "<%= @token %>";
 
-      session = TB.initSession(session_id);
-      session.addEventListener('sessionConnected', sessionConnectedHandler);
-      session.addEventListener('streamCreated', streamCreatedHandler);
-      session.connect(api_key, token);
+      if (TB.checkSystemRequirements() != TB.HAS_REQUIREMENTS) {
+        alert("Sorry, but your system does not meet the minimum requirements to video conference with TokBox.");
+      } else {
+        session = TB.initSession(session_id);
+
+        session.addEventListener('sessionConnected', sessionConnectedHandler);
+        session.addEventListener('sessionDisconnected', sessionDisconnectedHandler);
+        session.addEventListener('streamCreated', streamCreatedHandler);
+      }
+
+      function connect() {
+        session.connect(api_key, token);
+      }
+
+      function startPublishing() {
+        if (!publisher) {
+          var parentDiv = $('#tokbox-container');
+          var publisherDiv = document.createElement('div');
+          publisherDiv.setAttributes('id', 'opentok-publisher');
+          $(parentDiv).append(publisherDiv);
+          publisher = session.publish(publisherDiv.id);
+        }
+      }
+
+      function stopPublishing() {
+        if (publisher) {
+          session.unpublish(publisher);
+        }
+        publisher = null;
+      }
 
       function sessionConnectedHandler(event) {
-        publisher = session.publish('tokbox-stream');
+        // Subscribe to all streams curently available
+        for (var i=0; i < event.streams.length; i++) { 
+          addStream(event.streams[i]);
+        }
+      }
 
-        // subscribe to any streams that were already in the session
-        subscribeToStreams(event.streams);
+      function sessionDisconnectedHandler(event) {
+        publisher = null;
       }
 
       function streamCreatedHandler(event) {
-        // subscribe anytime a new stream is published
-        subscribeToStreams(event.streams);
+        // Subscribe to all streams curently available
+        for (var i=0; i < event.streams.length; i++) { 
+          addStream(event.streams[i]);
+        }
       }
 
-      function subscribeToStreams(streams) {
-        for (var i=0; i < streams.length; i++) {
-          // make sure that the stream doesn't already exist
-          if (streams[i].connection.connectionId == session.connection.connectionId) {
-            return;
-          }
-
-          // build a new div to house the stream
-          var div = document.createElement('div');
-          div.setAttribute('id', 'stream' + streams[i].streamId);
-          document.body.appendChild(div);
-
-          // subscribe to the stream
-          session.subscribe(streams[i], div.id, { width: '330', height: '247' });
+      function addStream(stream) {
+        // make sure that the stream doesn't already exist
+        if (stream.connection.connectionId == session.connection.connectionId) {
+          return;
         }
+
+        var subscriberDiv = document.createElement('div');
+        subscriberDiv.setAttribute('id', stream.streamId);
+        $('#subscribers').append(subscriberDiv);
+        subscibers[stream.streamId] = session.subscribe(stream, subscriberDiv.id);
       }
 
     });
@@ -68,5 +95,6 @@
 
 <div id="tokbox-container">
   <div id="tokbox-stream">TokBox is loading...</div>
+  <div id="subscribers"></div>
 </div>
 <div class="clear"></div>
