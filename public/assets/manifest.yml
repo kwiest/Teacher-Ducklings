@@ -184,6 +184,7 @@ application.js: application-528ef14164187772210d963ff5688d5c.js
 modernizr-2.5.3.js: modernizr-2.5.3-e4efb116df4c204157328957b0e2a0f7.js
 admin.css: admin-fb149d8b237fb39b9b8a6d9a7690728a.css
 application.css: application-2f2ce895608ba42f02eb71ed5304a7b8.css
+meeting_room.css: meeting_room-95359ef9838df605b6d18c60b63a0674.css
 glyphicons-halflings-white.png: glyphicons-halflings-white-4fbb6a0b9b4e61912f486ac494a858f1.png
 glyphicons-halflings.png: glyphicons-halflings-2ed0cba6eca0f44737ab78f1e58bc11e.png
 tinymce/jquery.tinymce.js: tinymce/jquery.tinymce-fc6e7b6596bd8363e073ec926fd94a47.js
