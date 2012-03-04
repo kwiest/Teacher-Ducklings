@@ -20,6 +20,9 @@
       session.addEventListener('sessionConnected', sessionConnectedHandler);
       session.addEventListener('sessionDisconnected', sessionDisconnectedHandler);
       session.addEventListener('streamCreated', streamCreatedHandler);
+    }
+
+    function connect() {
       session.connect(api_key, token);
     }
 
@@ -71,6 +74,7 @@
     }
 
     $(function() {
+      connect();
       startPublishing();
     });
   </script>
