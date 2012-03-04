@@ -4,63 +4,68 @@
   <!-- test -->
   <%#<script type="text/javascript" src="http://staging.tokbox.com/v0.91/js/TB.min.js"></script>%>
   <script type="text/javascript">
-    TB.setLogLevel(TB.DEBUG);
+    $(function() {
+      TB.setLogLevel(TB.DEBUG);
 
-    if (TB.checkSystemRequirements() != TB.HAS_REQUIREMENTS) {
-      alert("Sorry, but your system does not meet the minimum requirements to video conference with TokBox.");
-    } 
-
-
-    var api_key, session_id, token, session, publisher, div;
-    var subscribers = {};
-    api_key = "<%= ENV['TOKBOX_API_KEY'] %>";
-    session_id = "<%= @meeting.tok_session_id %>";
-    token = "<%= @token %>";
-
-    session = TB.initSession(session_id);
-    session.addEventListener('sessionConnected', sessionConnectedHandler);
-    session.addEventListener('streamCreated', streamCreatedHandler);
-    session.connect(api_key, token);
+      if (TB.checkSystemRequirements() != TB.HAS_REQUIREMENTS) {
+        alert("Sorry, but your system does not meet the minimum requirements to video conference with TokBox.");
+      } 
 
 
-    function startPublishing() {
-      if (!publisher) {
-        var parentDiv = $('#tokbox-container');
-        var publisherDiv = document.createElement('div');
-        publisherDiv.setAttribute('id', 'opentok-publisher');
-        $(parentDiv).append(publisherDiv);
-        console.log('about to publish, heres the session: ' + session.connected + ' id: ' + session.connectionId);
-        publisher = session.publish(publisherDiv.id);
-      }
-    }
+      var api_key, session_id, token, session, publisher, div;
+      var subscribers = {};
+      api_key = "<%= ENV['TOKBOX_API_KEY'] %>";
+      session_id = "<%= @meeting.tok_session_id %>";
+      token = "<%= @token %>";
 
-    function sessionConnectedHandler(event) {
-      // Subscribe to all streams curently available
-      for (var i=0; i < event.streams.length; i++) { 
-        addStream(event.streams[i]);
-      }
-    }
+      session = TB.initSession(session_id);
+      session.addEventListener('sessionConnected', sessionConnectedHandler);
+      session.addEventListener('streamCreated', streamCreatedHandler);
+      session.connect(api_key, token);
 
-    function streamCreatedHandler(event) {
-      // Subscribe to all streams curently available
-      for (var i=0; i < event.streams.length; i++) { 
-        addStream(event.streams[i]);
-      }
-    }
 
-    function addStream(stream) {
-      // make sure that the stream doesn't already exist
-      if (stream.connection.connectionId == session.connection.connectionId) {
-        return;
+      function startPublishing() {
+        if (!publisher) {
+          var parentDiv = $('#tokbox-container');
+          var publisherDiv = document.createElement('div');
+          publisherDiv.setAttribute('id', 'opentok-publisher');
+          $(parentDiv).append(publisherDiv);
+          console.log('about to publish, heres the session: ' + session.connected + ' id: ' + session.connection.connectionId);
+          publisher = session.publish(publisherDiv.id);
+        }
       }
 
-      var subscriberDiv = document.createElement('div');
-      subscriberDiv.setAttribute('id', stream.streamId);
-      $('#subscribers').append(subscriberDiv);
-      subscibers[stream.streamId] = session.subscribe(stream, subscriberDiv.id);
-    }
+      function sessionConnectedHandler(event) {
+        // Subscribe to all streams curently available
+        for (var i=0; i < event.streams.length; i++) { 
+          addStream(event.streams[i]);
+        }
+      }
 
-    startPublishing();
+      function streamCreatedHandler(event) {
+        // Subscribe to all streams curently available
+        for (var i=0; i < event.streams.length; i++) { 
+          addStream(event.streams[i]);
+        }
+      }
+
+      function addStream(stream) {
+        // make sure that the stream doesn't already exist
+        if (stream.connection.connectionId == session.connection.connectionId) {
+          return;
+        }
+
+        var subscriberDiv = document.createElement('div');
+        subscriberDiv.setAttribute('id', stream.streamId);
+        $('#subscribers').append(subscriberDiv);
+        subscibers[stream.streamId] = session.subscribe(stream, subscriberDiv.id);
+      }
+
+      $('#publish-stream').click(function() {
+        startPublishing();
+        false;
+      })
+    });
   </script>
 <% end %>
 
@@ -80,7 +85,7 @@
 <%= render 'videos/video_player', video: @video %>
 
 <div id="tokbox-container">
-  <div id="tokbox-stream">TokBox is loading...</div>
+  <div id="tokbox-stream">TokBox is loading...<%= link_to 'publish your stream', '#', id: 'publish-stream' %></div>
   <div id="subscribers"></div>
 </div>
 <div class="clear"></div>
