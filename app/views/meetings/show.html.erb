@@ -21,8 +21,11 @@
       session = TB.initSession(session_id);
       session.addEventListener('sessionConnected', sessionConnectedHandler);
       session.addEventListener('streamCreated', streamCreatedHandler);
-      session.connect(api_key, token);
 
+      function connect() {
+        session.connect(api_key, token);
+        $('#publish-stream').show();
+      }
 
       function startPublishing() {
         if (!publisher) {
@@ -30,8 +33,9 @@
           var publisherDiv = document.createElement('div');
           publisherDiv.setAttribute('id', 'opentok-publisher');
           $(parentDiv).append(publisherDiv);
-          console.log('about to publish, heres the session: ' + session.connected + ' id: ' + session.connection.connectionId);
+
           publisher = session.publish(publisherDiv.id);
+          $('#publish-stream').hide();
         }
       }
 
@@ -58,13 +62,15 @@
         var subscriberDiv = document.createElement('div');
         subscriberDiv.setAttribute('id', stream.streamId);
         $('#subscribers').append(subscriberDiv);
-        subscibers[stream.streamId] = session.subscribe(stream, subscriberDiv.id);
+        subscribers[stream.streamId] = session.subscribe(stream, subscriberDiv.id);
       }
 
       $('#publish-stream').click(function() {
         startPublishing();
         false;
       })
+
+      connect();
     });
   </script>
 <% end %>
@@ -85,7 +91,10 @@
 <%= render 'videos/video_player', video: @video %>
 
 <div id="tokbox-container">
-  <div id="tokbox-stream">TokBox is loading...<%= link_to 'publish your stream', '#', id: 'publish-stream' %></div>
+  <div id="tokbox-stream">
+    <%= link_to 'Publish your stream', '#', id: 'publish-stream', style: 'display: none' %>
+    <%= link_to 'Hide your stream', '#', id: 'hide-stream', style: 'display: none' %>
+  </div>
   <div id="subscribers"></div>
 </div>
 <div class="clear"></div>
