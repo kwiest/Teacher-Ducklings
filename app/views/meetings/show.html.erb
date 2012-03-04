@@ -6,22 +6,22 @@
   <script type="text/javascript">
     TB.setLogLevel(TB.DEBUG);
 
+    if (TB.checkSystemRequirements() != TB.HAS_REQUIREMENTS) {
+      alert("Sorry, but your system does not meet the minimum requirements to video conference with TokBox.");
+    } 
+
+
     var api_key, session_id, token, session, publisher, div;
     var subscribers = {};
     api_key = "<%= ENV['TOKBOX_API_KEY'] %>";
     session_id = "<%= @meeting.tok_session_id %>";
     token = "<%= @token %>";
 
-    if (TB.checkSystemRequirements() != TB.HAS_REQUIREMENTS) {
-      alert("Sorry, but your system does not meet the minimum requirements to video conference with TokBox.");
-    } else {
-      session = TB.initSession(session_id);
+    session = TB.initSession(session_id);
+    session.addEventListener('sessionConnected', sessionConnectedHandler);
+    session.addEventListener('streamCreated', streamCreatedHandler);
+    session.connect(api_key, token);
 
-      session.addEventListener('sessionConnected', sessionConnectedHandler);
-      session.addEventListener('sessionDisconnected', sessionDisconnectedHandler);
-      session.addEventListener('streamCreated', streamCreatedHandler);
-      session.connect(api_key, token);
-    }
 
     function startPublishing() {
       if (!publisher) {
@@ -34,22 +34,11 @@
       }
     }
 
-    function stopPublishing() {
-      if (publisher) {
-        session.unpublish(publisher);
-      }
-      publisher = null;
-    }
-
     function sessionConnectedHandler(event) {
       // Subscribe to all streams curently available
       for (var i=0; i < event.streams.length; i++) { 
         addStream(event.streams[i]);
       }
-    }
-
-    function sessionDisconnectedHandler(event) {
-      publisher = null;
     }
 
     function streamCreatedHandler(event) {
