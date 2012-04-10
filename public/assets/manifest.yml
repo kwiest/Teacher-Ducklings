@@ -180,6 +180,7 @@ ui-icons_3d80b3_256x240.png: ui-icons_3d80b3_256x240-eff94b089c2bcea3aa969feea41
 ui-icons_72a7cf_256x240.png: ui-icons_72a7cf_256x240-ec51c1c1561a401399dab2e499fcab9f.png
 ui-icons_ffffff_256x240.png: ui-icons_ffffff_256x240-7a417a6627492c6d98adfb77102fb5be.png
 admin.js: admin-4a144940f691c07362311507b9648432.js
+admin/swfobject.js: admin/swfobject-340f898f06f423b055636e87b5a1f7c0.js
 application.js: application-528ef14164187772210d963ff5688d5c.js
 modernizr-2.5.3.js: modernizr-2.5.3-e4efb116df4c204157328957b0e2a0f7.js
 admin.css: admin-fb149d8b237fb39b9b8a6d9a7690728a.css

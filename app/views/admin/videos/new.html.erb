@@ -1,5 +1,5 @@
 <%= content_for :javascript do %>
-  <%= javascript_include_tag 'swfobject' %>
+  <%= javascript_include_tag 'admin/swfobject' %>
   <%= s3_upload_script({ key: 'video', button_text: 'Choose video file' }).html_safe %>
 <% end %>
 

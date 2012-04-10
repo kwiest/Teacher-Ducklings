@@ -5,7 +5,7 @@ TeacherDucklings::Application.configure do
   # Don't fallback to asset pipeline
   # Generate digests for asset URLs
   config.assets.compress = true
-  config.assets.precompile += %w( modernizr-2.5.3.js admin.js admin.css meeting_room.css )
+  config.assets.precompile += %w( modernizr-2.5.3.js admin.js admin.css meeting_room.css admin/swfobject.js )
   config.assets.compile  = false
   config.assets.digest   = true
 
