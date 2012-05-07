@@ -12,6 +12,7 @@ class Admin::VideosController < AdminController
   
   def new
     @video = current_user.videos.new
+    render template: 'shared/videos/new'
   end
 
   def create
