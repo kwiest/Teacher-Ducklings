@@ -10,6 +10,8 @@ class Video < ActiveRecord::Base
   validates :video_file_name, presence: true
 
   default_scope :order => "created_at DESC"
+
+  before_destroy :delete_files_from_s3
   
   def self.find_recent_uploads
     time = Date.today - 7.days

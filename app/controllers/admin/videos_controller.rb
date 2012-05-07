@@ -28,7 +28,6 @@ class Admin::VideosController < AdminController
 
   def destroy
     @video = Video.find(params[:id])
-    @video.delete_files_from_s3
     @video.destroy
     redirect_to admin_videos_path, notice: 'Video successfully deleted.'
   end
