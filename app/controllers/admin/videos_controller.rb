@@ -23,7 +23,7 @@ class Admin::VideosController < AdminController
       flash[:success] = 'Video successfully created.'
       redirect_to admin_videos_path
     else
-      render action: 'new'
+      render template: 'shared/videos/new'
     end
   end
 

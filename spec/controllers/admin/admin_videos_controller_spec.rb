@@ -65,21 +65,11 @@ describe Admin::VideosController do
 
       post :create
       assigns(:video).should == video
-      response.should render_template 'new'
+      response.should render_template 'shared/videos/new'
     end
   end
 
   describe 'DELETE destroy' do
-    it 'should delete files on s3, then delete the video, then redirect' do
-      Video.should_receive(:find).with(video.id.to_s) { video }
-      video.should_receive(:delete_files_from_s3) { true }
-      video.should_receive(:destroy) { true }
-
-      delete :destroy, id: video.id
-      flash[:notice].should == 'Video successfully deleted.'
-      response.should redirect_to admin_videos_path
-    end
-
     it 'should redirect if the video cannot be found' do
       Video.should_receive(:find).with(video.id.to_s) { raise ActiveRecord::RecordNotFound }
 
