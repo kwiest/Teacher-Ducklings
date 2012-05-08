@@ -77,7 +77,7 @@ class Video < ActiveRecord::Base
     aws           = AWS::S3.new(access_key_id: ENV['S3_KEY'], secret_access_key: ENV['S3_SECRET'])
     bucket        = aws.buckets[ENV['S3_BUCKET']]
     video         = bucket.objects[video_file_name]
-    encoded_video = bucket.objects[encoded_file_name]
+    encoded_video = bucket.objects["#{video_file_name}.mp4"]
 
     video.delete
     encoded_video.delete
