@@ -57,6 +57,7 @@ describe VideosController do
 
     it 'should create a new video and redirect to the videos path if valid params are sent' do
       video.stub(:save) { true }
+      video.should_receive(:encode!) { true }
 
       post :create
       assigns(:video).should == video

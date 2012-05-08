@@ -23,6 +23,7 @@ class VideosController < ApplicationController
   def create
     @video = current_user.videos.create(params[:video])
     if @video.save
+      @video.encode!
       redirect_to videos_path, notice: 'Video successfully uploaded. Please give it a few minutes to encode.'
     else
       render template: 'shared/videos/new'
