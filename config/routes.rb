@@ -1,6 +1,5 @@
 TeacherDucklings::Application.routes.draw do
-  resources :links, :users, :meetings
-  resources :videos, only: [:index, :show]
+  resources :links, :users, :meetings, :videos
   resources :categories, only: :show
 
   resources :posts, only: [:index, :show] do

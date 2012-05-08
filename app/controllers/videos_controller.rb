@@ -14,4 +14,18 @@ class VideosController < ApplicationController
     flash[:error] = "We're sorry, but the video you're looking for cannot be found."
     redirect_to videos_path
   end
+
+  def new
+    @video = current_user.videos.new
+    render template: 'shared/videos/new'
+  end
+
+  def create
+    @video = current_user.videos.create(params[:video])
+    if @video.save
+      redirect_to videos_path, notice: 'Video successfully uploaded. Please give it a few minutes to encode.'
+    else
+      render template: 'shared/videos/new'
+    end
+  end
 end

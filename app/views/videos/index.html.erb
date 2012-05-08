@@ -1,5 +1,7 @@
 <h1><%= "#{current_user.full_name}'s Videos" %></h1>
 
+<%= link_to 'Upload a new video', new_video_path, class: 'btn btn-success btn-large' %>
+
 <div id="videos">
   <%= render @videos %>
 </div>
