@@ -12,6 +12,14 @@ module ApplicationHelper
     ENV['S3_SECRET']
   end
 
+  def new_video_path_for(user)
+    if user.admin?
+      admin_videos_path
+    else
+      videos_path
+    end
+  end
+
   def s3_upload_script(options = {})
     key = options[:key] || ''
     content_type = options[:content_type] || ''
