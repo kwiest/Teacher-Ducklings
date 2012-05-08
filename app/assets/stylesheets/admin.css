@@ -5,6 +5,7 @@
 *= require posts
 *= require reviews
 *= require video-js
+*= require uploadify
 *= require_tree ./admin
 */
 

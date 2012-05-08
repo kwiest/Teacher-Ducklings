@@ -4,8 +4,9 @@
 //= require tinymce-jquery
 //= require bootstrap-tooltip
 //= require video
+//= require swfobject.js
+//= require jquery.uploadify.v2.1.4.min.js
 //= require_self
-//= require_tree ./admin
 
 $(function() {
   VideoJS.setupAllWhenReady();
