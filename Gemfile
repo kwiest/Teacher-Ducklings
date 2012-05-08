@@ -4,7 +4,7 @@ gem 'rails', '3.2.1'
 
 gem 'authlogic', '~> 3.1.0'
 gem 'paperclip', '~> 2.6.0'
-gem 'aws-sdk', '~> 1.3.5'
+gem 'aws-sdk', '~> 1.3.5', require: 'aws'
 gem 'simple_form', '~> 2.0.0.rc'
 gem 'anjlab-bootstrap-rails', '>= 2.0', require: 'bootstrap-rails'
 gem 'zencoder', '2.3.1'
